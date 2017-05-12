@@ -4,12 +4,6 @@
 
 ## Credits ##
 
-/*
-Theme Name: IAMX
-Author:     Trendy Theme
-Author URL: trendytheme.net
-*/
-
  Name | Version | Description
 ------|---------|-------------
 [IAMX](trendytheme.net) | 5.2.0 | Trendy Theme
