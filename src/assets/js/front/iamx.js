@@ -1,24 +1,23 @@
 /*
 Theme Name: IAMX
 Author:     Trendy Theme
-Author URL: trendytheme.net
+Author URL: http://trendytheme.net
 */
 
 /*
-    = Preloader
-    = Animated scrolling / Scroll Up
-    = Full Screen Slider
-    = Sticky Menu
-    = Back To Top
-    = Countup
-    = Progress Bar
-    = More skill
-    = Shuffle
-    = Magnific Popup
-    = Vidio auto play
-    = Fit Vids
-    = Google Map
-
+    =   Preloader
+    =   Animated scrolling / Scroll Up
+    =   Full Screen Slider
+    =   Sticky Menu
+    =   Back To Top
+    =   Countup
+    =   Progress Bar
+    =   More skill
+    =   Shuffle
+    =   Magnific Popup
+    =   Vidio auto play
+    =   Fit Vids
+    =   Google Map
 */
 
 jQuery(function ($) {
@@ -26,26 +25,25 @@ jQuery(function ($) {
     'use strict';
 
     /* ---------------------------------------------- /*
-     * Preloader
+     *  Preloader
     /* ---------------------------------------------- */
 
-    $(window).ready(function() {
+    $(window).ready(function () {
         $('#pre-status').fadeOut();
         $('#tt-preloader').delay(350).fadeOut('slow');
     });
 
 
 
-
     // -------------------------------------------------------------
-    // Animated scrolling / Scroll Up
+    //  Animated scrolling / Scroll Up
     // -------------------------------------------------------------
 
     (function () {
         $('a[href*=#]').bind('click', function (e) {
-            var anchor = $(this);
+            var anchor  =   $(this);
             $('html, body').stop().animate({
-                scrollTop: $(anchor.attr('href')).offset().top
+                scrollTop:  $(anchor.attr('href')).offset().top
             }, 1000);
             e.preventDefault();
         });
@@ -54,8 +52,9 @@ jQuery(function ($) {
 
 
     // -------------------------------------------------------------
-    // Full Screen Slider
+    //  Full Screen Slider
     // -------------------------------------------------------------
+
     (function () {
         $('.tt-fullHeight').height($(window).height());
 
@@ -66,8 +65,9 @@ jQuery(function ($) {
     }());
 
 
+
     // -------------------------------------------------------------
-    // Sticky Menu
+    //  Sticky Menu
     // -------------------------------------------------------------
 
     (function () {
@@ -83,9 +83,8 @@ jQuery(function ($) {
 
 
 
-
     // -------------------------------------------------------------
-    // Back To Top
+    //  Back To Top
     // -------------------------------------------------------------
 
     (function () {
@@ -99,17 +98,19 @@ jQuery(function ($) {
     }());
 
 
+
     // -------------------------------------------------------------
-    // Countup
+    //  Countup
     // -------------------------------------------------------------
+
     $('.count-wrap').bind('inview', function (event, visible, visiblePartX, visiblePartY) {
         if (visible) {
             $(this).find('.timer').each(function () {
                 var $this = $(this);
-                $({ Counter: 0 }).animate({ Counter: $this.text() }, {
+                $({Counter: 0}).animate({Counter: $this.text()}, {
                     duration:   2000
                   , easing:     'swing'
-                  , step: function () {
+                  , step:   function () {
                         $this.text(Math.ceil(this.Counter));
                     }
                 });
@@ -119,8 +120,9 @@ jQuery(function ($) {
     });
 
 
+
     // -------------------------------------------------------------
-    // Progress Bar
+    //  Progress Bar
     // -------------------------------------------------------------
 
     $('.skill-progress').bind('inview', function (event, visible, visiblePartX, visiblePartY) {
@@ -132,13 +134,16 @@ jQuery(function ($) {
         }
     });
 
+
+
     // -------------------------------------------------------------
-    // More skill
+    //  More skill
     // -------------------------------------------------------------
+
     $('.more-skill').bind('inview', function (event, visible, visiblePartX, visiblePartY) {
         if (visible) {
             $('.chart').easyPieChart({
-                //your configuration goes here
+                //  your configuration goes here
                 easing:     'easeOut'
               , delay:      3000
               , barColor:   '#68c3a3'
@@ -156,47 +161,49 @@ jQuery(function ($) {
     });
 
 
+
     // -------------------------------------------------------------
-    // Shuffle
+    //  Shuffle
     // -------------------------------------------------------------
 
     (function () {
 
-        var $grid = $('#og-grid');
+        var $grid   =   $('#og-grid');
 
         $grid.shuffle({
-            itemSelector: '.portfolio-item'
+            itemSelector:   '.portfolio-item'
         });
 
         /* reshuffle when user clicks a filter item */
         $('#filter a').click(function (e) {
             e.preventDefault();
 
-            // set active class
+            //  set active class
             $('#filter a').removeClass('active');
             $(this).addClass('active');
 
-            // get group name from clicked item
-            var groupName = $(this).attr('data-group');
+            //  get group name from clicked item
+            var groupName   =   $(this).attr('data-group');
 
-            // reshuffle grid
+            //  reshuffle grid
             $grid.shuffle('shuffle', groupName);
         });
 
     }());
 
 
+
     // -------------------------------------------------------------
-    // Magnific Popup
+    //  Magnific Popup
     // -------------------------------------------------------------
 
     (function () {
         $('.image-link').magnificPopup({
             gallery: {
-                enabled: true
+                enabled:    true
             }
-          , removalDelay:   300                 // Delay in milliseconds before popup is removed
-          , mainClass:      'mfp-with-zoom'     // this class is for CSS animation below
+          , removalDelay:   300             // Delay in milliseconds before popup is removed
+          , mainClass:      'mfp-with-zoom' // this class is for CSS animation below
           , type:           'image'
         });
     }());
@@ -214,9 +221,11 @@ jQuery(function ($) {
     }());
 
 
+
     // -------------------------------------------------------------
-    // Fit Vids
+    //  Fit Vids
     // -------------------------------------------------------------
+
     (function () {
         $('.video-container').fitVids();
     }());
@@ -224,12 +233,11 @@ jQuery(function ($) {
 
 
     // -------------------------------------------------------------
-    // Vidio auto play
+    //  Vidio auto play
     // -------------------------------------------------------------
 /*  (function () {
 
         /* Vimeo API: http://developer.vimeo.com/player/js-api */
-
 /*      var iframe = document.getElementById('nofocusvideo');
         // $f == Froogaloop
         var player = $f(iframe);
@@ -247,7 +255,7 @@ jQuery(function ($) {
 
 
     // -------------------------------------------------------------
-    // STELLAR FOR BACKGROUND SCROLLING
+    //  STELLAR FOR BACKGROUND SCROLLING
     // -------------------------------------------------------------
 
     $(window).load(function () {
@@ -264,20 +272,35 @@ jQuery(function ($) {
     });
 
 
+
     // -------------------------------------------------------------
-    // WOW JS
+    //  WOW JS
     // -------------------------------------------------------------
 
     (function () {
 
-        new WOW({'mobile': false}).init();
+        new WOW({
+            boxClass:           'wow'       // animated element css class (default is wow)
+          , animateClass:       'animated'  // animation css class (default is animated)
+          , offset:             0           // distance to the element when triggering the animation (default is 0)
+          , mobile:             true        // trigger animations on mobile devices (default is true)
+          , live:               true        // act on asynchronously loaded content (default is true)
+          , scrollContainer:    null        // optional scroll container selector, otherwise use window,
+          , resetAnimation:     true        // reset animation on end (default is true)
+          , callback:   function (box) {
+                // the callback is fired every time an animation is started
+                // the argument that is passed in is the DOM node being animated
+                // console.log('WOW: animating <' + box.tagName.toLowerCase() + '>');
+                console.log('WOW: animating box:', box.tagName.toLowerCase() + '.' + box.className);
+            }
+        }).init();
 
     }());
 
 
 
     // -------------------------------------------------------------
-    // Contact Form
+    //  Contact Form
     // -------------------------------------------------------------
 
     $('#contactForm').on('submit', function (e) {
@@ -307,57 +330,52 @@ jQuery(function ($) {
 
 
 
-
     // -------------------------------------------------------------
-    // Google Map
+    //  Google Map
     // -------------------------------------------------------------
 
     (function () {
         var myLatlng    =   new google.maps.LatLng(50.434932, 30.4906848);
         var styles = [
-            {
-                featureType:    'landscape'
+            {   featureType:    'landscape'
               , stylers: [
                     {color: '#f7f7f7'}
                 ]
             }
-          , {
-                featureType:    'natural'
+          , {   featureType:    'natural'
               , stylers: [
-                    {hue: '#00ffe6'}
+                    {hue:   '#00ffe6'}
                 ]
             }
-          , {
-                featureType:    'road'
+          , {   featureType:    'road'
               , stylers: [
                     {hue:           '#fff'}
                   , {saturation:    -70}
                 ]
             }
-          , {
-                featureType:    'building'
+          , {   featureType:    'building'
               , elementType:    'labels'
               , stylers: [
                     {hue: ''}
                 ]
             }
-          , {
-                featureType:    'poi'   //points of interest
+          , {   featureType:    'poi'   // points of interest
               , stylers: [
                     {hue: ''}
                 ]
             }
         ];
 
-        var mapOptions = {
+        var mapOptions  =   {
             zoom:               15
           , scrollwheel:        false
           , center:             myLatlng
           , mapTypeId:          google.maps.MapTypeId.ROADMAP
           , disableDefaultUI:   true
           , styles:             styles
-        }
-        var map = new google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
+        };
+
+        var map =   new google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
 
         var marker = new google.maps.Marker({
             position:   myLatlng
@@ -370,7 +388,7 @@ jQuery(function ($) {
                             +   ''
                             +   '';
 
-        var infowindow = new google.maps.InfoWindow({
+        var infowindow  =   new google.maps.InfoWindow({
             content:    contentString
         });
 
