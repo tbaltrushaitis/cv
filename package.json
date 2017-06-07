@@ -1,0 +1,177 @@
+{   "name":         "cv"
+  , "title":        "CV, Resume, Portfolio, Skills Site"
+  , "description":  "CV, Resume, Portfolio, Skills, Bio, All-In-One Page Site"
+  , "version":      "0.0.1"
+  , "author": {
+        "name":  "Baltrushaitis Tomas"
+      , "email": "tbaltrushaitis@gmail.com"
+      , "url":   "https://github.com/tbaltrushaitis"
+    }
+  , "license":  "MIT"
+  , "private":  false
+  , "homepage": "https://github.com/tbaltrushaitis/cv"
+  , "website":  "http://cv.gsm-center.com.ua/"
+  , "readmeFilename":   "README.md"
+  , "engines": {
+    }
+  , "main":     "gulpfile.js"
+  , "scripts": {
+        "start":    "./setup.sh"
+      , "test":     "./setup.sh test"
+      , "setup":    "./setup.sh prepare"
+      , "build":    "./setup.sh build"
+      , "deploy":   "./setup.sh deploy"
+      , "rebuild":  "./setup.sh rebuild"
+      , "all":      "./setup.sh all"
+      , "default":  "gulp --env=test"
+      , "dev":      "gulp --env=dev"
+      , "prod":     "gulp --env=production"
+      , "watch":    "gulp watch"
+    }
+  , "repository": {
+        "type": "git"
+      , "url":  "git+https://github.com/tbaltrushaitis/cv.git"
+    }
+  , "keywords": [
+        "bio"
+      , "cv"
+      , "cv-template"
+      , "portfolio"
+      , "portfolio-website"
+      , "resume"
+      , "skills"
+      , "skill-demo"
+    ]
+  , "bugs": {
+        "url": "https://github.com/tbaltrushaitis/cv/issues"
+    }
+  , "dependencies": {
+    }
+  , "devDependencies": {
+        "bower":                "^1.8.0"
+      , "dateformat":           "^2.0.0"
+      , "del":                  "^2.2.2"
+      , "gulp":                 "^3.9.1"
+      , "gulp-add-src":         "^0.2.0"
+      , "gulp-changed":         "^3.1.0"
+      , "gulp-chmod":           "^2.0.0"
+      , "gulp-chown":           "^1.1.0"
+      , "gulp-clean-css":       "^3.0.4"
+      , "gulp-concat":          "^2.6.0"
+      , "gulp-concat-css":      "^2.3.0"
+      , "gulp-data":            "^1.2.1"
+      , "gulp-directory-sync":  "^1.2.3"
+      , "gulp-exec":            "^2.1.2"
+      , "gulp-file-include":    "^1.0.0"
+      , "gulp-filter":          "^5.0.0"
+      , "gulp-gzip":            "^1.4.0"
+      , "gulp-headerfooter":    "^1.0.3"
+      , "gulp-if":              "^2.0.1"
+      , "gulp-inject":          "^4.1.0"
+      , "gulp-jscs":            "^4.0.0"
+      , "gulp-jshint":          "^2.0.1"
+      , "gulp-json-editor":     "^2.2.1"
+      , "gulp-livereload":      "^3.8.1"
+      , "gulp-minify-css":      "^1.2.4"
+      , "gulp-newer":           "^1.2.0"
+      , "gulp-rename":          "^1.2.2"
+      , "gulp-replace":         "^0.5.4"
+      , "gulp-sequence":        "^0.4.6"
+      , "gulp-tar":             "^1.9.0"
+      , "gulp-template":        "^4.0.0"
+      , "gulp-uglify":          "^3.0.0"
+      , "gulp-util":            "^3.0.8"
+      , "gulp-watch":           "^4.3.9"
+      , "jquery":               "^2.2.4"
+      , "jshint":               "^2.9.3"
+      , "jshint-stylish":       "^2.2.1"
+      , "lodash":               "^4.17.4"
+      , "main-bower-files":     "^2.13.1"
+      , "merge-stream":         "^1.0.0"
+      , "minimist":             "^1.2.0"
+      , "nconf":                "^0.8.4"
+      , "vinyl-paths":          "^2.1.0"
+      , "underscore":           "^1.8.3"
+    }
+  , "outdatedDependencies": {
+    }
+  , "options": {
+        "bower": {
+            "debugging":    false
+          , "paths": {
+                "bowerDirectory":   "bower_modules"
+              , "bowerrc":          ".bowerrc"
+              , "bowerJson":        "bower.json"
+            }
+        }
+      , "clean": {
+            "debug":            true
+          , "processImport":    true
+        }
+      , "exec": {
+            "continueOnError":  false
+          , "pipeStdout":       false
+        }
+      , "file": {
+            "encoding": "utf8"
+          , "flag":     "r"
+        }
+      , "minify": {
+            "suffix": ".min"
+        }
+      , "reporting": {
+            "err":    true
+          , "stderr": true
+          , "stdout": true
+        }
+      , "sync": {
+            "printSummary": true
+          , "nodelete":     true
+        }
+      , "uglify": {
+            "compress": {
+                "sequences":        true
+              , "properties":       true
+              , "dead_code":        true
+              , "drop_debugger":    true
+              , "unsafe":           false
+              , "conditionals":     true
+              , "comparisons":      true
+              , "evaluate":         true
+              , "booleans":         true
+              , "loops":            true
+              , "unused":           true
+              , "hoist_funs":       true
+              , "hoist_vars":       false
+              , "if_return":        true
+              , "join_vars":        true
+              , "cascade":          true
+              , "side_effects":     true
+              , "warnings":         true
+              , "global_defs":      {}
+            }
+          , "mangle":   false
+          , "output": {
+                "indent_start":     0
+              , "indent_level":     4
+              , "quote_keys":       false
+              , "ascii_only":       false
+              , "inline_script":    false
+              , "width":            80
+              , "max_line_len":     32000
+              , "beautify":         false
+              , "source_map":       null
+              , "bracketize":       false
+              , "comments":         false
+              , "semicolons":       true
+            }
+        }
+      , "watch": {
+            "ignoreInitial":    false
+          , "verbose":          true
+          , "readDelay":        100
+        }
+    }
+  , "jshintConfig": {
+    }
+}
