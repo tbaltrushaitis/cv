@@ -13,21 +13,26 @@
 [jQuery](http://jquery.com/) | 2.2.4 | JavaScript Library
 [WOW.js](https://wowjs.uk/) | 1.3.0 | Reveal CSS animation as you scroll down a page
 
-## Live Demo Site ##
-:point_right: [Portfolio Site](http://bit.ly/tomascv)
+## Live Demo ##
+See it in action :point_right: [Portfolio Site](http://bit.ly/tomascv)
 
-## Download ##
+-----
+## Usage ##
+
+### Download ###
 ```bash
 $ git clone https://github.com/tbaltrushaitis/cv.git cv && cd cv
 ```
 
 --------
 
-## Setup ##
+### Setup ###
 
 --------
 
 ## Todo List ##
+
+ [ ] - no item
 
 --------
 
@@ -40,10 +45,6 @@ $ git clone https://github.com/tbaltrushaitis/cv.git cv && cd cv
 
 ### Authors and Contributors ###
 
-##### Development team #####
-  + @tbaltrushaitis
-
-##### Contributors list #####
 [![Contributors List](https://img.shields.io/github/contributors/tbaltrushaitis/cv.svg)](https://github.com/tbaltrushaitis/cv/graphs/contributors)
 
 --------
