@@ -1,7 +1,7 @@
 {   "name":         "cv"
   , "title":        "CV, Resume, Portfolio, Skills Site"
   , "description":  "CV, Resume, Portfolio, Skills, Bio, All-In-One Page Site"
-  , "version":      "0.0.1"
+  , "version":      "0.0.2"
   , "author": {
         "name":  "Baltrushaitis Tomas"
       , "email": "tbaltrushaitis@gmail.com"
@@ -76,6 +76,7 @@
       , "gulp-newer":           "^1.2.0"
       , "gulp-rename":          "^1.2.2"
       , "gulp-replace":         "^0.5.4"
+      , "gulp-require-tasks":   "^1.1.1"
       , "gulp-sequence":        "^0.4.6"
       , "gulp-tar":             "^1.9.0"
       , "gulp-template":        "^4.0.0"
