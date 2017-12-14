@@ -8,10 +8,13 @@
 :-----|:-------:|:------------
 [IAMX](https://trendytheme.net/items/i-am-x-html-resume-template/) | 1.0.0 | Trendy Theme
 [animate.css](http://daneden.github.io/animate.css/) | 3.5.2 | A cross-browser library of CSS animations
-[Bootstrap](http://getbootstrap.com) | 3.3.7 | HTML, CSS, and JS framework
+[normalize.css](http://necolas.github.io/normalize.css/) | 7.0.0 | A modern alternative to CSS resets
+[Bootstrap](http://getbootstrap.com) | 3.3.7 | The most popular front-end framework for developing responsive, mobile first projects on the web
 [Font-Awesome](http://fontawesome.io/) | 4.7.0 | The iconic Font and CSS toolkit
 [jQuery](http://jquery.com/) | 2.2.4 | JavaScript Library
-[WOW.js](https://wowjs.uk/) | 1.3.0 | Reveal CSS animation as you scroll down a page
+[noty](http://ned.im/noty) | 2.4.1 | Notification library
+[waypoints](https://github.com/imakewebthings/waypoints) | 4.0.1 | Easily execute a function when you scroll to an element
+[wow.js](https://wowjs.uk/) | 1.3.0 | Reveal CSS animation as you scroll down a page
 
 ## Live Demo ##
 See it in action :point_right: [Portfolio Site](http://bit.ly/tomascv)
@@ -37,6 +40,11 @@ $ git clone https://github.com/tbaltrushaitis/cv.git cv && cd cv
 --------
 
 ## Change log ##
+
+**v0.1.0:**
+- [x] More animations
+- [x] Improved frontend javascripts
+- [x] Dependencies update
 
 **v0.0.0:**
 - [x] Initial release
