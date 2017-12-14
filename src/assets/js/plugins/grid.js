@@ -8,7 +8,7 @@
 * Licensed under the MIT license.
 */
 
-var $event  =   $.event
+var $event = $.event
   , $special
   , resizeTimeout;
 
@@ -54,7 +54,7 @@ $special = $event.special.debouncedresize = {
 // contributors: Oren Solomianik, David DeSandro, Yiannis Chatzikonstantinou
 
 // blank image data-uri bypasses webkit log warning (thx doug jones)
-var BLANK   =   'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
+var BLANK = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
 
 $.fn.imagesLoaded = function( callback ) {
 
@@ -226,17 +226,17 @@ var Grid = (function () {
     // after that call Grid.addItems(theItems);
     function addItems ( $newitems ) {
 
-        $items = $items.add( $newitems );
+      $items = $items.add( $newitems );
 
-        $newitems.each(function () {
-            var $item = $( this );
-            $item.data({
-                offsetTop:  $item.offset().top
-              , height:     $item.height()
-            });
+      $newitems.each(function () {
+        var $item = $( this );
+        $item.data({
+            offsetTop:  $item.offset().top
+          , height:     $item.height()
         });
+      });
 
-        initItemsEvents( $newitems );
+      initItemsEvents( $newitems );
 
     }
 
@@ -519,7 +519,7 @@ var Grid = (function () {
             var position = this.$item.data( 'offsetTop' ),
                 previewOffsetT = this.$previewEl.offset().top - scrollExtra,
                 scrollVal = this.height + this.$item.data( 'height' ) + marginExpanded <= winsize.height ? position : this.height < winsize.height ? previewOffsetT - ( winsize.height - this.height ) : previewOffsetT;
-            
+
             $body.animate( { scrollTop : scrollVal }, settings.speed );
 
         }
@@ -543,4 +543,3 @@ var Grid = (function () {
     };
 
 })();
-

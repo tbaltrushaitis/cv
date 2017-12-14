@@ -30,7 +30,7 @@ jQuery(function ($) {
 
     $(window).ready(function () {
       $('#pre-status').fadeOut();
-      $('#tt-preloader').delay(350).fadeOut('slow');
+      $('#tt-preloader').delay(150).fadeOut('slow');
     });
 
 
@@ -114,7 +114,7 @@ jQuery(function ($) {
               }
           });
         });
-        $(this).unbind('inview');
+        // $(this).unbind('inview');
       }
     });
 
@@ -129,7 +129,7 @@ jQuery(function ($) {
         $.each($('div.progress-bar'), function () {
           $(this).css('width', $(this).attr('aria-valuenow') + '%');
         });
-        $(this).unbind('inview');
+        // $(this).unbind('inview');
       }
     });
 
@@ -152,10 +152,10 @@ jQuery(function ($) {
           , size:       140
           , animate:    2000
           , onStep: function (from, to, percent) {
-              this.el.children[0].innerHTML   =   Math.round(percent);
+              this.el.children[0].innerHTML = Math.round(percent);
             }
         });
-        $(this).unbind('inview');
+        // $(this).unbind('inview');
       }
     });
 
@@ -182,40 +182,10 @@ jQuery(function ($) {
         $(this).addClass('active');
 
         //  get group name from clicked item
-        var groupName   =   $(this).attr('data-group');
-
-        //  reshuffle grid
-        $grid.shuffle('shuffle', groupName);
-      });
-
-    }());
-
-
-    // -------------------------------------------------------------
-    //  Desktop Applications
-    // -------------------------------------------------------------
-
-    (function () {
-
-      var $gridDesktop = $('#og-grid-desktop');
-
-      $gridDesktop.shuffle({
-        itemSelector: '.portfolio-item'
-      });
-
-      /* reshuffle when user clicks a filter item */
-      $('#filter a').click(function (e) {
-        e.preventDefault();
-
-        //  set active class
-        $('#filter-desktop a').removeClass('active');
-        $(this).addClass('active');
-
-        //  get group name from clicked item
         var groupName = $(this).attr('data-group');
 
         //  reshuffle grid
-        $gridDesktop.shuffle('shuffle', groupName);
+        $grid.shuffle('shuffle', groupName);
       });
 
     }());

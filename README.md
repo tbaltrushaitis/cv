@@ -1,4 +1,4 @@
-# CV, Resume, Portfolio, Skills, Bio, All-In-One Page Site
+# CV, Resume, Portfolio, Skills, Bio, All-In-One Web Site #
 
 ![CV Logo](src/assets/img/ico/apple-touch-icon-144-precomposed.png)
 

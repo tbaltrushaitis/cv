@@ -1082,8 +1082,7 @@ SOCIAL ICON
   padding-right: 5px;
   padding-left: 5px;
   max-height: 235px;
-  /*min-height: 235px;*/
-  height: auto;
+  min-height: 235px;
 }
 .portfolio-bg {
   background: #fff;
@@ -1091,13 +1090,12 @@ SOCIAL ICON
   margin-bottom: 20px;
   border: 1px solid #eee;
   border-bottom: 3px double #eee;
-  /*min-height: 180px;*/
+  min-height: 180px;
 }
 
 .portfolio-bg img {
   max-height: 180px;
-  /*min-height: 180px;*/
-  height: auto;
+  min-height: 180px;
 }
 
 .portfolio {

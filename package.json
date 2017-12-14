@@ -43,12 +43,12 @@
       , "skill-demo"
     ]
   , "bugs": {
-        "url": "https://github.com/tbaltrushaitis/cv/issues"
+      "url": "https://github.com/tbaltrushaitis/cv/issues"
     }
   , "dependencies": {
     }
   , "devDependencies": {
-        "bower":                "^1.8.0"
+        "bower":                "^1.8.2"
       , "dateformat":           "^2.0.0"
       , "del":                  "^2.2.2"
       , "gulp":                 "^3.9.1"
@@ -97,81 +97,81 @@
   , "outdatedDependencies": {
     }
   , "options": {
-        "bower": {
-            "debugging":    false
-          , "paths": {
-                "bowerDirectory":   "bower_modules"
-              , "bowerrc":          ".bowerrc"
-              , "bowerJson":        "bower.json"
-            }
-        }
-      , "clean": {
-            "debug":            true
-          , "processImport":    true
-        }
-      , "exec": {
-            "continueOnError":  false
-          , "pipeStdout":       false
-        }
-      , "file": {
-            "encoding": "utf8"
-          , "flag":     "r"
-        }
-      , "minify": {
-            "suffix": ".min"
-        }
-      , "reporting": {
-            "err":    true
-          , "stderr": true
-          , "stdout": true
-        }
-      , "sync": {
-            "printSummary": true
-          , "nodelete":     true
-        }
-      , "uglify": {
-            "compress": {
-                "sequences":        true
-              , "properties":       true
-              , "dead_code":        true
-              , "drop_debugger":    true
-              , "unsafe":           false
-              , "conditionals":     true
-              , "comparisons":      true
-              , "evaluate":         true
-              , "booleans":         true
-              , "loops":            true
-              , "unused":           true
-              , "hoist_funs":       true
-              , "hoist_vars":       false
-              , "if_return":        true
-              , "join_vars":        true
-              , "cascade":          true
-              , "side_effects":     true
-              , "warnings":         true
-              , "global_defs":      {}
-            }
-          , "mangle":   false
-          , "output": {
-                "indent_start":     0
-              , "indent_level":     4
-              , "quote_keys":       false
-              , "ascii_only":       false
-              , "inline_script":    false
-              , "width":            80
-              , "max_line_len":     32000
-              , "beautify":         false
-              , "source_map":       null
-              , "bracketize":       false
-              , "comments":         false
-              , "semicolons":       true
-            }
-        }
-      , "watch": {
-            "ignoreInitial":    false
-          , "verbose":          true
-          , "readDelay":        100
-        }
+      "bower": {
+          "debugging":    false
+        , "paths": {
+            "bowerDirectory":   "bower_modules"
+          , "bowerrc":          ".bowerrc"
+          , "bowerJson":        "bower.json"
+          }
+      }
+    , "clean": {
+        "debug":            true
+      , "processImport":    true
+      }
+    , "exec": {
+          "continueOnError":  false
+        , "pipeStdout":       false
+      }
+    , "file": {
+          "encoding": "utf8"
+        , "flag":     "r"
+      }
+    , "minify": {
+          "suffix": ".min"
+      }
+    , "reporting": {
+          "err":    true
+        , "stderr": true
+        , "stdout": true
+      }
+    , "sync": {
+        "printSummary": true
+      , "nodelete":     true
+      }
+    , "uglify": {
+          "compress": {
+              "sequences":        true
+            , "properties":       true
+            , "dead_code":        true
+            , "drop_debugger":    true
+            , "unsafe":           false
+            , "conditionals":     true
+            , "comparisons":      true
+            , "evaluate":         true
+            , "booleans":         true
+            , "loops":            true
+            , "unused":           true
+            , "hoist_funs":       true
+            , "hoist_vars":       false
+            , "if_return":        true
+            , "join_vars":        true
+            , "cascade":          true
+            , "side_effects":     true
+            , "warnings":         true
+            , "global_defs":      {}
+          }
+        , "mangle":   false
+        , "output": {
+              "indent_start":     0
+            , "indent_level":     4
+            , "quote_keys":       false
+            , "ascii_only":       false
+            , "inline_script":    false
+            , "width":            80
+            , "max_line_len":     32000
+            , "beautify":         false
+            , "source_map":       null
+            , "bracketize":       false
+            , "comments":         false
+            , "semicolons":       true
+          }
+      }
+    , "watch": {
+        "ignoreInitial":    false
+      , "verbose":          true
+      , "readDelay":        100
+      }
     }
   , "jshintConfig": {
     }

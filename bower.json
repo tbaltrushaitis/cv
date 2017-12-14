@@ -3,24 +3,24 @@
   , "description":  "CV, Resume, Portfolio, Skills, Bio, All-In-One Page Site"
   , "version":      "0.0.1"
   , "authors": [
-        "tbaltrushaitis@gmail.com"
+      "tbaltrushaitis@gmail.com"
     ]
   , "license":  "MIT"
   , "private":  false
   , "homepage": "https://github.com/tbaltrushaitis/cv"
   , "main":     ""
   , "keywords": [
-        "bio"
-      , "cv"
-      , "cv-template"
-      , "portfolio"
-      , "portfolio-website"
-      , "resume"
-      , "skills"
-      , "skill-demo"
+      "bio"
+    , "cv"
+    , "cv-template"
+    , "portfolio"
+    , "portfolio-website"
+    , "resume"
+    , "skills"
+    , "skill-demo"
     ]
   , "moduleType": [
-        "project"
+      "project"
     ]
   , "ignore": [
         "**/.*"
@@ -50,25 +50,24 @@
   , "devDependencies": {
     }
   , "resolutions": {
-        "jquery":   "~2.2.4"
+      "jquery":   "~2.2.4"
     }
   , "overrides": {
-        "bootstrap": {
-            "main": [
-                "dist/**/*.*"
-              , "!**/*.less"
-              , "!**/*.map"
-              , "!**/npm.js"
-              , "!**/*.min.js"
-              , "!*-theme.*"
-            ]
-        }
-      , "font-awesome": {
-            "main": [
-                "fonts/*"
-              , "css/*.css"
-              , "!css/*.min.css"
-            ]
-        }
+      "bootstrap": {
+        "main": [
+            "dist/**/*.*"
+          , "!**/*.less"
+          , "!**/npm.js"
+          , "!**/*.min.js"
+          , "!*-theme.*"
+        ]
+      }
+    , "font-awesome": {
+        "main": [
+            "fonts/*"
+          , "css/*.css"
+          , "!css/*.min.css"
+        ]
+      }
     }
 }
