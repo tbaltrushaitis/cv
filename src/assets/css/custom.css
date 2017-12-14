@@ -1,0 +1,10 @@
+/*  Custom Styles  */
+
+html { height: 100%; }
+
+@media(min-width:992px) {
+
+  .grow { transition: all .02s ease-in-out; }
+  .grow:hover { transform: scale(1.2); }
+
+}
