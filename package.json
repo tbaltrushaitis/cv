@@ -1,7 +1,7 @@
 {   "name":         "cv"
   , "title":        "CV, Resume, Portfolio, Skills Site"
   , "description":  "CV, Resume, Portfolio, Skills, Bio, All-In-One Page Site"
-  , "version":      "0.0.2"
+  , "version":      "0.1.0"
   , "author": {
         "name":  "Baltrushaitis Tomas"
       , "email": "tbaltrushaitis@gmail.com"
@@ -49,8 +49,8 @@
     }
   , "devDependencies": {
         "bower":                "^1.8.2"
-      , "dateformat":           "^2.0.0"
-      , "del":                  "^2.2.2"
+      , "dateformat":           "^3.0.2"
+      , "del":                  "^3.0.0"
       , "gulp":                 "^3.9.1"
       , "gulp-add-src":         "^0.2.0"
       , "gulp-changed":         "^3.1.0"
@@ -62,7 +62,7 @@
       , "gulp-data":            "^1.2.1"
       , "gulp-directory-sync":  "^1.2.3"
       , "gulp-exec":            "^2.1.2"
-      , "gulp-file-include":    "^1.0.0"
+      , "gulp-file-include":    "^2.0.0"
       , "gulp-filter":          "^5.0.0"
       , "gulp-gzip":            "^1.4.0"
       , "gulp-headerfooter":    "^1.0.3"
@@ -75,10 +75,10 @@
       , "gulp-minify-css":      "^1.2.4"
       , "gulp-newer":           "^1.2.0"
       , "gulp-rename":          "^1.2.2"
-      , "gulp-replace":         "^0.5.4"
-      , "gulp-require-tasks":   "^1.1.1"
+      , "gulp-replace":         "^0.6.1"
+      , "gulp-require-tasks":   "^1.2.1"
       , "gulp-sequence":        "^0.4.6"
-      , "gulp-tar":             "^1.9.0"
+      , "gulp-tar":             "^2.0.0"
       , "gulp-template":        "^4.0.0"
       , "gulp-uglify":          "^3.0.0"
       , "gulp-util":            "^3.0.8"
@@ -90,7 +90,8 @@
       , "main-bower-files":     "^2.13.1"
       , "merge-stream":         "^1.0.0"
       , "minimist":             "^1.2.0"
-      , "nconf":                "^0.8.4"
+      , "nconf":                "^0.9.1"
+      , "read-config":          "^2.0.0"
       , "vinyl-paths":          "^2.1.0"
       , "underscore":           "^1.8.3"
     }
@@ -100,9 +101,9 @@
       "bower": {
           "debugging":    false
         , "paths": {
-            "bowerDirectory":   "bower_modules"
-          , "bowerrc":          ".bowerrc"
-          , "bowerJson":        "bower.json"
+              "bowerDirectory":   "bower_modules"
+            , "bowerrc":          ".bowerrc"
+            , "bowerJson":        "bower.json"
           }
       }
     , "clean": {
@@ -118,7 +119,7 @@
         , "flag":     "r"
       }
     , "minify": {
-          "suffix": ".min"
+        "suffix": ".min"
       }
     , "reporting": {
           "err":    true
@@ -130,47 +131,52 @@
       , "nodelete":     true
       }
     , "uglify": {
-          "compress": {
-              "sequences":        true
-            , "properties":       true
-            , "dead_code":        true
-            , "drop_debugger":    true
-            , "unsafe":           false
-            , "conditionals":     true
-            , "comparisons":      true
-            , "evaluate":         true
-            , "booleans":         true
-            , "loops":            true
-            , "unused":           true
-            , "hoist_funs":       true
-            , "hoist_vars":       false
-            , "if_return":        true
-            , "join_vars":        true
-            , "cascade":          true
-            , "side_effects":     true
-            , "warnings":         true
-            , "global_defs":      {}
-          }
-        , "mangle":   false
-        , "output": {
-              "indent_start":     0
-            , "indent_level":     4
-            , "quote_keys":       false
-            , "ascii_only":       false
-            , "inline_script":    false
-            , "width":            80
-            , "max_line_len":     32000
-            , "beautify":         false
-            , "source_map":       null
-            , "bracketize":       false
-            , "comments":         false
-            , "semicolons":       true
-          }
+        "compress": {
+            "sequences":        true
+          , "properties":       true
+          , "dead_code":        true
+          , "drop_debugger":    true
+          , "unsafe":           false
+          , "conditionals":     true
+          , "comparisons":      true
+          , "evaluate":         true
+          , "booleans":         true
+          , "loops":            true
+          , "unused":           true
+          , "hoist_funs":       true
+          , "hoist_vars":       false
+          , "if_return":        true
+          , "join_vars":        true
+          , "cascade":          true
+          , "side_effects":     true
+          , "warnings":         true
+          , "global_defs":      {}
+        }
+      , "mangle":   false
+      , "output": {
+            "indent_start":     0
+          , "indent_level":     4
+          , "quote_keys":       false
+          , "ascii_only":       false
+          , "inline_script":    false
+          , "width":            80
+          , "max_line_len":     32000
+          , "beautify":         false
+          , "source_map":       null
+          , "bracketize":       false
+          , "comments":         false
+          , "semicolons":       true
+        }
       }
     , "watch": {
         "ignoreInitial":    false
       , "verbose":          true
       , "readDelay":        100
+      }
+    , "iopts": {
+          "showHidden": false
+        , "depth":      4
+        , "colors":     true
       }
     }
   , "jshintConfig": {
