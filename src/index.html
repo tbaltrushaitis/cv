@@ -42,18 +42,21 @@
   <!-- <link type="text/css" rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Roboto:400,300,500,700" id="css-font-roboto" /> -->
 
   <!--/  Font Awesome /-->
-  <link type="text/css" rel="stylesheet" media="screen" href="assets/css/font-awesome.min.css" id="css-font-awesome" />
+  <!-- <link type="text/css" rel="stylesheet" media="screen" href="assets/css/font-awesome.min.css" id="css-font-awesome" /> -->
 
   <!--/  Styles
   ========================================================================= /-->
   <!--/  Bootstrap core  /-->
-  <link type="text/css" rel="stylesheet" media="screen" href="assets/bootstrap/css/bootstrap.min.css" id="css-bootstrap" />
+  <!-- <link type="text/css" rel="stylesheet" media="screen" href="assets/bootstrap/css/bootstrap.min.css" id="css-bootstrap" /> -->
 
   <!--/  Responsive  /-->
   <link type="text/css" rel="stylesheet" media="screen" href="assets/css/responsive.css" id="css-responsive" />
 
   <!--/  Animate  /-->
-  <link type="text/css" rel="stylesheet" media="screen" href="assets/css/animate.css" id="css-animate" />
+  <!-- <link type="text/css" rel="stylesheet" media="screen" href="assets/css/animate.css" id="css-animate" /> -->
+
+  <!--/  Bower Bundle  /-->
+  <link type="text/css" rel="stylesheet" media="screen" href="assets/css/bower-bundle.min.css" id="css-bower-bundle" />
 
   <!--/  Theme  /-->
   <link type="text/css" rel="stylesheet" media="screen" href="assets/css/iamx.css" id="css-iamx" />
@@ -184,13 +187,13 @@
             <p></p>
             <ul class="list-check">
               <li class="wow">Business&nbsp;Modeling</li>
-              <li class="wow">Ecommerce Platforms</li>
+              <li class="wow">eCommerce&nbsp;Platforms</li>
               <li class="wow">Software&nbsp;Development</li>
               <li class="wow">Web&nbsp;Development</li>
               <li class="wow">Systems&nbsp;Administration</li>
               <li class="wow">Networking</li>
+              <li class="wow">Machine&nbsp;Learning</li>
               <li class="wow">Database&nbsp;Administration</li>
-              <li class="wow">eCommerce</li>
             </ul>
           </div>
 
@@ -215,12 +218,12 @@ services with usable and interactive interfaces is awesome!</p>
               <li class="wow" id="whatido-01">Large Databases Design</li>
               <li class="wow" id="whatido-02">Modern Websites</li>
               <li class="wow" id="whatido-03">Accounting Applications</li>
-              <li class="wow" id="whatido-04">eCommerce Accounting Apps</li>
-              <li class="wow" id="whatido-05">Data Visualization</li>
-              <li class="wow" id="whatido-06">API for Mobile Apps</li>
-              <li class="wow" id="whatido-07">Data Analysis</li>
-              <li class="wow" id="whatido-08">Scalable Environments</li>
-              <li class="wow" id="whatido-09">Real-time Data Processing</li>
+              <li class="wow" id="whatido-04">Visualization</li>
+              <li class="wow" id="whatido-05">API for Mobile Apps</li>
+              <li class="wow" id="whatido-06">Data Analysis</li>
+              <li class="wow" id="whatido-07">Scalable Environments</li>
+              <li class="wow" id="whatido-08">Real-time Data Processing</li>
+              <li class="wow" id="whatido-09">Bots</li>
               <li class="wow" id="whatido-10">Tryouts to Live Positive :)</li>
             </ul>
           </div>
@@ -1031,14 +1034,16 @@ services with usable and interactive interfaces is awesome!</p>
   <!--/  Javascript files
   ========================================================================= /-->
   <script src="assets/js/lib/jquery.js"></script>
-  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/js/plugins/jquery.noty.packaged.js"></script>
-  <script src="assets/js/plugins/waypoints/jquery.waypoints.min.js"></script>
-  <script src="assets/js/plugins/waypoints/shortcuts/inview.min.js"></script>
+  <!-- <script src="assets/bootstrap/js/bootstrap.min.js"></script> -->
+  <script src="assets/js/lib/bower-bundle.min.js"></script>
+  <script src="assets/js/lib/jquery.noty.packaged.js"></script>
+  <script src="assets/js/lib/jquery.waypoints.js"></script>
+  <script src="assets/js/lib/inview.js"></script>
   <script src="assets/js/plugins/jquery.stellar.min.js"></script>
   <script src="assets/js/plugins/jquery.sticky.js"></script>
+  <script src="assets/js/lib/wow.js"></script>
+
   <script src="assets/js/plugins/smoothscroll.js"></script>
-  <script src="assets/js/plugins/wow.min.js"></script>
   <script src="assets/js/plugins/jquery.countTo.js"></script>
   <script src="assets/js/plugins/jquery.inview.min.js"></script>
   <script src="assets/js/plugins/jquery.easypiechart.js"></script>
@@ -1048,10 +1053,16 @@ services with usable and interactive interfaces is awesome!</p>
   <script src="assets/js/plugins/jquery.fitvids.js"></script>
   <script src="assets/js/plugins/modernizr.custom.js"></script>
   <!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script> -->
-  <script src="assets/js/plugins/grid.js"></script>
-  <!-- <script src="assets/js/front/animate-css.js"></script> -->
+  <script src="assets/js/front/grid.js"></script>
   <script src="assets/js/front/iamx.js"></script>
   <script src="assets/js/front/front.js"></script>
+
+  <!--/ JavaScripts
+  ========================================================================= /-->
+
+  <!--/ Require.js /-->
+  <script src="assets/js/lib/require.js" data-main="assets/js/app-config-require.js"></script>
+
 
   <!-- <script>
     $(function () {
