@@ -7,16 +7,16 @@ include ./bin/.bash_colors
 .PHONY: help
 
 help: banner
-	@ echo -e ${BCyan}------------------------------------------------------${NC};
-	@ echo -e ${BBlue}AVAILABLE ${BWhite}CLI-Commands:${NC};
-	@ echo -e "\t" make ${BPurple}clean${NC} "\t" - CLEAR directories and delete files;
-	@ echo -e "\t" make ${BPurple}setup${NC} "\t" - check for php, node and bower installations;
-	@ echo -e "\t" make ${BPurple}build${NC} "\t" - BUILD project from sources;
-	@ echo -e "\t" make ${BPurple}release${NC} "\t" - COMPILE project distro;
-	@ echo -e "\t" make ${BPurple}deploy${NC} "\t" - DEPLOY compiled project to \"webroot\" directory;
-	@ echo -e "\t" make ${BRed}all${NC} "\t" -${BGreen}Run all operations for current stage from NODE_ENV file${NC};
-	@ echo -e "\t" make ${BRed}rebuild${NC} "\t" -${BGreen}Execute [build, release, deploy] tasks${NC};
-	@ echo -e "\t" make ${BRed}redeploy${NC}   -${BGreen}Execute [release, deploy] tasks${NC};
-	@ echo -e ${BCyan}------------------------------------------------------${NC};
+	@ echo ${BCyan}---------------------------------------------------------${NC};
+	@ echo ${BBlue}AVAILABLE ${BWhite}CLI-Commands:${NC};
+	@ echo "\t" make ${BPurple}clean${NC} "\t" - CLEAR directories and delete files;
+	@ echo "\t" make ${BPurple}setup${NC} "\t" - check for php, node and bower installations;
+	@ echo "\t" make ${BPurple}build${NC} "\t" - BUILD project from sources;
+	@ echo "\t" make ${BPurple}release${NC} "\t" - COMPILE project distro;
+	@ echo "\t" make ${BPurple}deploy${NC} "\t" - DEPLOY compiled project to \"webroot\" directory;
+	@ echo "\t" make ${BRed}all${NC} "\t" -${BGreen}Run all operations for current stage from NODE_ENV file${NC};
+	@ echo "\t" make ${BRed}rebuild${NC} "\t" -${BGreen}Execute [build, release, deploy] tasks${NC};
+	@ echo "\t" make ${BRed}redeploy${NC}   -${BGreen}Execute [release, deploy] tasks${NC};
+	@ echo ${BCyan}---------------------------------------------------------${NC};
 
 ##  ------------------------------------------------------------------------  ##
