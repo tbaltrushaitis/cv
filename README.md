@@ -10,7 +10,7 @@
 [animate.css](http://daneden.github.io/animate.css/) | 3.5.2 | A cross-browser library of CSS animations
 [normalize.css](http://necolas.github.io/normalize.css/) | 7.0.0 | A modern alternative to CSS resets
 [Bootstrap](http://getbootstrap.com) | 3.3.7 | The most popular front-end framework for developing responsive, mobile first projects on the web
-[Font-Awesome](http://fontawesome.io/) | 4.7.0 | The iconic Font and CSS toolkit
+[FontAwesome](http://fontawesome.io/) | 4.7.0 | The iconic Font and CSS toolkit
 [jQuery](http://jquery.com/) | 2.2.4 | JavaScript Library
 [noty](http://ned.im/noty) | 2.4.1 | Notification library
 [waypoints](https://github.com/imakewebthings/waypoints) | 4.0.1 | Easily execute a function when you scroll to an element
