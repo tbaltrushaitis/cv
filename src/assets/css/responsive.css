@@ -382,12 +382,12 @@
 /* Medium devices (desktops, 992px and up) */
 @media (min-width : 992px) and (max-width : 1199px) {
 
-    .portfolio-item{
-        min-height: 150px;
-    }
-    .download-button a{
-        margin-right: 10px;
-    }
+  .portfolio-item{
+    min-height: 150px;
+  }
+  .download-button a{
+    margin-right: 10px;
+  }
 
 }
 
@@ -404,8 +404,7 @@
 
 /* Extra Large devices (large desktops, 1600px and up) */
 @media screen and (min-width:1600px) and (max-width:1920px) {
-    .personal-info{
-        padding-right:180px;
-    }
+  .personal-info{
+    padding-right:180px;
+  }
 }
-
