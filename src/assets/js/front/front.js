@@ -283,36 +283,16 @@ jQuery(function ($) {
     })();
 
 
-
-    // (function () {
-/*      var inviewTpl   =   new Waypoint.Inview({
-            element:    $('.someClass')
-          , enter:      function (dir) {}
-          , entered:    function (dir) {}
-          , exit:       function (dir) {}
-          , exited:     function (dir) {}
-        })
-*/
-/*         var aboutTitle  =   new Waypoint.Inview({
-            element:    $('#about .section-title')
-          , enter:  function (dir) {
-                this.element.removeClass('fadeOutDown').addClass('fadeInUp');
-            }
-          , exited: function (dir) {
-                this.element.removeClass('fadeInUp').addClass('fadeOutDown');
-            }
-        }) */
-
-    // }());
-
-
   // -------------------------------------------------------------
   //  Notifications
   // -------------------------------------------------------------
 
   (function () {
 
-    noty({text: 'Just a test message with simple text'});
+    noty({
+        text: 'Content of this site was last updated at 2017-12-18'
+      , timeout: 10000
+    });
 
   })();
 
