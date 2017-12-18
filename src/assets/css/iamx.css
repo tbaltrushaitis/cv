@@ -304,9 +304,9 @@ ul.list-check li::before {
 
 /* === HOME === */
 @media (max-width : 640px) {
-    .tt-fullHeight{
-        height: 560px !important;
-    }
+  .tt-fullHeight{
+    height: 560px !important;
+  }
 }
 
 #home {
@@ -1005,10 +1005,10 @@ SOCIAL ICON
 }
 
 .progress .progress-bar.six-sec-ease-in-out {
-  -webkit-transition: width 6s ease-in-out;
-     -moz-transition: width 6s ease-in-out;
-       -o-transition: width 6s ease-in-out;
-          transition: width 6s ease-in-out;
+  -webkit-transition: width 3s ease-in-out;
+     -moz-transition: width 3s ease-in-out;
+       -o-transition: width 3s ease-in-out;
+          transition: width 3s ease-in-out;
 }
 
 .skill-chart h3 {
