@@ -43,7 +43,7 @@
       , "jquery":         "~2.2.4"
       , "jquery-countTo": "countto#^1.2.0"
       , "jquery.stellar": "^0.6.2"
-      , "jquery-sticky":  "sticky#1.0.1"
+      , "jquery-sticky":  "sticky#1.0.3"
       , "jquery.inview":  "jquery.inview#^1.1.2"
       , "modernizr":      "^3.5.0"
       , "normalize-css":  "normalize.css#7.0.0"
