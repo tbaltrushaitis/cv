@@ -1,0 +1,14 @@
+{   "xhr_timeout": 5000
+  , "app_url":     "http://cv.local"
+  , "engine": {
+        "name":    "custom"
+      , "version": "0.1.1"
+    }
+  , "mysql": {
+        "host": "127.0.0.1"
+      , "port": "3306"
+      , "base": ""
+      , "user": ""
+      , "pass": ""
+    }
+}
