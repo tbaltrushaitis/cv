@@ -17,12 +17,12 @@ jQuery(function ($) {
 
   var wShow = function (o) {
     var opts = $.extend(Object.create(Object.prototype), defs, o || {});
-    console.log('opts = [', opts, ']');
+    // console.log('opts = [', opts, ']');
 
     new Waypoint.Inview({
         element: $(opts.selector)
       , enter: function (dir) {
-          console.log('enter() for ', this.element , dir);
+          // console.log('enter() for ', this.element , dir);
           this.element.removeClass(opts.outclass).addClass(opts.inclass);
         }
       , entered: function (dir) {
@@ -30,15 +30,15 @@ jQuery(function ($) {
         }
       , exit: function (dir) {
           // noty({text: 'Exit triggered with direction ' + dir, type: 'notification'});
-          console.log('exit() for ', this.element , dir);
+          // console.log('exit() for ', this.element , dir);
         }
       , exited: function (dir) {
-          console.log('exited() for ', this.element , dir);
+          // console.log('exited() for ', this.element , dir);
           this.element.removeClass(opts.inclass).addClass(opts.outclass);
         }
       , offset: function () {
-          console.info('this.element.clientHeight = ', this.element.clientHeight);
-          return -1 * this.element.clientHeight;
+          // console.info('this.element.clientHeight = ', this.element.clientHeight);
+          return 70 + this.element.clientHeight;
         }
     });
 
@@ -50,9 +50,9 @@ jQuery(function ($) {
   };
 
 
-    $(document).ready(function () {
-      $('.biography').animated('fadeInDown', 'fadeOutUp');
-    });
+    // $(document).ready(function () {
+    //   $('.biography').animated('fadeInDown', 'fadeOutUp');
+    // });
 
 
 
@@ -138,9 +138,37 @@ jQuery(function ($) {
             , inclass:    'lightSpeedIn'
             , outclass:   'lightSpeedOut'
           }
-        , {   selector:   '#scopes ul.list-check > li'
-            , inclass:    'slideInLeft'
-            , outclass:   'slideOutLeft'
+        , {   selector:   '#scope-01'
+            , inclass:    'bounceInLeft'
+            , outclass:   'bounceOutLeft'
+          }
+        , {   selector:   '#scope-02'
+            , inclass:    'bounceInLeft'
+            , outclass:   'bounceOutLeft'
+          }
+        , {   selector:   '#scope-03'
+            , inclass:    'bounceInLeft'
+            , outclass:   'bounceOutLeft'
+          }
+        , {   selector:   '#scope-04'
+            , inclass:    'rotateInDownRight'
+            , outclass:   'rotateOutDownRight'
+          }
+        , {   selector:   '#scope-05'
+            , inclass:    'fadeInRightBig'
+            , outclass:   'fadeOutRightBig'
+          }
+        , {   selector:   '#scope-06'
+            , inclass:    'fadeInUpBig'
+            , outclass:   'fadeOutUpBig'
+          }
+        , {   selector:   '#scope-07'
+            , inclass:    'fadeInUpBig'
+            , outclass:   'fadeOutUpBig'
+          }
+        , {   selector:   '#scope-08'
+            , inclass:    'fadeInRightBig'
+            , outclass:   'fadeOutRightBig'
           }
         , {   selector:   '#selfie h3'
             , inclass:    'fadeInRight'
