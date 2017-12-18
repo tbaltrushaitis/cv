@@ -62,13 +62,15 @@ include ./bin/Makefile.*
 ##  ------------------------------------------------------------------------  ##
 
 .PHONY: default
-default: banner test state help;
+
+default: banner test;
 
 ##  ------------------------------------------------------------------------  ##
-
-$(info [${DT}]${BYellow} Default goal is: [$(.DEFAULT_GOAL)]${NC});
+# $(info [${DT}]${BYellow} Default goal is: [$(.DEFAULT_GOAL)]${NC});
 
 .PHONY: test
+
+test: banner state help banner;
 
 ##  ------------------------------------------------------------------------  ##
 
@@ -78,7 +80,6 @@ clone:
 	@  git clone -b ${APP_BRANCH} ${APP_REPO} 	\
 	&& cd ${APP_NAME} 	\
 	&& git pull 	\
-	&& git branch 	\
 	&& find . -type f -exec chmod 664 {} \; 	\
 	&& find . -type d -exec chmod 775 {} \; 	\
 	&& find . -type f -name "*.sh" -exec chmod 755 {} \;
@@ -96,12 +97,12 @@ banner:
 .PHONY: clean-repo clean-src clean-deps
 .PHONY: clean-build clean-dist clean-web clean-files
 
-clean-all: clean clean-deps clean-web clean-files
+clean-all: clean clean-web clean-files
 
 clean: clean-build clean-dist
 
 clean-repo:
-	@ rm -rf ${APP_NAME}
+	@ ${RM} -rf ${APP_NAME}
 
 clean-src:
 	@ rm -rf ${DIR_SRC}
@@ -130,9 +131,9 @@ clean-files:
 .PHONY: rights
 
 rights:
-	@ sudo find . -type f -exec chmod 664 {} \;
-	@ sudo find . -type d -exec chmod 775 {} \;
-	@ sudo find . -type f -name "*.sh" -exec chmod a+x {} \;
+	@ find . -type f -exec chmod 664 {} \;
+	@ find . -type d -exec chmod 775 {} \;
+	@ find . -type f -name "*.sh" -exec chmod a+x {} \;
 
 ##  ------------------------------------------------------------------------  ##
 
@@ -155,18 +156,20 @@ dev:
 
 .PHONY: rebuild redeploy
 
-rebuild: build deploy;
+rebuild: build;
 
-redeploy: deploy;
+redeploy: rebuild deploy;
 
 ##  ------------------------------------------------------------------------  ##
 
-.PHONY: all full
+.PHONY: all full cycle
 #* means the word "all" doesn't represent a file name in this Makefile;
 #* means the Makefile has nothing to do with a file called "all" in the same directory.
 
-all: clean rights setup build deploy;
+all: clean cycle;
 
 full: clean-all all;
+
+cycle: rights setup build deploy;
 
 ##  ------------------------------------------------------------------------  ##

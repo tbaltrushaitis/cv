@@ -84,12 +84,12 @@ ME.DIR = {};
 ME.WD  = path.join(__dirname, path.sep);
 ME.DOC = path.join('docs',    path.sep);
 
-ME.SRC    = path.join('src',                    path.sep);
-ME.BUILD  = path.join(`build-${ME.VERSION}`,    path.sep);
-ME.TMP    = path.join('tmp',                    path.sep);
-ME.DIST   = path.join(`dist-${ME.VERSION}`,     path.sep);
-ME.WEB    = path.join(`webroot`,                path.sep);
-ME.CURDIR = path.join(process.cwd(),            path.sep);
+ME.TMP    = path.join('tmp',                  path.sep);
+ME.SRC    = path.join('src',                  path.sep);
+ME.BUILD  = path.join(`build-${ME.VERSION}`,  path.sep);
+ME.DIST   = path.join(`dist-${ME.VERSION}`,   path.sep);
+ME.WEB    = path.join(`webroot`,              path.sep);
+ME.CURDIR = path.join(process.cwd(),          path.sep);
 ME.BOWER  = JSON.parse(fs.existsSync('./.bowerrc') ? fs.readFileSync('./.bowerrc') : {directory: "bower_modules"}).directory;
 
 utin.defaultOptions = _.extend({}, ME.pkg.options.iopts);
@@ -182,11 +182,11 @@ gulp.task('default', function () {
 
 });
 
-gulp.task('test',   ['lint', 'usage', 'show:config']);
-gulp.task('dev',    ['build:dev']);
-gulp.task('lint',   ['jscs', 'jshint']);
-gulp.task('clean',  ['clean:build', 'clean:dist']);
-gulp.task('build:assets',  ['build:css', 'build:js']);
+gulp.task('test',         ['lint', 'usage', 'show:config']);
+gulp.task('dev',          ['build:dev']);
+gulp.task('lint',         ['jscs', 'jshint']);
+gulp.task('clean',        ['clean:build', 'clean:dist']);
+gulp.task('build:assets', ['build:css', 'build:js']);
 
 gulp.task('build:dev', [
     'bower'
@@ -267,9 +267,8 @@ gulp.task('bower', function () {
       console.info('JS: ', paths);
       return Promise.resolve();
     }))
-    // .pipe(gulp.dest(path.resolve(DEST, JS)))
-    .pipe(gulpif('production' === ME.NODE_ENV, uglify(ME.pkg.options.uglify)))
     .pipe(concat('bower-bundle.js'))
+    .pipe(gulpif('production' === ME.NODE_ENV, uglify(ME.pkg.options.uglify)))
     //  Write banners
     .pipe(headfoot.header(Banner.header))
     .pipe(headfoot.footer(Banner.footer))
@@ -279,22 +278,23 @@ gulp.task('bower', function () {
   let bowerCSS = gulp.src(mBower)
     .pipe(filter([
         '**/*.css'
-      , '!**/*.min.css'
+      , "**/*.css.map"
       , "**/skin-blue.css"
+      , '!**/*.min.css'
       , "!**/AdminLTE.css"
       , "!**/AdminLTE-*.css"
       , "!**/skin-*.css"
     ]))
     .pipe(changed(path.resolve(KEEP, CSS)))
+    .pipe(gulp.dest(path.resolve(KEEP, CSS)))
     .pipe(gulpif('production' === ME.NODE_ENV, cleanCSS(ME.pkg.options.clean, function (d) {
       console.info(d.name + ':\t' + d.stats.originalSize + '\t->\t' + d.stats.minifiedSize + '\t[' + d.stats.timeSpent + 'ms]\t[' + 100 * d.stats.efficiency.toFixed(2) + '%]');
     }), false))
-    .pipe(gulp.dest(path.resolve(KEEP, CSS)))
     .pipe(vinylPaths(function (paths) {
       console.info('CSS:', paths);
       return Promise.resolve();
     }))
-    .pipe(concatCSS('bower-bundle.css', {rebaseUrls: false}))
+    .pipe(gulpif('production' === ME.NODE_ENV, concatCSS('bower-bundle.css', {rebaseUrls: false})))
     //  Write banners
     .pipe(headfoot.header(Banner.header))
     .pipe(headfoot.footer(Banner.footer))
@@ -304,7 +304,7 @@ gulp.task('bower', function () {
     .pipe(gulp.dest(path.resolve(DEST, CSS)));
 
   let bowerFonts = gulp.src(mBower)
-    .pipe(filter(['**/fonts/**/*.*']))
+    .pipe(filter(['*/fonts/**/*.*']))
     .pipe(changed(path.resolve(KEEP, FONT)))
     .pipe(gulp.dest(path.resolve(KEEP, FONT)))
     .pipe(vinylPaths(function (paths) {
@@ -350,7 +350,7 @@ gulp.task('build:css', function () {
     .pipe(gulpif('production' === ME.NODE_ENV, cleanCSS(ME.pkg.options.clean, function (d) {
       console.info(d.name + ': ' + d.stats.originalSize + ' -> ' + d.stats.minifiedSize + ' [' + d.stats.timeSpent + 'ms] [' + 100 * d.stats.efficiency.toFixed(2) + '%]');
     }), false))
-    .pipe(concatCSS('bower-bundle.css', {rebaseUrls: true}))
+    .pipe(concatCSS('styles-bundle.css', {rebaseUrls: false}))
     .pipe(minifyCSS())
     //  Write banners
     .pipe(headfoot.header(Banner.header))

@@ -1,22 +1,26 @@
-{   "name":         "cv"
-  , "title":        "CV, Resume, Portfolio, Skills Site"
+{   "name":     "cv"
+  , "version":  "0.1.0"
+  , "title":    "CV, Resume, Portfolio, Skills Site"
   , "description":  "CV, Resume, Portfolio, Skills, Bio, All-In-One Page Site"
-  , "version":      "0.1.0"
+  , "homepage": "https://github.com/tbaltrushaitis/cv"
+  , "bugs":     "https://github.com/tbaltrushaitis/cv/issues"
+  , "license":  "MIT"
   , "author": {
         "name":  "Baltrushaitis Tomas"
       , "email": "tbaltrushaitis@gmail.com"
       , "url":   "https://github.com/tbaltrushaitis"
     }
-  , "license":  "MIT"
   , "private":  false
-  , "homepage": "https://github.com/tbaltrushaitis/cv"
   , "website":  "http://cv.gsm-center.com.ua/"
   , "readmeFilename":   "README.md"
   , "engines": {
+      "node": ">=6.9.1"
     }
-  , "main":     "gulpfile.js"
+  , "os" :  ["linux"]
+  , "main": "gulpfile.js"
   , "scripts": {
-        "start":    "./setup.sh"
+        "preinstall": "npm i -g versionn@1.0.2"
+      , "start":    "./setup.sh"
       , "test":     "./setup.sh test"
       , "setup":    "./setup.sh prepare"
       , "build":    "./setup.sh build"
@@ -42,9 +46,6 @@
       , "skills"
       , "skill-demo"
     ]
-  , "bugs": {
-      "url": "https://github.com/tbaltrushaitis/cv/issues"
-    }
   , "dependencies": {
     }
   , "devDependencies": {

@@ -40,7 +40,7 @@ jQuery(function ($) {
     // -------------------------------------------------------------
 
     (function () {
-      $('a[href*=#]').bind('click', function (e) {
+      $('a[href*="#"]').bind('click', function (e) {
         var anchor = $(this);
         $('html, body').stop().animate({
           scrollTop:  $(anchor.attr('href')).offset().top
@@ -127,7 +127,8 @@ jQuery(function ($) {
     $('.skill-progress').bind('inview', function (event, visible, visiblePartX, visiblePartY) {
       if (visible) {
         $.each($('div.progress-bar'), function () {
-          $(this).css('width', $(this).attr('aria-valuenow') + '%');
+          $(this).css('width', null)
+            .css('width', $(this).attr('aria-valuenow') + '%');
         });
         // $(this).unbind('inview');
       }
@@ -284,7 +285,7 @@ jQuery(function ($) {
         , mobile:             true        //  trigger animations on mobile devices (default is true)
         , live:               true        //  act on asynchronously loaded content (default is true)
         , scrollContainer:    null        //  optional scroll container selector, otherwise use window,
-        , resetAnimation:     true        //  reset animation on end (default is true)
+        , resetAnimation:     false       //  reset animation on end (default is true)
         , callback:   function (box) {
             //  the callback is fired every time an animation is started
             //  the argument that is passed in is the DOM node being animated
