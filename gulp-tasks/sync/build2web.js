@@ -33,12 +33,12 @@ module.exports = function (gulp) {
   console.log(`[${new Date().toISOString()}][${modPath}/${modName}] INSTANCE ACTIVATED with modConfig = [${utin(modConfig)}]`);
 
   let wFiles =  gulp.src([
-                  path.join(ME.BUILD, 'index.html')
-                , path.join(ME.BUILD, 'robots.txt')
-              ])
-              .pipe(changed(ME.WEB))
-              .pipe(gulp.dest(ME.WEB))
-              .on('error', console.error.bind(console));
+                    path.join(ME.BUILD, 'index.html')
+                  , path.join(ME.BUILD, 'robots.txt')
+                ])
+                .pipe(changed(ME.WEB))
+                .pipe(gulp.dest(ME.WEB))
+                .on('error', console.error.bind(console));
 
   let wAssets = gulp.src('')
                   .pipe(dirSync(
