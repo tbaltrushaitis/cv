@@ -234,10 +234,12 @@ jQuery(function ($) {
     // -------------------------------------------------------------
     //  Vidio auto play
     // -------------------------------------------------------------
-/*  (function () {
+/*
+  (function () {
 
         /* Vimeo API: http://developer.vimeo.com/player/js-api */
-/*      var iframe = document.getElementById('nofocusvideo');
+/*
+      var iframe = document.getElementById('nofocusvideo');
         // $f == Froogaloop
         var player = $f(iframe);
 
@@ -333,40 +335,42 @@ jQuery(function ($) {
     //  Google Map
     // -------------------------------------------------------------
 
-/*     (function () {
-        var myLatlng    =   new google.maps.LatLng(50.434932, 30.4906848);
-        var styles = [
-            {   featureType:    'landscape'
-              , stylers: [
-                    {color: '#f7f7f7'}
-                ]
-            }
-          , {   featureType:    'natural'
-              , stylers: [
-                    {hue:   '#00ffe6'}
-                ]
-            }
-          , {   featureType:    'road'
-              , stylers: [
-                    {hue:           '#fff'}
-                  , {saturation:    -70}
-                ]
-            }
-          , {   featureType:    'building'
-              , elementType:    'labels'
-              , stylers: [
-                    {hue: ''}
-                ]
-            }
-          , {   featureType:    'poi'   // points of interest
-              , stylers: [
-                    {hue: ''}
-                ]
-            }
+     (function () {
+        var myLatlng, styles, mapOptions, map, marker, contentString, infowindow;
+
+        myLatlng = new google.maps.LatLng(50.436336, 30.488619);
+        styles = [
+          {   featureType: 'landscape'
+            , stylers: [
+                {color: '#f7f7f7'}
+              ]
+          }
+        , {   featureType: 'natural'
+            , stylers: [
+                {hue: '#00ffe6'}
+              ]
+          }
+        , {   featureType: 'road'
+            , stylers: [
+                  {hue:        '#fff'}
+                , {saturation: -70}
+              ]
+          }
+        , {   featureType: 'building'
+            , elementType: 'labels'
+            , stylers: [
+                {hue: ''}
+              ]
+          }
+        , {   featureType: 'poi'   // points of interest
+            , stylers: [
+                {hue: ''}
+              ]
+          }
         ];
 
-        var mapOptions  =   {
-            zoom:               15
+        mapOptions  =   {
+            zoom:               10
           , scrollwheel:        false
           , center:             myLatlng
           , mapTypeId:          google.maps.MapTypeId.ROADMAP
@@ -374,27 +378,28 @@ jQuery(function ($) {
           , styles:             styles
         };
 
-        var map =   new google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
+        map = new google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
 
-        var marker = new google.maps.Marker({
+        marker = new google.maps.Marker({
             position:   myLatlng
           , map:        map
           , animation:  google.maps.Animation.DROP
-          , title:      'Google Maps'
+          , title:      'Somewhere in the Kyiv'
         });
 
-        var contentString   =   ''
-                            +   ''
-                            +   '';
+        contentString = 'Hello' + ' ' + 'Visitor!';
 
-        var infowindow  =   new google.maps.InfoWindow({
-            content:    contentString
+        infowindow = new google.maps.InfoWindow({
+          content: contentString
         });
 
         google.maps.event.addListener(marker, 'click', function () {
             infowindow.open(map, marker);
         });
 
-    }()); */
+    }());
+
+    /*
+    */
 
 });
