@@ -19,7 +19,7 @@ GIT_COMMIT := $(shell git rev-list --remove-empty --remotes --max-count=1 --date
 APP_REPO := ${REPO_HOST}/${REPO_USER}/${APP_NAME}.git
 APP_ENV := $(shell cat NODE_ENV)
 CODE_VERSION := $(shell cat ./VERSION)
-APP_BANNER := $(shell cat ./bin/BANNER)
+APP_BANNER := $(shell cat ./assets/BANNER)
 APP_BRANCH := dev
 
 WD := $(shell pwd -P)
@@ -63,7 +63,7 @@ include ./bin/Makefile.*
 
 .PHONY: default
 
-default: banner test;
+default: all;
 
 ##  ------------------------------------------------------------------------  ##
 # $(info [${DT}]${BYellow} Default goal is: [$(.DEFAULT_GOAL)]${NC});
@@ -89,7 +89,7 @@ clone:
 .PHONY: banner
 
 banner:
-	@ [ -s ./bin/BANNER ] && cat ./bin/BANNER;
+	@ [ -s ./assets/BANNER ] && cat ./assets/BANNER;
 
 ##  ------------------------------------------------------------------------  ##
 
@@ -166,7 +166,7 @@ redeploy: rebuild deploy;
 #* means the word "all" doesn't represent a file name in this Makefile;
 #* means the Makefile has nothing to do with a file called "all" in the same directory.
 
-all: clean cycle;
+all: banner clean cycle;
 
 full: clean-all all;
 
