@@ -143,7 +143,7 @@ jQuery(function ($) {
     $('.more-skill').bind('inview', function (event, visible, visiblePartX, visiblePartY) {
       if (visible) {
         $('.chart').easyPieChart({
-            //  your configuration goes here
+            // configuration goes here
             easing:     'easeOut'
           , delay:      3000
           , barColor:   '#68c3a3'
@@ -265,8 +265,8 @@ jQuery(function ($) {
 
       } else {
         $.stellar({
-            horizontalScrolling:    false
-          , responsive:             true
+            horizontalScrolling:  false
+          , responsive:           true
         });
       }
 
@@ -281,13 +281,13 @@ jQuery(function ($) {
     (function () {
 
       new WOW({
-          boxClass:           'wow'       //  animated element css class (default is wow)
-        , animateClass:       'animated'  //  animation css class (default is animated)
-        , offset:             0           //  distance to the element when triggering the animation (default is 0)
-        , mobile:             true        //  trigger animations on mobile devices (default is true)
-        , live:               true        //  act on asynchronously loaded content (default is true)
-        , scrollContainer:    null        //  optional scroll container selector, otherwise use window,
-        , resetAnimation:     false       //  reset animation on end (default is true)
+          boxClass:         'wow'       //  animated element css class (default is wow)
+        , animateClass:     'animated'  //  animation css class (default is animated)
+        , offset:           0           //  distance to the element when triggering the animation (default is 0)
+        , mobile:           true        //  trigger animations on mobile devices (default is true)
+        , live:             true        //  act on asynchronously loaded content (default is true)
+        , scrollContainer:  null        //  optional scroll container selector, otherwise use window,
+        , resetAnimation:   false       //  reset animation on end (default is true)
         , callback:   function (box) {
             //  the callback is fired every time an animation is started
             //  the argument that is passed in is the DOM node being animated
@@ -335,71 +335,69 @@ jQuery(function ($) {
     //  Google Map
     // -------------------------------------------------------------
 
-     (function () {
-        var myLatlng, styles, mapOptions, map, marker, contentString, infowindow;
+    (function () {
+      var myLatlng, styles, mapOptions, map, marker, contentString, infowindow;
 
-        myLatlng = new google.maps.LatLng(50.436336, 30.488619);
-        styles = [
-          {   featureType: 'landscape'
-            , stylers: [
-                {color: '#f7f7f7'}
-              ]
-          }
-        , {   featureType: 'natural'
-            , stylers: [
-                {hue: '#00ffe6'}
-              ]
-          }
-        , {   featureType: 'road'
-            , stylers: [
-                  {hue:        '#fff'}
-                , {saturation: -70}
-              ]
-          }
-        , {   featureType: 'building'
-            , elementType: 'labels'
-            , stylers: [
-                {hue: ''}
-              ]
-          }
-        , {   featureType: 'poi'   // points of interest
-            , stylers: [
-                {hue: ''}
-              ]
-          }
-        ];
+      myLatlng = new google.maps.LatLng(50.436336, 30.488619);
 
-        mapOptions  =   {
-            zoom:               10
-          , scrollwheel:        false
-          , center:             myLatlng
-          , mapTypeId:          google.maps.MapTypeId.ROADMAP
-          , disableDefaultUI:   true
-          , styles:             styles
-        };
+      styles = [
+        {   featureType: 'landscape'
+          , stylers: [
+              {color: '#f7f7f7'}
+            ]
+        }
+      , {   featureType: 'natural'
+          , stylers: [
+              {hue: '#00ffe6'}
+            ]
+        }
+      , {   featureType: 'road'
+          , stylers: [
+                {hue:        '#fff'}
+              , {saturation: -70}
+            ]
+        }
+      , {   featureType: 'building'
+          , elementType: 'labels'
+          , stylers: [
+              {hue: ''}
+            ]
+        }
+      , {   featureType: 'poi'   // points of interest
+          , stylers: [
+              {hue: ''}
+            ]
+        }
+      ];
 
-        map = new google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
+      mapOptions  =   {
+          zoom:               10
+        , scrollwheel:        false
+        , center:             myLatlng
+        , mapTypeId:          google.maps.MapTypeId.ROADMAP
+        , disableDefaultUI:   true
+        , styles:             styles
+      };
 
-        marker = new google.maps.Marker({
-            position:   myLatlng
-          , map:        map
-          , animation:  google.maps.Animation.DROP
-          , title:      'Somewhere in the Kyiv'
-        });
+      map = new google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
 
-        contentString = 'Hello' + ' ' + 'Visitor!';
+      marker = new google.maps.Marker({
+          position:   myLatlng
+        , map:        map
+        , animation:  google.maps.Animation.DROP
+        , title:      'Somewhere in the Kyiv'
+      });
 
-        infowindow = new google.maps.InfoWindow({
-          content: contentString
-        });
+      contentString = 'Hello' + ' ' + 'Visitor!';
 
-        google.maps.event.addListener(marker, 'click', function () {
-            infowindow.open(map, marker);
-        });
+      infowindow = new google.maps.InfoWindow({
+        content: contentString
+      });
+
+      google.maps.event.addListener(marker, 'click', function () {
+        infowindow.open(map, marker);
+      });
 
     }());
-
-    /*
-    */
 
 });
