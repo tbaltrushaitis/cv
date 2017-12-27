@@ -1,5 +1,5 @@
 {   "name":     "cv"
-  , "version":  "0.1.0"
+  , "version":  "0.1.1"
   , "title":    "CV, Resume, Portfolio, Skills Site"
   , "description":  "CV, Resume, Portfolio, Skills, Bio, All-In-One Page Site"
   , "homepage": "https://github.com/tbaltrushaitis/cv"
@@ -16,7 +16,7 @@
   , "engines": {
       "node": ">=6.9.1"
     }
-  , "os" :  ["linux"]
+  , "os":  ["linux"]
   , "main": "gulpfile.js"
   , "scripts": {
         "preinstall": "npm i -g versionn@1.0.2"
@@ -68,18 +68,14 @@
       , "gulp-gzip":            "^1.4.0"
       , "gulp-headerfooter":    "^1.0.3"
       , "gulp-if":              "^2.0.1"
-      , "gulp-inject":          "^4.1.0"
       , "gulp-jscs":            "^4.0.0"
       , "gulp-jshint":          "^2.0.1"
-      , "gulp-json-editor":     "^2.2.1"
-      , "gulp-livereload":      "^3.8.1"
       , "gulp-minify-css":      "^1.2.4"
       , "gulp-newer":           "^1.2.0"
       , "gulp-rename":          "^1.2.2"
       , "gulp-replace":         "^0.6.1"
       , "gulp-require-tasks":   "^1.2.1"
       , "gulp-sequence":        "^0.4.6"
-      , "gulp-tar":             "^2.0.0"
       , "gulp-template":        "^4.0.0"
       , "gulp-uglify":          "^3.0.0"
       , "gulp-util":            "^3.0.8"
