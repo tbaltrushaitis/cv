@@ -2,6 +2,10 @@
 
 ![CV Logo](assets/img/cv-01.png)
 
+`cv` `portfolio` `resume` `skillset`
+
+---
+
 ## Credits ##
 
  Name | Version | Description
