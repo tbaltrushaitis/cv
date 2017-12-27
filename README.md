@@ -1,6 +1,6 @@
 # CV, Resume, Portfolio, Skills, Bio, All-In-One Web Site #
 
-![CV Logo](src/assets/img/ico/apple-touch-icon-144-precomposed.png)
+![CV Logo](assets/img/cv-01.png)
 
 ## Credits ##
 
@@ -30,7 +30,9 @@ $ git clone https://github.com/tbaltrushaitis/cv.git cv && cd cv
 --------
 
 ### Setup ###
-
+```bash
+$ make
+```
 --------
 
 ## Todo List ##
@@ -40,6 +42,11 @@ $ git clone https://github.com/tbaltrushaitis/cv.git cv && cd cv
 --------
 
 ## Change log ##
+
+**v0.1.1:**
+- [x] Makefile included
+- [x] gulp tasks to build and update webroot
+- [x] small improvement of contacts section
 
 **v0.1.0:**
 - [x] More animations
