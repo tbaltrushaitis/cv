@@ -6,9 +6,9 @@
 
 'use strict';
 
-//--------------//
-// DEPENDENCIES //
-//--------------//
+//  ------------------------------------------------------------------------  //
+//  -----------------------------  DEPENDENCIES  ---------------------------  //
+//  ------------------------------------------------------------------------  //
 
 const path = require('path');
 const util = require('util');
@@ -25,12 +25,13 @@ const modPath = path.relative(global.ME.WD, path.dirname(module.filename));
 const modConfigFile = `config/${path.join(modPath, modName)}.json`;
 const modConfig = require('read-config')(modConfigFile);
 
-//--------------//
-//  EXPORTS     //
-//--------------//
+
+//  ------------------------------------------------------------------------  //
+//  -------------------------------  EXPORTS  ------------------------------  //
+//  ------------------------------------------------------------------------  //
 
 module.exports = function (gulp) {
-  console.log(`[${new Date().toISOString()}][${modPath}/${modName}] INSTANCE ACTIVATED with modConfig = [${utin(modConfig)}]`);
+  console.log(`[${new Date().toISOString()}][${modPath}/${modName}] ACTIVATED with modConfig = [${utin(modConfig)}]`);
 
   let wFiles =  gulp.src([
                     path.join(ME.BUILD, 'index.html')
