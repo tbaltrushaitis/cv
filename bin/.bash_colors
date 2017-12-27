@@ -1,0 +1,36 @@
+##  ------------------------------------------------------------------------  ##
+##        Colors definitions (taken from Color Bash Prompt HowTo)             ##
+##  ------------------------------------------------------------------------  ##
+
+##  Normal Colors
+Black='[0;1;30m'          # Black
+Red='[0;1;31m'            # Red
+Green='[0;1;32m'          # Green
+Yellow='[0;1;33m'         # Yellow
+Blue='[0;1;34m'           # Blue
+Purple='[0;1;35m'         # Purple
+Cyan='[0;1;36m'           # Cyan
+White='[0;1;37m'          # White
+
+##  Bold
+BBlack='[1;1;30m'         # Black
+BRed='[1;1;31m'           # Red
+BGreen='[1;1;32m'         # Green
+BYellow='[1;1;33m'        # Yellow
+BBlue='[1;1;34m'          # Blue
+BPurple='[1;1;35m'        # Purple
+BCyan='[1;1;36m'          # Cyan
+BWhite='[1;1;37m'         # White
+
+##  Background
+On_Black='[40m'           # Black
+On_Red='[41m'             # Red
+On_Green='[42m'           # Green
+On_Yellow='[43m'          # Yellow
+On_Blue='[44m'            # Blue
+On_Purple='[45m'          # Purple
+On_Cyan='[46m'            # Cyan
+On_White='[47m'           # White
+
+NC="[m"                   # Color Reset
+ALERT=${BWhite}${On_Red}   # Bold White on red background

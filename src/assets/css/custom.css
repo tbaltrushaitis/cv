@@ -1,0 +1,13 @@
+/*  Custom Styles  */
+
+.navbar-brand {
+  transform: translate3d(0px, 0px, 0px);
+  transition: transform 0.5s ease 0s, -webkit-transform 0.5s ease 0s;
+}
+
+@media(min-width:992px) {
+
+  .grow { transition: all .02s ease-in-out; }
+  .grow:hover { transform: scale(1.2); }
+
+}

@@ -10,7 +10,7 @@
     7. Resume
     8. Skill
     9. Chart
-    10. Work
+    10. Portfolio
     11. Facts
     12. Blog
     13. Hire
@@ -49,14 +49,14 @@ a {
 }
   a:focus
 , a:hover {
-  color:    #333333;
+  color:    #333;
   outline:  none;
   text-decoration: none;
 }
 
 
-/* Transition elsements
--------------------------------------------------------- */
+/* Transition elements
+----------------------------------------------------------------------------- */
   .navbar a
 , .form-control {
     -webkit-transition: all 0.4s ease-in-out 0s;
@@ -76,7 +76,7 @@ a {
 }
 
 /* Reset box-shadow
-/* ------------------------------------------------------ */
+/* -------------------------------------------------------------------------- */
 
   .btn
 , .form-control
@@ -130,19 +130,20 @@ h6 {
 .form-control {
   background-color: #f7f7f7;
   border:           1px solid #e8e8e8;
-  border-radius:    0;
+  border-radius:    1;
   box-shadow:       none;
   height:           45px;
 }
 
 .form-control:focus {
   border-color: #68c3a3;
-  box-shadow:   none;
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
 }
 
 
 /* Alert Style
------------------------------------------------------*/
+------------------------------------------------------------------------------*/
 .alert {
   padding:          10px 15px;
   margin-top:       20px;
@@ -303,9 +304,9 @@ ul.list-check li::before {
 
 /* === HOME === */
 @media (max-width : 640px) {
-    .tt-fullHeight{
-        height: 560px !important;
-    }
+  .tt-fullHeight{
+    height: 560px !important;
+  }
 }
 
 #home {
@@ -661,26 +662,26 @@ SOCIAL ICON
 
 /* === Resume Timeline === */
 
-.resume-title h3{
-    text-align: center;
+.resume-title h3 {
+  text-align: center;
 }
-.resume-section > div > div{
-    margin-bottom: 60px;
+.resume-section > div > div {
+  margin-bottom: 60px;
 }
-.resume-section > div > div:nth-of-type(2){
-    margin-bottom: 0;
+.resume-section > div > div:nth-of-type(2) {
+  margin-bottom: 0;
 }
-.resume-title{
-    margin-bottom: 30px;
+.resume-title {
+  margin-bottom: 30px;
 }
 .timeline {
-    position: relative;
-    padding: 0;
-    list-style: none;
+  position: relative;
+  padding: 0;
+  list-style: none;
 }
 
 .resume{
-    position: relative;
+  position: relative;
 }
 
 .resume:before{
@@ -726,25 +727,25 @@ SOCIAL ICON
 }
 
 .timeline>li {
-    position: relative;
-    margin-bottom: 50px;
-    min-height: 50px;
+  position: relative;
+  margin-bottom: 50px;
+  min-height: 50px;
 }
 
 .timeline>li:before,
 .timeline>li:after {
-    content: " ";
-    display: table;
+  content: " ";
+  display: table;
 }
 
 .timeline>li:after {
-    clear: both;
+  clear: both;
 }
 
 .timeline>li .timeline-panel {
-    float: left;
-    position: relative;
-    width: 100%;
+  float: left;
+  position: relative;
+  width: 100%;
 }
 
 .timeline-content {
@@ -752,10 +753,10 @@ SOCIAL ICON
 }
 
 .timeline>li .timeline-panel:before {
-    right: auto;
-    left: -15px;
-    border-right-width: 15px;
-    border-left-width: 0;
+  right: auto;
+  left: -15px;
+  border-right-width: 15px;
+  border-left-width: 0;
 }
 
 .timeline>li .timeline-panel:after {
@@ -855,9 +856,6 @@ SOCIAL ICON
              -o-transition: all 400ms;
                 transition: all 400ms;
     }
-
-    .grow { transition: all .02s ease-in-out; }
-    .grow:hover { transform: scale(1.2); }
 
     .timeline-content::after {
         border: 1px solid #eee;
@@ -959,25 +957,25 @@ SOCIAL ICON
 
 /* === Skill Section === */
 .skills-section {
-    background-color: #1a1e23;
-    color: #fff;
+  background-color: #1a1e23;
+  color: #fff;
 }
 .skills-section .section-title {
-    color: #fff;
-    margin-bottom: 110px;
+  color: #fff;
+  margin-bottom: 110px;
 }
 .skills-section .section-title h2 {
-    color: #fff;
+  color: #fff;
 }
 .skill-title {
-    width: 40%;
-    float: left;
+  width: 45%;
+  float: left;
 }
 .skill-title h3 {
-    font-size: 18px;
-    font-weight: 400;
-    margin-top: -6px;
-    text-transform: capitalize;
+  font-size: 18px;
+  font-weight: 400;
+  margin-top: -6px;
+  text-transform: capitalize;
 }
 
 
@@ -985,52 +983,52 @@ SOCIAL ICON
 /* progress-bar */
 
 .skill-progress {
-    position: relative;
+  position: relative;
 }
 .progress {
-    height: 10px;
-    margin-bottom: 40px;
-    background-color: #3a4149;
-    border-radius: 3px;
-    box-shadow: none;
-    width: 60%;
+  height: 10px;
+  margin-bottom: 40px;
+  background-color: #3a4149;
+  border-radius: 3px;
+          box-shadow: 0 0 1px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.6);
+  width: 55%;
 }
 
 .progress-bar {
-    background-color: #68c3a3;
+  background-color: #68c3a3;
 }
 .progress-bar span {
-    position: absolute;
-    top: -20px;
-    right: 15px;
+  position: absolute;
+  top: -20px;
+  right: 15px;
 }
 
 .progress .progress-bar.six-sec-ease-in-out {
-  -webkit-transition: width 2s ease-in-out;
-  -moz-transition: width 2s ease-in-out;
-  -o-transition: width 2s ease-in-out;
-  transition:  width 2s ease-in-out;
+  -webkit-transition: width 3s ease-in-out;
+     -moz-transition: width 3s ease-in-out;
+       -o-transition: width 3s ease-in-out;
+          transition: width 3s ease-in-out;
 }
 
-
 .skill-chart h3 {
-    margin-top: 20px;
+  margin-top: 35px;
+  margin-bottom: 35px;
 }
 
 .our-progress {
-    margin:10px 0 30px;
-}
-
-.progress-percent {
-    margin-left: auto;
-    margin-right: auto;
+  margin:10px 0 30px;
 }
 
 .our-progress h3 {
-    font-weight: 400;
-    margin-bottom: 5px;
+  font-weight: 400;
+  margin-bottom: 5px;
 }
 
+.progress-percent {
+  margin-left: auto;
+  margin-right: auto;
+}
 
 
 /* === Chart CSS  === */
@@ -1081,73 +1079,73 @@ SOCIAL ICON
   background-color: #f7f7f7;
 }
 .portfolio-item {
-    padding-right: 5px;
-    padding-left: 5px;
-    max-height: 235px;
-    min-height: 235px;
+  padding-right: 5px;
+  padding-left: 5px;
+  max-height: 235px;
+  min-height: 235px;
 }
 .portfolio-bg {
-   background: #fff;
-   padding: 5px;
-   margin-bottom: 20px;
-   border: 1px solid #eee;
-   border-bottom: 3px double #eee;
-   min-height: 180px;
+  background: #fff;
+  padding: 5px;
+  margin-bottom: 20px;
+  border: 1px solid #eee;
+  border-bottom: 3px double #eee;
+  min-height: 180px;
 }
 
 .portfolio-bg img {
-   max-height: 180px;
-   min-height: 180px;
+  max-height: 180px;
+  min-height: 180px;
 }
 
 .portfolio {
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
 
 
 /* Shuffle Filter */
 #filter {
-    margin: 0 0 35px;
-    text-align: center;
+  margin: 0 0 35px;
+  text-align: center;
 }
 
 #filter li a {
-    color: #68c3a3;
-    display: block;
-    text-transform: uppercase;
-    padding: 0 15px;
-    border-radius: 4px;
-    transition: inherit;
+  color: #68c3a3;
+  display: block;
+  text-transform: uppercase;
+  padding: 0 15px;
+  border-radius: 4px;
+  transition: inherit;
 }
 #filter li a.active,
 #filter li a:hover {
-    position: relative;
-    background: #68c3a3;
-    color: #fff;
-    border-bottom: 3px solid rgba(0, 0, 0, 0.15);
+  position: relative;
+  background: #68c3a3;
+  color: #fff;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.15);
 }
 
 #filter li a.active::after,
 #filter li a:hover::after{
-    position: absolute;
-    content: "";
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 10px solid rgba(104, 195, 163, 1);
-    bottom: -9px;
-    left: 50%;
-    margin-left: -8px;
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid rgba(104, 195, 163, 1);
+  bottom: -9px;
+  left: 50%;
+  margin-left: -8px;
 }
 
 .tt-overlay {
-    position: absolute;
-    background-color: rgba(26, 30, 31, 0.85);
-    width: 100%;
-    height: 100%;
-    opacity: 0;
+  position: absolute;
+  background-color: rgba(26, 30, 31, 0.85);
+  width: 100%;
+  height: 100%;
+  opacity: 0;
 }
 
 .portfolio-info,
@@ -1251,10 +1249,10 @@ SOCIAL ICON
 }
 
 .mfp-with-zoom.mfp-ready .mfp-container {
-    opacity: 1;
+  opacity: 1;
 }
 .mfp-with-zoom.mfp-ready.mfp-bg {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 .mfp-with-zoom.mfp-removing .mfp-container,
@@ -1265,30 +1263,30 @@ SOCIAL ICON
 
 /* === Facts Section === */
 .facts-section {
-    background: url("../img/counter-bg.jpg") no-repeat center center;
-    background-attachment: fixed;
-    background-size: cover;
-    color: #fff;
+  background: url("../img/video-bg.jpg") no-repeat center center;
+  background-attachment: fixed;
+  background-size: cover;
+  color: #fff;
 }
 
 .tt-overlay-bg {
-    background: rgba(26, 30, 35, 0.85);
-    padding: 110px 0;
+  background: rgba(26, 30, 35, 0.85);
+  padding: 110px 0;
 }
 
 .count-wrap i {
-    font-size: 64px;
-    margin-bottom: 25px;
+  font-size: 64px;
+  margin-bottom: 25px;
 }
 .count-wrap h3 {
-    font-size: 50px;
-    line-height: 28px;
-    margin-bottom: 20px;
+  font-size: 50px;
+  line-height: 28px;
+  margin-bottom: 20px;
 }
 .count-wrap p {
-    font-size: 18px;
-    font-weight: 700;
-    margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
 }
 
 
@@ -1603,64 +1601,64 @@ SOCIAL ICON
 /* ---------------------------------------------- */
 
 #tt-preloader {
-    background: #fff;
-    bottom: 0;
-    left: 0;
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 9999;
+  background: #fff;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 9999;
 }
 
 #pre-status,
 .preload-placeholder {
-    background-image: url("../img/preload/preloader-cogs.gif");
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 200px;
-    left: 50%;
-    margin: -100px 0 0 -100px;
-    position: absolute;
-    top: 50%;
-    width: 200px;
+  background-image: url("../img/preload/preloader-cogs.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 200px;
+  left: 50%;
+  margin: -100px 0 0 -100px;
+  position: absolute;
+  top: 50%;
+  width: 200px;
 }
 
 .preload-placeholder {
-    background: none;
-    left: 0;
-    margin: 0;
-    text-align: center;
-    top: 65%;
+  background: none;
+  left: 0;
+  margin: 0;
+  text-align: center;
+  top: 65%;
 }
 
 
 /* === About Section === */
 .short-info {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 .short-info h3 {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .hobby-list-wrap h3{
-    margin-bottom: 45px;
+  margin-bottom: 45px;
 }
 .hobby-list span {
-    border: 1px solid #eee;
-    font-weight: 700;
-    text-transform: uppercase;
-    padding: 15px 30px;
-    border-bottom: 3px double #eee;
-    margin-bottom: 20px;
-    text-align: center;
-    display: block;
+  border: 1px solid #eee;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 15px 30px;
+  border-bottom: 3px double #eee;
+  margin-bottom: 20px;
+  text-align: center;
+  display: block;
 }
 
 .hobby-list span:nth-child(4),
 .hobby-list span:nth-child(5),
 .hobby-list span:nth-child(6) {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 
@@ -1685,20 +1683,20 @@ SOCIAL ICON
     margin: 0 auto;
 }
 .service-box::after {
-    border:         1px solid #fff;
-    border-radius:  15px;
-    content:        "";
-    height:         180px;
-    left:           0;
-    position:       absolute;
-    text-align:     center;
-    top:            0;
-    width:          180px;
-    -webkit-transform:  rotate(45deg);
-       -moz-transform:  rotate(45deg);
-        -ms-transform:  rotate(45deg);
-         -o-transform:  rotate(45deg);
-            transform:  rotate(45deg);
+  border:         1px solid #fff;
+  border-radius:  15px;
+  content:        "";
+  height:         180px;
+  left:           0;
+  position:       absolute;
+  text-align:     center;
+  top:            0;
+  width:          180px;
+  -webkit-transform:  rotate(45deg);
+     -moz-transform:  rotate(45deg);
+      -ms-transform:  rotate(45deg);
+       -o-transform:  rotate(45deg);
+          transform:  rotate(45deg);
 }
 .service-box i {
     font-size: 40px;

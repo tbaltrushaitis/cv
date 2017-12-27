@@ -1,31 +1,30 @@
 {   "name":         "cv"
   , "title":        "CV, Resume, Portfolio, Skills Site"
   , "description":  "CV, Resume, Portfolio, Skills, Bio, All-In-One Page Site"
-  , "version":      "0.0.1"
+  , "version":      "0.1.1"
   , "authors": [
-        "tbaltrushaitis@gmail.com"
+      "tbaltrushaitis@gmail.com"
     ]
   , "license":  "MIT"
   , "private":  false
   , "homepage": "https://github.com/tbaltrushaitis/cv"
   , "main":     ""
   , "keywords": [
-        "bio"
-      , "cv"
-      , "cv-template"
-      , "portfolio"
-      , "portfolio-website"
-      , "resume"
-      , "skills"
-      , "skill-demo"
+      "bio"
+    , "cv"
+    , "cv-template"
+    , "portfolio"
+    , "portfolio-website"
+    , "resume"
+    , "skills"
+    , "skill-demo"
     ]
   , "moduleType": [
-        "project"
+      "project"
     ]
   , "ignore": [
         "**/.*"
       , "build"
-      , "bower_components"
       , "bower_modules"
       , "dist"
       , "docs"
@@ -35,40 +34,85 @@
       , "webroot"
     ]
   , "dependencies": {
-        "animate.css":      "~3.5.2"
-      , "bootstrap":        "~3.3.7"
-      , "font-awesome":     "~4.7.0"
-      , "html5shiv":        "~3.7.3"
-      , "jquery":           "~2.2.4"
-      , "normalize.css":    "~4.2.0"
-      , "noty":             "~2.4.1"
-      , "respond":          "~1.4.2"
-      , "requirejs":        "~2.3.3"
-      , "waypoints":        "^4.0.1"
-      , "wow":              "wow-mit#~1.3.0"
+        "animate.css":    "~3.5.2"
+      , "bootstrap":      "~3.3.7"
+      , "bower-jquery-easyPieChart": "^0.0.1"
+      , "font-awesome":   "~4.7.0"
+      , "fitvids":        "jquery.fitvids#^1.2.0"
+      , "html5shiv":      "~3.7.3"
+      , "jquery":         "~2.2.4"
+      , "jquery-countTo": "countto#^1.2.0"
+      , "jquery.stellar": "^0.6.2"
+      , "jquery-sticky":  "sticky#1.0.3"
+      , "jquery.inview":  "jquery.inview#^1.1.2"
+      , "modernizr":      "^3.5.0"
+      , "normalize-css":  "normalize.css#7.0.0"
+      , "noty":           "~2.4.1"
+      , "respond":        "~1.4.2"
+      , "requirejs":      "~2.3.3"
+      , "smoothscroll":   "^0.4.0"
+      , "waypoints":      "^4.0.1"
+      , "wow":            "wow-mit#~1.3.0"
     }
   , "devDependencies": {
     }
+  , "disabledDependencies": {
+      "normalize.css": "~4.2.0"
+    }
   , "resolutions": {
-        "jquery":   "~2.2.4"
+      "jquery":   "~2.2.4"
     }
   , "overrides": {
-        "bootstrap": {
-            "main": [
-                "dist/**/*.*"
-              , "!**/*.less"
-              , "!**/*.map"
-              , "!**/npm.js"
-              , "!**/*.min.js"
-              , "!*-theme.*"
-            ]
-        }
-      , "font-awesome": {
-            "main": [
-                "fonts/*"
-              , "css/*.css"
-              , "!css/*.min.css"
-            ]
-        }
+      "bootstrap": {
+        "main": [
+            "dist/**/*.*"
+          , "!**/*.less"
+          , "!**/npm.js"
+          , "!**/*.min.js"
+          , "!*-theme.*"
+        ]
+      }
+    , "font-awesome": {
+        "main": [
+            "fonts/*"
+          , "css/*.css"
+          , "!css/*.min.css"
+        ]
+      }
+    , "waypoints": {
+        "main": [
+            "lib/jquery.waypoints.js"
+          , "lib/shortcuts/inview.js"
+        ]
+      }
+    }
+  , "group": {
+      "effects":    [
+          "animate.css"
+        , "normalize-css"
+        , "smoothscroll"
+        , "waypoints"
+        , "wow"
+      ]
+    , "fonts":    [
+        "font-awesome"
+      ]
+    , "libs": [
+          "jquery"
+        , "bootstrap"
+        , "requirejs"
+      ]
+    , "plugins": [
+          "bower-jquery-easyPieChart"
+        , "fitvids"
+        , "html5shiv"
+        , "jquery-countTo"
+        , "jquery.stellar"
+        , "jquery-sticky"
+        , "modernizr"
+        , "noty"
+        , "respond"
+      ]
+    , "front": ["fonts", "libs", "plugins", "effects"]
     }
 }

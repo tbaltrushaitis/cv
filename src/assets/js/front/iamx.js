@@ -1,23 +1,23 @@
 /*
-Theme Name: IAMX
-Author:     Trendy Theme
-Author URL: http://trendytheme.net
-*/
+ * Theme Name:  IAMX
+ * Author:      Trendy Theme
+ * Author URL:  http://trendytheme.net
+ */
 
 /*
-    =   Preloader
-    =   Animated scrolling / Scroll Up
-    =   Full Screen Slider
-    =   Sticky Menu
-    =   Back To Top
-    =   Countup
-    =   Progress Bar
-    =   More skill
-    =   Shuffle
-    =   Magnific Popup
-    =   Vidio auto play
-    =   Fit Vids
-    =   Google Map
+  =   Preloader
+  =   Animated scrolling / Scroll Up
+  =   Full Screen Slider
+  =   Sticky Menu
+  =   Back To Top
+  =   Countup
+  =   Progress Bar
+  =   More skill
+  =   Shuffle
+  =   Magnific Popup
+  =   Vidio auto play
+  =   Fit Vids
+  =   Google Map
 */
 
 jQuery(function ($) {
@@ -29,8 +29,8 @@ jQuery(function ($) {
     /* ---------------------------------------------- */
 
     $(window).ready(function () {
-        $('#pre-status').fadeOut();
-        $('#tt-preloader').delay(350).fadeOut('slow');
+      $('#pre-status').fadeOut();
+      $('#tt-preloader').delay(150).fadeOut('slow');
     });
 
 
@@ -40,13 +40,13 @@ jQuery(function ($) {
     // -------------------------------------------------------------
 
     (function () {
-        $('a[href*=#]').bind('click', function (e) {
-            var anchor  =   $(this);
-            $('html, body').stop().animate({
-                scrollTop:  $(anchor.attr('href')).offset().top
-            }, 1000);
-            e.preventDefault();
-        });
+      $('a[href*="#"]').bind('click', function (e) {
+        var anchor = $(this);
+        $('html, body').stop().animate({
+          scrollTop:  $(anchor.attr('href')).offset().top
+        }, 1000);
+        e.preventDefault();
+      });
     }());
 
 
@@ -56,12 +56,11 @@ jQuery(function ($) {
     // -------------------------------------------------------------
 
     (function () {
+      $('.tt-fullHeight').height($(window).height());
+
+      $(window).resize(function () {
         $('.tt-fullHeight').height($(window).height());
-
-        $(window).resize(function () {
-            $('.tt-fullHeight').height($(window).height());
-        });
-
+      });
     }());
 
 
@@ -71,14 +70,14 @@ jQuery(function ($) {
     // -------------------------------------------------------------
 
     (function () {
-        $('.header').sticky({
-            topSpacing: 0
-        });
+      $('.header').sticky({
+        topSpacing: 0
+      });
 
-        $('body').scrollspy({
-            target: '.navbar-custom'
-          , offset: 70
-        })
+      $('body').scrollspy({
+        target: '.navbar-custom'
+      , offset: 70
+      })
     }());
 
 
@@ -88,13 +87,13 @@ jQuery(function ($) {
     // -------------------------------------------------------------
 
     (function () {
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > 100) {
-                $('.scroll-up').fadeIn();
-            } else {
-                $('.scroll-up').fadeOut();
-            }
-        });
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+          $('.scroll-up').fadeIn();
+        } else {
+          $('.scroll-up').fadeOut();
+        }
+      });
     }());
 
 
@@ -104,19 +103,19 @@ jQuery(function ($) {
     // -------------------------------------------------------------
 
     $('.count-wrap').bind('inview', function (event, visible, visiblePartX, visiblePartY) {
-        if (visible) {
-            $(this).find('.timer').each(function () {
-                var $this = $(this);
-                $({Counter: 0}).animate({Counter: $this.text()}, {
-                    duration:   2000
-                  , easing:     'swing'
-                  , step:   function () {
-                        $this.text(Math.ceil(this.Counter));
-                    }
-                });
-            });
-            $(this).unbind('inview');
-        }
+      if (visible) {
+        $(this).find('.timer').each(function () {
+          var $this = $(this);
+          $({Counter: 0}).animate({Counter: $this.text()}, {
+              duration:   2000
+            , easing:     'swing'
+            , step:   function () {
+                $this.text(Math.ceil(this.Counter));
+              }
+          });
+        });
+        // $(this).unbind('inview');
+      }
     });
 
 
@@ -126,12 +125,13 @@ jQuery(function ($) {
     // -------------------------------------------------------------
 
     $('.skill-progress').bind('inview', function (event, visible, visiblePartX, visiblePartY) {
-        if (visible) {
-            $.each($('div.progress-bar'), function () {
-                $(this).css('width', $(this).attr('aria-valuenow') + '%');
-            });
-            $(this).unbind('inview');
-        }
+      if (visible) {
+        $.each($('div.progress-bar'), function () {
+          $(this).css('width', null)
+            .css('width', $(this).attr('aria-valuenow') + '%');
+        });
+        // $(this).unbind('inview');
+      }
     });
 
 
@@ -141,53 +141,53 @@ jQuery(function ($) {
     // -------------------------------------------------------------
 
     $('.more-skill').bind('inview', function (event, visible, visiblePartX, visiblePartY) {
-        if (visible) {
-            $('.chart').easyPieChart({
-                //  your configuration goes here
-                easing:     'easeOut'
-              , delay:      3000
-              , barColor:   '#68c3a3'
-              , trackColor: 'rgba(255,255,255,0.2)'
-              , scaleColor: false
-              , lineWidth:  8
-              , size:       140
-              , animate:    2000
-              , onStep: function (from, to, percent) {
-                    this.el.children[0].innerHTML   =   Math.round(percent);
-                }
-            });
-            $(this).unbind('inview');
-        }
+      if (visible) {
+        $('.chart').easyPieChart({
+            // configuration goes here
+            easing:     'easeOut'
+          , delay:      3000
+          , barColor:   '#68c3a3'
+          , trackColor: 'rgba(255,255,255,0.2)'
+          , scaleColor: false
+          , lineWidth:  8
+          , size:       140
+          , animate:    2000
+          , onStep: function (from, to, percent) {
+              this.el.children[0].innerHTML = Math.round(percent);
+            }
+        });
+        // $(this).unbind('inview');
+      }
     });
 
 
 
     // -------------------------------------------------------------
-    //  Shuffle
+    //  Portfolio
     // -------------------------------------------------------------
 
     (function () {
 
-        var $grid   =   $('#og-grid');
+      var $grid = $('#og-grid');
 
-        $grid.shuffle({
-            itemSelector:   '.portfolio-item'
-        });
+      $grid.shuffle({
+        itemSelector: '.portfolio-item'
+      });
 
-        /* reshuffle when user clicks a filter item */
-        $('#filter a').click(function (e) {
-            e.preventDefault();
+      /* reshuffle when user clicks a filter item */
+      $('#filter a').click(function (e) {
+        e.preventDefault();
 
-            //  set active class
-            $('#filter a').removeClass('active');
-            $(this).addClass('active');
+        //  set active class
+        $('#filter a').removeClass('active');
+        $(this).addClass('active');
 
-            //  get group name from clicked item
-            var groupName   =   $(this).attr('data-group');
+        //  get group name from clicked item
+        var groupName = $(this).attr('data-group');
 
-            //  reshuffle grid
-            $grid.shuffle('shuffle', groupName);
-        });
+        //  reshuffle grid
+        $grid.shuffle('shuffle', groupName);
+      });
 
     }());
 
@@ -198,28 +198,27 @@ jQuery(function ($) {
     // -------------------------------------------------------------
 
     (function () {
-        $('.image-link').magnificPopup({
-            gallery: {
-                enabled:    true
-            }
-          , removalDelay:   300             // Delay in milliseconds before popup is removed
-          , mainClass:      'mfp-with-zoom' // this class is for CSS animation below
-          , type:           'image'
-        });
+      $('.image-link').magnificPopup({
+          gallery: {
+            enabled:    true
+          }
+        , removalDelay:   300             // Delay in milliseconds before popup is removed
+        , mainClass:      'mfp-with-zoom' // this class is for CSS animation below
+        , type:           'image'
+      });
     }());
 
 
     (function () {
-        $('.popup-video').magnificPopup({
-            disableOn:          700
-          , type:               'iframe'
-          , mainClass:          'mfp-with-zoom'
-          , removalDelay:       300
-          , preloader:          false
-          , fixedContentPos:    false
-        });
+      $('.popup-video').magnificPopup({
+          disableOn:          700
+        , type:               'iframe'
+        , mainClass:          'mfp-with-zoom'
+        , removalDelay:       300
+        , preloader:          false
+        , fixedContentPos:    false
+      });
     }());
-
 
 
     // -------------------------------------------------------------
@@ -227,7 +226,7 @@ jQuery(function ($) {
     // -------------------------------------------------------------
 
     (function () {
-        $('.video-container').fitVids();
+      $('.video-container').fitVids();
     }());
 
 
@@ -235,10 +234,12 @@ jQuery(function ($) {
     // -------------------------------------------------------------
     //  Vidio auto play
     // -------------------------------------------------------------
-/*  (function () {
+/*
+  (function () {
 
         /* Vimeo API: http://developer.vimeo.com/player/js-api */
-/*      var iframe = document.getElementById('nofocusvideo');
+/*
+      var iframe = document.getElementById('nofocusvideo');
         // $f == Froogaloop
         var player = $f(iframe);
 
@@ -260,14 +261,14 @@ jQuery(function ($) {
 
     $(window).load(function () {
 
-        if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 
-        } else {
-            $.stellar({
-                horizontalScrolling:    false
-              , responsive:             true
-            });
-        }
+      } else {
+        $.stellar({
+            horizontalScrolling:  false
+          , responsive:           true
+        });
+      }
 
     });
 
@@ -279,21 +280,21 @@ jQuery(function ($) {
 
     (function () {
 
-        new WOW({
-            boxClass:           'wow'       //  animated element css class (default is wow)
-          , animateClass:       'animated'  //  animation css class (default is animated)
-          , offset:             0           //  distance to the element when triggering the animation (default is 0)
-          , mobile:             true        //  trigger animations on mobile devices (default is true)
-          , live:               true        //  act on asynchronously loaded content (default is true)
-          , scrollContainer:    null        //  optional scroll container selector, otherwise use window,
-          , resetAnimation:     true        //  reset animation on end (default is true)
-          , callback:   function (box) {
-                //  the callback is fired every time an animation is started
-                //  the argument that is passed in is the DOM node being animated
-                //  console.log('WOW: animating <' + box.tagName.toLowerCase() + '>');
-                //  console.log('WOW: animating box:', box.tagName.toLowerCase() + '.' + box.className);
-            }
-        }).init();
+      new WOW({
+          boxClass:         'wow'       //  animated element css class (default is wow)
+        , animateClass:     'animated'  //  animation css class (default is animated)
+        , offset:           0           //  distance to the element when triggering the animation (default is 0)
+        , mobile:           true        //  trigger animations on mobile devices (default is true)
+        , live:             true        //  act on asynchronously loaded content (default is true)
+        , scrollContainer:  null        //  optional scroll container selector, otherwise use window,
+        , resetAnimation:   false       //  reset animation on end (default is true)
+        , callback:   function (box) {
+            //  the callback is fired every time an animation is started
+            //  the argument that is passed in is the DOM node being animated
+            //  console.log('WOW: animating <' + box.tagName.toLowerCase() + '>');
+            //  console.log('WOW: animating box:', box.tagName.toLowerCase() + '.' + box.className);
+          }
+      }).init();
 
     }());
 
@@ -305,26 +306,26 @@ jQuery(function ($) {
 
     $('#contactForm').on('submit', function (e) {
 
-        e.preventDefault();
+      e.preventDefault();
 
-        var $action =   $(this).prop('action');
-        var $data   =   $(this).serialize();
-        var $this   =   $(this);
+      var $action = $(this).prop('action');
+      var $data   = $(this).serialize();
+      var $this   = $(this);
 
-        $this.prevAll('.alert').remove();
+      $this.prevAll('.alert').remove();
 
-        $.post($action, $data, function ( data ) {
+      $.post($action, $data, function ( data ) {
 
-            if ('error' == data.response) {
-                $this.before('<div class="alert alert-danger">' + data.message + '</div>');
-            }
+        if ('error' == data.response) {
+          $this.before('<div class="alert alert-danger">' + data.message + '</div>');
+        }
 
-            if ('success' == data.response) {
-                $this.before('<div class="alert alert-success">' + data.message + '</div>');
-                $this.find('input, textarea').val('');
-            }
+        if ('success' == data.response) {
+          $this.before('<div class="alert alert-success">' + data.message + '</div>');
+          $this.find('input, textarea').val('');
+        }
 
-        }, 'json');
+      }, 'json');
 
     });
 
@@ -334,68 +335,69 @@ jQuery(function ($) {
     //  Google Map
     // -------------------------------------------------------------
 
-/*     (function () {
-        var myLatlng    =   new google.maps.LatLng(50.434932, 30.4906848);
-        var styles = [
-            {   featureType:    'landscape'
-              , stylers: [
-                    {color: '#f7f7f7'}
-                ]
-            }
-          , {   featureType:    'natural'
-              , stylers: [
-                    {hue:   '#00ffe6'}
-                ]
-            }
-          , {   featureType:    'road'
-              , stylers: [
-                    {hue:           '#fff'}
-                  , {saturation:    -70}
-                ]
-            }
-          , {   featureType:    'building'
-              , elementType:    'labels'
-              , stylers: [
-                    {hue: ''}
-                ]
-            }
-          , {   featureType:    'poi'   // points of interest
-              , stylers: [
-                    {hue: ''}
-                ]
-            }
-        ];
+    (function () {
+      var myLatlng, styles, mapOptions, map, marker, contentString, infowindow;
 
-        var mapOptions  =   {
-            zoom:               15
-          , scrollwheel:        false
-          , center:             myLatlng
-          , mapTypeId:          google.maps.MapTypeId.ROADMAP
-          , disableDefaultUI:   true
-          , styles:             styles
-        };
+      myLatlng = new google.maps.LatLng(50.436336, 30.488619);
 
-        var map =   new google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
+      styles = [
+        {   featureType: 'landscape'
+          , stylers: [
+              {color: '#f7f7f7'}
+            ]
+        }
+      , {   featureType: 'natural'
+          , stylers: [
+              {hue: '#00ffe6'}
+            ]
+        }
+      , {   featureType: 'road'
+          , stylers: [
+                {hue:        '#fff'}
+              , {saturation: -70}
+            ]
+        }
+      , {   featureType: 'building'
+          , elementType: 'labels'
+          , stylers: [
+              {hue: ''}
+            ]
+        }
+      , {   featureType: 'poi'   // points of interest
+          , stylers: [
+              {hue: ''}
+            ]
+        }
+      ];
 
-        var marker = new google.maps.Marker({
-            position:   myLatlng
-          , map:        map
-          , animation:  google.maps.Animation.DROP
-          , title:      'Google Maps'
-        });
+      mapOptions  =   {
+          zoom:               10
+        , scrollwheel:        false
+        , center:             myLatlng
+        , mapTypeId:          google.maps.MapTypeId.ROADMAP
+        , disableDefaultUI:   true
+        , styles:             styles
+      };
 
-        var contentString   =   ''
-                            +   ''
-                            +   '';
+      map = new google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
 
-        var infowindow  =   new google.maps.InfoWindow({
-            content:    contentString
-        });
+      marker = new google.maps.Marker({
+          position:   myLatlng
+        , map:        map
+        , animation:  google.maps.Animation.DROP
+        , title:      'Somewhere in the Kyiv'
+      });
 
-        google.maps.event.addListener(marker, 'click', function () {
-            infowindow.open(map, marker);
-        });
+      contentString = 'Hello' + ' ' + 'Visitor!';
 
-    }()); */
+      infowindow = new google.maps.InfoWindow({
+        content: contentString
+      });
+
+      google.maps.event.addListener(marker, 'click', function () {
+        infowindow.open(map, marker);
+      });
+
+    }());
 
 });
