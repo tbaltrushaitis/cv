@@ -23,12 +23,12 @@ const modConfigFile = `config/${path.join(modPath, modName)}.json`;
 const modConfig = require('read-config')(modConfigFile);
 
 
-//--------------//
-//  EXPORTS     //
-//--------------//
+//  ------------------------------------------------------------------------  //
+//  -------------------------------  EXPORTS  ------------------------------  //
+//  ------------------------------------------------------------------------  //
 
 module.exports = function (gulp) {
-  console.log(`[${new Date().toISOString()}][${modPath}/${modName}] INSTANCE ACTIVATED with modConfig = [${utin(modConfig)}]`);
+  console.log(`[${new Date().toISOString()}][${modPath}/${modName}] ACTIVATED with modConfig = [${utin(modConfig)}]`);
 
   return  gulp.src('')
             .pipe(dirSync(
