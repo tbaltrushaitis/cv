@@ -385,7 +385,7 @@ jQuery(function ($) {
           position:   myLatlng
         , map:        map
         , animation:  google.maps.Animation.DROP
-        , title:      'Somewhere in the Kyiv'
+        , title:      'Somewhere in Kyiv'
       });
 
       contentString = 'Hello' + ' ' + 'Visitor!';
