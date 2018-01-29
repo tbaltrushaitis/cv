@@ -1,5 +1,5 @@
 {   "name":     "cv"
-  , "version":  "0.1.1"
+  , "version":  "0.1.2"
   , "title":    "CV, Resume, Portfolio, Skills Site"
   , "description":  "CV, Resume, Portfolio, Skills, Bio, All-In-One Page Site"
   , "homepage": "https://github.com/tbaltrushaitis/cv"
@@ -42,55 +42,55 @@
       , "cv-template"
       , "portfolio"
       , "portfolio-website"
+      , "portfolio-template"
       , "resume"
       , "skills"
       , "skill-demo"
     ]
-  , "dependencies": {
-    }
+  , "dependencies": {}
   , "devDependencies": {
-        "bower":                "^1.8.2"
-      , "dateformat":           "^3.0.2"
-      , "del":                  "^3.0.0"
-      , "gulp":                 "^3.9.1"
-      , "gulp-add-src":         "^0.2.0"
-      , "gulp-changed":         "^3.1.0"
-      , "gulp-chmod":           "^2.0.0"
-      , "gulp-chown":           "^1.1.0"
-      , "gulp-clean-css":       "^3.0.4"
-      , "gulp-concat":          "^2.6.0"
-      , "gulp-concat-css":      "^2.3.0"
-      , "gulp-data":            "^1.2.1"
-      , "gulp-directory-sync":  "^1.2.3"
-      , "gulp-exec":            "^2.1.2"
-      , "gulp-file-include":    "^2.0.0"
-      , "gulp-filter":          "^5.0.0"
-      , "gulp-gzip":            "^1.4.0"
-      , "gulp-headerfooter":    "^1.0.3"
-      , "gulp-if":              "^2.0.1"
-      , "gulp-jscs":            "^4.0.0"
-      , "gulp-jshint":          "^2.0.1"
-      , "gulp-minify-css":      "^1.2.4"
-      , "gulp-newer":           "^1.2.0"
-      , "gulp-rename":          "^1.2.2"
-      , "gulp-replace":         "^0.6.1"
-      , "gulp-require-tasks":   "^1.2.1"
-      , "gulp-sequence":        "^0.4.6"
-      , "gulp-template":        "^4.0.0"
-      , "gulp-uglify":          "^3.0.0"
-      , "gulp-util":            "^3.0.8"
-      , "gulp-watch":           "^4.3.9"
-      , "jquery":               "^2.2.4"
-      , "jshint":               "^2.9.3"
-      , "jshint-stylish":       "^2.2.1"
-      , "lodash":               "^4.17.4"
-      , "main-bower-files":     "^2.13.1"
-      , "merge-stream":         "^1.0.0"
-      , "minimist":             "^1.2.0"
-      , "nconf":                "^0.9.1"
-      , "read-config":          "^2.0.0"
-      , "vinyl-paths":          "^2.1.0"
-      , "underscore":           "^1.8.3"
+        "bower":               "^1.8.2"
+      , "dateformat":          "^3.0.2"
+      , "del":                 "^3.0.0"
+      , "gulp":                "^3.9.1"
+      , "gulp-add-src":        "^0.2.0"
+      , "gulp-changed":        "^3.2.0"
+      , "gulp-chmod":          "^2.0.0"
+      , "gulp-chown":          "^2.0.0"
+      , "gulp-clean-css":      "^3.9.2"
+      , "gulp-concat":         "^2.6.0"
+      , "gulp-concat-css":     "^3.0.0"
+      , "gulp-data":           "^1.3.1"
+      , "gulp-directory-sync": "^1.2.3"
+      , "gulp-exec":           "^3.0.1"
+      , "gulp-file-include":   "^2.0.1"
+      , "gulp-filter":         "^5.1.0"
+      , "gulp-gzip":           "^1.4.2"
+      , "gulp-headerfooter":   "^1.0.3"
+      , "gulp-if":             "^2.0.1"
+      , "gulp-jscs":           "^4.1.0"
+      , "gulp-jshint":         "^2.1.0"
+      , "gulp-minify-css":     "^1.2.4"
+      , "gulp-newer":          "^1.4.0"
+      , "gulp-rename":         "^1.2.2"
+      , "gulp-replace":        "^0.6.1"
+      , "gulp-require-tasks":  "^1.2.1"
+      , "gulp-sequence":       "^1.0.0"
+      , "gulp-template":       "^5.0.0"
+      , "gulp-uglify":         "^3.0.0"
+      , "gulp-util":           "^3.0.8"
+      , "gulp-watch":          "^5.0.0"
+      , "jquery":              "^3.3.1"
+      , "jshint":              "^2.9.3"
+      , "jshint-stylish":      "^2.2.1"
+      , "lodash":              "^4.17.4"
+      , "main-bower-files":    "^2.13.1"
+      , "merge-stream":        "^1.0.0"
+      , "minimist":            "^1.2.0"
+      , "nconf":               "^0.10.0"
+      , "read-config":         "^2.0.0"
+      , "vinyl-paths":         "^2.1.0"
+      , "underscore":          "^1.8.3"
     }
   , "outdatedDependencies": {
     }
@@ -98,18 +98,18 @@
       "bower": {
           "debugging": true
         , "paths": {
-              "bowerDirectory":   "bower_modules"
-            , "bowerrc":          ".bowerrc"
-            , "bowerJson":        "bower.json"
+              "bowerDirectory": "bower_modules"
+            , "bowerrc":        ".bowerrc"
+            , "bowerJson":      "bower.json"
           }
       }
     , "clean": {
-        "debug":            true
-      , "processImport":    true
+        "debug":         true
+      , "processImport": true
       }
     , "exec": {
-          "continueOnError":  false
-        , "pipeStdout":       false
+          "continueOnError": false
+        , "pipeStdout":      false
       }
     , "file": {
           "encoding": "utf8"
@@ -129,46 +129,46 @@
       }
     , "uglify": {
         "compress": {
-            "sequences":        true
-          , "properties":       true
-          , "dead_code":        true
-          , "drop_debugger":    true
-          , "unsafe":           false
-          , "conditionals":     true
-          , "comparisons":      true
-          , "evaluate":         true
-          , "booleans":         true
-          , "loops":            true
-          , "unused":           true
-          , "hoist_funs":       true
-          , "hoist_vars":       false
-          , "if_return":        true
-          , "join_vars":        true
-          , "cascade":          true
-          , "side_effects":     true
-          , "warnings":         true
-          , "global_defs":      {}
+            "sequences":     true
+          , "properties":    true
+          , "dead_code":     true
+          , "drop_debugger": true
+          , "unsafe":        false
+          , "conditionals":  true
+          , "comparisons":   true
+          , "evaluate":      true
+          , "booleans":      true
+          , "loops":         true
+          , "unused":        true
+          , "hoist_funs":    true
+          , "hoist_vars":    false
+          , "if_return":     true
+          , "join_vars":     true
+          , "cascade":       true
+          , "side_effects":  true
+          , "warnings":      true
+          , "global_defs":   {}
         }
-      , "mangle":   false
+      , "mangle": false
       , "output": {
-            "indent_start":     0
-          , "indent_level":     4
-          , "quote_keys":       false
-          , "ascii_only":       false
-          , "inline_script":    false
-          , "width":            80
-          , "max_line_len":     32000
-          , "beautify":         false
-          , "source_map":       null
-          , "bracketize":       false
-          , "comments":         false
-          , "semicolons":       true
+            "indent_start":  0
+          , "indent_level":  4
+          , "quote_keys":    false
+          , "ascii_only":    false
+          , "inline_script": false
+          , "width":         80
+          , "max_line_len":  32000
+          , "beautify":      false
+          , "source_map":    null
+          , "bracketize":    false
+          , "comments":      false
+          , "semicolons":    true
         }
       }
     , "watch": {
-        "ignoreInitial":    false
-      , "verbose":          true
-      , "readDelay":        100
+        "ignoreInitial": false
+      , "verbose":       true
+      , "readDelay":     100
       }
     , "iopts": {
           "showHidden": false
@@ -176,6 +176,5 @@
         , "colors":     true
       }
     }
-  , "jshintConfig": {
-    }
+  , "jshintConfig": {}
 }

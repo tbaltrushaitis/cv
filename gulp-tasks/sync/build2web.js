@@ -1,6 +1,7 @@
 /*!
+ * Project:     cv
  * File:        ./gulp-tasks/sync/build2web.js
- * Copyright(c) 2016-2017 Baltrushaitis Tomas
+ * Copyright(c) 2016-2018 Baltrushaitis Tomas
  * License:     MIT
  */
 

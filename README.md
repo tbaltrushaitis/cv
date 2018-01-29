@@ -18,14 +18,14 @@ See it in action :point_right: [Portfolio Site](http://bit.ly/tomascv)
 ## :runner: Usage ##
 
 ### 1. :briefcase: Download ###
-```bash
+```shell
 $ git clone https://github.com/tbaltrushaitis/cv.git cv && cd cv
 ```
 
 ---
 
 ### 2. :wrench: Setup ###
-```bash
+```shell
 $ make
 ```
 
@@ -45,13 +45,13 @@ Post a link to your CV on a sites you need a profile page that provide a lots ab
 
 ## :octocat: Credits ##
 
- Name | Version | Description
-:-----|:-------:|:------------
+| Name | Version | Description |
+:------|:-------:|:------------|
 [animate.css](http://daneden.github.io/animate.css/) | 3.5.2 | A cross-browser library of CSS animations
 [normalize.css](http://necolas.github.io/normalize.css/) | 7.0.0 | A modern alternative to CSS resets
 [FontAwesome](http://fontawesome.io/) | 4.7.0 | The iconic Font and CSS toolkit
 [Bootstrap](http://getbootstrap.com) | 3.3.7 | Front-end framework for developing responsive, mobile first projects on the web
-[jQuery](http://jquery.com/) | 2.2.4 | JavaScript Library
+[jQuery](http://jquery.com/) | 3.3.1 | JavaScript Library
 [noty](http://ned.im/noty) | 2.4.1 | Notification library
 [waypoints](https://github.com/imakewebthings/waypoints) | 4.0.1 | Easily execute a function when you scroll to an element
 [wow.js](https://wowjs.uk/) | 1.3.0 | Reveal CSS animation as you scroll down a page
@@ -66,6 +66,10 @@ Post a link to your CV on a sites you need a profile page that provide a lots ab
 ---
 
 ## :memo: Change log ##
+
+**v0.1.2:**
+- [x] Updated jQuery to v3.3.1 due to critical vulnerability
+- [x] Updated versions of few packages
 
 **v0.1.1:**
 - [x] Makefile included
