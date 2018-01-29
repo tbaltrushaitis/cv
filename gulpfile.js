@@ -95,11 +95,6 @@ ME.BOWER  = JSON.parse(fs.existsSync('./.bowerrc') ? fs.readFileSync('./.bowerrc
 utin.defaultOptions = _.extend({}, ME.pkg.options.iopts);
 
 console.log(`\n`);
-// console.log(`ME.NODE_ENV (${typeof ME.NODE_ENV}) = [${utin(ME.NODE_ENV)}]`);
-// console.log(`ME.version (${typeof ME.version}) = [${utin(ME.version)}]`);
-// console.log(`ME.VERSION (${typeof ME.VERSION}) = [${utin(ME.VERSION)}]`);
-// console.log(`ME.COMMIT (${typeof ME.COMMIT}) = [${utin(ME.COMMIT)}]`);
-// console.log(`ME.config (${typeof ME.config}) = [${utin(ME.config)}]`);
 console.log(`ME (${typeof ME}) = [${utin(ME)}]`);
 console.log(`\n`);
 
@@ -149,9 +144,9 @@ console.log('\n');
 //-------//
 
 gulpTasks({
-    path:       process.cwd() + '/gulp-tasks'
-  , separator:  ':'
-  , passGulp:   true
+    path:      process.cwd() + '/gulp-tasks'
+  , separator: ':'
+  , passGulp:  true
 });
 
 //  ENV ROUTER
@@ -161,7 +156,6 @@ gulp.task('default', function () {
   (function () {
     switch (ME.NODE_ENV) {
       case 'test': {
-        // gulpSequence('lint')();
         return ['test'];
         break;
       }
@@ -195,7 +189,6 @@ gulp.task('build:dev', [
   gulp.start('build:assets');
 });
 
-// gulp.task('build', gulpSequence(
 gulp.task('build', [
     'bower'
   , 'sync:src2build'
@@ -208,7 +201,6 @@ gulp.task('dist', ['clean:dist'], function () {
 });
 gulp.task('deploy',   ['sync:build2web']);
 gulp.task('watch',    ['watch:src:views', 'watch:src:css', 'watch:src:js']);
-
 
 
 //  WATCHERS
@@ -246,7 +238,6 @@ gulp.task('bower', function () {
     , group:  ['front']
   });
 
-  //var KEEP = path.join(BUILD, 'resources/bower');
   let DEST = path.join(ME.BUILD, 'assets');
   let KEEP = path.join(ME.BUILD, 'resources/assets');
   let JS   = path.join('js/lib');
@@ -331,9 +322,6 @@ gulp.task('bower', function () {
       return Promise.resolve();
     }))
     .pipe(gulp.dest(path.join(DEST, IMG)));
-    // .pipe(changed(path.resolve(KEEP, IMG)))
-    // .pipe(gulp.dest(path.resolve(KEEP, IMG)))
-    // .pipe(gulp.dest(path.resolve(DEST, IMG)));
 
   return merge(bowerJS, bowerCSS, bowerFonts, bowerImg);
 });
@@ -375,10 +363,9 @@ gulp.task('build:js', function () {
 });
 
 
-
 //  LINTERS
 gulp.task('jscs', function () {
-  return  gulp.src([
+  return gulp.src([
         path.join(ME.SRC, 'src/assets/js/', '*.js')
       , path.join(ME.SRC, 'src/assets/js/app', '**/*.js')
     ])
@@ -386,7 +373,7 @@ gulp.task('jscs', function () {
     .pipe(jscs.reporter());
 });
 gulp.task('jshint', function () {
-  return  gulp.src([
+  return gulp.src([
         path.join(ME.SRC, 'src/assets/js/', '*.js')
       , path.join(ME.SRC, 'src/assets/js/app', '**/*.js')
     ])
@@ -399,10 +386,9 @@ gulp.task('jshint', function () {
 });
 
 
-
 //  Log file paths in the stream
 gulp.task('files:src', function () {
-  return  gulp.src([
+  return gulp.src([
       path.join(ME.SRC, '**/*')
     , path.join(ME.SRC, '**/*.*')
     , path.join(ME.SRC, '**/.*')

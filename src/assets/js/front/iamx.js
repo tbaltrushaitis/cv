@@ -24,9 +24,9 @@ jQuery(function ($) {
 
     'use strict';
 
-    /* ---------------------------------------------- /*
+    /* ---------------------------------------------------------------------- /*
      *  Preloader
-    /* ---------------------------------------------- */
+    /* ---------------------------------------------------------------------- */
 
     $(window).ready(function () {
       $('#pre-status').fadeOut();
@@ -35,9 +35,9 @@ jQuery(function ($) {
 
 
 
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
     //  Animated scrolling / Scroll Up
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
     (function () {
       $('a[href*="#"]').bind('click', function (e) {
@@ -51,9 +51,9 @@ jQuery(function ($) {
 
 
 
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
     //  Full Screen Slider
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
     (function () {
       $('.tt-fullHeight').height($(window).height());
@@ -65,9 +65,9 @@ jQuery(function ($) {
 
 
 
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
     //  Sticky Menu
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
     (function () {
       $('.header').sticky({
@@ -82,9 +82,9 @@ jQuery(function ($) {
 
 
 
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
     //  Back To Top
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
     (function () {
       $(window).scroll(function () {
@@ -98,9 +98,9 @@ jQuery(function ($) {
 
 
 
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
     //  Countup
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
     $('.count-wrap').bind('inview', function (event, visible, visiblePartX, visiblePartY) {
       if (visible) {
@@ -120,9 +120,9 @@ jQuery(function ($) {
 
 
 
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
     //  Progress Bar
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
     $('.skill-progress').bind('inview', function (event, visible, visiblePartX, visiblePartY) {
       if (visible) {
@@ -136,9 +136,9 @@ jQuery(function ($) {
 
 
 
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
     //  More skill
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
     $('.more-skill').bind('inview', function (event, visible, visiblePartX, visiblePartY) {
       if (visible) {
@@ -162,9 +162,9 @@ jQuery(function ($) {
 
 
 
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
     //  Portfolio
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
     (function () {
 
@@ -193,37 +193,37 @@ jQuery(function ($) {
 
 
 
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
     //  Magnific Popup
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
     (function () {
       $('.image-link').magnificPopup({
           gallery: {
-            enabled:    true
+            enabled: true
           }
-        , removalDelay:   300             // Delay in milliseconds before popup is removed
-        , mainClass:      'mfp-with-zoom' // this class is for CSS animation below
-        , type:           'image'
+        , removalDelay: 300             // Delay in milliseconds before popup is removed
+        , mainClass:    'mfp-with-zoom' // this class is for CSS animation below
+        , type:         'image'
       });
     }());
 
 
     (function () {
       $('.popup-video').magnificPopup({
-          disableOn:          700
-        , type:               'iframe'
-        , mainClass:          'mfp-with-zoom'
-        , removalDelay:       300
-        , preloader:          false
-        , fixedContentPos:    false
+          disableOn:       700
+        , type:            'iframe'
+        , mainClass:       'mfp-with-zoom'
+        , removalDelay:    300
+        , preloader:       false
+        , fixedContentPos: false
       });
     }());
 
 
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
     //  Fit Vids
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
     (function () {
       $('.video-container').fitVids();
@@ -231,35 +231,36 @@ jQuery(function ($) {
 
 
 
-    // -------------------------------------------------------------
-    //  Vidio auto play
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
+    //  Video auto play
+    // -------------------------------------------------------------------------
 /*
   (function () {
 
-        /* Vimeo API: http://developer.vimeo.com/player/js-api */
+    /* Vimeo API: http://developer.vimeo.com/player/js-api */
 /*
-      var iframe = document.getElementById('nofocusvideo');
-        // $f == Froogaloop
-        var player = $f(iframe);
+    var iframe = document.getElementById('nofocusvideo');
+      // $f == Froogaloop
+      var player = $f(iframe);
 
-        $('.modal').on('hidden.bs.modal', function () {
-            player.api('pause');
-        })
+      $('.modal').on('hidden.bs.modal', function () {
+        player.api('pause');
+      })
 
-        $('.modal').on('shown.bs.modal', function () {
-            player.api('play');
-        })
-    }());
+      $('.modal').on('shown.bs.modal', function () {
+        player.api('play');
+      })
+
+  }());
 */
 
 
-
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
     //  STELLAR FOR BACKGROUND SCROLLING
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
-    $(window).load(function () {
+    // $(window).load(function () {
+    $(window).ready(function () {
 
       if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 
@@ -274,21 +275,21 @@ jQuery(function ($) {
 
 
 
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
     //  WOW JS
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
     (function () {
 
       new WOW({
-          boxClass:         'wow'       //  animated element css class (default is wow)
-        , animateClass:     'animated'  //  animation css class (default is animated)
-        , offset:           0           //  distance to the element when triggering the animation (default is 0)
-        , mobile:           true        //  trigger animations on mobile devices (default is true)
-        , live:             true        //  act on asynchronously loaded content (default is true)
-        , scrollContainer:  null        //  optional scroll container selector, otherwise use window,
-        , resetAnimation:   false       //  reset animation on end (default is true)
-        , callback:   function (box) {
+          boxClass:        'wow'       //  animated element css class (default is wow)
+        , animateClass:    'animated'  //  animation css class (default is animated)
+        , offset:          0           //  distance to the element when triggering the animation (default is 0)
+        , mobile:          true        //  trigger animations on mobile devices (default is true)
+        , live:            true        //  act on asynchronously loaded content (default is true)
+        , scrollContainer: null        //  optional scroll container selector, otherwise use window,
+        , resetAnimation:  false       //  reset animation on end (default is true)
+        , callback: function (box) {
             //  the callback is fired every time an animation is started
             //  the argument that is passed in is the DOM node being animated
             //  console.log('WOW: animating <' + box.tagName.toLowerCase() + '>');
@@ -299,10 +300,9 @@ jQuery(function ($) {
     }());
 
 
-
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
     //  Contact Form
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
     $('#contactForm').on('submit', function (e) {
 
@@ -314,7 +314,7 @@ jQuery(function ($) {
 
       $this.prevAll('.alert').remove();
 
-      $.post($action, $data, function ( data ) {
+      $.post($action, $data, function (data) {
 
         if ('error' == data.response) {
           $this.before('<div class="alert alert-danger">' + data.message + '</div>');
@@ -331,9 +331,9 @@ jQuery(function ($) {
 
 
 
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
     //  Google Map
-    // -------------------------------------------------------------
+    // -------------------------------------------------------------------------
 
     (function () {
       var myLatlng, styles, mapOptions, map, marker, contentString, infowindow;
@@ -341,55 +341,54 @@ jQuery(function ($) {
       myLatlng = new google.maps.LatLng(50.436336, 30.488619);
 
       styles = [
-        {   featureType: 'landscape'
-          , stylers: [
-              {color: '#f7f7f7'}
-            ]
+        { featureType: 'landscape'
+        , stylers: [
+            {color: '#f7f7f7'}
+          ]
         }
-      , {   featureType: 'natural'
-          , stylers: [
-              {hue: '#00ffe6'}
-            ]
+      , { featureType: 'natural'
+        , stylers: [
+            {hue: '#00ffe6'}
+          ]
         }
-      , {   featureType: 'road'
-          , stylers: [
-                {hue:        '#fff'}
-              , {saturation: -70}
-            ]
+      , { featureType: 'road'
+        , stylers: [
+              {hue:        '#fff'}
+            , {saturation: -70}
+          ]
         }
-      , {   featureType: 'building'
-          , elementType: 'labels'
-          , stylers: [
-              {hue: ''}
-            ]
+      , { featureType: 'building'
+        , elementType: 'labels'
+        , stylers: [
+            {hue: ''}
+          ]
         }
-      , {   featureType: 'poi'   // points of interest
-          , stylers: [
-              {hue: ''}
-            ]
+      , { featureType: 'poi'   // points of interest
+        , stylers: [
+            {hue: ''}
+          ]
         }
       ];
 
-      mapOptions  =   {
-          zoom:               10
-        , scrollwheel:        false
-        , center:             myLatlng
-        , mapTypeId:          google.maps.MapTypeId.ROADMAP
-        , disableDefaultUI:   true
-        , styles:             styles
+      mapOptions = {
+          zoom:             10
+        , scrollwheel:      false
+        , center:           myLatlng
+        , mapTypeId:        google.maps.MapTypeId.ROADMAP
+        , disableDefaultUI: true
+        , styles:           styles
       };
 
       map = new google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
 
       marker = new google.maps.Marker({
-          position:   myLatlng
-        , map:        map
-        , animation:  google.maps.Animation.DROP
-        , title:      'Somewhere in Kyiv'
+          position:  myLatlng
+        , map:       map
+        , animation: google.maps.Animation.DROP
+        , title:     'I@Kyiv'
       });
 
       contentString = 'Hello' + ' ' + 'Visitor!';
-
       infowindow = new google.maps.InfoWindow({
         content: contentString
       });
