@@ -131,9 +131,9 @@ clean-files:
 .PHONY: rights
 
 rights:
-	@ find . -type f -exec chmod 664 {} \;
-	@ find . -type d -exec chmod 775 {} \;
-	@ find . -type f -name "*.sh" -exec chmod a+x {} \;
+	@ find . -type f -exec chmod 664 {} 2>/dev/null \;
+	@ find . -type d -exec chmod 775 {} 2>/dev/null \;
+	@ find . -type f -name "*.sh" -exec chmod a+x {} 2>/dev/null \;
 
 ##  ------------------------------------------------------------------------  ##
 
@@ -148,6 +148,10 @@ build:
 
 deploy:
 	@ NODE_ENV=${APP_ENV}; gulp deploy
+
+# deploy:
+# 	@  cp -prv ${DIR_SRC}/* ./ 		 \
+# 	&& sudo chmod a+x app/bin/*.sh ;
 
 dev:
 	@ NODE_ENV=development gulp build
