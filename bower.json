@@ -1,7 +1,7 @@
-{   "name":         "cv"
-  , "title":        "CV, Resume, Portfolio, Skills Site"
-  , "description":  "CV, Resume, Portfolio, Skills, Bio, All-In-One Page Site"
-  , "version":      "0.1.2"
+{   "name":        "cv"
+  , "title":       "CV, Resume, Portfolio, Skills Site"
+  , "description": "CV, Resume, Portfolio, Skills, Bio, All-In-One Page Site"
+  , "version":     "0.1.2"
   , "authors": [
       "tbaltrushaitis@gmail.com"
     ]
@@ -63,7 +63,7 @@
       "normalize.css": "~4.2.0"
     }
   , "resolutions": {
-      "jquery":   "~3.3.1"
+      "jquery": "~3.3.1"
     }
   , "overrides": {
       "bootstrap": {

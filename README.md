@@ -8,7 +8,7 @@
 
 ### :name_badge: Badges ###
 
-[![Contributors List](https://img.shields.io/github/contributors/tbaltrushaitis/cv.svg)](https://github.com/tbaltrushaitis/cv/graphs/contributors)
+[![Contributors](https://img.shields.io/github/contributors/tbaltrushaitis/cv.svg)](https://github.com/tbaltrushaitis/cv/graphs/contributors)
 
 ## :computer: Live Demo ##
 See it in action :point_right: [Portfolio Site](http://bit.ly/tomascv)
@@ -19,7 +19,7 @@ See it in action :point_right: [Portfolio Site](http://bit.ly/tomascv)
 
 ### 1. :briefcase: Download ###
 ```shell
-$ git clone https://github.com/tbaltrushaitis/cv.git cv && cd cv
+$ git clone https://github.com/tbaltrushaitis/cv.git && cd cv
 ```
 
 ---
