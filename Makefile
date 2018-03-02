@@ -3,31 +3,22 @@
 ##  ------------------------------------------------------------------------  ##
 
 # .SILENT:
-
 .EXPORT_ALL_VARIABLES:
+.IGNORE:
+.ONESHELL:
 
-# .IGNORE:
 ##  ------------------------------------------------------------------------  ##
 
 APP_NAME := cv
+APP_SLOG := "CV+PORTFOLIO"
+APP_LOGO := ./assets/BANNER
+APP_REPO := $(shell git ls-remote --get-url)
 
-REPO_HOST := https://github.com
-REPO_USER := tbaltrushaitis
-REPO_URL := $(shell git ls-remote --get-url)
-GIT_COMMIT := $(shell git rev-list --remove-empty --remotes --max-count=1 --date-order --reverse)
-
-APP_REPO := ${REPO_HOST}/${REPO_USER}/${APP_NAME}.git
-APP_ENV := $(shell cat NODE_ENV)
+APP_ENV := $(shell cat ./NODE_ENV)
 CODE_VERSION := $(shell cat ./VERSION)
-APP_BANNER := $(shell cat ./assets/BANNER)
-APP_BRANCH := dev
 
+GIT_COMMIT := $(shell git rev-list --remove-empty --remotes --max-count=1 --date-order --reverse)
 WD := $(shell pwd -P)
-APP_DIRS := $(addprefix ${WD}/,build-* dist-* webroot)
-APP_SRC := ${WD}/src
-APP_BUILD := ${WD}/build-${CODE_VERSION}
-APP_DIST := ${WD}/dist-${CODE_VERSION}
-
 DT = $(shell date +'%Y%m%d%H%M%S')
 
 include ./bin/.bash_colors
@@ -43,8 +34,9 @@ endif
 DIR_SRC := ${WD}/src
 DIR_BUILD := ${WD}/build-${CODE_VERSION}
 DIR_DIST := ${WD}/dist-${CODE_VERSION}
-DIR_COMMIT := ${GIT_COMMIT}
 DIR_WEB := ${WD}/webroot
+
+APP_DIRS := $(addprefix ${WD}/,build-* dist-* webroot)
 
 ##  ------------------------------------------------------------------------  ##
 # Query the default goal.
@@ -77,19 +69,12 @@ test: banner state help banner;
 .PHONY: clone
 
 clone:
-	@  git clone -b ${APP_BRANCH} ${APP_REPO} 	\
-	&& cd ${APP_NAME} 	\
-	&& git pull 	\
-	&& find . -type f -exec chmod 664 {} \; 	\
-	&& find . -type d -exec chmod 775 {} \; 	\
+	@  git clone ${APP_REPO} ${APP_NAME} \
+	&& cd ${APP_NAME} \
+	&& git pull \
+	&& find . -type f -exec chmod 664 {} \; \
+	&& find . -type d -exec chmod 775 {} \; \
 	&& find . -type f -name "*.sh" -exec chmod 755 {} \;
-
-##  ------------------------------------------------------------------------  ##
-
-.PHONY: banner
-
-banner:
-	@ [ -s ./assets/BANNER ] && cat ./assets/BANNER;
 
 ##  ------------------------------------------------------------------------  ##
 
