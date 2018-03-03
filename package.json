@@ -19,7 +19,7 @@
   , "os":  ["linux"]
   , "main": "gulpfile.js"
   , "scripts": {
-        "preinstall": "npm i -g versionn@1.0.2"
+        "preinstall": "npm i -g versionn"
       , "start":    "./setup.sh"
       , "test":     "./setup.sh test"
       , "setup":    "./setup.sh prepare"
@@ -144,7 +144,6 @@
           , "hoist_vars":    false
           , "if_return":     true
           , "join_vars":     true
-          , "cascade":       true
           , "side_effects":  true
           , "warnings":      true
           , "global_defs":   {}

@@ -147,7 +147,7 @@ dev:
 
 rebuild: build;
 
-redeploy: rebuild deploy;
+redeploy: rebuild deploy banner;
 
 ##  ------------------------------------------------------------------------  ##
 
