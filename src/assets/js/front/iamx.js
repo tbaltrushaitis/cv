@@ -29,6 +29,8 @@ jQuery(function ($) {
   /* ------------------------------------------------------------------------ */
 
   $(window).ready(function () {
+  // $(document).ready(function () {
+    // console.log('WINDOW___READY');
     $('#pre-status').fadeOut();
     $('#tt-preloader').delay(150).fadeOut('slow');
   });
@@ -170,7 +172,7 @@ jQuery(function ($) {
 
     var $grid = $('#og-grid');
 
-    $grid.shuffle({
+    var shuffleInstance = new Shuffle($grid, {
       itemSelector: '.portfolio-item'
     });
 
@@ -186,7 +188,7 @@ jQuery(function ($) {
       var groupName = $(this).attr('data-group');
 
       //  reshuffle grid
-      $grid.shuffle('shuffle', groupName);
+      shuffleInstance.filter(groupName);
     });
 
   }());
@@ -209,25 +211,25 @@ jQuery(function ($) {
   }());
 
 
-  (function () {
-    $('.popup-video').magnificPopup({
-        disableOn:       700
-      , type:            'iframe'
-      , mainClass:       'mfp-with-zoom'
-      , removalDelay:    300
-      , preloader:       false
-      , fixedContentPos: false
-    });
-  }());
+  // (function () {
+    // $('.popup-video').magnificPopup({
+        // disableOn:       700
+      // , type:            'iframe'
+      // , mainClass:       'mfp-with-zoom'
+      // , removalDelay:    300
+      // , preloader:       false
+      // , fixedContentPos: false
+    // });
+  // }());
 
 
   // ---------------------------------------------------------------------------
   //  Fit Vids
   // ---------------------------------------------------------------------------
 
-  (function () {
-    $('.video-container').fitVids();
-  }());
+  // (function () {
+  //   $('.video-container').fitVids();
+  // }());
 
 
 
@@ -259,20 +261,22 @@ jQuery(function ($) {
   //  STELLAR FOR BACKGROUND SCROLLING
   // ---------------------------------------------------------------------------
 
-  // $(window).load(function () {
-  $(window).ready(function () {
+  $(window).on('load', function () {
+  // $(window).ready(function () {
+    console.log('WINDOW___LOAD');
 
     if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 
     } else {
-      $.stellar({
-          horizontalScrolling:  false
-        , responsive:           true
-      });
+
+      // $.stellar({
+      //     horizontalScrolling: false
+      //   , responsive:          true
+      // });
+
     }
 
   });
-
 
 
   // ---------------------------------------------------------------------------
@@ -305,7 +309,6 @@ jQuery(function ($) {
   // ---------------------------------------------------------------------------
 
   $('#contactForm').on('submit', function (e) {
-
     e.preventDefault();
 
     var $action = $(this).prop('action');
@@ -316,11 +319,11 @@ jQuery(function ($) {
 
     $.post($action, $data, function (data) {
 
-      if ('error' == data.response) {
+      if ('error' === data.response) {
         $this.before('<div class="alert alert-danger">' + data.message + '</div>');
       }
 
-      if ('success' == data.response) {
+      if ('success' === data.response) {
         $this.before('<div class="alert alert-success">' + data.message + '</div>');
         $this.find('input, textarea').val('');
       }

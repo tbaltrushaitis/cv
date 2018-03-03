@@ -19,7 +19,7 @@
   , "os":  ["linux"]
   , "main": "gulpfile.js"
   , "scripts": {
-        "preinstall": "npm i -g versionn@1.0.2"
+        "preinstall": "npm i -g versionn"
       , "start":    "./setup.sh"
       , "test":     "./setup.sh test"
       , "setup":    "./setup.sh prepare"
@@ -50,7 +50,7 @@
   , "dependencies": {}
   , "devDependencies": {
         "bower":               "^1.8.2"
-      , "dateformat":          "^3.0.2"
+      , "dateformat":          "^3.0.3"
       , "del":                 "^3.0.0"
       , "gulp":                "^3.9.1"
       , "gulp-add-src":        "^0.2.0"
@@ -83,7 +83,7 @@
       , "jquery":              "^3.3.1"
       , "jshint":              "^2.9.3"
       , "jshint-stylish":      "^2.2.1"
-      , "lodash":              "^4.17.4"
+      , "lodash":              "^4.17.5"
       , "main-bower-files":    "^2.13.1"
       , "merge-stream":        "^1.0.0"
       , "minimist":            "^1.2.0"
@@ -144,7 +144,6 @@
           , "hoist_vars":    false
           , "if_return":     true
           , "join_vars":     true
-          , "cascade":       true
           , "side_effects":  true
           , "warnings":      true
           , "global_defs":   {}
