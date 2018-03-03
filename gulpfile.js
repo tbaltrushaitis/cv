@@ -248,21 +248,21 @@ gulp.task('bower', function () {
   let bowerJS = gulp.src(mBower)
     .pipe(filter([
         '**/*.js'
-      //, '!**/require.js'
       , '!**/*.min.js'
       , '!**/npm.js'
     ]))
-    .pipe(changed(path.resolve(KEEP, JS)))
+    // .pipe(changed(path.resolve(KEEP, JS)))
     .pipe(gulp.dest(path.resolve(KEEP, JS)))
+    .pipe(gulp.dest(path.resolve(DEST, JS)))
     .pipe(vinylPaths(function (paths) {
       console.info('JS: ', paths);
       return Promise.resolve();
     }))
-    .pipe(concat('bower-bundle.js'))
-    .pipe(gulpif('production' === ME.NODE_ENV, uglify(ME.pkg.options.uglify)))
+    // .pipe(concat('bower-bundle.js'))
+    // .pipe(gulpif('production' === ME.NODE_ENV, uglify(ME.pkg.options.uglify)))
     //  Write banners
-    .pipe(headfoot.header(Banner.header))
-    .pipe(headfoot.footer(Banner.footer))
+    // .pipe(headfoot.header(Banner.header))
+    // .pipe(headfoot.footer(Banner.footer))
     .pipe(gulpif('production' === ME.NODE_ENV, rename({suffix: ME.pkg.options.minify.suffix})))
     .pipe(gulp.dest(path.resolve(DEST, JS)));
 
@@ -276,8 +276,13 @@ gulp.task('bower', function () {
       , "!**/AdminLTE-*.css"
       , "!**/skin-*.css"
     ]))
-    .pipe(changed(path.resolve(KEEP, CSS)))
+    // .pipe(changed(path.resolve(KEEP, CSS)))
     .pipe(gulp.dest(path.resolve(KEEP, CSS)))
+    .pipe(gulp.dest(path.resolve(DEST, CSS)))
+    .pipe(filter([
+        "!**/*.css.map"
+      , "!**/*.css.min.map"
+    ]))
     .pipe(gulpif('production' === ME.NODE_ENV, cleanCSS(ME.pkg.options.clean, function (d) {
       console.info(d.name + ':\t' + d.stats.originalSize + '\t->\t' + d.stats.minifiedSize + '\t[' + d.stats.timeSpent + 'ms]\t[' + 100 * d.stats.efficiency.toFixed(2) + '%]');
     }), false))
@@ -285,17 +290,17 @@ gulp.task('bower', function () {
       console.info('CSS:', paths);
       return Promise.resolve();
     }))
-    .pipe(gulpif('production' === ME.NODE_ENV, concatCSS('bower-bundle.css', {rebaseUrls: false})))
+    // .pipe(gulpif('production' === ME.NODE_ENV, concatCSS('bower-bundle.css', {rebaseUrls: false})))
     //  Write banners
-    .pipe(headfoot.header(Banner.header))
-    .pipe(headfoot.footer(Banner.footer))
+    // .pipe(headfoot.header(Banner.header))
+    // .pipe(headfoot.footer(Banner.footer))
     // Write minified version.
     // .pipe(gulpif('production' === ME.NODE_ENV, minifyCSS()))
-    .pipe(gulpif('production' === ME.NODE_ENV, rename({suffix: ME.pkg.options.minify.suffix})))
+    // .pipe(gulpif('production' === ME.NODE_ENV, rename({suffix: ME.pkg.options.minify.suffix})))
     .pipe(gulp.dest(path.resolve(DEST, CSS)));
 
   let bowerFonts = gulp.src(mBower)
-    .pipe(filter(['*/fonts/**/*.*']))
+    .pipe(filter(['**/fonts/*.*']))
     .pipe(changed(path.resolve(KEEP, FONT)))
     .pipe(gulp.dest(path.resolve(KEEP, FONT)))
     .pipe(vinylPaths(function (paths) {
@@ -315,7 +320,7 @@ gulp.task('bower', function () {
       , '**/*.gif'
       , '**/*.ico'
     ]))
-    .pipe(changed(path.join(KEEP, IMG)))
+    // .pipe(changed(path.join(KEEP, IMG)))
     .pipe(gulp.dest(path.join(KEEP, IMG)))
     .pipe(vinylPaths(function (paths) {
       console.info('IMG:', paths);
@@ -335,15 +340,15 @@ gulp.task('build:css', function () {
   let frontCSS = gulp.src([
       path.join(FROM, '**/*.css')
     ])
-    .pipe(gulpif('production' === ME.NODE_ENV, cleanCSS(ME.pkg.options.clean, function (d) {
-      console.info(d.name + ': ' + d.stats.originalSize + ' -> ' + d.stats.minifiedSize + ' [' + d.stats.timeSpent + 'ms] [' + 100 * d.stats.efficiency.toFixed(2) + '%]');
-    }), false))
-    .pipe(concatCSS('styles-bundle.css', {rebaseUrls: false}))
-    .pipe(minifyCSS())
+    // .pipe(gulpif('production' === ME.NODE_ENV, cleanCSS(ME.pkg.options.clean, function (d) {
+      // console.info(d.name + ': ' + d.stats.originalSize + ' -> ' + d.stats.minifiedSize + ' [' + d.stats.timeSpent + 'ms] [' + 100 * d.stats.efficiency.toFixed(2) + '%]');
+    // }), false))
+    // .pipe(concatCSS('styles-bundle.css', {rebaseUrls: false}))
+    // .pipe(minifyCSS())
     //  Write banners
-    .pipe(headfoot.header(Banner.header))
-    .pipe(headfoot.footer(Banner.footer))
-    .pipe(gulpif('production' === ME.NODE_ENV, rename({suffix: ME.pkg.options.minify.suffix})))
+    // .pipe(headfoot.header(Banner.header))
+    // .pipe(headfoot.footer(Banner.footer))
+    // .pipe(gulpif('production' === ME.NODE_ENV, rename({suffix: ME.pkg.options.minify.suffix})))
     .pipe(gulp.dest(DEST));
 
   return merge(frontCSS);
@@ -354,11 +359,11 @@ gulp.task('build:js', function () {
   return  gulp.src(path.join(ME.BUILD, 'resources/assets/js', '**/*.js'))
     //.pipe(jscs('.jscsrc'))
     //.pipe(jscs.reporter())
-    .pipe(changed(DEST))
-    .pipe(gulpif('production' === ME.NODE_ENV, uglify(ME.pkg.options.uglify), false))
+    // .pipe(changed(DEST))
+    // .pipe(gulpif('production' === ME.NODE_ENV, uglify(ME.pkg.options.uglify), false))
     //  Write banners
-    .pipe(headfoot.header(Banner.header))
-    .pipe(headfoot.footer(Banner.footer))
+    // .pipe(headfoot.header(Banner.header))
+    // .pipe(headfoot.footer(Banner.footer))
     .pipe(gulp.dest(DEST));
 });
 
