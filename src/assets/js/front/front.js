@@ -288,7 +288,7 @@ jQuery(function ($) {
   (function () {
 
     noty({
-        text:    'Content was last updated at 2018-01-28'
+        text:    'Content was last updated at 2018-05-08'
       , timeout: 10000
       , type:    'information'
     });
