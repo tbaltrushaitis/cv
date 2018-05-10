@@ -1,7 +1,8 @@
 # CV, Resume, Portfolio, Skills, Career, Bio, All-In-One Web Site #
 
 [![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg?style=plastic)](https://github.com/conventional-changelog/standard-version)
-[![Dependencies Status](https://david-dm.org/tbaltrushaitis/cv.svg?theme=shields.io)](https://david-dm.org/tbaltrushaitis/cv)
+[![dependencies Status](https://david-dm.org/tbaltrushaitis/cv/status.svg)](https://david-dm.org/tbaltrushaitis/cv)
+[![devDependencies Status](https://david-dm.org/tbaltrushaitis/cv/dev-status.svg)](https://david-dm.org/tbaltrushaitis/cv?type=dev)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/tbaltrushaitis/cv/blob/master/LICENSE)
 [![Contributors](https://img.shields.io/github/contributors/tbaltrushaitis/cv.svg)](https://github.com/tbaltrushaitis/cv/graphs/contributors)
 
