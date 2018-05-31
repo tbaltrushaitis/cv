@@ -264,12 +264,17 @@ ul.list-check li {
   font-size:    18px;
   line-height:  32px;
 }
+
 ul.list-check li::before {
-  content:      "\f00c";
-  font-family:  fontawesome;
-  color:        #68c3a3;
-  margin-right: 10px;
 }
+
+/*ul.list-check li::before {
+  color: #68c3a3;
+  font-family:  fontawesome;
+  font-weight:  400;
+  content:      "\f00c";
+  margin-right: 10px;
+}*/
 
 
 /* === MAIN === */
@@ -310,36 +315,36 @@ ul.list-check li::before {
 }
 
 #home {
-    background: url("../img/home2.jpg") no-repeat center center;
-    background-color: #222;
-    background-size: cover;
-    -webkit-background-attachment: fixed;
-            background-attachment: fixed;
-    padding: 0;
-    position: relative;
+  background: url("../img/home2.jpg") no-repeat center center;
+  background-color: #222;
+  background-size: cover;
+  -webkit-background-attachment: fixed;
+          background-attachment: fixed;
+  padding: 0;
+  position: relative;
 }
 #home:before {
-    content: "";
-    background-color: rgba(26, 30, 35, 0.85);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  content: "";
+  background-color: rgba(26, 30, 35, 0.85);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .intro {
-    position: absolute;
-    width: 100%;
-    top: 50%;
-    left: 0;
-    text-align: center;
-    -webkit-transform: translate(0%, -50%);
-       -moz-transform: translate(0%, -50%);
-        -ms-transform: translate(0%, -50%);
-         -o-transform: translate(0%, -50%);
-            transform: translate(0%, -50%);
-    padding: 0 15px;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  text-align: center;
+  -webkit-transform: translate(0%, -50%);
+     -moz-transform: translate(0%, -50%);
+      -ms-transform: translate(0%, -50%);
+       -o-transform: translate(0%, -50%);
+          transform: translate(0%, -50%);
+  padding: 0 15px;
 }
 
 .intro h1 {
@@ -842,7 +847,8 @@ SOCIAL ICON
   .timeline > li .timeline-panel {
     float: left;
     width: 43%;
-    text-align: right;
+    /*text-align: right;*/
+    text-align: left;
     border: 1px solid #eee;
     position: relative;
   }
