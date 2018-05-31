@@ -28,9 +28,8 @@ jQuery(function ($) {
    *  Preloader
   /* ------------------------------------------------------------------------ */
 
-  $(window).ready(function () {
-  // $(document).ready(function () {
-    // console.log('WINDOW___READY');
+  // $(window).on('load', function () {
+  $(document).ready(function () {
     $('#pre-status').fadeOut();
     $('#tt-preloader').delay(150).fadeOut('slow');
   });
@@ -236,11 +235,11 @@ jQuery(function ($) {
   // ---------------------------------------------------------------------------
   //  Video auto play
   // ---------------------------------------------------------------------------
+
+  /* Vimeo API: http://developer.vimeo.com/player/js-api */
 /*
   (function () {
 
-    /* Vimeo API: http://developer.vimeo.com/player/js-api */
-/*
     var iframe = document.getElementById('nofocusvideo');
       // $f == Froogaloop
       var player = $f(iframe);
@@ -262,8 +261,6 @@ jQuery(function ($) {
   // ---------------------------------------------------------------------------
 
   $(window).on('load', function () {
-  // $(window).ready(function () {
-    console.log('WINDOW___LOAD');
 
     if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 
@@ -310,6 +307,7 @@ jQuery(function ($) {
 
   $('#contactForm').on('submit', function (e) {
     e.preventDefault();
+    console.log('contactForm SUBMIT Action');
 
     var $action = $(this).prop('action');
     var $data   = $(this).serialize();
@@ -401,5 +399,23 @@ jQuery(function ($) {
     });
 
   }());
+
+
+  /* ------------------------------------------------------------------------ /*
+   *  LOAD Indicators
+  /* ------------------------------------------------------------------------ */
+
+  $(window).on('load', function () {
+    console.log('WINDOW___LOAD');
+  });
+
+  $(window).ready(function () {
+    console.log('WINDOW___READY');
+  });
+
+  $(document).ready(function () {
+    console.log('DOCUMENT___READY');
+  });
+
 
 });
