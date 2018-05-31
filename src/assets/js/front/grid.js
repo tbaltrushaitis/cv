@@ -190,9 +190,9 @@ var Grid = (function () {
         , 'msTransition':     'MSTransitionEnd'
         , 'transition':       'transitionend'
       }
-    , transEndEventName   =   transEndEventNames[ Modernizr.prefixed( 'transition' ) ]
+    , transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ]
       // support for csstransitions
-    , support             =   Modernizr.csstransitions
+    , support           = Modernizr.csstransitions
       // default settings
     , settings = {
           'minHeight': 300
@@ -202,16 +202,17 @@ var Grid = (function () {
 
   console.info($grid);
 
-  function init ( config ) {
+  function init (config) {
 
     // the settings..
-    settings  =   $.extend(true, {}, settings, config);
+    // settings  =   $.extend(true, {}, settings, config);
+    settings  = Object.assign({}, settings, config);
 
     // preload all images
-    $grid.imagesLoaded( function () {
+    $grid.imagesLoaded(function () {
 
       // save item´s size and offset
-      saveItemInfo( true );
+      saveItemInfo(true);
       // get window´s size
       getWinSize();
       // initialize some events
@@ -226,17 +227,17 @@ var Grid = (function () {
   // after that call Grid.addItems(theItems);
   function addItems ($newitems) {
 
-    $items = $items.add( $newitems );
+    $items = $items.add($newitems);
 
     $newitems.each(function () {
-      var $item = $( this );
+      var $item = $(this);
       $item.data({
           offsetTop: $item.offset().top
         , height:    $item.height()
       });
     });
 
-    initItemsEvents( $newitems );
+    initItemsEvents($newitems);
 
   }
 
@@ -305,9 +306,9 @@ var Grid = (function () {
 
   function showPreview ($item) {
 
-    var preview = $.data(this, 'preview'),
+    var preview = $.data(this, 'preview');
       // item´s offset top
-      position = $item.data('offsetTop');
+    var position = $item.data('offsetTop');
 
     scrollExtra = 0;
 
@@ -323,7 +324,7 @@ var Grid = (function () {
         hidePreview();
       } else {
         // same row
-        preview.update( $item );
+        preview.update($item);
         return false;
       }
 
@@ -332,7 +333,7 @@ var Grid = (function () {
     // update previewPos
     previewPos = position;
     // initialize new preview for the clicked item
-    preview = $.data( this, 'preview', new Preview( $item ) );
+    preview = $.data(this, 'preview', new Preview($item));
     // expand preview overlay
     preview.open();
 
@@ -340,15 +341,15 @@ var Grid = (function () {
 
   function hidePreview () {
     current = -1;
-    var preview = $.data( this, 'preview' );
+    var preview = $.data(this, 'preview');
     preview.close();
-    $.removeData( this, 'preview' );
+    $.removeData(this, 'preview');
   }
 
   // the preview obj / overlay
-  function Preview ( $item ) {
-    this.$item        =   $item;
-    this.expandedIdx  =   this.$item.index();
+  function Preview ($item) {
+    this.$item        = $item;
+    this.expandedIdx  = this.$item.index();
     this.create();
     this.update();
   }
@@ -400,14 +401,14 @@ var Grid = (function () {
               , description:  $itemEl.data('description')
             };
 
-        this.$title.html( eldata.title );
-        this.$description.html( eldata.description );
-        this.$href.attr( 'href', eldata.href );
+        this.$title.html(eldata.title);
+        this.$description.html(eldata.description);
+        this.$href.attr('href', eldata.href);
 
         var self = this;
 
         // remove the current image in the preview
-        if ('undefined' != typeof self.$largeImg) {
+        if ('undefined' !== typeof self.$largeImg) {
           self.$largeImg.remove();
         }
 
@@ -416,12 +417,12 @@ var Grid = (function () {
         if ( self.$fullimage.is( ':visible' ) ) {
           this.$loading.show();
           $('<img/>').load(function () {
-            var $img = $( this );
-            if ( $img.attr( 'src' ) === self.$item.children('a').data( 'largesrc' ) ) {
+            var $img = $(this);
+            if ($img.attr( 'src' ) === self.$item.children('a').data('largesrc')) {
               self.$loading.hide();
-              self.$fullimage.find( 'img' ).remove();
+              self.$fullimage.find('img').remove();
               self.$largeImg = $img.fadeIn( 350 );
-              self.$fullimage.append( self.$largeImg );
+              self.$fullimage.append(self.$largeImg);
             }
           }).attr('src', eldata.largesrc);
         }
@@ -434,7 +435,7 @@ var Grid = (function () {
           this.setHeights();
           // scroll to position the preview in the right place
           this.positionPreview();
-        }, this ), 25 );
+        }, this), 25);
 
       }
     , close: function () {
@@ -442,41 +443,40 @@ var Grid = (function () {
         var self = this
           , onEndFn = function () {
               if (support) {
-                $(this).off( transEndEventName );
+                $(this).off(transEndEventName);
               }
               self.$item.removeClass('og-expanded');
               self.$previewEl.remove();
             };
 
-        setTimeout($.proxy( function () {
+        setTimeout($.proxy(function () {
 
-          if( typeof this.$largeImg !== 'undefined' ) {
-            this.$largeImg.fadeOut( 'fast' );
+          if ('undefined' !== typeof this.$largeImg) {
+            this.$largeImg.fadeOut('fast');
           }
-          this.$previewEl.css( 'height', 0 );
+          this.$previewEl.css('height', 0);
           // the current expanded item (might be different from this.$item)
-          var $expandedItem = $items.eq( this.expandedIdx );
-          $expandedItem
-            .css( 'height', $expandedItem.data( 'height' ) )
-            .on( transEndEventName, onEndFn );
+          var $expandedItem = $items.eq(this.expandedIdx);
+          $expandedItem.css('height', $expandedItem.data('height'))
+            .on(transEndEventName, onEndFn);
 
-          if ( !support ) {
+          if (!support) {
             onEndFn.call();
           }
 
-        }, this ), 25);
+        }, this), 25);
 
         return false;
 
       }
     , calcHeight: function () {
 
-        var heightPreview = winsize.height - this.$item.data( 'height' ) - marginExpanded,
+        var heightPreview = winsize.height - this.$item.data('height') - marginExpanded,
             itemHeight = winsize.height;
 
         if ( heightPreview < settings.minHeight ) {
           heightPreview = settings.minHeight;
-          itemHeight = settings.minHeight + this.$item.data( 'height' ) + marginExpanded;
+          itemHeight = settings.minHeight + this.$item.data('height') + marginExpanded;
         }
 
         this.height = heightPreview;

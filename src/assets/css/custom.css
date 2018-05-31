@@ -9,3 +9,8 @@
   .grow { transition: all .02s ease-in-out; }
   .grow:hover { transform: scale(1.2); }
 }
+
+ul.list-check li i {
+  color: #68c3a3;
+  margin-right: 5px;
+}

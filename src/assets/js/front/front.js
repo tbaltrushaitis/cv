@@ -5,6 +5,7 @@
  */
 
 jQuery(function ($) {
+
   'use strict';
 
   var defs = {
@@ -228,7 +229,7 @@ jQuery(function ($) {
           , inclass:    'fadeInUp'
           , outclass:   'fadeOutUp'
         }
-      , {   selector:   '#car'
+      , {   selector:   '#career'
           , inclass:    'fadeInUp'
           , outclass:   'fadeOutUp'
         }
@@ -287,10 +288,13 @@ jQuery(function ($) {
 
   (function () {
 
-    noty({
-        text:    'Content was last updated at 2018-05-08'
-      , timeout: 10000
-      , type:    'information'
+    $(window).on('load', function () {
+      console.log('SHOWING INTRO NOTIFICATION');
+      noty({
+          text:    'Content was last updated at 2018-05-30'
+        , timeout: 10000
+        , type:    'information'
+      });
     });
 
   })();

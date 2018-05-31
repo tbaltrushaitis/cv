@@ -106,7 +106,7 @@ clean-deps:
 		node_modules/;
 
 clean-files:
-	@ rm -rf ${APP_DIRS}  			\
+	@ rm -rf ${APP_DIRS}				\
 		bitbucket-pipelines.yml		\
 		codeclimate-config.patch	\
 		_config.yml;
@@ -125,6 +125,8 @@ rights:
 .PHONY: setup build deploy dev
 
 setup:
+	@ npm i -g npm
+	@ npm i -g bower
 	@ npm i
 	@ bower i
 

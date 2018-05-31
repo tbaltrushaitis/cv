@@ -243,6 +243,7 @@ gulp.task('bower', function () {
   let JS   = path.join('js/lib');
   let CSS  = path.join('css');
   let FONT = path.join('fonts');
+  let WEBFONT = path.join('webfonts');
   let IMG  = path.join('img');
 
   let bowerJS = gulp.src(mBower)
@@ -304,10 +305,20 @@ gulp.task('bower', function () {
     .pipe(changed(path.resolve(KEEP, FONT)))
     .pipe(gulp.dest(path.resolve(KEEP, FONT)))
     .pipe(vinylPaths(function (paths) {
-      console.info('FNT:', paths);
+      console.info('FONT:', paths);
       return Promise.resolve();
     }))
     .pipe(gulp.dest(path.resolve(DEST, FONT)));
+
+  let webFonts = gulp.src(mBower)
+    .pipe(filter(['**/webfonts/*.*']))
+    .pipe(changed(path.resolve(KEEP, WEBFONT)))
+    .pipe(gulp.dest(path.resolve(KEEP, WEBFONT)))
+    .pipe(vinylPaths(function (paths) {
+      console.info('WEBFONT:', paths);
+      return Promise.resolve();
+    }))
+    .pipe(gulp.dest(path.resolve(DEST, WEBFONT)));
 
   let bowerImg = gulp.src(mBower)
     .pipe(filter([
@@ -328,7 +339,7 @@ gulp.task('bower', function () {
     }))
     .pipe(gulp.dest(path.join(DEST, IMG)));
 
-  return merge(bowerJS, bowerCSS, bowerFonts, bowerImg);
+  return merge(bowerJS, bowerCSS, bowerFonts, webFonts, bowerImg);
 });
 
 
