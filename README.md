@@ -65,7 +65,7 @@ Post a link to your CV on a sites you need a profile page that provide a lots ab
 :-----|:-------:|:------------|
  [animate.css](http://daneden.github.io/animate.css/) | 3.5.2 | A cross-browser library of CSS animations
  [normalize.css](http://necolas.github.io/normalize.css/) | 7.0.0 | A modern alternative to CSS resets
- [FontAwesome](http://fontawesome.io/) | 4.7.0 | The iconic Font and CSS toolkit
+ [FontAwesome](http://fontawesome.io/) | 5.0.13 | The iconic Font and CSS toolkit
  [Bootstrap](http://getbootstrap.com) | 3.3.7 | Front-end framework for developing responsive, mobile first projects on the web
  [jQuery](http://jquery.com/) | 3.3.1 | JavaScript Library
  [noty](http://ned.im/noty) | 2.4.1 | Notification library
@@ -82,6 +82,15 @@ Post a link to your CV on a sites you need a profile page that provide a lots ab
 ---
 
 ## :memo: Changelog ##
+
+**v0.1.4:**
+- [x] Upgrade Font-Awesome to v5.0.13 and correct html code accordingly
+- [x] Improved text for introduction, career and education sections
+- [x] More usage of Font-Awesome icons in decoration
+
+**v0.1.3:**
+- [x] Updated list of skills
+- [x] Use of short links for third-party resources urls
 
 **v0.1.2:**
 - [x] Updated jQuery to v3.3.1 due to critical vulnerability
