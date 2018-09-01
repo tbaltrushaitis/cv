@@ -1,6 +1,6 @@
 /*!
  * File:        ./src/assets/js/front/front.js
- * Copyright(c) 2016-2018 Baltrushaitis Tomas
+ * Copyright(c) 2016-2018 Baltrushaitis Tomas <tbaltrushaitis@gmail.com>
  * License:     MIT
  */
 
@@ -8,7 +8,7 @@ jQuery(function ($) {
 
   'use strict';
 
-  var defs = {
+  let defs = {
       selector: 'div'
     , inclass:  ''
     , outclass: ''
@@ -18,9 +18,8 @@ jQuery(function ($) {
    *  Waypoints
   /* ------------------------------------------------------------------------ */
 
-  var wShow = function (o) {
-    var opts = $.extend(Object.create(Object.prototype), defs, o || {});
-    // console.log('opts = [', opts, ']');
+  let wShow = function (o) {
+    let opts = Object.assign(Object.create(Object.prototype), defs, o || {});
 
     new Waypoint.Inview({
         element: $(opts.selector)
@@ -95,188 +94,69 @@ jQuery(function ($) {
   // ---------------------------------------------------------------------------
 
   (function () {
-    var lAnimations = [
-        {}
-      , {   selector:   '#about .section-title'
-          , inclass:    'fadeInDown'
-          , outclass:   'fadeOutDown'
-        }
-      , {   selector:   '.intro-sub'
-          , inclass:    'zoomInUp'
-          , outclass:   'zoomOutDown'
-        }
-      , {   selector:   '.intro h1'
-          , inclass:    'zoomIn'
-          , outclass:   'zoomOut'
-        }
-      , {   selector:   '.intro p'
-          , inclass:    'rotateIn'
-          , outclass:   'rotateOut'
-        }
-      , {   selector:   '#social-icons ul.list-inline > li'
-          , inclass:    'rollIn'
-          , outclass:   'rollOut'
-        }
-      , {   selector:   '#avatar'
-          , inclass:    'flip'
-          , outclass:   'rubberBand'
-        }
-      , {   selector:   '#objective h3'
-          , inclass:    'lightSpeedIn'
-          , outclass:   'lightSpeedOut'
-        }
-      , {   selector:   '#objective p'
-          , inclass:    'fadeInLeft'
-          , outclass:   'fadeOutLeft'
-        }
-      , {   selector:   '#scopes h3'
-          , inclass:    'lightSpeedIn'
-          , outclass:   'lightSpeedOut'
-        }
-      , {   selector:   '#scope-01'
-          , inclass:    'bounceInLeft'
-          , outclass:   'bounceOutLeft'
-        }
-      , {   selector:   '#scope-02'
-          , inclass:    'bounceInLeft'
-          , outclass:   'bounceOutLeft'
-        }
-      , {   selector:   '#scope-03'
-          , inclass:    'bounceInLeft'
-          , outclass:   'bounceOutLeft'
-        }
-      , {   selector:   '#scope-04'
-          , inclass:    'rotateInDownRight'
-          , outclass:   'rotateOutDownRight'
-        }
-      , {   selector:   '#scope-05'
-          , inclass:    'fadeInRightBig'
-          , outclass:   'fadeOutRightBig'
-        }
-      , {   selector:   '#scope-06'
-          , inclass:    'fadeInUpBig'
-          , outclass:   'fadeOutUpBig'
-        }
-      , {   selector:   '#scope-07'
-          , inclass:    'fadeInUpBig'
-          , outclass:   'fadeOutUpBig'
-        }
-      , {   selector:   '#scope-08'
-          , inclass:    'fadeInRightBig'
-          , outclass:   'fadeOutRightBig'
-        }
-      , {   selector:   '#selfie h3'
-          , inclass:    'fadeInRight'
-          , outclass:   'fadeOutRight'
-        }
-      , {   selector:   '#selfie p'
-          , inclass:    'fadeInLeft'
-          , outclass:   'fadeOutLeft'
-        }
-      , {   selector:   '#whatido h3'
-          , inclass:    'fadeInRight'
-          , outclass:   'fadeOutRight'
-        }
-      , {   selector:   '#whatido p'
-          , inclass:    'fadeInLeft'
-          , outclass:   'fadeOutLeft'
-        }
-      , {   selector:   '#whatido-01'
-          , inclass:    'bounceInLeft'
-          , outclass:   'bounceOutLeft'
-        }
-      , {   selector:   '#whatido-02'
-          , inclass:    'bounceInLeft'
-          , outclass:   'bounceOutLeft'
-        }
-      , {   selector:   '#whatido-03'
-          , inclass:    'bounceInLeft'
-          , outclass:   'bounceOutLeft'
-        }
-      , {   selector:   '#whatido-04'
-          , inclass:    'rotateInDownRight'
-          , outclass:   'rotateOutDownRight'
-        }
-      , {   selector:   '#whatido-05'
-          , inclass:    'fadeInRightBig'
-          , outclass:   'fadeOutRightBig'
-        }
-      , {   selector:   '#whatido-06'
-          , inclass:    'fadeInUpBig'
-          , outclass:   'fadeOutUpBig'
-        }
-      , {   selector:   '#whatido-07'
-          , inclass:    'fadeInUpBig'
-          , outclass:   'fadeOutUpBig'
-        }
-      , {   selector:   '#whatido-08'
-          , inclass:    'fadeInRightBig'
-          , outclass:   'fadeOutRightBig'
-        }
-      , {   selector:   '#whatido-09'
-          , inclass:    'bounceInLeft'
-          , outclass:   'bounceOutLeft'
-        }
-      , {   selector:   '#whatido-10'
-          , inclass:    'rotateInUpRight'
-          , outclass:   'rotateOutUpRight'
-        }
-      , {   selector:   '#resume .section-title'
-          , inclass:    'fadeInDown'
-          , outclass:   'fadeOutDown'
-        }
-      , {   selector:   '#edu'
-          , inclass:    'fadeInUp'
-          , outclass:   'fadeOutUp'
-        }
-      , {   selector:   '#career'
-          , inclass:    'fadeInUp'
-          , outclass:   'fadeOutUp'
-        }
-      , {   selector:   '#edu-01'
-          , inclass:    'flipInY'
-          , outclass:   'flipOutY'
-        }
-      , {   selector:   '#edu-02'
-          , inclass:    'flipInY'
-          , outclass:   'flipOutY'
-        }
-      , {   selector:   '#car-01'
-          , inclass:    'flipInY'
-          , outclass:   'flipOutY'
-        }
-      , {   selector:   '#car-02'
-          , inclass:    'flipInY'
-          , outclass:   'flipOutY'
-        }
-      , {   selector:   '#car-03'
-          , inclass:    'flipInY'
-          , outclass:   'flipOutY'
-        }
-      , {   selector:   '#car-04'
-          , inclass:    'flipInY'
-          , outclass:   'flipOutY'
-        }
-      , {   selector:   '#car-05'
-          , inclass:    'flipInY'
-          , outclass:   'flipOutY'
-        }
-      , {   selector:   '#skills .section-title'
-          , inclass:    'fadeInDown'
-          , outclass:   'fadeOutDown'
-        }
-      , {   selector:   '#portfolio .section-title'
-          , inclass:    'fadeInDown'
-          , outclass:   'fadeOutDown'
-        }
-      , {   selector:   '#contact .section-title'
-          , inclass:    'fadeInDown'
-          , outclass:   'fadeOutDown'
-        }
-    ];
 
-    $.each(lAnimations, function (i, o) {
-      wShow(o);
+    'use strict';
+
+    let d = document;
+    let w = window;
+    let data_root = w.location.origin + '/data/';
+
+    // Examine the text in the response
+    function status (r) {
+      if (r.status >= 200 && r.status < 300) {
+        return Promise.resolve(r);
+      } else {
+        console.warn('Looks like there was a problem. Status Code: ' + r.status);
+        return Promise.reject(new Error(r.statusText));
+      }
+    }
+
+
+    // Parse response text into javascript object
+    function json (r) {
+      let contentType = r.headers.get('content-type');
+      if (contentType && contentType.includes('application/json')) {
+        return r.json();
+      }
+      throw new TypeError("Oops, we haven't got JSON!");
+    }
+
+
+    // Get response text
+    function text (r) {
+      return r.text();
+    }
+
+
+    let AnimationsConfig = fetch(data_root + 'animations.json')
+      .then(status)
+      .then(json)
+      .then(function (lo) {
+        // console.log('Fetch Request succeeded with JSON response (', typeof lo, '): [', lo, ']');
+        return Promise.resolve(lo.animations);
+      })
+      .catch(function (err) {
+        console.warn('Failed to fetch DATA: [', err, ']');
+      });
+
+
+    let AnimationsEnabled = AnimationsConfig.then(function (loAnimations) {
+
+      return Promise.resolve(loAnimations).then(function (lo) {
+        return new Promise(function (resolve, reject) {
+
+          $.each(lo, function (i, o) {
+            wShow(o);
+          });
+
+          resolve();
+
+        });
+      });
+
+    })
+    .catch(function (e) {
+      console.warn('Failed to Enable Animations: [', e, ']');
     });
 
   })();
@@ -291,7 +171,7 @@ jQuery(function ($) {
     $(window).on('load', function () {
       console.log('SHOWING INTRO NOTIFICATION');
       noty({
-          text:    'Content was last updated at 2018-05-30'
+          text:    'Content was last updated at 2018-09-01'
         , timeout: 10000
         , type:    'information'
       });

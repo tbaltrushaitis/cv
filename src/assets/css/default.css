@@ -30,11 +30,11 @@ html { height: 100%; }
 }
 
 body {
-  font-family: 'Lato', Calibri, Arial, sans-serif;
   background: #f9f9f9;
+	color: #333;
+	font-family: 'Lato', Calibri, Arial, sans-serif;
   font-weight: 300;
   font-size: 15px;
-  color: #333;
   overflow: scroll;
   overflow-x: hidden;
 }
