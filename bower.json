@@ -52,6 +52,7 @@
       , "noty":           "~2.4.1"
       , "requirejs":      "~2.3.6"
       , "respond":        "~1.4.2"
+      , "segoe-fonts":    "^1.0.1"
       , "smoothscroll":   "^0.4.2"
       , "shufflejs":      "^5.2.0"
       , "waypoints":      "^4.0.1"
@@ -103,7 +104,8 @@
         , "wow"
       ]
     , "fonts": [
-        "font-awesome"
+          "font-awesome"
+        , "segoe-fonts"
       ]
     , "libs": [
           "jquery"
