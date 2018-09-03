@@ -1,15 +1,16 @@
+/* jshint unused:false */
 /*!
  * File:        ./src/assets/js/front/front.js
  * Copyright(c) 2016-2018 Baltrushaitis Tomas <tbaltrushaitis@gmail.com>
  * License:     MIT
  */
 
-jQuery(function ($) {
+window.jQuery(function($) {
 
   'use strict';
 
   let defs = {
-      selector: 'div'
+    selector: 'div'
     , inclass:  ''
     , outclass: ''
   };
@@ -21,10 +22,10 @@ jQuery(function ($) {
   let wShow = function (o) {
     let opts = Object.assign(Object.create(Object.prototype), defs, o || {});
 
-    new Waypoint.Inview({
-        element: $(opts.selector)
+    new window.Waypoint.Inview({
+      element: $(opts.selector)
       , enter: function (dir) {
-          // console.log('enter() for ', this.element , dir);
+          // console.log('Enter triggered for', this.element , dir);
           this.element.removeClass(opts.outclass).addClass(opts.inclass);
         }
       , entered: function (dir) {
@@ -35,71 +36,29 @@ jQuery(function ($) {
           // console.log('exit() for ', this.element , dir);
         }
       , exited: function (dir) {
-          // console.log('exited() for ', this.element , dir);
+          // console.log('Exited triggered for ', this.element , dir);
           this.element.removeClass(opts.inclass).addClass(opts.outclass);
         }
+      /*
+      // , offset: opts.offset
+      // , offset: '-50%'
+      */
       , offset: function () {
           // console.info('this.element.clientHeight = ', this.element.clientHeight);
           return 70 + this.element.clientHeight;
         }
     });
 
-/*
-        // , offset: opts.offset
-        // , offset: '-50%'
-*/
-
   };
 
-
   // ---------------------------------------------------------------------------
-  //  NOTY options
-  // ---------------------------------------------------------------------------
-
-  (function () {
-    $.noty.defaults = {
-        layout:       'topRight'
-      , theme:        'defaultTheme'      // or relax
-      , type:         'success'           // alert, success, error, warning, information, notification
-      , text:         ''                  // [string|html] can be HTML or STRING
-      , dismissQueue: true                // [boolean] If you want to use queue feature set this true
-      , force:        false               // [boolean] adds notification to the beginning of queue when set to true
-      , maxVisible:   8                   // [integer] you can set max visible notification count for dismissQueue true option,
-      , template:     '<div class="noty_message"><span class="noty_text"></span><div class="noty_close"></div></div>'
-      , timeout:      5000                // [integer|boolean] delay for closing event in milliseconds. Set false for sticky notifications
-      , progressBar:  true                // [boolean] - displays a progress bar
-      , buttons:      false               // [boolean|array] an array of buttons, for creating confirmation dialogs.
-      , animation: {
-            open:     {height: 'toggle'}  // or Animate.css class names like: 'animated bounceInLeft'
-          , close:    'animated flipOutY' // or Animate.css class names like: 'animated bounceOutLeft'
-          , easing:   'swing'
-          , speed:    700                 // opening & closing animation speed
-        }
-      , closeWith:    ['click']           // ['click', 'button', 'hover', 'backdrop']     // backdrop click will close all notifications
-      , modal:        false               // [boolean] if true adds an overlay
-      , killer:       false               // [boolean] if true closes all notifications and shows itself
-      , callback: {
-            onShow:       function () {}
-          , afterShow:    function () {}
-          , onClose:      function () {}
-          , afterClose:   function () {}
-          , onCloseClick: function () {}
-        }
-    };
-  }());
-
-
-  // ---------------------------------------------------------------------------
-  //  Waypoints
+  //  Animations
   // ---------------------------------------------------------------------------
 
   (function () {
 
-    'use strict';
-
-    let d = document;
     let w = window;
-    let data_root = w.location.origin + '/data/';
+    let dataRoot = w.location.origin + '/data/';
 
     // Examine the text in the response
     function status (r) {
@@ -111,24 +70,22 @@ jQuery(function ($) {
       }
     }
 
-
     // Parse response text into javascript object
     function json (r) {
       let contentType = r.headers.get('content-type');
       if (contentType && contentType.includes('application/json')) {
         return r.json();
       }
-      throw new TypeError("Oops, we haven't got JSON!");
+      throw new TypeError('Oops, we haven\'t got JSON!');
     }
-
 
     // Get response text
     function text (r) {
       return r.text();
     }
 
-
-    let AnimationsConfig = fetch(data_root + 'animations.json')
+    // Fetch animations configuration
+    let AnimationsConfig = fetch(dataRoot + 'animations.json')
       .then(status)
       .then(json)
       .then(function (lo) {
@@ -137,15 +94,16 @@ jQuery(function ($) {
       })
       .catch(function (err) {
         console.warn('Failed to fetch DATA: [', err, ']');
+        return Promise.reject(err);
       });
 
-
+    // Enable animations on elements
     let AnimationsEnabled = AnimationsConfig.then(function (loAnimations) {
-
       return Promise.resolve(loAnimations).then(function (lo) {
         return new Promise(function (resolve, reject) {
 
           $.each(lo, function (i, o) {
+            // Assign Waypoint animation handler
             wShow(o);
           });
 
@@ -159,8 +117,61 @@ jQuery(function ($) {
       console.warn('Failed to Enable Animations: [', e, ']');
     });
 
+    AnimationsEnabled.then(function () {
+      console.info('ANIMATIONS ENABLED');
+    });
+
   })();
 
+  // ---------------------------------------------------------------------------
+  //  NOTY options
+  // ---------------------------------------------------------------------------
+
+  (function () {
+    $.noty.defaults = {
+      layout:         'topRight'
+      , theme:        'defaultTheme'      // or relax
+      , type:         'success'           // alert, success, error, warning, information, notification
+      , text:         ''                  // [string|html] can be HTML or STRING
+      , dismissQueue: true                // [boolean] If you want to use queue feature set this true
+      , force:        false               // [boolean] adds notification to the beginning of queue when set to true
+      , maxVisible:   8                   // [integer] you can set max visible notification count for dismissQueue true option,
+      , template:     '<div class="noty_message"><span class="noty_text"></span><div class="noty_close"></div></div>'
+      , timeout:      5000                // [integer|boolean] delay for closing event in milliseconds. Set false for sticky notifications
+      , progressBar:  true                // [boolean] - displays a progress bar
+      , buttons:      false               // [boolean|array] an array of buttons, for creating confirmation dialogs.
+      , animation: {
+          open:     {height: 'toggle'}  // or Animate.css class names like: 'animated bounceInLeft'
+          , close:  'animated flipOutY' // or Animate.css class names like: 'animated bounceOutLeft'
+          , easing: 'swing'
+          , speed:  700                 // opening & closing animation speed
+        }
+      , closeWith:    ['click']           // ['click', 'button', 'hover', 'backdrop']     // backdrop click will close all notifications
+      , modal:        false               // [boolean] if true adds an overlay
+      , killer:       false               // [boolean] if true closes all notifications and shows itself
+      , callback: {
+          onShow:         function () {}
+          , afterShow:    function () {}
+          , onClose:      function () {}
+          , afterClose:   function () {}
+          , onCloseClick: function () {}
+        }
+    };
+  }());
+
+  // ---------------------------------------------------------------------------
+  //  Transformations
+  // ---------------------------------------------------------------------------
+
+  (function () {
+
+    $(window).on('load', function () {
+      console.log('SETTING UP CONTACTS');
+      $('[name="contact-cell"]').html(atob('KzM4MCg2NykgNzgtemVyby0zMS0xOA=='));
+      $('[name="contact-email"]').prop('href', atob('bWFpbHRvOnRiYWx0cnVzaGFpdGlzQGdtYWlsLmNvbQ=='));
+    });
+
+  })();
 
   // ---------------------------------------------------------------------------
   //  Notifications
@@ -170,13 +181,29 @@ jQuery(function ($) {
 
     $(window).on('load', function () {
       console.log('SHOWING INTRO NOTIFICATION');
-      noty({
-          text:    'Content was last updated at 2018-09-01'
+      window.noty({
+        text:    'Content was last updated at 2018-09-01'
         , timeout: 10000
         , type:    'information'
       });
     });
 
   })();
+
+  /* ------------------------------------------------------------------------ /*
+   *  LOAD Indicators
+  /* ------------------------------------------------------------------------ */
+
+  $(window).ready(function () {
+    console.log('WINDOW___READY');
+  });
+
+  $(document).ready(function () {
+    console.log('DOCUMENT___READY');
+  });
+
+  $(window).on('load', function () {
+    console.log('WINDOW___LOAD');
+  });
 
 });

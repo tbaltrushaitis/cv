@@ -1,3 +1,4 @@
+/* jshint unused:false */
 /*!
  * Theme Name:  IAMX
  * Author:      Trendy Theme
@@ -15,12 +16,12 @@
   =   More skill
   =   Shuffle
   =   Magnific Popup
-  =   Vidio auto play
-  =   Fit Vids
+  -   Vidio auto play
+  -   Fit Vids
   =   Google Map
  */
 
-jQuery(function ($) {
+window.jQuery(function ($) {
 
   'use strict';
 
@@ -28,13 +29,11 @@ jQuery(function ($) {
    *  Preloader
   /* ------------------------------------------------------------------------ */
 
-  // $(window).on('load', function () {
-  $(document).ready(function () {
+  // $(document).ready(function () {
+  $(window).on('load', function () {
     $('#pre-status').fadeOut();
     $('#tt-preloader').delay(150).fadeOut('slow');
   });
-
-
 
   // ---------------------------------------------------------------------------
   //  Animated scrolling / Scroll Up
@@ -50,8 +49,6 @@ jQuery(function ($) {
     });
   }());
 
-
-
   // ---------------------------------------------------------------------------
   //  Full Screen Slider
   // ---------------------------------------------------------------------------
@@ -64,24 +61,22 @@ jQuery(function ($) {
     });
   }());
 
-
-
   // ---------------------------------------------------------------------------
   //  Sticky Menu
   // ---------------------------------------------------------------------------
 
   (function () {
+
     $('.header').sticky({
       topSpacing: 0
     });
 
     $('body').scrollspy({
       target: '.navbar-custom'
-    , offset: 70
-    })
+      , offset: 70
+    });
+
   }());
-
-
 
   // ---------------------------------------------------------------------------
   //  Back To Top
@@ -97,8 +92,6 @@ jQuery(function ($) {
     });
   }());
 
-
-
   // ---------------------------------------------------------------------------
   //  Countup
   // ---------------------------------------------------------------------------
@@ -108,18 +101,17 @@ jQuery(function ($) {
       $(this).find('.timer').each(function () {
         var $this = $(this);
         $({Counter: 0}).animate({Counter: $this.text()}, {
-            duration: 2000
+          duration: 2000
           , easing:   'swing'
           , step: function () {
-              $this.text(Math.ceil(this.Counter));
-            }
+            $this.text(Math.ceil(this.Counter));
+          }
         });
       });
+
       // $(this).unbind('inview');
     }
   });
-
-
 
   // ---------------------------------------------------------------------------
   //  Progress Bar
@@ -131,11 +123,10 @@ jQuery(function ($) {
         $(this).css('width', null)
           .css('width', $(this).attr('aria-valuenow') + '%');
       });
+
       // $(this).unbind('inview');
     }
   });
-
-
 
   // ---------------------------------------------------------------------------
   //  More skill
@@ -144,8 +135,8 @@ jQuery(function ($) {
   $('.more-skill').bind('inview', function (event, visible, visiblePartX, visiblePartY) {
     if (visible) {
       $('.chart').easyPieChart({
-          // configuration goes here
-          easing:     'easeOut'
+        // configuration goes here
+        easing:     'easeOut'
         , delay:      3000
         , barColor:   '#68c3a3'
         , trackColor: 'rgba(255,255,255,0.2)'
@@ -157,11 +148,10 @@ jQuery(function ($) {
             this.el.children[0].innerHTML = Math.round(percent);
           }
       });
+
       // $(this).unbind('inview');
     }
   });
-
-
 
   // ---------------------------------------------------------------------------
   //  Portfolio
@@ -171,7 +161,7 @@ jQuery(function ($) {
 
     var $grid = $('#og-grid');
 
-    var shuffleInstance = new Shuffle($grid, {
+    var shuffleInstance = new window.Shuffle($grid, {
       itemSelector: '.portfolio-item'
     });
 
@@ -192,35 +182,31 @@ jQuery(function ($) {
 
   }());
 
-
-
   // ---------------------------------------------------------------------------
   //  Magnific Popup
   // ---------------------------------------------------------------------------
 
   (function () {
     $('.image-link').magnificPopup({
-        gallery: {
-          enabled: true
-        }
+      gallery: {
+        enabled: true
+      }
       , removalDelay: 300             // Delay in milliseconds before popup is removed
       , mainClass:    'mfp-with-zoom' // this class is for CSS animation below
       , type:         'image'
     });
   }());
 
-
   // (function () {
-    // $('.popup-video').magnificPopup({
-        // disableOn:       700
-      // , type:            'iframe'
-      // , mainClass:       'mfp-with-zoom'
-      // , removalDelay:    300
-      // , preloader:       false
-      // , fixedContentPos: false
-    // });
+  // $('.popup-video').magnificPopup({
+  // disableOn:       700
+  // , type:            'iframe'
+  // , mainClass:       'mfp-with-zoom'
+  // , removalDelay:    300
+  // , preloader:       false
+  // , fixedContentPos: false
+  // });
   // }());
-
 
   // ---------------------------------------------------------------------------
   //  Fit Vids
@@ -230,14 +216,12 @@ jQuery(function ($) {
   //   $('.video-container').fitVids();
   // }());
 
-
-
   // ---------------------------------------------------------------------------
   //  Video auto play
   // ---------------------------------------------------------------------------
 
   /* Vimeo API: http://developer.vimeo.com/player/js-api */
-/*
+  /*
   (function () {
 
     var iframe = document.getElementById('nofocusvideo');
@@ -253,8 +237,7 @@ jQuery(function ($) {
       })
 
   }());
-*/
-
+  */
 
   // ---------------------------------------------------------------------------
   //  STELLAR FOR BACKGROUND SCROLLING
@@ -262,19 +245,15 @@ jQuery(function ($) {
 
   $(window).on('load', function () {
 
-    if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     } else {
-
       // $.stellar({
       //     horizontalScrolling: false
       //   , responsive:          true
       // });
-
     }
 
   });
-
 
   // ---------------------------------------------------------------------------
   //  WOW JS
@@ -282,24 +261,23 @@ jQuery(function ($) {
 
   (function () {
 
-    new WOW({
-        boxClass:        'wow'       //  animated element css class (default is wow)
+    new window.WOW({
+      boxClass:          'wow'       //  animated element css class (default is wow)
       , animateClass:    'animated'  //  animation css class (default is animated)
       , offset:          0           //  distance to the element when triggering the animation (default is 0)
       , mobile:          true        //  trigger animations on mobile devices (default is true)
       , live:            true        //  act on asynchronously loaded content (default is true)
       , scrollContainer: null        //  optional scroll container selector, otherwise use window,
       , resetAnimation:  false       //  reset animation on end (default is true)
-      , callback: function (box) {
-          //  the callback is fired every time an animation is started
-          //  the argument that is passed in is the DOM node being animated
-          //  console.log('WOW: animating <' + box.tagName.toLowerCase() + '>');
-          //  console.log('WOW: animating box:', box.tagName.toLowerCase() + '.' + box.className);
-        }
+      // , callback: function (box) {
+      //     //  the callback is fired every time an animation is started
+      //     //  the argument that is passed in is the DOM node being animated
+      //     //  console.log('WOW: animating <' + box.tagName.toLowerCase() + '>');
+      //     //  console.log('WOW: animating box:', box.tagName.toLowerCase() + '.' + box.className);
+      //   }
     }).init();
 
   }());
-
 
   // ---------------------------------------------------------------------------
   //  Contact Form
@@ -330,8 +308,6 @@ jQuery(function ($) {
 
   });
 
-
-
   // ---------------------------------------------------------------------------
   //  Google Map
   // ---------------------------------------------------------------------------
@@ -339,83 +315,65 @@ jQuery(function ($) {
   (function () {
     var myLatlng, styles, mapOptions, map, marker, contentString, infowindow;
 
-    myLatlng = new google.maps.LatLng(50.436336, 30.488619);
+    myLatlng = new window.google.maps.LatLng(50.436336, 30.488619);
 
     styles = [
       { featureType: 'landscape'
       , stylers: [
           {color: '#f7f7f7'}
         ]
-      }
+    }
     , { featureType: 'natural'
       , stylers: [
           {hue: '#00ffe6'}
         ]
-      }
+    }
     , { featureType: 'road'
       , stylers: [
             {hue:        '#fff'}
           , {saturation: -70}
         ]
-      }
+    }
     , { featureType: 'building'
       , elementType: 'labels'
       , stylers: [
           {hue: ''}
         ]
-      }
+    }
     , { featureType: 'poi'   // points of interest
       , stylers: [
           {hue: ''}
         ]
-      }
+    }
     ];
 
     mapOptions = {
-        zoom:             10
+      zoom:             10
       , scrollwheel:      false
       , center:           myLatlng
-      , mapTypeId:        google.maps.MapTypeId.ROADMAP
+      , mapTypeId:        window.google.maps.MapTypeId.ROADMAP
       , disableDefaultUI: true
       , styles:           styles
     };
 
-    map = new google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
+    map = new window.google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
 
-    marker = new google.maps.Marker({
-        position:  myLatlng
+    marker = new window.google.maps.Marker({
+      position:  myLatlng
       , map:       map
-      , animation: google.maps.Animation.DROP
+      , animation: window.google.maps.Animation.DROP
       , title:     'I@Kyiv'
     });
 
     contentString = 'Hello' + ' ' + 'Visitor!';
-    infowindow = new google.maps.InfoWindow({
+    infowindow = new window.google.maps.InfoWindow({
       content: contentString
     });
 
-    google.maps.event.addListener(marker, 'click', function () {
+    window.google.maps.event.addListener(marker, 'click', function () {
       infowindow.open(map, marker);
     });
 
   }());
-
-
-  /* ------------------------------------------------------------------------ /*
-   *  LOAD Indicators
-  /* ------------------------------------------------------------------------ */
-
-  $(window).on('load', function () {
-    console.log('WINDOW___LOAD');
-  });
-
-  $(window).ready(function () {
-    console.log('WINDOW___READY');
-  });
-
-  $(document).ready(function () {
-    console.log('DOCUMENT___READY');
-  });
-
 
 });
