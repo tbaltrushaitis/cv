@@ -16,6 +16,7 @@ state:
 	@ echo "\t APP_NAME \t = ${APP_NAME}";
 	@ echo "\t APP_ENV \t = ${APP_ENV}";
 	@ echo "\t APP_DEBUG \t = ${APP_DEBUG}";
+	@ echo "\t APP_LOGO \t = ${APP_LOGO}";
 	@ echo "\t APP_DIRS \t = [${APP_DIRS}]";
 	@ echo ${BCyan}REPOSITORY:${NC};
 	@ echo "\t APP_BRANCH \t = ${APP_BRANCH}";
@@ -31,7 +32,8 @@ state:
 	@ echo ${BCyan}---------------------------------------------------------${NC};
 
 ##  ------------------------------------------------------------------------  ##
-## Lists all targets defined in this makefile.
+##                 Lists all targets defined in this makefile                 ##
+##  ------------------------------------------------------------------------  ##
 
 .PHONY: list
 list:
@@ -47,3 +49,25 @@ banner:
 	@ if [ -f "${APP_LOGO}" ]; then cat "${APP_LOGO}"; fi
 
 ##  ------------------------------------------------------------------------  ##
+
+##  ------------------------------------------------------------------------  ##
+##                 Set/fix files and dirs owners and permissions              ##
+##  ------------------------------------------------------------------------  ##
+
+.PHONY: rights
+
+rights:
+	@ find . -type f -exec chmod 664 {} 2>/dev/null \;
+	@ find . -type d -exec chmod 775 {} 2>/dev/null \;
+	@ find . -type f -name "*.sh" -exec chmod a+x {} 2>/dev/null \;
+
+##  ------------------------------------------------------------------------  ##
+
+.PHONY: clone
+
+clone:
+	@  git clone ${APP_REPO} ${APP_NAME} \
+	&& cd ${APP_NAME} \
+	&& git pull;
+
+	##  ------------------------------------------------------------------------  ##

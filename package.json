@@ -12,11 +12,11 @@
     }
   , "private":  false
   , "website":  "http://cv.gsm-center.com.ua/"
-  , "readmeFilename":   "README.md"
+  , "readmeFilename": "README.md"
   , "engines": {
       "node": ">=6.9.1"
     }
-  , "os":  ["linux"]
+  , "os": ["linux"]
   , "main": "gulpfile.js"
   , "scripts": {
         "preinstall": "npm i -g versionn"
@@ -36,17 +36,6 @@
         "type": "git"
       , "url":  "git+https://github.com/tbaltrushaitis/cv.git"
     }
-  , "keywords": [
-        "bio"
-      , "cv"
-      , "cv-template"
-      , "portfolio"
-      , "portfolio-website"
-      , "portfolio-template"
-      , "resume"
-      , "skills"
-      , "skill-demo"
-    ]
   , "dependencies": {}
   , "devDependencies": {
         "bower":               "^1.8.4"
@@ -57,12 +46,12 @@
       , "gulp-changed":        "^3.2.0"
       , "gulp-chmod":          "^2.0.0"
       , "gulp-chown":          "^2.0.0"
-      , "gulp-clean-css":      "^3.9.4"
+      , "gulp-clean-css":      "^3.10.0"
       , "gulp-concat":         "^2.6.0"
       , "gulp-concat-css":     "^3.1.0"
       , "gulp-data":           "^1.3.1"
       , "gulp-directory-sync": "^1.2.3"
-      , "gulp-exec":           "^3.0.1"
+      , "gulp-exec":           "^3.0.2"
       , "gulp-file-include":   "^2.0.1"
       , "gulp-filter":         "^5.1.0"
       , "gulp-gzip":           "^1.4.2"
@@ -72,28 +61,26 @@
       , "gulp-jshint":         "^2.1.0"
       , "gulp-minify-css":     "^1.2.4"
       , "gulp-newer":          "^1.4.0"
-      , "gulp-rename":         "^1.2.3"
+      , "gulp-rename":         "^1.4.0"
       , "gulp-replace":        "^1.0.0"
       , "gulp-require-tasks":  "^1.2.1"
       , "gulp-sequence":       "^1.0.0"
       , "gulp-template":       "^5.0.0"
-      , "gulp-uglify":         "^3.0.0"
+      , "gulp-uglify":         "^3.0.1"
       , "gulp-util":           "^3.0.8"
-      , "gulp-watch":          "^5.0.0"
+      , "gulp-watch":          "^5.0.1"
       , "jquery":              "^3.3.1"
-      , "jshint":              "^2.9.3"
+      , "jshint":              "^2.9.6"
       , "jshint-stylish":      "^2.2.1"
       , "lodash":              "^4.17.10"
       , "main-bower-files":    "^2.13.1"
-      , "merge-stream":        "^1.0.0"
+      , "merge-stream":        "^1.0.1"
       , "minimist":            "^1.2.0"
       , "nconf":               "^0.10.0"
       , "read-config":         "^2.0.0"
       , "vinyl-paths":         "^2.1.0"
     }
-  , "outdatedDependencies": {
-      "underscore": "^1.9.0"
-    }
+  , "outdatedDependencies": {}
   , "options": {
       "bower": {
           "debugging": true
@@ -176,4 +163,15 @@
       }
     }
   , "jshintConfig": {}
+  , "keywords": [
+        "bio"
+      , "cv"
+      , "cv-template"
+      , "portfolio"
+      , "portfolio-website"
+      , "portfolio-template"
+      , "resume"
+      , "skills"
+      , "skill-demo"
+    ]
 }

@@ -97,8 +97,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size:    36px;
-  line-height:  36px;
+  font-size:    34px;
+  line-height:  34px;
 }
 
 h2 {
@@ -349,8 +349,8 @@ ul.list-check li::before {
 
 .intro h1 {
   color:            #52b3d9;
-  font-size:        60px;
-  line-height:      80px;
+  font-size:        44px;
+  line-height:      44px;
   margin-bottom:    16px;
 }
 .intro h1 span.first {
@@ -361,7 +361,7 @@ ul.list-check li::before {
 }
 .intro p {
   color:         #f7f7f7;
-  margin-bottom: 40px;
+  margin-bottom: 25px;
 }
 
 .intro-sub {
@@ -685,7 +685,7 @@ SOCIAL ICON
   list-style: none;
 }
 
-.resume{
+.resume {
   position: relative;
 }
 
@@ -754,7 +754,7 @@ SOCIAL ICON
 }
 
 .timeline-content {
-  padding:  5px 20px 0 20px;
+  padding: 5px 20px 0 20px;
 }
 
 .timeline>li .timeline-panel:before {
@@ -1011,10 +1011,10 @@ SOCIAL ICON
 }
 
 .progress .progress-bar.six-sec-ease-in-out {
-  -webkit-transition: width 3s ease-in-out;
-     -moz-transition: width 3s ease-in-out;
-       -o-transition: width 3s ease-in-out;
-          transition: width 3s ease-in-out;
+  -webkit-transition: width 6s ease-in-out;
+     -moz-transition: width 6s ease-in-out;
+       -o-transition: width 6s ease-in-out;
+          transition: width 6s ease-in-out;
 }
 
 .skill-chart h3 {

@@ -50,5 +50,13 @@ module.exports = function (gulp) {
                   ))
                   .on('error', console.error.bind(console));
 
-  return merge(wFiles, wAssets);
+  let wData = gulp.src('')
+                  .pipe(dirSync(
+                      path.join(ME.BUILD, 'data')
+                    , path.join(ME.WEB, 'data')
+                    , ME.pkg.options.sync
+                  ))
+                  .on('error', console.error.bind(console));
+
+  return merge(wFiles, wAssets, wData);
 };
