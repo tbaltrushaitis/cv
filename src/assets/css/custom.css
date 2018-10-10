@@ -5,6 +5,10 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, 'Roboto', sans-serif;
 }
 
+.h4 {
+  font-weight: 600;
+}
+
 /* ---------------------------------------------- /*
  *               Resume Section
 /* ---------------------------------------------- */
@@ -63,6 +67,19 @@ body {
   float-left;
 }
 
+.progress {
+  background-color: #3a4149;
+  background-image: none;
+}
+
+.progress-bar {
+  background-color: #68c3a3;
+}
+
+.progress-bar.six-sec-ease-in-out {
+  background-image: linear-gradient(to bottom,#3b8269 0,#68c3a3 100%);
+}
+
 .progress .progress-bar.six-sec-ease-in-out {
   -webkit-transition: width 4s ease-in-out;
      -moz-transition: width 4s ease-in-out;
@@ -78,7 +95,7 @@ body {
 }
 
 .chart-text span {
-  font-size: 22px;
+  font-size: 18px;
 }
 
 

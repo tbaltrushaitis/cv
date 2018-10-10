@@ -111,7 +111,7 @@
       }
     , {   "selector":   "#whatido-07"
         , "inclass":    "fadeInUpBig"
-        , "outclass":   "fadeOutUpBig"
+        , "outclass":   "fadeOutLeftBig"
       }
     , {   "selector":   "#whatido-08"
         , "inclass":    "fadeInRightBig"

@@ -20,7 +20,7 @@ window.jQuery(function($) {
   /* ------------------------------------------------------------------------ */
 
   let wShow = function (o) {
-    let opts = Object.assign(Object.create(Object.prototype), defs, o || {});
+    let opts = Object.assign({}, defs, o || {});
 
     new window.Waypoint.Inview({
       element: $(opts.selector)
@@ -39,15 +39,16 @@ window.jQuery(function($) {
           // console.log('Exited triggered for ', this.element , dir);
           this.element.removeClass(opts.inclass).addClass(opts.outclass);
         }
-      /*
-      // , offset: opts.offset
-      // , offset: '-50%'
-      */
       , offset: function () {
           // console.info('this.element.clientHeight = ', this.element.clientHeight);
           return 70 + this.element.clientHeight;
         }
     });
+
+    /*
+    // , offset: opts.offset
+    // , offset: '-50%'
+    */
 
   };
 
@@ -107,7 +108,7 @@ window.jQuery(function($) {
             wShow(o);
           });
 
-          resolve();
+          return resolve();
 
         });
       });
@@ -144,7 +145,7 @@ window.jQuery(function($) {
           open:     {height: 'toggle'}  // or Animate.css class names like: 'animated bounceInLeft'
           , close:  'animated flipOutY' // or Animate.css class names like: 'animated bounceOutLeft'
           , easing: 'swing'
-          , speed:  700                 // opening & closing animation speed
+          , speed:  500                 // opening & closing animation speed
         }
       , closeWith:    ['click']           // ['click', 'button', 'hover', 'backdrop']     // backdrop click will close all notifications
       , modal:        false               // [boolean] if true adds an overlay
@@ -180,12 +181,14 @@ window.jQuery(function($) {
   (function () {
 
     $(window).on('load', function () {
-      console.log('SHOWING INTRO NOTIFICATION');
-      window.noty({
-        text:    'Content was last updated at 2018-09-01'
-        , timeout: 10000
-        , type:    'information'
-      });
+      setTimeout(function () {
+        console.log('SHOWING INTRO NOTIFICATION');
+        window.noty({
+          text:      'Content was last updated at 2018-10-01'
+          , timeout: 10000
+          , type:    'information'
+        });
+      }, 15000);
     });
 
   })();
