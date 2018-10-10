@@ -1,18 +1,14 @@
-# CV, Resume, Portfolio, Skills, Career, Bio, All-In-One Web Site #
+[![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg?style=plastic)](https://github.com/conventional-changelog/standard-version)
+[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/tbaltrushaitis/cv/blob/master/LICENSE)
+[![dependencies Status](https://david-dm.org/tbaltrushaitis/cv/status.svg)](https://david-dm.org/tbaltrushaitis/cv)
+[![devDependencies Status](https://david-dm.org/tbaltrushaitis/cv/dev-status.svg)](https://david-dm.org/tbaltrushaitis/cv?type=dev)
+[![Contributors](https://img.shields.io/github/contributors/tbaltrushaitis/cv.svg)](https://github.com/tbaltrushaitis/cv/graphs/contributors)
+
+# CV, Resume and Portfolio - All-in-One-Page site template with builder #
 
 ![CV Logo](assets/img/cv-01.png)
 
 `cv` `resume` `portfolio` `skillset` `professional` `specialist` `IT` `curriculum` `vitae` `site`
-
----
-
-## Badges
-
-[![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg?style=plastic)](https://github.com/conventional-changelog/standard-version)
-[![dependencies Status](https://david-dm.org/tbaltrushaitis/cv/status.svg)](https://david-dm.org/tbaltrushaitis/cv)
-[![devDependencies Status](https://david-dm.org/tbaltrushaitis/cv/dev-status.svg)](https://david-dm.org/tbaltrushaitis/cv?type=dev)
-[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/tbaltrushaitis/cv/blob/master/LICENSE)
-[![Contributors](https://img.shields.io/github/contributors/tbaltrushaitis/cv.svg)](https://github.com/tbaltrushaitis/cv/graphs/contributors)
 
 ---
 
@@ -27,7 +23,7 @@
 
 CVs include information on one’s academic background, including teaching experience, degrees, research, awards, publications, presentations, and other achievements. CVs are thus much longer than resumes, and include more information, particularly related to academic background.
 
-A curriculum vitae summary is a one-to-two-page, condensed version of a full curriculum vitae. A CV summary is a way to quickly and concisely convey one’s skills and qualifications. Sometimes large organizations will ask for a one-page CV summary when they expect a large pool of applicants.
+A curriculum vitae summary is a one-to-two-page, condensed version of a full curriculum vitae. A CV summary is a way to quickly and concisely convey one’s skills and qualifications. Sometimes large organizations will ask for a `one-page CV` summary when they expect a large pool of applicants.
 
 [Source](https://www.thebalance.com/cv-vs-resume-2058495)
 

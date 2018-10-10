@@ -1,7 +1,7 @@
 {   "name":     "cv"
-  , "version":  "0.1.4"
-  , "title":    "CV, Resume, Portfolio, Skills Site"
-  , "description":  "CV, Resume, Portfolio, Skills, Bio, All-In-One Page Site"
+  , "version":  "0.1.5"
+  , "title":    "CV, Resume and Portfolio site"
+  , "description":  "CV, Resume and Portfolio - All-in-One-Page site template with builder"
   , "homepage": "https://github.com/tbaltrushaitis/cv"
   , "bugs":     "https://github.com/tbaltrushaitis/cv/issues"
   , "license":  "MIT"
@@ -19,14 +19,15 @@
   , "os": ["linux"]
   , "main": "gulpfile.js"
   , "scripts": {
-        "preinstall": "npm i -g versionn"
-      , "start":    "./setup.sh"
-      , "test":     "./setup.sh test"
-      , "setup":    "./setup.sh prepare"
-      , "build":    "./setup.sh build"
-      , "deploy":   "./setup.sh deploy"
-      , "rebuild":  "./setup.sh rebuild"
-      , "all":      "./setup.sh all"
+        "preinstall": ""
+      , "postinstall": "[ -f ./NODE_ENV ] || cp -prv config/.NODE_ENV ./NODE_ENV; [ -f ./.bowerrc ] || cp -prv config/.bowerrc ./"
+      , "start":    ""
+      , "test":     ""
+      , "setup":    ""
+      , "build":    "make build"
+      , "deploy":   ""
+      , "rebuild":  ""
+      , "all":      "make all"
       , "default":  "gulp --env=test"
       , "dev":      "gulp --env=dev"
       , "prod":     "gulp --env=production"
@@ -57,6 +58,7 @@
       , "gulp-gzip":           "^1.4.2"
       , "gulp-headerfooter":   "^1.0.3"
       , "gulp-if":             "^2.0.1"
+      , "gulp-jimp":           "^1.2.9"
       , "gulp-jscs":           "^4.1.0"
       , "gulp-jshint":         "^2.1.0"
       , "gulp-minify-css":     "^1.2.4"
@@ -69,10 +71,11 @@
       , "gulp-uglify":         "^3.0.1"
       , "gulp-util":           "^3.0.8"
       , "gulp-watch":          "^5.0.1"
+      , "jimp":                "^0.5.3"
       , "jquery":              "^3.3.1"
       , "jshint":              "^2.9.6"
       , "jshint-stylish":      "^2.2.1"
-      , "lodash":              "^4.17.10"
+      , "lodash":              "^4.17.11"
       , "main-bower-files":    "^2.13.1"
       , "merge-stream":        "^1.0.1"
       , "minimist":            "^1.2.0"
@@ -120,7 +123,7 @@
           , "properties":    true
           , "dead_code":     true
           , "drop_debugger": true
-          , "unsafe":        false
+          , "unsafe":        true
           , "conditionals":  true
           , "comparisons":   true
           , "evaluate":      true
@@ -138,7 +141,7 @@
       , "mangle": false
       , "output": {
             "indent_start":  0
-          , "indent_level":  4
+          , "indent_level":  2
           , "quote_keys":    false
           , "ascii_only":    false
           , "inline_script": false

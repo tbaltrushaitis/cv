@@ -3,35 +3,30 @@
 ##  ------------------------------------------------------------------------  ##
 
 .PHONY: clean clean-all
-.PHONY: clean-repo clean-src clean-deps
-.PHONY: clean-build clean-dist clean-web clean-files
+.PHONY: clean-repo clean-deps
+.PHONY: clean-build clean-dist clean-files
 
-clean-all: clean clean-web clean-files
+clean-all: clean clean-dist
 
-clean: clean-build clean-dist
+clean: clean-build clean-files
 
 clean-repo:
-	@ ${RM} -rvf ${APP_NAME}
-
-clean-src:
-	@ rm -rvf ${DIR_SRC}
+	@ ${RM} -rf ${APP_NAME}
 
 clean-build:
-	@ rm -rvf ${DIR_BUILD}
+	@ rm -rf ${DIR_BUILD}
 
 clean-dist:
-	@ rm -rvf ${DIR_DIST}
-
-clean-web:
-	@ rm -rvf ${DIR_WEB}
+	@ rm -rf ${DIR_DIST}
 
 clean-deps:
-	@ rm -rvf \
+	@ rm -rf \
 		bower_modules/ \
 		node_modules/ ;
 
 clean-files:
-	@ rm -rvf ${APP_DIRS} \
+	@ rm -rf COMMIT \
+		package-lock.json \
 		bitbucket-pipelines.yml \
 		codeclimate-config.patch \
 		_config.yml ;

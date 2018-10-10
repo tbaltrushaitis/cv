@@ -29,8 +29,8 @@ window.jQuery(function ($) {
    *  Preloader
   /* ------------------------------------------------------------------------ */
 
-  // $(document).ready(function () {
-  $(window).on('load', function () {
+  $(document).ready(function () {
+    // $(window).on('load', function () {
     $('#pre-status').fadeOut();
     $('#tt-preloader').delay(150).fadeOut('slow');
   });
@@ -104,12 +104,10 @@ window.jQuery(function ($) {
           duration: 2000
           , easing:   'swing'
           , step: function () {
-            $this.text(Math.ceil(this.Counter));
-          }
+              $this.text(Math.ceil(this.Counter));
+            }
         });
       });
-
-      // $(this).unbind('inview');
     }
   });
 
@@ -123,8 +121,6 @@ window.jQuery(function ($) {
         $(this).css('width', null)
           .css('width', $(this).attr('aria-valuenow') + '%');
       });
-
-      // $(this).unbind('inview');
     }
   });
 
@@ -134,22 +130,24 @@ window.jQuery(function ($) {
 
   $('.more-skill').bind('inview', function (event, visible, visiblePartX, visiblePartY) {
     if (visible) {
+      // configuration goes here
       $('.chart').easyPieChart({
-        // configuration goes here
         easing:     'easeOut'
         , delay:      3000
         , barColor:   '#68c3a3'
-        , trackColor: 'rgba(255,255,255,0.2)'
+        , trackColor: '#3a4149'
         , scaleColor: false
         , lineWidth:  8
         , size:       140
-        , animate:    2000
+        , animate: {
+            duration: 2500
+            , enabled: true
+          }
+        , rotate: 0
         , onStep: function (from, to, percent) {
             this.el.children[0].innerHTML = Math.round(percent);
           }
       });
-
-      // $(this).unbind('inview');
     }
   });
 
@@ -269,12 +267,12 @@ window.jQuery(function ($) {
       , live:            true        //  act on asynchronously loaded content (default is true)
       , scrollContainer: null        //  optional scroll container selector, otherwise use window,
       , resetAnimation:  false       //  reset animation on end (default is true)
-      // , callback: function (box) {
-      //     //  the callback is fired every time an animation is started
-      //     //  the argument that is passed in is the DOM node being animated
-      //     //  console.log('WOW: animating <' + box.tagName.toLowerCase() + '>');
-      //     //  console.log('WOW: animating box:', box.tagName.toLowerCase() + '.' + box.className);
-      //   }
+      , callback: function (box) {
+          //  the callback is fired every time an animation is started
+          //  the argument that is passed in is the DOM node being animated
+          //  console.log('WOW: animating <' + box.tagName.toLowerCase() + '>');
+          //  console.log('WOW: animating box:', box.tagName.toLowerCase() + '.' + box.className);
+        }
     }).init();
 
   }());
@@ -348,7 +346,7 @@ window.jQuery(function ($) {
     ];
 
     mapOptions = {
-      zoom:             10
+      zoom:               10
       , scrollwheel:      false
       , center:           myLatlng
       , mapTypeId:        window.google.maps.MapTypeId.ROADMAP
