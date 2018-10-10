@@ -2,7 +2,7 @@
 ##                                Build Project                               ##
 ##  ------------------------------------------------------------------------  ##
 
-# .SILENT:
+.SILENT:
 .EXPORT_ALL_VARIABLES:
 .IGNORE:
 .ONESHELL:
@@ -14,7 +14,7 @@ APP_SLOG := "CV+PORTFOLIO"
 APP_LOGO := ./assets/BANNER
 APP_REPO := $(shell git ls-remote --get-url)
 
-APP_ENV := $(shell cat ./NODE_ENV)
+APP_ENV := $(shell cat config/.NODE_ENV)
 CODE_VERSION := $(shell cat ./VERSION)
 
 GIT_COMMIT := $(shell git rev-list --remove-empty --remotes --max-count=1 --date-order --reverse)
@@ -25,11 +25,8 @@ include ./bin/Colors.mk
 
 ##  ------------------------------------------------------------------------  ##
 
-# COMMIT_EXISTS := $(shell [ -e COMMIT ] && echo 1 || echo 0)
-# ifeq ($(COMMIT_EXISTS), 0)
 $(file > COMMIT,${GIT_COMMIT})
-$(warning ${BYellow}[${DT}] Created file [COMMIT]${NC})
-# endif
+$(info [${Cyan}${DT}${NC}] Created file [${BYellow}COMMIT${NC}:${BPurple}${GIT_COMMIT}${NC}])
 
 DIR_SRC := ${WD}/src
 DIR_BUILD := ${WD}/build-${CODE_VERSION}
@@ -63,11 +60,11 @@ default: all;
 .PHONY: test
 
 test: banner state help;
-	@ NODE_ENV=${APP_ENV}; gulp test
+	@ NODE_ENV=${APP_ENV}; gulp --color test
 
 ##  ------------------------------------------------------------------------  ##
 
-.PHONY: setup build deploy dev
+.PHONY: setup build release deploy dev
 
 setup:
 	@ npm i -g npm
@@ -75,18 +72,20 @@ setup:
 	@ npm i
 	@ bower i
 
+dev: build deploy;
+
 build:
-	@ NODE_ENV=${APP_ENV}; gulp build
+	@ NODE_ENV=${APP_ENV}; gulp --color build
+
+release:
+	@ NODE_ENV=${APP_ENV}; gulp --color dist
 
 deploy:
-	@ NODE_ENV=${APP_ENV}; gulp deploy
+	@ NODE_ENV=${APP_ENV}; gulp --color deploy
 
 # deploy:
 # 	@  cp -prv ${DIR_SRC}/* ./ 		 \
 # 	&& sudo chmod a+x app/bin/*.sh ;
-
-dev: rights build deploy;
-	# @ NODE_ENV=development; gulp build
 
 ##  ------------------------------------------------------------------------  ##
 
@@ -105,6 +104,6 @@ all: banner clean cycle;
 
 full: clean-all all;
 
-cycle: rights setup build deploy;
+cycle: rights setup build deploy banner;
 
 ##  ------------------------------------------------------------------------  ##

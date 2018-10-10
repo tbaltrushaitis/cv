@@ -1,7 +1,7 @@
 {   "name":        "cv"
-  , "title":       "CV, Resume, Portfolio, Skills Site"
-  , "description": "CV, Resume, Portfolio, Skills, Bio, All-In-One Page Site"
-  , "version":     "0.1.4"
+  , "title":       "CV, Resume and Portfolio site"
+  , "description": "CV, Resume and Portfolio - All-in-One-Page site template with builder"
+  , "version":     "0.1.5"
   , "authors": [
       "tbaltrushaitis@gmail.com"
     ]
@@ -85,6 +85,11 @@
     , "smoothscroll": {
         "main": [
           "src/smoothscroll.js"
+        ]
+      }
+    , "shufflejs": {
+        "main": [
+          "dist/shuffle.js"
         ]
       }
     , "waypoints": {
