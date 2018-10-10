@@ -37,6 +37,9 @@
         "type": "git"
       , "url":  "git+https://github.com/tbaltrushaitis/cv.git"
     }
+  , "directories": {
+      "test": "test"
+    }
   , "dependencies": {}
   , "devDependencies": {
         "bower":               "^1.8.4"

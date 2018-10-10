@@ -76,6 +76,8 @@ window.jQuery(function($) {
       let contentType = r.headers.get('content-type');
       if (contentType && contentType.includes('application/json')) {
         return r.json();
+      }else if (contentType && contentType.includes('text/plain')) {
+        return JSON.parse(r);
       }
       throw new TypeError('Oops, we haven\'t got JSON!');
     }

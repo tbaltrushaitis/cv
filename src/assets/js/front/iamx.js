@@ -29,8 +29,8 @@ window.jQuery(function ($) {
    *  Preloader
   /* ------------------------------------------------------------------------ */
 
-  $(document).ready(function () {
-    // $(window).on('load', function () {
+  // $(document).ready(function () {
+  $(window).on('load', function () {
     $('#pre-status').fadeOut();
     $('#tt-preloader').delay(150).fadeOut('slow');
   });

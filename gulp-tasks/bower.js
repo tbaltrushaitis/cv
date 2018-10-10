@@ -12,29 +12,22 @@
 
 const _ = require('lodash');
 
-const fs    = require('fs');
-// const del   = require('del');
-const path  = require('path');
-const util  = require('util');
-const utin  = util.inspect;
+const fs   = require('fs');
+const path = require('path');
+const util = require('util');
+const utin = util.inspect;
 
-// const argv           = require('yargs').argv;
-// const parseArgs      = require('minimist');
 const vinylPaths     = require('vinyl-paths');
-// const dateFormat     = require('dateformat');
 const mainBowerFiles = require('main-bower-files');
 
 const changed   = require('gulp-changed');
-// const concat    = require('gulp-concat');
 const concatCSS = require('gulp-concat-css');
 const cleanCSS  = require('gulp-clean-css');
 const filter    = require('gulp-filter');
 const gulpif    = require('gulp-if');
 const headfoot  = require('gulp-headerfooter');
-// const rename    = require('gulp-rename');
 const uglify    = require('gulp-uglify');
 
-// const merge = require('merge-stream');
 
 //---------------//
 // CONFIGURATION //
