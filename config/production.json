@@ -1,5 +1,4 @@
-{   "xhr_timeout": 5000
-  , "app_url":     "http://cv.prod"
+{   "app_url": "http://cv.prod"
   , "engine": {
         "name":    "custom"
       , "version": "0.1.1"
