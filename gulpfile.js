@@ -45,7 +45,6 @@ const jscs          = require('gulp-jscs');
 const jshint        = require('gulp-jshint');
 const stylish       = require('jshint-stylish');
 const rename        = require('gulp-rename');
-// const template      = require('gulp-template');
 const uglify        = require('gulp-uglify');
 
 
