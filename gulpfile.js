@@ -45,7 +45,7 @@ const jscs          = require('gulp-jscs');
 const jshint        = require('gulp-jshint');
 const stylish       = require('jshint-stylish');
 const rename        = require('gulp-rename');
-const template      = require('gulp-template');
+// const template      = require('gulp-template');
 const uglify        = require('gulp-uglify');
 
 
@@ -54,32 +54,34 @@ const uglify        = require('gulp-uglify');
 //---------------//
 
 global.ME = {};
-
-const appPath  = __dirname;
-const modsPath = path.join(appPath, 'modules');
+let now = new Date();
 
 const pkg = require('./package.json');
-
-ME.pkg      = _.extend({}, pkg);
+ME.pkg      = Object.assign({}, pkg || {});
 ME.version  = ME.pkg.version;
+ME.pkg.built = `${dateFormat(now, 'yyyy-mm-dd')}T${dateFormat(now, 'HH:MM:ss')}`;
+ME.pkg.year = `${dateFormat(now, 'yyyy')}`;
+
 ME.NODE_ENV = argv.env
                 ? argv.env
                 : fs.existsSync('./NODE_ENV')
                   ? fs.readFileSync('./NODE_ENV', {encoding: 'utf8'}).split('\n')[0].trim()
-                  : fs.existsSync('./.NODE_ENV')
-                    ? fs.readFileSync('./.NODE_ENV', {encoding: 'utf8'}).split('\n')[0].trim()
+                  : fs.existsSync('config/.NODE_ENV')
+                    ? fs.readFileSync('config/.NODE_ENV', {encoding: 'utf8'}).split('\n')[0].trim()
                     : ME.NODE_ENV || 'test';
 
 ME.VERSION = fs.existsSync('./VERSION') ? fs.readFileSync('./VERSION', ME.pkg.options.file).trim() : 'VERSION_UNKNOWN';
 ME.COMMIT  = fs.existsSync('./COMMIT') ? fs.readFileSync('./COMMIT', ME.pkg.options.file).trim() : 'COMMIT_UNKNOWN';
 
-// const confPath = path.join(appPath, 'config', 'config.json');
-const confPath = path.join(appPath, 'config', ME.NODE_ENV + '.json');
-
+const appPath  = __dirname;
+const modsPath = path.join(appPath, 'modules');
+const confPath = path.join(appPath, 'config');
+const confBase = path.join(confPath, ME.NODE_ENV + '.json');
 console.log(`confPath (${typeof confPath}) = [${utin(confPath)}]`);
+console.log(`confBase (${typeof confBase}) = [${utin(confBase)}]`);
 
 const Config = require('nconf');
-const config = require('read-config')(confPath);
+const config = require('read-config')(confBase);
 
 ME.Config = Config;
 ME.config = config;
@@ -94,42 +96,50 @@ ME.BUILD  = path.join(`build-${ME.VERSION}`,  path.sep);
 ME.DIST   = path.join(`dist-${ME.VERSION}`,   path.sep);
 ME.WEB    = path.join(`webroot`,              path.sep);
 ME.CURDIR = path.join(process.cwd(),          path.sep);
-ME.BOWER  = JSON.parse(fs.existsSync('./.bowerrc') ? fs.readFileSync('./.bowerrc') : {directory: "bower_modules"}).directory;
+ME.BOWER  = JSON.parse(fs.existsSync('.bowerrc') ? fs.readFileSync('.bowerrc') : {directory: "bower_modules"}).directory;
 
-utin.defaultOptions = _.extend({}, ME.pkg.options.iopts);
+utin.defaultOptions = Object.assign({}, ME.pkg.options.iopts);
 
 // console.log(`\n`);
 // console.log(`ME (${typeof ME}) = [${utin(ME)}]`);
 // console.log(`\n`);
 
-
-let now = new Date();
-let headerTpl = _.template(`/*!
+let headTplName = path.join(confPath, 'header.tpl');
+let footTplName = path.join(confPath, 'footer.tpl');
+let headTplCtx = fs.existsSync( headTplName )
+                      ? fs.readFileSync( headTplName )
+                      : `
+/*!
+ * APP_HEAD_CODE:\t\t <%= pkg.title %>
  * Package:\t\t <%= pkg.name %>@<%= pkg.version %>
- * Name:\t\t <%= pkg.title %>
+ * Built:\t\t ${dateFormat(now, 'yyyy-mm-dd')}T${dateFormat(now, 'HH:MM:ss')}
  * Description:\t <%= pkg.description %>
  * Purpose:\t\t <%= ME.NODE_ENV %>
  * Version:\t\t <%= ME.VERSION %>
- * Built:\t\t ${dateFormat(now, 'yyyy-mm-dd')}T${dateFormat(now, 'HH:MM:ss')}
- * Created:\t ${dateFormat(now, 'yyyy')} <%= pkg.author.email %>
+ * Created:\t <<%= pkg.author.email %>>
  * License:\t\t <%= pkg.license %>
  * Visit:\t\t <%= pkg.homepage %>
  */
-`);
-
-let footerTpl = _.template(`
+`;
+let footTplCtx = fs.existsSync( footTplName )
+                      ? fs.readFileSync( footTplName )
+                      : `
 /*!
  * Purpose:\t <%= ME.NODE_ENV %>
  * Version:\t <%= ME.VERSION %>
+ * Built:\t ${dateFormat(now, 'yyyy-mm-dd')}T${dateFormat(now, 'HH:MM:ss')}
  * Commit:\t <%= ME.COMMIT %>
- * EOF:\t\t <%= pkg.name %>@<%= pkg.version %> - <%= pkg.title %>
+ * APP_FOOT_CODE:\t\t <%= pkg.name %>@<%= pkg.version %> - <%= pkg.title %>
  * =========================================================================== *
  */
-`);
+`;
+
+let headTpl = _.template(`${headTplCtx}`);
+let footTpl = _.template(`${footTplCtx}`);
 
 const Banner = {
-    header: headerTpl({pkg: ME.pkg, ME: ME})
-  , footer: footerTpl({pkg: ME.pkg, ME: ME})
+    header: headTpl({pkg: ME.pkg, ME: ME})
+  , footer: footTpl({pkg: ME.pkg, ME: ME})
 };
 
 let envConfig = {
@@ -194,6 +204,7 @@ gulp.task('build:assets', ['build:css', 'build:js']);
 gulp.task('build:dev', [
     'bower'
   , 'sync:src2build'
+  , 'build:img'
 ], function () {
   gulp.start('build:assets');
 });
@@ -201,6 +212,7 @@ gulp.task('build:dev', [
 gulp.task('build', [
     'bower'
   , 'sync:src2build'
+  , 'build:img'
 ], function () {
   gulp.start('build:assets');
 });
@@ -213,7 +225,6 @@ gulp.task('watch',  ['watch:src:views', 'watch:src:css', 'watch:src:js']);
 
 
 //  WATCHERS
-
 gulp.task('watch:src:css', function () {
   var wCSS = gulp.watch([
       path.join(SRC, 'src/assets/css', '**/*.css')
@@ -226,7 +237,6 @@ gulp.task('watch:src:css', function () {
     console.info('CSS ' + event.path + ' was ' + event.type + ', running tasks...');
   });
 });
-
 gulp.task('watch:src:js', function () {
   var wScripts = gulp.watch([path.join(SRC, 'src/assets/js', '**/*.js')]
   , pkg.options.watch
@@ -238,135 +248,23 @@ gulp.task('watch:src:js', function () {
   });
 });
 
-
-//  BOWER
-gulp.task('bower', function () {
-
-  let mBower = mainBowerFiles(ME.pkg.options.bower, {
-      base:   ME.BOWER
-    , group:  ['front']
-  });
-
-  let DEST = path.join(ME.BUILD, 'assets');
-  let KEEP = path.join(ME.BUILD, 'resources/assets');
-  let JS   = path.join('js/lib');
-  let CSS  = path.join('css');
-  let FONT = path.join('fonts');
-  let WEBFONT = path.join('webfonts');
-  let IMG  = path.join('img');
-
-  let bowerJS = gulp.src(mBower)
-    .pipe(filter([
-        '**/*.js'
-      , '!**/*.min.js'
-      , '!**/npm.js'
-    ]))
-    // .pipe(changed(path.resolve(KEEP, JS)))
-    .pipe(gulp.dest(path.resolve(KEEP, JS)))
-    .pipe(gulp.dest(path.resolve(DEST, JS)))
-    .pipe(vinylPaths(function (paths) {
-      console.info('JS: ', paths);
-      return Promise.resolve();
-    }))
-    // .pipe(concat('bower-bundle.js'))
-    // .pipe(gulpif('production' === ME.NODE_ENV, uglify(ME.pkg.options.uglify)))
-    //  Write banners
-    // .pipe(headfoot.header(Banner.header))
-    // .pipe(headfoot.footer(Banner.footer))
-    .pipe(gulpif('production' === ME.NODE_ENV, rename({suffix: ME.pkg.options.minify.suffix})))
-    .pipe(gulp.dest(path.resolve(DEST, JS)));
-
-  let bowerCSS = gulp.src(mBower)
-    .pipe(filter([
-        '**/*.css'
-      , "**/*.css.map"
-      , "**/skin-blue.css"
-      , '!**/*.min.css'
-      , "!**/AdminLTE.css"
-      , "!**/AdminLTE-*.css"
-      , "!**/skin-*.css"
-    ]))
-    // .pipe(changed(path.resolve(KEEP, CSS)))
-    .pipe(gulp.dest(path.resolve(KEEP, CSS)))
-    .pipe(gulp.dest(path.resolve(DEST, CSS)))
-    .pipe(filter([
-        "!**/*.css.map"
-      , "!**/*.css.min.map"
-    ]))
-    .pipe(gulpif('production' === ME.NODE_ENV, cleanCSS(ME.pkg.options.clean, function (d) {
-      console.info(d.name + ':\t' + d.stats.originalSize + '\t->\t' + d.stats.minifiedSize + '\t[' + d.stats.timeSpent + 'ms]\t[' + 100 * d.stats.efficiency.toFixed(2) + '%]');
-    }), false))
-    .pipe(vinylPaths(function (paths) {
-      console.info('CSS:', paths);
-      return Promise.resolve();
-    }))
-    // .pipe(gulpif('production' === ME.NODE_ENV, concatCSS('bower-bundle.css', {rebaseUrls: false})))
-    //  Write banners
-    // .pipe(headfoot.header(Banner.header))
-    // .pipe(headfoot.footer(Banner.footer))
-    // Write minified version.
-    // .pipe(gulpif('production' === ME.NODE_ENV, minifyCSS()))
-    // .pipe(gulpif('production' === ME.NODE_ENV, rename({suffix: ME.pkg.options.minify.suffix})))
-    .pipe(gulp.dest(path.resolve(DEST, CSS)));
-
-  let bowerFonts = gulp.src(mBower)
-    .pipe(filter(['**/fonts/*.*']))
-    .pipe(changed(path.resolve(KEEP, FONT)))
-    .pipe(gulp.dest(path.resolve(KEEP, FONT)))
-    .pipe(vinylPaths(function (paths) {
-      console.info('FONT:', paths);
-      return Promise.resolve();
-    }))
-    .pipe(gulp.dest(path.resolve(DEST, FONT)));
-
-  let webFonts = gulp.src(mBower)
-    .pipe(filter(['**/webfonts/*.*']))
-    .pipe(changed(path.resolve(KEEP, WEBFONT)))
-    .pipe(gulp.dest(path.resolve(KEEP, WEBFONT)))
-    .pipe(vinylPaths(function (paths) {
-      console.info('WEBFONT:', paths);
-      return Promise.resolve();
-    }))
-    .pipe(gulp.dest(path.resolve(DEST, WEBFONT)));
-
-  let bowerImg = gulp.src(mBower)
-    .pipe(filter([
-        '**/img/*.*'
-      , '**/image/*.*'
-      , '**/images/*.*'
-      , '**/*.png'
-      , '**/*.jpg'
-      , '**/*.jpeg'
-      , '**/*.gif'
-      , '**/*.ico'
-    ]))
-    // .pipe(changed(path.join(KEEP, IMG)))
-    .pipe(gulp.dest(path.join(KEEP, IMG)))
-    .pipe(vinylPaths(function (paths) {
-      console.info('IMG:', paths);
-      return Promise.resolve();
-    }))
-    .pipe(gulp.dest(path.join(DEST, IMG)));
-
-  return merge(bowerJS, bowerCSS, bowerFonts, webFonts, bowerImg);
-});
-
-
 //  LINTERS
 gulp.task('jscs', function () {
   return gulp.src([
         path.join(ME.SRC, 'assets/js/front', '**/*.js')
       , path.join(ME.SRC, 'assets/js/app', '**/*.js')
     ])
-    .pipe(jscs('.jscsrc'))
+    .pipe(jscs({configPath: 'config/.jscsrc'}))
     .pipe(jscs.reporter());
 });
 gulp.task('jshint', function () {
+  let jshintConfig = JSON.parse(fs.existsSync('./config/.jshintrc') ? fs.readFileSync('./config/.jshintrc') : {});
+  jshintConfig.lookup = false;
   return gulp.src([
         path.join(ME.SRC, 'assets/js/front', '**/*.js')
       , path.join(ME.SRC, 'assets/js/app', '**/*.js')
     ])
-    .pipe(jshint('.jshintrc'))
+    .pipe(jshint(jshintConfig))
     .pipe(gulpif('production' === ME.NODE_ENV
       , jshint.reporter('jshint-stylish',   {verbose: true})
       , jshint.reporter('default',          {verbose: true})
@@ -385,7 +283,7 @@ gulp.task('show:src', function () {
   .pipe(changed(ME.BUILD))
   .pipe(vinylPaths(function (paths) {
     console.info('Changed:', paths);
-    return Promise.resolve();
+    return Promise.resolve(paths);
   }));
 });
 
@@ -393,21 +291,6 @@ gulp.task('show:src', function () {
 //  Print environment configuration
 gulp.task('show:config', function () {
   console.warn('ENV Config: [', utin(envConfig), ']');
-});
-
-gulp.task('usage', function () {
-  console.log('\n' + (new Array(50).join('-')));
-  console.info('\nUsage:\n\t gulp <task>\t-\tRun gulp task(s) specified');
-  console.info('\nwhere <task> is one of:\n');
-  console.warn('\tusage' + '\t\t', 'Show this topic');
-  console.warn('\tshow:config' + '\t', 'Show Configuration file');
-  console.warn('\tshow:src' + '\t', 'Log File Paths in the Stream');
-  console.warn('\n\tclean' + '\t\t', 'Empty given folders and Delete files');
-  console.warn('\tclean:build' + '\t', 'Clean directory with BUILD');
-  console.warn('\tclean:dist' + '\t', 'Distro files');
-  console.warn('\tclean:resources' + '\t', 'Static CSS, JS and Images');
-  console.warn('\tclean:public' + '\t', 'Directory visible from Internet');
-  console.log('\n' + (new Array(50).join('-')) + '\n');
 });
 
 /*  EOF: ROOT/gulpfile.js  */

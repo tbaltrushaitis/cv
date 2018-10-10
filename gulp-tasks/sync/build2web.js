@@ -38,7 +38,7 @@ module.exports = function (gulp) {
                     path.join(ME.BUILD, 'index.html')
                   , path.join(ME.BUILD, 'robots.txt')
                 ])
-                .pipe(changed(ME.WEB))
+                // .pipe(changed(ME.WEB))
                 .pipe(gulp.dest(ME.WEB))
                 .on('error', console.error.bind(console));
 

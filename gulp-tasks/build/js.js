@@ -1,6 +1,6 @@
 /*!
  * File:        ./gulp-tasks/build/js.js
- * Copyright(c) 2016-2017 Baltrushaitis Tomas
+ * Copyright(c) 2018-nowdays Baltrushaitis Tomas
  * License:     MIT
  */
 
@@ -22,29 +22,31 @@ const modConfigFile = `config/${path.join(modPath, modName)}.json`;
 const modConfig = require('read-config')(modConfigFile);
 
 const gulpif = require('gulp-if');
-const cleanCSS = require('gulp-clean-css');
-const concatCSS = require('gulp-concat-css');
-const minifyCSS = require('gulp-minify-css');
+const changed = require('gulp-changed');
 const headfoot = require('gulp-headerfooter');
+const jscs = require('gulp-jscs');
 const merge = require('merge-stream');
 const rename = require('gulp-rename');
+const uglify = require('gulp-uglify');
 
 //--------------//
 //  EXPORTS     //
 //--------------//
 
 module.exports = function (gulp) {
-  console.log(`LOADED: [${module.filename}]`);
+  console.log(`[${new Date().toISOString()}][${modPath}/${modName}] ACTIVATED with modConfig = [${utin(modConfig)}]`);
 
-  let DEST = path.join(ME.BUILD, 'assets/js');
-  return gulp.src(path.join(ME.BUILD, 'resources/assets/js', '**/*.js'))
-    //.pipe(jscs('.jscsrc'))
-    //.pipe(jscs.reporter())
+  let DEST = path.join(global.ME.BUILD, 'assets/js');
+  let frontJS = gulp.src(path.join(global.ME.SRC, 'assets/js/front', '**/*.js'))
+    .pipe(jscs('.jscsrc'))
+    .pipe(jscs.reporter())
     // .pipe(changed(DEST))
-    // .pipe(gulpif('production' === ME.NODE_ENV, uglify(ME.pkg.options.uglify), false))
+    .pipe(gulpif('production' === global.ME.NODE_ENV, uglify(), false))
     //  Write banners
-    // .pipe(headfoot.header(Banner.header))
-    // .pipe(headfoot.footer(Banner.footer))
+    .pipe(headfoot.header(global.ME.Banner.header))
+    .pipe(headfoot.footer(global.ME.Banner.footer))
     .pipe(gulp.dest(DEST));
+
+  return merge(frontJS);
 
 };

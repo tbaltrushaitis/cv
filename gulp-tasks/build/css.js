@@ -34,7 +34,7 @@ const rename = require('gulp-rename');
 //--------------//
 
 module.exports = function (gulp) {
-  console.log(`LOADED: [${module.filename}]`);
+  console.log(`[${new Date().toISOString()}][${modPath}/${modName}] ACTIVATED with modConfig = [${utin(modConfig)}]`);
 
   //  BUNDLE CSS and JS
   let DEST = path.join(ME.BUILD, 'assets/css');
@@ -47,11 +47,11 @@ module.exports = function (gulp) {
       console.info(d.name + ': ' + d.stats.originalSize + ' -> ' + d.stats.minifiedSize + ' [' + d.stats.timeSpent + 'ms] [' + 100 * d.stats.efficiency.toFixed(2) + '%]');
     }), false))
     .pipe(concatCSS('frontend-bundle.css', {rebaseUrls: true}))
-    .pipe(minifyCSS())
+    // .pipe(minifyCSS())
     //  Write banners
     .pipe(headfoot.header(ME.Banner.header))
     .pipe(headfoot.footer(ME.Banner.footer))
-    .pipe(gulpif('production' === ME.NODE_ENV, rename({suffix: ME.pkg.options.minify.suffix})))
+    // .pipe(gulpif('production' === ME.NODE_ENV, rename({suffix: ME.pkg.options.minify.suffix})))
     .pipe(gulp.dest(DEST));
 
   return merge(frontCSS);
