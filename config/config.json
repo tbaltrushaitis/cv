@@ -1,9 +1,24 @@
-{   "app_url": "http://cv.local"
-  , "engine": {
-        "name":    "custom"
-      , "version": "0.1.1"
-    }
-  , "email": {
-      "base64": "dGJhbHRydXNoYWl0aXNAZ21haWwuY29t"
-    }
+{
+  "__parent": "./default.json"
+, "app_url": "http://cv.%{NODE_ENV|test}"
+, "engine": {
+      "name":    "custom"
+    , "version": "0.1.1"
+  }
+, "keys": {
+      "google": {
+        "maps": "AIzaSyDc8Z_XhUPpwU99YLs7C24Bd36_MawARJk"
+      }
+  }
+, "author": {
+      "name":  {
+          "first": "Tomas"
+        , "last": "Baltrushaitis"
+        , "full": "@{./last} @{./first}"
+      }
+    , "nick": "Tom&acute;AS"
+    , "abbr": "tbaltrushaitis"
+    , "email": "@{./abbr}@gmail.com"
+    , "url":   "https://github.com/@{./abbr}"
+  }
 }

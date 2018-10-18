@@ -4,9 +4,13 @@
 [![devDependencies Status](https://david-dm.org/tbaltrushaitis/cv/dev-status.svg)](https://david-dm.org/tbaltrushaitis/cv?type=dev)
 [![Contributors](https://img.shields.io/github/contributors/tbaltrushaitis/cv.svg)](https://github.com/tbaltrushaitis/cv/graphs/contributors)
 
-# CV, Resume and Portfolio - All-in-One-Page site template with builder #
+# CV, Resume and Portfolio website #
 
-![CV Logo](assets/img/cv-01.png)
+<p align="center">
+  <img max-width="640px" max-height="360px" src="assets/img/cv-demo-01.gif" alt="CV, Resume and Portfolio website template" />
+</p>
+
+Modern CV, Resume and Portfolio website template. All-in-One-Page site with configurable builder.
 
 `cv` `resume` `portfolio` `skillset` `professional` `specialist` `IT` `curriculum` `vitae` `site`
 
@@ -31,7 +35,7 @@ A curriculum vitae summary is a one-to-two-page, condensed version of a full cur
 
 ## :runner: Usage ##
 
-### 1. :briefcase: Download ###
+### 1. Download ###
 ```shell
 $ APP_NAME=cv \
 && git clone https://github.com/tbaltrushaitis/${APP_NAME}.git \
@@ -40,22 +44,29 @@ $ APP_NAME=cv \
 
 ---
 
-### 2. :wrench: Setup ###
+### 2. Setup ###
 ```shell
-$ make
+$ make setup
 ```
 
 ---
 
-### 3. :pencil2: Fill ###
+### 3. Fill in ###
 
 Input your data into proper sections of `index.html`
 
 ---
 
-### 4. :koala: Enjoy ###
+### 4. Build ###
+```shell
+$ make build
+```
+---
 
-Post a link to your CV on a sites you need a profile page that provide a lots about your professional skills and experience
+### 5. Share  ###
+
+Post a link to your CV on a sites you need a profile page that provide a lots about your professional skills and experience.
+For example: [Modern CV](http://bit.ly/tomascv)
 
 ---
 
@@ -91,7 +102,8 @@ Read [License][License] for copyright information
 
 ### :link: More Info ###
 
- - [Markdown Howto](https://bitbucket.org/tutorials/markdowndemo)
+ - [GitHub: Basic writing and formatting syntax](https://help.github.com/articles/basic-writing-and-formatting-syntax)
+ - [BitBucket: markdown Howto](https://bitbucket.org/tutorials/markdowndemo)
  - [Linking containers](https://docs.docker.com/engine/userguide/networking/default_network/dockerlinks.md)
  - [Cross-host linking containers](https://docs.docker.com/engine/admin/ambassador_pattern_linking.md)
  - [Creating an Automated Build](https://docs.docker.com/docker-hub/builds/)

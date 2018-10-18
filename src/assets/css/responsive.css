@@ -1,4 +1,4 @@
-/* Extra small devices (phones, less than 768px) */
+/*! Extra small devices (phones, less than 768px) */
 @media (max-width : 766px) {
 
   .intro h1 {
@@ -47,18 +47,18 @@
   }
 
 
-  /*resume*/
+  /* resume */
   .resume:before,
   .resume:after{
     left: 1px;
   }
 
-  /*skill section*/
+  /* skill section */
   .skill-title h3 {
     font-size: 12px;
   }
 
-  /*facts section*/
+  /* facts section */
   .count-wrap i {
     font-size: 40px;
   }
@@ -82,17 +82,17 @@
     margin-bottom: 20px;
   }
 
-  /*blog section*/
+  /* blog section */
   .blog-post-wrapper {
     margin-bottom: 40px;
   }
 
-  /*hire us section*/
+  /* hire us section */
   .hire-section h2 {
     line-height: 40px;
   }
 
-  /*contact section*/
+  /* contact section */
   .contact-form {
     margin-bottom: 40px;
   }
@@ -105,7 +105,7 @@
     text-align: center;
   }
 
-  /*service*/
+  /* service */
   .service-wrap > div{
     margin-bottom:100px;
   }
@@ -114,7 +114,7 @@
     margin-bottom:0;
   }
 
-  /*HOME TWO*/
+  /* HOME TWO */
   #homeTwo:before{
     width:100%;
   }
@@ -185,7 +185,7 @@
     margin-left: 20px;
   }
 
-  /*about me section*/
+  /* about me section */
   .biography {
     margin-top: 20px;
     margin-bottom: 45px;
@@ -196,18 +196,18 @@
   }
 
 
-  /*resume*/
+  /* resume */
   .resume:before,
   .resume:after{
     left:1px;
   }
 
-  /*skill section*/
+  /* skill section */
   .skill-title h3 {
     font-size: 12px;
   }
 
-  /*facts section*/
+  /* facts section */
   .count-wrap i {
     font-size: 64px;
   }
@@ -227,17 +227,17 @@
     margin-bottom: 40px;
   }
 
-  /*blog section*/
+  /* blog section */
   .blog-post-wrapper {
     margin-bottom: 40px;
   }
 
-  /*hire us section*/
+  /* hire us section */
   .hire-section h2 {
     line-height: 40px;
   }
 
-  /*contact section*/
+  /* contact section */
   .contact-form {
     margin-bottom: 40px;
   }
@@ -250,7 +250,7 @@
     text-align: center;
   }
 
-  /*service*/
+  /* service */
   .service-wrap > div{
     margin-bottom:100px;
   }
@@ -259,7 +259,7 @@
     margin-bottom:0;
   }
 
-  /*HOME TWO*/
+  /* HOME TWO */
   #homeTwo:before{
     width:100%;
   }
@@ -311,24 +311,24 @@
     padding: 15px;
   }
 
-  /*about me section*/
+  /* about me section */
   .biography {
     margin-top: 20px;
     margin-bottom: 45px;
   }
 
-  /*resume*/
+  /* resume */
   .resume:before,
   .resume:after{
     left:0px;
   }
 
-  /*skill section*/
+  /* skill section */
   .skill-title h3 {
     font-size: 14px;
   }
 
-  /*blog section*/
+  /* blog section */
   .blog-post-wrapper {
     margin-bottom: 40px;
   }
@@ -337,7 +337,7 @@
     padding: 0 5px;
   }
 
-  /*contact section*/
+  /* contact section */
   .contact-form {
     margin-bottom: 40px;
   }
@@ -355,7 +355,7 @@
     min-height: 162px;
   }
 
-  /*service*/
+  /* service */
   .service-wrap > div{
     margin-bottom:100px;
   }
@@ -365,7 +365,7 @@
     margin-bottom:0;
   }
 
-  /*HOME TWO*/
+  /* HOME TWO */
   #homeTwo:before{
     width:100%;
   }

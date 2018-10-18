@@ -1,5 +1,5 @@
-/*!
- * =========================================================================== *
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *
  * HEAD_TPL:    <%= pkg.title %>
  * Built:       <%= pkg.built %>
  * Description: <%= pkg.description %>
@@ -7,4 +7,5 @@
  * Author:      <%= pkg.author.email %>
  * License:     <%= pkg.license %>
  * Visit:       <%= pkg.homepage %>
+ * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *
  */

@@ -1,6 +1,6 @@
 {   "name":        "cv"
-  , "title":       "CV, Resume and Portfolio site"
-  , "description": "CV, Resume and Portfolio - All-in-One-Page site template with builder"
+  , "title":       "CV, Resume and Portfolio website."
+  , "description": "Modern CV, Resume and Portfolio website template. All-in-One-Page site with configurable builder."
   , "version":     "0.1.5"
   , "authors": [
       "tbaltrushaitis@gmail.com"
@@ -48,7 +48,6 @@
       , "jquery-throttle-debounce": "*"
       , "magnific-popup": "^1.1.0"
       , "modernizr":      "^3.6.0"
-      , "normalize-css":  "^8.0.0"
       , "noty":           "~2.4.1"
       , "requirejs":      "~2.3.6"
       , "respond":        "~1.4.2"
@@ -61,7 +60,8 @@
   , "devDependencies": {
     }
   , "disabledDependencies": {
-      "jquery.shuffle": "#9cf47a1590"
+        "jquery.shuffle": "#9cf47a1590"
+      , "normalize-css":  "^8.0.0"
     }
   , "resolutions": {
     }
@@ -75,10 +75,17 @@
           , "!*-theme.*"
         ]
       }
-    , "font-awesome": {
+    , "font-awesome-off": {
         "main": [
             "**/webfonts/*.*"
           , "**/css/*.css"
+          , "!css/*.min.css"
+        ]
+      }
+    , "font-awesome": {
+        "main": [
+            "web-fonts-with-css/webfonts/*.*"
+          , "web-fonts-with-css/css/fontawesome-all.css"
           , "!css/*.min.css"
         ]
       }

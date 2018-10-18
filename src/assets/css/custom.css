@@ -1,4 +1,4 @@
-/*  Custom Styles  */
+/*!  Custom Styles  */
 
 /*   -------------------------   IAMX covers   ----------------------------   */
 body {
@@ -7,6 +7,18 @@ body {
 
 .h4 {
   font-weight: 600;
+}
+
+.copyright {
+  font-family: 'Lato', Calibri, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.footer-wrapper {
+  background: #1a1e23;
+  padding: 16px 0;
+  color: #ccc;
 }
 
 /* ---------------------------------------------- /*
@@ -65,11 +77,11 @@ body {
 /* === progress-bar === */
 .skill-progress .progress {
   float-left;
+  background-color: #3a4149;
+  background-image: none;
 }
 
 .progress {
-  background-color: #3a4149;
-  background-image: none;
 }
 
 .progress-bar {

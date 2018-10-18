@@ -1,10 +1,14 @@
 /* jshint unused:false */
 /*!
+ * File:        ./src/assets/js/front/iamx.js
+ * Copyright(c) 2016-nowdays {{author.name.full}} <{{author.email}}>
+ * License:     MIT
+ */
+/*!
  * Theme Name:  IAMX
  * Author:      Trendy Theme
  * Author URL:  http://trendytheme.net
  */
-
 /*!
   =   Preloader
   =   Animated scrolling / Scroll Up
@@ -29,8 +33,8 @@ window.jQuery(function ($) {
    *  Preloader
   /* ------------------------------------------------------------------------ */
 
-  // $(document).ready(function () {
-  $(window).on('load', function () {
+  // $(window).on('load', function () {
+  $(document).ready(function () {
     $('#pre-status').fadeOut();
     $('#tt-preloader').delay(150).fadeOut('slow');
   });
@@ -101,7 +105,7 @@ window.jQuery(function ($) {
       $(this).find('.timer').each(function () {
         var $this = $(this);
         $({Counter: 0}).animate({Counter: $this.text()}, {
-          duration: 2000
+          duration: 4000
           , easing:   'swing'
           , step: function () {
               $this.text(Math.ceil(this.Counter));
@@ -133,14 +137,14 @@ window.jQuery(function ($) {
       // configuration goes here
       $('.chart').easyPieChart({
         easing:     'easeOut'
-        , delay:      3000
+        , delay:      2500
         , barColor:   '#68c3a3'
         , trackColor: '#3a4149'
         , scaleColor: false
         , lineWidth:  8
         , size:       140
         , animate: {
-            duration: 2500
+            duration: 3500
             , enabled: true
           }
         , rotate: 0
@@ -311,7 +315,8 @@ window.jQuery(function ($) {
   // ---------------------------------------------------------------------------
 
   (function () {
-    var myLatlng, styles, mapOptions, map, marker, contentString, infowindow;
+
+    let myLatlng, styles, mapOptions, map, marker, contentString, infowindow;
 
     myLatlng = new window.google.maps.LatLng(50.436336, 30.488619);
 
@@ -321,21 +326,10 @@ window.jQuery(function ($) {
           {color: '#f7f7f7'}
         ]
     }
-    , { featureType: 'natural'
-      , stylers: [
-          {hue: '#00ffe6'}
-        ]
-    }
     , { featureType: 'road'
       , stylers: [
             {hue:        '#fff'}
           , {saturation: -70}
-        ]
-    }
-    , { featureType: 'building'
-      , elementType: 'labels'
-      , stylers: [
-          {hue: ''}
         ]
     }
     , { featureType: 'poi'   // points of interest

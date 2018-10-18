@@ -1,1 +1,4 @@
-{"xhr_timeout": 5000}
+{
+    "__parent": "./build.json"
+  , "xhr_timeout": 7000
+}
