@@ -1,7 +1,7 @@
 /*!
  * Project:     cv
  * File:        ./gulp-tasks/sync/build2web.js
- * Copyright(c) 2016-2018 Baltrushaitis Tomas
+ * Copyright(c) 2016-nowdays Baltrushaitis Tomas
  * License:     MIT
  */
 
@@ -13,32 +13,41 @@
 
 const path = require('path');
 const util = require('util');
-
-const merge   = require('merge-stream');
-const dirSync = require('gulp-directory-sync');
-const changed = require('gulp-changed');
-
 const utin = util.inspect;
 
-const modName = path.basename(module.filename, '.js');
-const modPath = path.relative(global.ME.WD, path.dirname(module.filename));
-
-const modConfigFile = `config/${path.join(modPath, modName)}.json`;
-const modConfig = require('read-config')(modConfigFile);
+const vinylPaths = require('vinyl-paths');
+const dirSync = require('gulp-directory-sync');
+const changed = require('gulp-changed');
+const merge = require('merge-stream');
 
 
 //  ------------------------------------------------------------------------  //
-//  -------------------------------  EXPORTS  ------------------------------  //
+//  ----------------------------  CONFIGURATION  ---------------------------  //
+//  ------------------------------------------------------------------------  //
+
+let ME = Object.assign({}, global.ME || {});
+utin.defaultOptions = Object.assign({}, ME.pkg.options.iopts || {});
+
+const modName = path.basename(module.filename, '.js');
+const modPath = path.relative(ME.WD, path.dirname(module.filename));
+const confPath = path.join(ME.WD, 'config', path.sep);
+const modConfigFile = `${path.join(confPath, modPath, modName)}.json`;
+const modConfig = require('read-config')(modConfigFile, ME.pkg.options.readconf);
+
+ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
+
+
+//  ------------------------------------------------------------------------  //
+//  -------------------------------  EXPOSE  -------------------------------  //
 //  ------------------------------------------------------------------------  //
 
 module.exports = function (gulp) {
-  console.log(`[${new Date().toISOString()}][${modPath}/${modName}] ACTIVATED with modConfig = [${utin(modConfig)}]`);
+  console.log(`[${new Date().toISOString()}][${modPath}/${modName}] with [${utin(modConfigFile)}]`);
 
   let wFiles =  gulp.src([
                     path.join(ME.BUILD, 'index.html')
                   , path.join(ME.BUILD, 'robots.txt')
                 ])
-                // .pipe(changed(ME.WEB))
                 .pipe(gulp.dest(ME.WEB))
                 .on('error', console.error.bind(console));
 
@@ -59,4 +68,5 @@ module.exports = function (gulp) {
                   .on('error', console.error.bind(console));
 
   return merge(wFiles, wAssets, wData);
+
 };

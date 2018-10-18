@@ -1,5 +1,5 @@
 /*!
- * File:        ./gulp-tasks/build/js.js
+ * File:        ./gulp-tasks/populate.js
  * Copyright(c) 2018-nowdays Baltrushaitis Tomas
  * License:     MIT
  */
@@ -15,12 +15,11 @@ const util = require('util');
 const utin = util.inspect;
 
 const vinylPaths = require('vinyl-paths');
-const gulpif = require('gulp-if');
-const changed = require('gulp-changed');
-const headfoot = require('gulp-headerfooter');
-const jscs = require('gulp-jscs');
-const merge = require('merge-stream');
-const terser = require('gulp-terser');
+const gulpif     = require('gulp-if');
+const headfoot   = require('gulp-headerfooter');
+const merge      = require('merge-stream');
+const replace    = require('gulp-token-replace');
+
 
 //  ------------------------------------------------------------------------  //
 //  ----------------------------  CONFIGURATION  ---------------------------  //
@@ -44,26 +43,60 @@ ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
 
 module.exports = function (gulp) {
   console.log(`[${new Date().toISOString()}][${modPath}/${modName}] with [${utin(modConfigFile)}]`);
+  console.log(`[${new Date().toISOString()}][${modPath}/${modName}] [${utin(ME.Config)}]`);
 
-  let FROM = path.join(ME.BUILD, 'resources/assets');
-  let DEST = path.join(ME.BUILD, 'assets');
-  let JS = path.join('js');
+  let CONF = ME.Config; // require('./config/person.json'); // ME.Config
+  let SRC = path.join(ME.SRC);
+  let DEST = path.join(ME.BUILD);
+  let RESO = path.join('resources');
 
-  let JSfront = gulp.src([
-        path.join(FROM, JS, '**/*.js')
-    ])
+  let Void = [
+      path.join(SRC, '*.html')
+    , path.join(SRC, '*.txt')
+  ];
+  let JS = path.join('assets/js');
+  let CSS = path.join('assets/css');
+  let DATA = path.join('data');
+
+
+  //--------------//
+  // STATIC FILES //
+  //--------------//
+  let srcVoid = gulp.src(Void)
     .pipe(vinylPaths(function (paths) {
-      console.info('[FRONTEND] JS: ', paths);
+      console.info('[RESOURCE] STATIC:', paths);
       return Promise.resolve(paths);
     }))
-    // .pipe(jscs({configPath: 'config/.jscsrc'}))
-    // .pipe(jscs.reporter())
-    .pipe(gulpif('production' === ME.NODE_ENV, terser()))
-    // //  Write banners
-    .pipe(headfoot.header(ME.Banner.header))
-    .pipe(headfoot.footer(ME.Banner.footer))
-    .pipe(gulp.dest(path.resolve(DEST, JS)));
+    .pipe(replace({global: CONF}))
+    .pipe(gulp.dest(path.resolve(DEST)));
 
-  return merge(JSfront);
+
+  //--------------//
+  // JAVASCRIPTS //
+  //--------------//
+  let srcJS = gulp.src([
+        path.join(SRC, JS, '**/*.js')
+    ])
+    .pipe(vinylPaths(function (paths) {
+      console.info('[FRONTEND] JS:', paths);
+      return Promise.resolve(paths);
+    }))
+    .pipe(replace({global: CONF}))
+    .pipe(gulp.dest(path.resolve(DEST, RESO, JS)));
+
+
+  //--------------//
+  //    DATA      //
+  //--------------//
+  let srcData = gulp.src([
+        path.join(SRC, DATA, '**/*.*')
+    ])
+    .pipe(vinylPaths(function (paths) {
+      console.info('[FRONTEND] DATA:', paths);
+      return Promise.resolve(paths);
+    }))
+    .pipe(gulp.dest(path.resolve(DEST, DATA)));
+
+  return merge(srcVoid, srcJS, srcData);
 
 };

@@ -1,4 +1,4 @@
-/*  General Style  */
+/*!  General Style  */
 
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 
@@ -17,26 +17,26 @@ html { height: 100%; }
 /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
 .clearfix:before,
 .clearfix:after {
-  content: " ";
-  display: table;
+	content: " ";
+	display: table;
 }
 
 .clearfix:after {
-  clear: both;
+	clear: both;
 }
 
 .clearfix {
-  *zoom: 1;
+	*zoom: 1;
 }
 
 body {
-  background: #f9f9f9;
+	background: #f9f9f9;
 	color: #333;
 	font-family: 'Lato', Calibri, Arial, sans-serif;
-  font-weight: 300;
-  font-size: 15px;
-  overflow: scroll;
-  overflow-x: hidden;
+	font-weight: 300;
+	font-size: 14px;
+	overflow: scroll;
+	overflow-x: hidden;
 }
 
 a {

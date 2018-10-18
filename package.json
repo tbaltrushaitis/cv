@@ -1,7 +1,7 @@
 {   "name":     "cv"
   , "version":  "0.1.5"
-  , "title":    "CV, Resume and Portfolio site"
-  , "description":  "CV, Resume and Portfolio - All-in-One-Page site template with builder"
+  , "title":    "CV, Resume and Portfolio website."
+  , "description": "Modern CV, Resume and Portfolio website template. All-in-One-Page site with configurable builder."
   , "homepage": "https://github.com/tbaltrushaitis/cv"
   , "bugs":     "https://github.com/tbaltrushaitis/cv/issues"
   , "license":  "MIT"
@@ -19,15 +19,18 @@
   , "os": ["linux"]
   , "main": "gulpfile.js"
   , "scripts": {
-        "preinstall": ""
-      , "postinstall": "[ -f ./NODE_ENV ] || cp -prv config/.NODE_ENV ./NODE_ENV; [ -f ./.bowerrc ] || cp -prv config/.bowerrc ./"
+        "preinstall-disabled": "[ -f ./NODE_ENV ] || cp -prv config/.NODE_ENV ./NODE_ENV ; [ -f ./.bowerrc ] || cp -prv config/.bowerrc ./ ;"
+      , "postinstall": ""
       , "start":    ""
-      , "test":     ""
+      , "test":     "gulp test"
+      , "check":    "gulp test"
+      , "prepare":  "gulp populate"
       , "setup":    ""
-      , "build":    "make build"
+      , "prebuild": ""
+      , "build":    "gulp build"
       , "deploy":   ""
       , "rebuild":  ""
-      , "all":      "make all"
+      , "all":      ""
       , "default":  "gulp --env=test"
       , "dev":      "gulp --env=dev"
       , "prod":     "gulp --env=production"
@@ -53,7 +56,6 @@
       , "gulp-clean-css":      "^3.10.0"
       , "gulp-concat":         "^2.6.0"
       , "gulp-concat-css":     "^3.1.0"
-      , "gulp-data":           "^1.3.1"
       , "gulp-directory-sync": "^1.2.3"
       , "gulp-exec":           "^3.0.2"
       , "gulp-file-include":   "^2.0.1"
@@ -64,29 +66,36 @@
       , "gulp-jimp":           "^1.2.9"
       , "gulp-jscs":           "^4.1.0"
       , "gulp-jshint":         "^2.1.0"
-      , "gulp-minify-css":     "^1.2.4"
       , "gulp-newer":          "^1.4.0"
       , "gulp-rename":         "^1.4.0"
       , "gulp-replace":        "^1.0.0"
       , "gulp-require-tasks":  "^1.2.1"
       , "gulp-sequence":       "^1.0.0"
-      , "gulp-template":       "^5.0.0"
+      , "gulp-terser":         "^1.1.5"
+      , "gulp-token-replace":  "^1.1.2"
       , "gulp-uglify":         "^3.0.1"
       , "gulp-util":           "^3.0.8"
       , "gulp-watch":          "^5.0.1"
-      , "jimp":                "^0.5.3"
-      , "jquery":              "^3.3.1"
+      , "jimp":                "^0.5.4"
       , "jshint":              "^2.9.6"
       , "jshint-stylish":      "^2.2.1"
       , "lodash":              "^4.17.11"
       , "main-bower-files":    "^2.13.1"
       , "merge-stream":        "^1.0.1"
       , "minimist":            "^1.2.0"
-      , "nconf":               "^0.10.0"
+      , "pump":                "^3.0.0"
       , "read-config":         "^2.0.0"
       , "vinyl-paths":         "^2.1.0"
+      , "yargs":               "^12.0.2"
     }
-  , "outdatedDependencies": {}
+  , "outdatedDependencies": {
+        "babel-preset-es2015": "^6.24.1"
+      , "gulp-data":       "^1.3.1"
+      , "gulp-minify-css": "^1.2.4"
+      , "gulp-template":   "^5.0.0"
+      , "jquery":          "^3.3.1"
+      , "nconf":           "^0.10.0"
+    }
   , "options": {
       "bower": {
           "debugging": true
@@ -166,6 +175,12 @@
           "showHidden": false
         , "depth":      4
         , "colors":     true
+      }
+    , "readconf": {
+          "basedir":      null
+        , "replaceEnv":   "%"
+        , "replaceLocal": "@"
+        , "override":     true
       }
     }
   , "jshintConfig": {}

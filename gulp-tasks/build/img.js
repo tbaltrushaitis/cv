@@ -6,11 +6,9 @@
 
 'use strict';
 
-//--------------//
-// DEPENDENCIES //
-//--------------//
-
-const _ = require('lodash');
+//  ------------------------------------------------------------------------  //
+//  -----------------------------  DEPENDENCIES  ---------------------------  //
+//  ------------------------------------------------------------------------  //
 
 const fs   = require('fs');
 const del  = require('del');
@@ -30,41 +28,46 @@ const rename  = require('gulp-rename');
 const jimp    = require('gulp-jimp');
 const merge   = require('merge-stream');
 
-//---------------//
-// CONFIGURATION //
-//---------------//
+
+//  ------------------------------------------------------------------------  //
+//  ----------------------------  CONFIGURATION  ---------------------------  //
+//  ------------------------------------------------------------------------  //
+
+let ME = Object.assign({}, global.ME || {});
+utin.defaultOptions = Object.assign({}, ME.pkg.options.iopts || {});
 
 const modName = path.basename(module.filename, '.js');
-const modPath = path.relative(global.ME.WD, path.dirname(module.filename));
+const modPath = path.relative(ME.WD, path.dirname(module.filename));
+const confPath = path.join(ME.WD, 'config', path.sep);
+const modConfigFile = `${path.join(confPath, modPath, modName)}.json`;
+const modConfig = require('read-config')(modConfigFile, ME.pkg.options.readconf);
 
-const modConfigFile = `config/${path.join(modPath, modName)}.json`;
-const modConfig = require('read-config')(modConfigFile);
+ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
 
 
-//--------------//
-//  EXPOSE      //
-//--------------//
+//  ------------------------------------------------------------------------  //
+//  --------------------------------  EXPOSE  ------------------------------  //
+//  ------------------------------------------------------------------------  //
 
 module.exports = function (gulp) {
-  console.log(`[${new Date().toISOString()}][${modPath}/${modName}] ACTIVATED with modConfig = [${utin(modConfig)}]`);
-
-  // const gulpSequence = require('gulp-sequence').use(gulp);
+  console.log(`[${new Date().toISOString()}][${modPath}/${modName}] with [${utin(modConfigFile)}]`);
 
   //  JIMP - responsible for image processing
-  let FROM = path.join(global.ME.SRC, 'assets');
-  let DEST = path.join(global.ME.BUILD, 'assets');
-  let KEEP = path.join(global.ME.BUILD, 'resources/assets');
-  let IMG  = path.join('img/works');
+  let FROM = path.join(ME.BUILD, 'assets');
+  let DEST = path.join(ME.BUILD, 'assets');
+  let IMG  = path.join('img');
+  let TUMB = path.join('thumbs');
+  let SRC = path.join(FROM, IMG, 'works', '**/*.*');
 
-  let PNGS = gulp.src([path.join(FROM, IMG, '*.*')])
+
+  let PNGS = gulp.src([SRC])
     .pipe(filter(['**/*.png']))
-    .pipe(gulp.dest(path.join(KEEP, IMG)))
     .pipe(vinylPaths(function (paths) {
-      console.info('PNG:', paths);
+      console.info('[FRONTEND][IMAGE] PNG for crop:', paths);
       return Promise.resolve(paths);
     }))
     .pipe(jimp({
-      '-sm': {
+      '': {
           autocrop: {
               tolerance: 0.0002
             , cropOnlyFrames: false
@@ -76,19 +79,20 @@ module.exports = function (gulp) {
         , type: 'png'
       }
     }))
-    .pipe(gulp.dest(path.join(DEST, IMG)));
+    .pipe(gulp.dest(path.join(DEST, IMG, TUMB, 'works')));
 
-  let JPGS = gulp.src([path.join(FROM, IMG, '**/*.*')])
+
+  let JPGS = gulp.src(SRC)
     .pipe(filter([
         '**/*.jpg'
       , '**/*.jpeg'
     ]))
     .pipe(vinylPaths(function (paths) {
-      console.info('JPEG:', paths);
+      console.info('[FRONTEND][IMAGE] JPEG for crop:', paths);
       return Promise.resolve(paths);
     }))
     .pipe(jimp({
-      '-sm': {
+      '': {
           autocrop: {
               tolerance: 0.0002
             , cropOnlyFrames: false
@@ -100,9 +104,8 @@ module.exports = function (gulp) {
         , type: 'jpg'
       }
     }))
-    .pipe(gulp.dest(path.join(DEST, IMG)));
+    .pipe(gulp.dest(path.join(DEST, IMG, TUMB, 'works')));
 
-  // return gulpSequence(PNGS);
   return merge(PNGS, JPGS);
 
 };

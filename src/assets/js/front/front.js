@@ -1,26 +1,26 @@
 /* jshint unused:false */
 /*!
  * File:        ./src/assets/js/front/front.js
- * Copyright(c) 2016-2018 Baltrushaitis Tomas <tbaltrushaitis@gmail.com>
+ * Copyright(c) 2016-nowdays {{author.name.full}} <{{author.email}}>
  * License:     MIT
  */
 
+'use strict';
+
 window.jQuery(function($) {
 
-  'use strict';
-
-  let defs = {
+  let defOpts = Object.assign({}, {
     selector: 'div'
     , inclass:  ''
     , outclass: ''
-  };
+  });
 
   /* ------------------------------------------------------------------------ /*
    *  Waypoints
   /* ------------------------------------------------------------------------ */
 
   let wShow = function (o) {
-    let opts = Object.assign({}, defs, o || {});
+    let opts = Object.assign({}, defOpts || {}, o || {});
 
     new window.Waypoint.Inview({
       element: $(opts.selector)
@@ -170,8 +170,8 @@ window.jQuery(function($) {
 
     $(window).on('load', function () {
       console.log('SETTING UP CONTACTS');
-      $('[name="contact-cell"]').html(atob('KzM4MCg2NykgNzgtemVyby0zMS0xOA=='));
-      $('[name="contact-email"]').prop('href', atob('bWFpbHRvOnRiYWx0cnVzaGFpdGlzQGdtYWlsLmNvbQ=='));
+      $('[name="contact-cell"]').html(atob('{{person.cell}}'));
+      $('[name="contact-email"]').prop('href', atob('{{person.email}}'));
     });
 
   })();
@@ -186,7 +186,7 @@ window.jQuery(function($) {
       setTimeout(function () {
         console.log('SHOWING INTRO NOTIFICATION');
         window.noty({
-          text:      'Content was last updated at 2018-10-01'
+          text:      'Content was last updated at {{built.date}}'
           , timeout: 10000
           , type:    'information'
         });

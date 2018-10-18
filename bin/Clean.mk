@@ -26,9 +26,12 @@ clean-deps:
 
 clean-files:
 	@ rm -rf COMMIT \
-		package-lock.json \
+		*.md \
 		bitbucket-pipelines.yml \
 		codeclimate-config.patch \
-		_config.yml ;
+		_config.yml \
+		package-lock.json \
+		yarn.lock \
+		yarn-error.log ;
 
 ##  ------------------------------------------------------------------------  ##
