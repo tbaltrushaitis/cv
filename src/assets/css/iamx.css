@@ -550,7 +550,7 @@ SOCIAL ICON
   display:inline-block;
 }
 .short-info ul li {
-  width: 50%;
+  /* width: 50%; */
   float: left;
 }
 
