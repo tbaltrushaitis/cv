@@ -11,8 +11,8 @@ SHELL = /bin/sh
 
 ##  ------------------------------------------------------------------------  ##
 
-$(shell if [ ! -f ./NODE_ENV ]; then cp -prv config/.NODE_ENV ./NODE_ENV; fi);
-$(shell if [ ! -f ./.bowerrc ]; then cp -prv config/.bowerrc ./; fi);
+$(shell if [ ! -f ./NODE_ENV ] 2>&1 >/dev/null; then cp -prv config/.NODE_ENV ./NODE_ENV ; fi);
+$(shell if [ ! -f ./.bowerrc ] 2>&1 >/dev/null; then cp -prv config/.bowerrc ./ ; fi);
 
 APP_NAME := cv
 APP_SLOG := "CV+PORTFOLIO"
@@ -128,7 +128,7 @@ all: clean banner cycle;
 full: clean-all all;
 
 cycle: rights setup build deploy banner;
-cycle-dev: setup-deps clean-build build deploy banner;
+cycle-dev: build deploy banner;
 
 dev: clean-build clean-files cycle-dev;
 

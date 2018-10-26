@@ -6,9 +6,9 @@
 
 'use strict';
 
-//--------------//
-// DEPENDENCIES //
-//--------------//
+//  ------------------------------------------------------------------------  //
+//  -----------------------------  DEPENDENCIES  ---------------------------  //
+//  ------------------------------------------------------------------------  //
 
 const _ = require('lodash');
 
@@ -32,11 +32,11 @@ const gulpif        = require('gulp-if');
 const jscs          = require('gulp-jscs');
 const jshint        = require('gulp-jshint');
 const stylish       = require('jshint-stylish');
-const replace = require('gulp-token-replace');
+const replace       = require('gulp-token-replace');
 
-//---------------//
-// CONFIGURATION //
-//---------------//
+//  ------------------------------------------------------------------------  //
+//  ----------------------------  CONFIGURATION  ---------------------------  //
+//  ------------------------------------------------------------------------  //
 
 global.ME = {};
 let now = new Date();
@@ -130,9 +130,9 @@ console.log('\n');
 
 ME.Banner = Banner;
 
-//-------//
-// TASKS //
-//-------//
+//  ------------------------------------------------------------------------  //
+//  -------------------------------  TASKS  --------------------------------  //
+//  ------------------------------------------------------------------------  //
 
 gulpTasks({
     path:      process.cwd() + '/gulp-tasks'
@@ -203,24 +203,35 @@ gulp.task('watch',  ['watch:src:css', 'watch:src:js']);
 //  WATCHERS
 gulp.task('watch:src:css', function () {
   var wCSS = gulp.watch([
-      path.join(SRC, 'src/assets/css', '**/*.css')
+      path.join(ME.SRC, 'assets/css', '**/*.css')
     ]
   , pkg.options.watch
   , function () {
-      // gulpSequence('sync:src2build', 'sync:assets2public', 'build:css', 'sync:build2web')();
+      return  gulpSequence('sync:src2build', 'build:css', 'deploy')((err) => {
+                if (err) {
+                  console.log('ERROR OCCURED:', utin(err));
+                }
+              });
   });
   wCSS.on('change', function (event) {
-    console.info('CSS ' + event.path + ' was ' + event.type + ', running tasks...');
+    console.log('CSS', utin(event.path), 'was', utin(event.type), ', running tasks...');
   });
 });
+
 gulp.task('watch:src:js', function () {
-  var wScripts = gulp.watch([path.join(SRC, 'src/assets/js', '**/*.js')]
+  var wScripts = gulp.watch([
+      path.join(ME.SRC, 'assets/js', '**/*.js')
+    ]
   , pkg.options.watch
   , function () {
-      // gulpSequence('sync:src2build', 'sync:assets2public', 'lint', 'build:js', 'sync:build2web')();
+      return  gulpSequence('populate', 'sync:src2build', 'build:js', 'deploy')((err) => {
+                if (err) {
+                  console.log('ERROR OCCURED:', utin(err));
+                }
+              });
   });
   wScripts.on('change', function (event) {
-    console.info('JS ' + event.path + ' was ' + event.type + ', running tasks...');
+    console.log('JS', utin(event.path), 'was', utin(event.type), ', running tasks...');
   });
 });
 
