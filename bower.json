@@ -74,6 +74,11 @@
           , "!**/*.min.js"
           , "!*-theme.*"
         ]
+      , "main-4": [
+            "dist/js/bootstrap.js"
+          , "dist/css/bootstrap.css"
+          , "dist/fonts/*.*"
+        ]
       }
     , "font-awesome-off": {
         "main": [
