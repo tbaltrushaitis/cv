@@ -63,7 +63,7 @@ module.exports = function (gulp) {
   let PNGS = gulp.src([SRC])
     .pipe(filter(['**/*.png']))
     .pipe(vinylPaths(function (paths) {
-      console.info('[FRONTEND][IMAGE] PNG for crop:', paths);
+      console.log(`[${new Date().toISOString()}][FRONTEND][IMAGE] Cropping PNG: [${utin(paths)}]`);
       return Promise.resolve(paths);
     }))
     .pipe(jimp({
@@ -88,7 +88,7 @@ module.exports = function (gulp) {
       , '**/*.jpeg'
     ]))
     .pipe(vinylPaths(function (paths) {
-      console.info('[FRONTEND][IMAGE] JPEG for crop:', paths);
+      console.log(`[${new Date().toISOString()}][FRONTEND][IMAGE] Cropping JPEG: [${utin(paths)}]`);
       return Promise.resolve(paths);
     }))
     .pipe(jimp({

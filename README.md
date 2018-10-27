@@ -12,18 +12,18 @@
 
 Modern CV, Resume and Portfolio website template. All-in-One-Page site with configurable builder.
 
-`cv` `resume` `portfolio` `skillset` `professional` `specialist` `IT` `curriculum` `vitae` `site`
+`cv` `resume` `portfolio` `portfolio-website` `cv-template` `IT` `curriculum-vitae` `cv-summary` `website` `resume-template` `resume-website` `cv-website` `animated` `animate-css` `template-project` `modern` `skills` `skillset`
 
 ---
 
 ## :computer: Live Demo ##
-:point_right: See it in action at my [Portfolio Site](http://bit.ly/tomascv) :point_left:
+See it in action at :point_right: [Modern CV Site](http://bit.ly/tomascv) :point_left:
 
 ---
 
 ## What Is a Curriculum Vitae? ##
 
-**Curriculum vitae** (CV) provides a summary of one’s experience and skills.
+`Curriculum vitae` (CV) provides a summary of one’s experience and skills.
 
 CVs include information on one’s academic background, including teaching experience, degrees, research, awards, publications, presentations, and other achievements. CVs are thus much longer than resumes, and include more information, particularly related to academic background.
 
@@ -65,7 +65,7 @@ $ make build
 
 ### 5. Share  ###
 
-Post a link to your CV on a sites you need a profile page that provide a lots about your professional skills and experience.
+Post a link to your CV on a sites where you need your personal profile page should be discovered by other users and that provide a lots of information about your professional skills and experience.
 For example: [Modern CV](http://bit.ly/tomascv)
 
 ---

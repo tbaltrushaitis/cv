@@ -1,7 +1,7 @@
 {   "name":     "cv"
   , "version":  "0.1.5"
-  , "title":    "CV, Resume and Portfolio website."
-  , "description": "Modern CV, Resume and Portfolio website template. All-in-One-Page site with configurable builder."
+  , "title":    "Modern CV, Resume and Portfolio website"
+  , "description": "Modern CV, Resume and Portfolio website template. Easy customizable All-in-One-Page site with configurable builder."
   , "homepage": "https://github.com/tbaltrushaitis/cv"
   , "bugs":     "https://github.com/tbaltrushaitis/cv/issues"
   , "license":  "MIT"
@@ -181,6 +181,7 @@
         , "replaceEnv":   "%"
         , "replaceLocal": "@"
         , "override":     true
+        , "skipUnresolved": true
       }
     }
   , "jshintConfig": {}

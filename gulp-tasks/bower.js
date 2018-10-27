@@ -73,7 +73,7 @@ module.exports = function (gulp) {
       , '!**/npm.js'
     ]))
     .pipe(vinylPaths(function (paths) {
-      console.info('[BOWER] JS: ', paths);
+      console.log(`[${new Date().toISOString()}][BOWER] JS: [${utin(paths)}]`);
       return Promise.resolve(paths);
     }))
     .pipe(gulpif('production' === ME.NODE_ENV, terser()))
@@ -96,7 +96,7 @@ module.exports = function (gulp) {
     //   return Promise.resolve(paths);
     // }))
     .pipe(gulpif('production' === ME.NODE_ENV, new cleanCSS({debug: true, rebase: false}, function (d) {
-      console.info('[BOWER] CSS: Compress [', d.path, ']: [', utin(d.stats.originalSize), '->', utin(d.stats.minifiedSize), '] [', utin(parseFloat((100 * d.stats.efficiency).toFixed(2))), '%] in [', utin(d.stats.timeSpent), 'ms]');
+      console.log(`[${new Date().toISOString()}][BOWER] Compressing CSS [${utin(d.path)}]: [${utin(d.stats.originalSize)} -> ${utin(d.stats.minifiedSize)}] [${utin(parseFloat((100 * d.stats.efficiency).toFixed(2)))}%] in [${utin(d.stats.timeSpent)}ms]`);
     })))
     .pipe(concatCSS('bower-bundle.css', {rebaseUrls: false, commonBase: path.join(DEST, CSS)}))
     //  Write banners
@@ -108,7 +108,7 @@ module.exports = function (gulp) {
   let bowerFonts = gulp.src(mBower)
     .pipe(filter(['**/fonts/*.*']))
     .pipe(vinylPaths(function (paths) {
-      console.info('[BOWER] FONT:', paths);
+      console.log(`[${new Date().toISOString()}][BOWER] FONT: [${utin(paths)}]`);
       return Promise.resolve(paths);
     }))
     .pipe(gulp.dest(path.resolve(DEST, FONT)));
@@ -117,7 +117,7 @@ module.exports = function (gulp) {
   let webFonts = gulp.src(mBower)
     .pipe(filter(['**/webfonts/*.*']))
     .pipe(vinylPaths(function (paths) {
-      console.info('[BOWER] WEBFONT:', paths);
+      console.log(`[${new Date().toISOString()}][BOWER] WEBFONT: [${utin(paths)}]`);
       return Promise.resolve(paths);
     }))
     .pipe(gulp.dest(path.resolve(DEST, WEBFONT)));
@@ -135,7 +135,7 @@ module.exports = function (gulp) {
       , '**/*.ico'
     ]))
     .pipe(vinylPaths(function (paths) {
-      console.info('[BOWER] IMG:', paths);
+      console.log(`[${new Date().toISOString()}][BOWER] IMG: [${utin(paths)}]`);
       return Promise.resolve(paths);
     }))
     .pipe(gulp.dest(path.join(DEST, IMG)));

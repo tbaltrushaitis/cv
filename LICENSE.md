@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2018-nowdays Baltrushaitis Tomas <tbaltrushaitis@gmail.com>
+Copyright (c) 2018-nowdays The CV Authors (https://github.com/tbaltrushaitis/cv/graphs/contributors)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in

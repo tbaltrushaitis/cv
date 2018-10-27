@@ -127,7 +127,11 @@ ul.list-check li i {
   margin-right: 5px;
 }
 
-/*   ---------------------   Fontawesome Tweaks   -------------------------   */
+.scroll-up a {
+  opacity: 0.4;
+  font-size: 26px;
+}
+/*   ------------------   Fontawesome Colors Tweaks   ---------------------   */
 
 .fa-css3-alt {
   color: #0099e5;

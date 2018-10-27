@@ -53,7 +53,7 @@ module.exports = function (gulp) {
         path.join(FROM, JS, '**/*.js')
     ])
     .pipe(vinylPaths(function (paths) {
-      console.info('[FRONTEND] JS: ', paths);
+      console.log(`[${new Date().toISOString()}][FRONTEND] JS: [${utin(paths)}]`);
       return Promise.resolve(paths);
     }))
     // .pipe(jscs({configPath: 'config/.jscsrc'}))
