@@ -1,6 +1,6 @@
 /* jshint unused:false */
 /*!
- * File:        ./src/assets/js/front/iamx.js
+ * File:        ./src/assets/js/front/theme.js
  * Copyright(c) 2016-nowdays {{author.name.full}} <{{author.email}}>
  * License:     MIT
  */
@@ -137,17 +137,17 @@ window.jQuery(function ($) {
       // configuration goes here
       $('.chart').easyPieChart({
         easing:     'easeOut'
-        , delay:      2500
         , barColor:   '#68c3a3'
-        , trackColor: '#3a4149'
-        , scaleColor: false
+        , delay:      2500
         , lineWidth:  8
+        , rotate:     0
+        , scaleColor: false
         , size:       140
+        , trackColor: '#3a4149'
         , animate: {
             duration: 3500
             , enabled: true
           }
-        , rotate: 0
         , onStep: function (from, to, percent) {
             this.el.children[0].innerHTML = Math.round(percent);
           }
