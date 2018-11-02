@@ -1,6 +1,10 @@
 {
-  "__parent_": "%{INIT_CWD}/config/%{NODE_ENV|test}.json"
-, "__parent1": "person.json"
-, "__parent2": "%{INIT_CWD}/config/person.json"
-, "xhr_timeout": 10000
+  "populate": {
+    "title": "Populate"
+  , "__thisneed_": "%{INIT_CWD}/config/%{NODE_ENV|test}.json"
+  , "__parent_": "%{INIT_CWD}/config/%{NODE_ENV|test}.json"
+  , "__parent1": "person.json"
+  , "__parent2": "%{INIT_CWD}/config/person.json"
+  , "xhr_timeout": 10000
+  }
 }

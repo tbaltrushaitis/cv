@@ -1,1 +1,5 @@
-{ "xhr_timeout":  5000}
+{
+	"src2build": {
+		"title": "SRC to Build"
+	}
+}

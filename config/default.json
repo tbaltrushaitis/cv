@@ -1,4 +1,5 @@
 {
     "__parent": "./build.json"
+  , "section":  "default"
   , "xhr_timeout": 7000
 }

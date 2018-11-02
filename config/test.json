@@ -1,9 +1,5 @@
 {
-    "__parent": "./config.json"
+    "__parent": "%{INIT_CWD}/config/config.json"
   , "xhr_timeout": 5000
   , "app_url": "http://cv.%{NODE_ENV|test}"
-  , "person": {
-        "cell": "KzM4MCg2NykgNzgtemVyby0zMS0xOA=="
-      , "email": "bWFpbHRvOnRiYWx0cnVzaGFpdGlzQGdtYWlsLmNvbQ=="
-    }
 }

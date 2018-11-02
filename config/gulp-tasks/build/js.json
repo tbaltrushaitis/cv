@@ -1,1 +1,5 @@
-{"xhr_timeout":  5000}
+{
+	"buildJs": {
+		"title": "Build JS"
+	}
+}
