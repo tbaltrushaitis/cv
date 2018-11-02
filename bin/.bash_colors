@@ -2,7 +2,7 @@
 ##        Colors definitions (taken from Color Bash Prompt HowTo)             ##
 ##  ------------------------------------------------------------------------  ##
 
-##  Normal Colors
+##  Normal Colors  ##
 Black='[0;1;30m'
 Red='[0;1;31m'
 Green='[0;1;32m'
@@ -12,7 +12,7 @@ Purple='[0;1;35m'
 Cyan='[0;1;36m'
 White='[0;1;37m'
 
-##  Bold
+##  Bold  ##
 BBlack='[1;1;30m'
 BRed='[1;1;31m'
 BGreen='[1;1;32m'
@@ -22,7 +22,7 @@ BPurple='[1;1;35m'
 BCyan='[1;1;36m'
 BWhite='[1;1;37m'
 
-##  Background
+##  Background  ##
 On_Black='[40m'
 On_Red='[41m'
 On_Green='[42m'

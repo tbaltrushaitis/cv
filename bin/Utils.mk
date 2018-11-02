@@ -9,7 +9,7 @@ include ./bin/.bash_colors
 .PHONY: state
 
 state:
-	@ echo "${BCyan}-------------------------------------------------------${NC}";
+	@ echo ${BCyan}---------------------------------------------------------${NC};
 	@ echo ${BYellow}ENVIRONMENT VARS:${NC};
 	@ echo ${BCyan}APPLICATION:${NC};
 	@ echo "\t DT \t\t = ${DT}";
@@ -29,7 +29,7 @@ state:
 	@ echo "\t DIR_BUILD \t = ${DIR_BUILD}";
 	@ echo "\t DIR_DIST \t = ${DIR_DIST}";
 	@ echo "\t DIR_WEB \t = ${DIR_WEB}";
-	@ echo "${BCyan}-------------------------------------------------------${NC}";
+	@ echo ${BCyan}---------------------------------------------------------${NC};
 
 ##  ------------------------------------------------------------------------  ##
 ##                 Lists all targets defined in this makefile                 ##
