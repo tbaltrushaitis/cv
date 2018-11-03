@@ -76,14 +76,13 @@
       , "gulp-uglify":         "^3.0.1"
       , "gulp-util":           "^3.0.8"
       , "gulp-watch":          "^5.0.1"
-      , "jimp":                "^0.5.4"
+      , "jimp":                "^0.5.6"
       , "jshint":              "^2.9.6"
       , "jshint-stylish":      "^2.2.1"
       , "lodash":              "^4.17.11"
       , "main-bower-files":    "^2.13.1"
       , "merge-stream":        "^1.0.1"
       , "minimist":            "^1.2.0"
-      , "pump":                "^3.0.0"
       , "read-config":         "^2.0.0"
       , "vinyl-paths":         "^2.1.0"
       , "yargs":               "^12.0.2"
@@ -95,6 +94,7 @@
       , "gulp-template":   "^5.0.0"
       , "jquery":          "^3.3.1"
       , "nconf":           "^0.10.0"
+      , "pump":            "^3.0.0"
     }
   , "options": {
       "bower": {
@@ -177,11 +177,13 @@
         , "colors":     true
       }
     , "readconf": {
-          "basedir":      null
-        , "replaceEnv":   "%"
+          "replaceEnv":   "%"
         , "replaceLocal": "@"
         , "override":     true
         , "skipUnresolved": true
+      }
+    , "readconf-disabled": {
+        "basedir": null
       }
     }
   , "jshintConfig": {}
