@@ -19,6 +19,7 @@ window.jQuery(function($) {
    *  Waypoints
   /* ------------------------------------------------------------------------ */
 
+
   let wShow = function (o) {
     let opts = Object.assign({}, defOpts || {}, o || {});
 
@@ -39,15 +40,15 @@ window.jQuery(function($) {
           // console.log('Exited triggered for ', this.element , dir);
           this.element.removeClass(opts.inclass).addClass(opts.outclass);
         }
-      , offset: function () {
-          // console.info('this.element.clientHeight = ', this.element.clientHeight);
-          return 70 + this.element.clientHeight;
-        }
+      , offset: '-50%'
     });
+      // , offset: function () {
+      //     // console.info('this.element.clientHeight = ', this.element.clientHeight);
+      //     return 70 + this.element.clientHeight;
+      //   }
 
     /*
     // , offset: opts.offset
-    // , offset: '-50%'
     */
 
   };
@@ -170,8 +171,8 @@ window.jQuery(function($) {
 
     $(window).on('load', function () {
       console.log('SETTING UP CONTACTS');
-      $('[name="contact-cell"]').html(atob('{{person.cell}}'));
-      $('[name="contact-email"]').prop('href', atob('{{person.email}}'));
+      $('[name="contact-cell"]').html(atob('{{person.contacts.cell}}'));
+      $('[name="contact-email"]').prop('href', atob('{{person.contacts.email}}'));
     });
 
   })();
@@ -181,18 +182,46 @@ window.jQuery(function($) {
   // ---------------------------------------------------------------------------
 
   (function () {
-
     $(window).on('load', function () {
+      console.log('SETTING TIMEOUTS FOR UX NOTIFICATIONS');
+
+      // <p>Developer? Checkout this <a href="http://bit.ly/cv-git" class="text-primary" target="_blank">CV template</a> github repository and create your own modern CV website in just a minutes!
+
       setTimeout(function () {
-        console.log('SHOWING INTRO NOTIFICATION');
+        console.log('SHOWING WELCOME NOTIFICATION');
         window.noty({
-          text:      'Content was last updated at {{built.date}}'
-          , timeout: 10000
+          layout: 'topLeft'
+          , text: `
+<div class="noty-container noty_body">
+  <span class="h3">Welcome!</span>
+<div>
+`
+          , timeout: 5000
           , type:    'information'
         });
-      }, 15000);
-    });
+      }, 4000);
 
+      setTimeout(function () {
+        console.log('SHOWING BUILD DATE NOTIFICATION');
+        window.noty({
+          layout: 'bottomRight'
+          , text: `
+<div class="noty-container noty_body">
+<p>
+<i class="fa fa-calendar fa-fw fa-2x"></i>
+Content was last updated at <br />
+<strong class="text-success">{{built.date}}</strong>
+</p>
+<div>
+`
+          , timeout: 8000
+          , type:    'success'
+        });
+      }, 10000);
+
+      // for {{person.name.full}} <br />
+
+    });
   })();
 
   /* ------------------------------------------------------------------------ /*
