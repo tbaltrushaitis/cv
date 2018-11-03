@@ -62,8 +62,8 @@ module.exports = function (gulp) {
   let JS   = path.join('js/lib');
   let CSS  = path.join('css');
   let FONT = path.join('fonts');
-  let WEBFONT = path.join('webfonts');
   let IMG  = path.join('img');
+  let WEBFONT = path.join('webfonts');
 
 
   let bowerJS = gulp.src(mBower)
@@ -95,10 +95,10 @@ module.exports = function (gulp) {
     //   console.info('[BOWER] CSS:', paths);
     //   return Promise.resolve(paths);
     // }))
-    .pipe(gulpif('production' === ME.NODE_ENV, new cleanCSS({debug: true, rebase: false}, function (d) {
-      console.log(`[${new Date().toISOString()}][BOWER] Compressing CSS [${utin(d.path)}]: [${utin(d.stats.originalSize)} -> ${utin(d.stats.minifiedSize)}] [${utin(parseFloat((100 * d.stats.efficiency).toFixed(2)))}%] in [${utin(d.stats.timeSpent)}ms]`);
-    })))
     .pipe(concatCSS('bower-bundle.css', {rebaseUrls: false, commonBase: path.join(DEST, CSS)}))
+    .pipe(gulpif('production' === ME.NODE_ENV, new cleanCSS({debug: false, rebase: false}, function (d) {
+      console.log(`[${new Date().toISOString()}][BOWER] Compress CSS [${utin(d.path)}]: [${utin(d.stats.originalSize)} -> ${utin(d.stats.minifiedSize)}] [${utin(parseFloat((100 * d.stats.efficiency).toFixed(2)))}%] in [${utin(d.stats.timeSpent)}ms]`);
+    }), false))
     //  Write banners
     .pipe(headfoot.header(ME.Banner.header))
     .pipe(headfoot.footer(ME.Banner.footer))
@@ -139,6 +139,7 @@ module.exports = function (gulp) {
       return Promise.resolve(paths);
     }))
     .pipe(gulp.dest(path.join(DEST, IMG)));
+
 
   return merge(bowerJS, bowerCSS, bowerFonts, webFonts, bowerImg);
 

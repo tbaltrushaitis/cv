@@ -14,6 +14,7 @@ const path = require('path');
 const util = require('util');
 const utin = util.inspect;
 
+const readConfig = require('read-config');
 const vinylPaths = require('vinyl-paths');
 const gulpif     = require('gulp-if');
 const headfoot   = require('gulp-headerfooter');
@@ -32,7 +33,11 @@ const modName = path.basename(module.filename, '.js');
 const modPath = path.relative(ME.WD, path.dirname(module.filename));
 const confPath = path.join(ME.WD, 'config', path.sep);
 const modConfigFile = `${path.join(confPath, modPath, modName)}.json`;
-const modConfig = require('read-config')(modConfigFile, ME.pkg.options.readconf);
+const modConfig = readConfig(modConfigFile, Object.assign({}, ME.pkg.options.readconf,
+  {
+    basedir: path.join(ME.WD, 'config')
+  }
+));
 
 ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
 
@@ -43,9 +48,9 @@ ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
 
 module.exports = function (gulp) {
   console.log(`[${new Date().toISOString()}][${modPath}/${modName}] with [${utin(modConfigFile)}]`);
-  console.log(`[${new Date().toISOString()}][${modPath}/${modName}] [${utin(ME.Config)}]`);
+  console.log(`[${new Date().toISOString()}][${modPath}/${modName}] [(${typeof ME.Config}):${utin(ME.Config)}]`);
 
-  let CONF = ME.Config; // require('./config/person.json'); // ME.Config
+  let CONF = Object.assign({}, ME.Config); // require('./config/person.json'); // ME.Config
   let SRC = path.join(ME.SRC);
   let DEST = path.join(ME.BUILD);
   let RESO = path.join('resources');

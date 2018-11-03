@@ -57,7 +57,7 @@ module.exports = function (gulp) {
     //   return Promise.resolve(paths);
     // }))
     .pipe(gulpif('production' === ME.NODE_ENV, cleanCSS({debug: true, rebase: false}, function (d) {
-      console.log(`[${new Date().toISOString()}][FRONTEND] Compressing CSS: [${utin(d.path)}]: [${utin(d.stats.originalSize)} -> ${utin(d.stats.minifiedSize)}] [${utin(parseFloat((100 * d.stats.efficiency).toFixed(2)))}%] in [${utin(d.stats.timeSpent)}ms]`);
+      console.log(`[${new Date().toISOString()}][FRONT] Compress CSS: [${utin(d.path)}]: [${utin(d.stats.originalSize)} -> ${utin(d.stats.minifiedSize)}] [${utin(parseFloat((100 * d.stats.efficiency).toFixed(2)))}%] in [${utin(d.stats.timeSpent)}ms]`);
     }), false))
     // .pipe(gulp.dest(DEST))
     // .pipe(concatCSS('frontend-bundle.css', {rebaseUrls: true}))
