@@ -101,18 +101,21 @@ window.jQuery(function ($) {
   // ---------------------------------------------------------------------------
 
   $('.count-wrap').bind('inview', function (event, visible, visiblePartX, visiblePartY) {
-    if (visible) {
-      $(this).find('.timer').each(function () {
-        var $this = $(this);
-        $({Counter: 0}).animate({Counter: $this.text()}, {
-          duration: 4000
-          , easing:   'swing'
+    $(this).find('.timer').each(function () {
+      var $this = $(this);
+      if (visible) {
+        $({Counter: 0}).animate({Counter: $this.data('original-text')}, {
+          duration: 2000
+          , easing: 'swing'
           , step: function () {
               $this.text(Math.ceil(this.Counter));
             }
         });
-      });
-    }
+      } else {
+        $({Counter: 0});
+        $this.text(Math.ceil($this.data('original-text')));
+      }
+    });
   });
 
   // ---------------------------------------------------------------------------
