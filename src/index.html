@@ -10,7 +10,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
   <meta http-equiv="Content-Type"    content="text/html; charset=utf-8" />
 
-  <title>Baltrushaitis Tomas :: Personal CV, Resume and Portfolio</title>
+  <title>{{person.name.full}} :: Personal CV, Resume and Portfolio</title>
 
   <!--/  Mobile Specific Metas
   ========================================================================= /-->
@@ -18,10 +18,10 @@
 
   <!--/  Metas
   ========================================================================= /-->
-  <meta name="title"         content="Baltrushaitis Tomas - Personal Resume and Portfolio" />
+  <meta name="title"         content="{{person.name.full}} - Personal Resume and Portfolio" />
   <meta name="description"   content="Personal resume of Baltrushaitis Tomas" />
-  <meta name="keywords"      content="tbaltrushaitis, resume, cv, portfolio, vcard" />
-  <meta name="author"        content="Tomas Baltrushaitis" />
+  <meta name="keywords"      content="modern, cv, resume, template, portfolio, portfolio-website, cv-template, IT, curriculum-vitae, cv-summary, resume-template, resume-website, cv-website, animated, animate-css, template-project" />
+  <meta name="author"        content="{{author.name.full}}" />
   <meta name="language"      content="en" />
   <meta name="robots"        content="index, nofollow, noarchive" />
   <meta name="revisit-after" content="15 days" />
@@ -29,12 +29,12 @@
   <!--/  Metas for Crawlers
   ========================================================================= /-->
   <meta property="og:type"        content="portfolio" />
-  <meta property="og:title"       content="Baltrushaitis Tomas - Personal Resume and Portfolio" />
-  <meta property="og:description" content="Personal resume of Baltrushaitis Tomas" />
+  <meta property="og:title"       content="{{person.name.full}} - Personal Resume and Portfolio" />
+  <meta property="og:description" content="Personal resume of {{person.name.full}}" />
   <meta property="og:image"       content="assets/img/Avatar-rhomb.png" />
-  <meta property="og:site_name"   content="Personal resume of Tomas Baltrushaitis" />
+  <meta property="og:site_name"   content="Modern CV, Resume and Portfolio" />
   <meta property="og:url"         content="/" />
-  <meta property="og:see_also"    content="https://github.com/tbaltrushaitis" />
+  <meta property="og:see_also"    content="{{author.url}}" />
 
   <!--/  Fonts
   ========================================================================= /-->
@@ -48,7 +48,7 @@
   <link type="text/css" rel="stylesheet" media="screen" href="assets/css/bower-bundle.css" id="css-bower-bundle" />
 
   <!--/  Theme  /-->
-  <link type="text/css" rel="stylesheet" media="screen" href="assets/css/iamx.css" id="css-iamx" />
+  <link type="text/css" rel="stylesheet" media="screen" href="assets/css/theme.css" id="css-theme" />
 
   <!--/  Magnific  /-->
   <link type="text/css" rel="stylesheet" media="screen" href="assets/css/magnific-popup.css" id="css-magnific-popup" />
@@ -58,6 +58,7 @@
 
   <!--/  Custom  /-->
   <link type="text/css" rel="stylesheet" media="screen" href="assets/css/custom.css" id="css-custom" />
+  <link type="text/css" rel="stylesheet" media="screen" href="assets/css/fa-colors.css" id="css-fa-colors" />
 
   <!--/ HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries /-->
   <!--/ WARNING: Respond.js doesn't work if you view the page via file:// /-->
@@ -156,10 +157,34 @@
               <img src="assets/img/Avatar-rhomb.png" alt="Baltrushaitis Tomas" />
             </div>
             <ul class="list-check">
-              <li class="row"><div class="col-xs-12 col-sm-6 col-md-6"><i class="fa fa-fw fa-id-badge"></i><strong>Name:</strong></div> <div class="col-xs-12 col-sm-6 col-md-6">Baltrushaitis Tomas</div></li>
-              <li class="row"><div class="col-xs-12 col-sm-6 col-md-6"><i class="fa fa-fw fa-calendar"></i><strong>Birth:</strong></div> <div class="col-xs-12 col-sm-6 col-md-6">28 Oct &apos;82</div></li>
-              <li class="row"><div class="col-xs-12 col-sm-6 col-md-6"><i class="fa fa-fw fa-home"></i><strong>Location:</strong></div> <div class="col-xs-12 col-sm-6 col-md-6">Ukraine, Kyiv</div></li>
-              <li class="row"><div class="col-xs-12 col-sm-6 col-md-6"><i class="fa fa-fw fa-globe"></i><strong>Citizenship:</strong></div> <div class="col-xs-12 col-sm-6 col-md-6">Ukrainian</div></li>
+              <li class="row">
+                <div class="col-xs-2 col-sm-6 col-md-6">
+                  <i class="fa fa-fw fa-id-badge"></i>
+                  <strong class="hidden-xs">Name:</strong>
+                </div>
+                <div class="col-xs-10 col-sm-6 col-md-6"><span>Baltrushaitis Tomas</span></div>
+              </li>
+              <li class="row">
+                <div class="col-xs-2 col-sm-6 col-md-6">
+                  <i class="fa fa-fw fa-calendar"></i>
+                  <strong class="hidden-xs">Birth:</strong>
+                </div>
+                <div class="col-xs-10 col-sm-6 col-md-6">October &apos;82</div>
+              </li>
+              <li class="row">
+                <div class="col-xs-2 col-sm-6 col-md-6">
+                  <i class="fa fa-fw fa-home"></i>
+                  <strong class="hidden-xs">Location:</strong>
+                </div>
+                <div class="col-xs-10 col-sm-6 col-md-6">Ukraine, Kyiv</div>
+              </li>
+              <li class="row">
+                <div class="col-xs-2 col-sm-6 col-md-6">
+                  <i class="fa fa-fw fa-globe"></i>
+                  <strong class="hidden-xs">Citizenship:</strong>
+                </div>
+                <div class="col-xs-10 col-sm-6 col-md-6">Ukrainian</div>
+              </li>
               <!-- <li class="row"><div class="col-md-6"><strong>Email:</strong></div> <div class="col-md-6"><a href="mailto:abc@gmail.com">Drop a line</a></div></li> -->
             </ul>
           </div>
@@ -196,13 +221,13 @@ There was many technologies used but the key roles were played by (in order of b
 FoxPro, dBase, SQL, HTML, ASP, JavaScript.
 Also most parts of system infrastructure components was sagnificantly improved and upgraded
 to run as a Visual FoxPro desktop applications with modern windows-styled interfaces built from set of visual components.
-            </p>
+</p>
 
             <p class="wow">As of now I have advanced knowledge of 5+ programming languages (JavaScript, Node.js, PHP, Perl, ASP, Visual FoxPro)
 and related fields (OS Linux, Bash-scripting, HTML, CSS, MySQL, MongoDB, Docker, Redis, RabbitMQ, OpenStack, Git, Nginx, Apache, etc.).
 Websites creation, OpenSource projects deployments, applications development, building, testing and deployments
 - are the things everyday I'm working with and in what I'm improving my skills constantly.
-            </p>
+</p>
           </div>
 
           <div class="short-info" id="whatido">
@@ -210,7 +235,8 @@ Websites creation, OpenSource projects deployments, applications development, bu
             <p class="wow">Last few years I have been working mostly as a back-end and in some projects
 as a front-end developer. I have a love of clean, elegant styling code and a lots of experience
 in production of high-loaded modern web systems. Strongly believe that making useful
-services with usable and friendly interfaces is awesome!</p>
+services with usable and friendly interfaces is awesome!
+</p>
 
             <ul class="row list-check" >
               <li class="col-xs-12 col-md-6 wow" id="whatido-01"><i class="fas fa-fw fa-database"></i>Large&nbsp;Databases&nbsp;Design</li>
@@ -226,14 +252,14 @@ services with usable and friendly interfaces is awesome!</p>
             </ul>
           </div>
 
-          <div class="my-signature hidden">
+          <!-- <div class="my-signature hidden">
             <img src="assets/img/sign.png" alt="Signature example" />
-          </div>
+          </div> -->
 
-          <div class="download-button hidden">
+          <!-- <div class="download-button hidden">
             <a class="btn btn-info btn-lg" href="#contact"><i class="fa fa-paper-plane"></i> Send me message</a>
             <a class="btn btn-primary btn-lg" href="#"><i class="fa fa-download"></i> Download my cv</a>
-          </div>
+          </div> -->
 
         </div>
 
@@ -652,7 +678,7 @@ services with usable and friendly interfaces is awesome!</p>
           <div class="skill-progress">
             <div class="skill-title">
               <i class="fab fa-2x fa-fw fa-steam"></i>
-              <span>Steam Trade API</span>
+              <span>Steam API</span>
             </div>
             <div class="progress">
               <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="52" aria-valuemin="0" aria-valuemax="100" ><span>52%</span></div>
@@ -662,7 +688,7 @@ services with usable and friendly interfaces is awesome!</p>
           <div class="skill-progress">
             <div class="skill-title">
               <i class="fab fa-2x fa-fw fa-microsoft"></i>
-              <span>Microsoft Azure</span>
+              <span>Azure</span>
             </div>
             <div class="progress">
               <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100" ><span>39%</span></div>
@@ -766,7 +792,7 @@ services with usable and friendly interfaces is awesome!</p>
           <div class="skill-progress">
             <div class="skill-title">
               <i class="fab fa-2x fa-fw fa-aws"></i>
-              <span>Amazon Services</span>
+              <span>Amazon Cloud</span>
             </div>
             <div class="progress">
               <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" ><span>45%</span></div>
@@ -1180,27 +1206,27 @@ services with usable and friendly interfaces is awesome!</p>
           <div class="col-md-12">
             <div class="count-wrap">
 
-              <div class="col-sm-3 col-xs-6">
-                <i class="fas fa-code-branch"></i>
-                <h3 class="timer">2003</h3>
+              <div class="col-xs-12 col-sm-3">
+                <i class="fab fa-themeco"></i>
+                <h3 class="timer" data-original-text="2003">2003</h3>
                 <p>Begin developer journey</p>
               </div>
 
-              <div class="col-sm-3 col-xs-6">
-                <i class="fa fa-code"></i>
-                <h3 class="timer">5</h3>
+              <div class="col-xs-12 col-sm-3">
+                <i class="fas fa-brain"></i>
+                <h3 class="timer" data-original-text="5">5</h3>
                 <p>Programming languages</p>
               </div>
 
-              <div class="col-sm-3 col-xs-6">
+              <div class="col-xs-12 col-sm-3">
                 <i class="fab fa-js"></i>
-                <h3 class="timer">2013</h3>
+                <h3 class="timer" data-original-text="2013">2013</h3>
                 <p>Start coding in JavaScript</p>
               </div>
 
-              <div class="col-sm-3 col-xs-6">
-                <i class="fab fa-node"></i>
-                <h3 class="timer">2015</h3>
+              <div class="col-xs-12 col-sm-3">
+                <i class="fab fa-node-js"></i>
+                <h3 class="timer" data-original-text="2015">2015</h3>
                 <p>Creating backends since</p>
               </div>
 
@@ -1291,19 +1317,23 @@ services with usable and friendly interfaces is awesome!</p>
   <footer class="footer-wrapper">
     <div class="container">
       <div class="row">
-        <div class="col-sm-12 col-md-4">
+        <div class="col-sm-12 col-md-4 hidden">
           <div class="copyright text-left">
-            <p>Powered by <a href="{{author.url}}" target="_blank">{{author.nick}}</a></p>
+            <p class="hidden">Powered by <a href="{{author.url}}" target="_blank">{{author.nick}}</a></p>
           </div>
         </div>
         <div class="col-sm-12 col-md-4">
           <div class="copyright text-center">
-            <p>&copy; {{author.name.full}} [2016 - {{built.year}}]</p>
+            {{built.year}} &copy; {{person.name.full}}
           </div>
         </div>
-        <div class="col-sm-12 col-md-4">
+        <div class="col-sm-12 col-md-4 hidden-xs">
           <div class="copyright text-right">
-            <p><small class="label label-warning label-sm">v{{version}}</small>&nbsp;<small>{{built.date}}</small></p>
+            <p>
+              <small>{{built.hash}}</small>
+              <small class="label label-warning label-sm">v{{version}}</small>
+              <small>{{built.date}}</small>
+            </p>
           </div>
         </div>
       </div>
@@ -1341,8 +1371,10 @@ services with usable and friendly interfaces is awesome!</p>
   <script src="assets/js/lib/shuffle.js"></script>
   <script src="assets/js/lib/jquery.magnific-popup.js"></script>
 
-  <script src="assets/js/front/iamx.js"></script>
+  <script src="assets/js/front/theme.js"></script>
   <script src="assets/js/front/front.js"></script>
+
+  <script src="http://cv.kate:35729/livereload.js?snipver=1"></script>
 
   <!--/ JavaScripts
   ========================================================================= /-->
