@@ -20,7 +20,7 @@ Modern CV, Resume and Portfolio website template. All-in-One-Page site with conf
 ---
 
 ## :computer: Live Demo ##
-See it in action at :point_right: [Modern CV Site](http://bit.ly/tomascv) :point_left:
+See it in action at :point_right: [Modern CV Site](http://bit.ly/tomascv?ref=readme) :point_left:
 
 ---
 

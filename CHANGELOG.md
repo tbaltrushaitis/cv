@@ -1,18 +1,21 @@
-[![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg?style=plastic)](https://github.com/conventional-changelog/standard-version)
-[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/tbaltrushaitis/cv/blob/master/LICENSE)
-[![dependencies Status](https://david-dm.org/tbaltrushaitis/cv/status.svg)](https://david-dm.org/tbaltrushaitis/cv)
-[![devDependencies Status](https://david-dm.org/tbaltrushaitis/cv/dev-status.svg)](https://david-dm.org/tbaltrushaitis/cv?type=dev)
-[![Contributors](https://img.shields.io/github/contributors/tbaltrushaitis/cv.svg)](https://github.com/tbaltrushaitis/cv/graphs/contributors)
+<p align="center">
+  <a href="https://github.com/tbaltrushaitis/cv/releases"><img src="https://img.shields.io/github/release/tbaltrushaitis/cv.svg?style=flat" alt="GitHub release"></a>
+  <a href="https://github.com/tbaltrushaitis/cv/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat" alt="License"></a>
+  <img src="https://img.shields.io/david/tbaltrushaitis/cv.svg" alt="Dependencies">
+  <img src="https://img.shields.io/david/dev/tbaltrushaitis/cv.svg" alt="Dev Dependencies">
+</p>
 
 # CV, Resume and Portfolio website #
 
 <p align="center">
-  <img max-width="640px" max-height="360px" src="assets/img/cv-demo-01.gif" alt="CV, Resume and Portfolio website template" />
+  <a href="http://bit.ly/tomascv?ref=readme">
+    <img max-width="640px" max-height="360px" src="assets/img/cv-demo-01.gif" alt="Modern CV, Resume and Portfolio website template" />
+  </a>
 </p>
 
 Modern CV, Resume and Portfolio website template. All-in-One-Page site with configurable builder.
 
-`cv` `resume` `portfolio` `portfolio-website` `cv-template` `IT` `curriculum-vitae` `cv-summary` `website` `resume-template` `resume-website` `cv-website` `animated` `animate-css` `template-project` `modern` `skills` `skillset`
+`modern` `cv` `resume` `template` `portfolio` `portfolio-website` `cv-template` `IT` `curriculum-vitae` `cv-summary` `resume-template` `resume-website` `cv-website` `animated` `animate-css` `template-project`
 
 ---
 
@@ -24,6 +27,9 @@ Modern CV, Resume and Portfolio website template. All-in-One-Page site with conf
 - [x] New animated primary repository image
 - [x] Updated `gulp watch` function
 - [x] Use of `read-config` for reading and merging configuration files
+- [x] Implemented `live reload` feature for easier development
+- [x] Added `html minifier`
+- [x] Fixed facts section counters animation bug with value
 
 ### Release: Copna ###
 This is one last release before start implementing JSON-configurable site generation process.
