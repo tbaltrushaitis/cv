@@ -17,7 +17,7 @@
       "node": ">=8.0.0"
     }
   , "os": ["linux"]
-  , "main": "npm run default"
+  , "main": ""
   , "scripts": {
         "preinstall-disabled": "[ -f ./NODE_ENV ] || cp -prv config/.NODE_ENV ./NODE_ENV ; [ -f ./.bowerrc ] || cp -prv config/.bowerrc ./ ;"
       , "preinstall": "echo \"[PRE-INSTALL] is NOT DEFINED\" ;"
@@ -26,7 +26,7 @@
       , "start":    "echo \"[START] is NOT DEFINED\" ;"
       , "test":     "echo \"[TEST] \" ; gulp test"
       , "check":    "echo \"[CHECK] \" ; gulp lint"
-      , "config":    "echo \"[CONFIG] \" ; gulp show:config"
+      , "config":   "echo \"[CONFIG] \" ; gulp show:config"
       , "prepare":  "echo \"[PREPARE] \" ; gulp populate"
       , "setup":    "echo \"[SETUP] is NOT DEFINED\" ;"
       , "prebuild": "echo \"[PRE-BUILD] is NOT DEFINED\" ;"

@@ -10,16 +10,17 @@
 SHELL = /bin/sh
 
 ##  ------------------------------------------------------------------------  ##
-
-$(shell if [ ! -f ./NODE_ENV ] 2>&1 >/dev/null; then cp -prv config/.NODE_ENV ./NODE_ENV ; fi);
-$(shell if [ ! -f ./.bowerrc ] 2>&1 >/dev/null; then cp -prv config/.bowerrc ./ ; fi);
+$(shell [ -f NODE_ENV ] || cp -prfu config/.NODE_ENV ./NODE_ENV);
+$(shell [ -f .bowerrc ] || cp -prfu config/.bowerrc ./);
+$(shell [ -f .npmrc ] || cp -prfu config/.npmrc ./);
+##  ------------------------------------------------------------------------  ##
 
 APP_NAME := cv
-APP_SLOG := "CV+PORTFOLIO"
+APP_SLOG := CV+PORTFOLIO
 APP_LOGO := ./assets/BANNER
 APP_REPO := $(shell git ls-remote --get-url)
 
-APP_ENV := $(shell [ -f ./NODE_ENV ] && cat ./NODE_ENV || cat ./config/.NODE_ENV)
+APP_ENV := $(shell [ -f NODE_ENV ] && cat NODE_ENV || cat config/.NODE_ENV)
 CODE_VERSION := $(shell cat ./VERSION)
 
 GIT_COMMIT := $(shell git rev-list --remove-empty --remotes --max-count=1 --date-order --reverse)
@@ -30,41 +31,44 @@ BUILD_FULL := $(shell date +'%Y-%m-%dT%H:%M:%SZ')
 BUILD_DATE := $(shell date +'%Y-%m-%d')
 BUILD_TIME := $(shell date +'%H:%M:%S')
 BUILD_YEAR := $(shell date +'%Y')
+BUILD_HASH := $(shell echo "$(BUILD_FULL)" | md5sum | cut -b -32)
 
 include ./bin/Colors
 
 ##  ------------------------------------------------------------------------  ##
 
-CONTENT = $(strip $(shell cat config/build.tpl))
-CONTENT := $(subst BUILD_FULL,$(BUILD_FULL),$(CONTENT))
-CONTENT := $(subst BUILD_DATE,$(BUILD_DATE),$(CONTENT))
-CONTENT := $(subst BUILD_TIME,$(BUILD_TIME),$(CONTENT))
-CONTENT := $(subst BUILD_YEAR,$(BUILD_YEAR),$(CONTENT))
-CONTENT := $(subst GIT_COMMIT,$(GIT_COMMIT),$(CONTENT))
-CONTENT := $(subst CODE_VERSION,$(CODE_VERSION),$(CONTENT))
-$(info [${Cyan}${DT}${NC}] CONTENT [${BYellow}${CONTENT}${NC}])
-$(file > config/build.json,${CONTENT})
-$(info [${Cyan}${DT}${NC}] Created file [${BYellow}${WD}/config/build.json${NC}])
+BUILD_CONTENT = $(strip $(shell cat config/build.tpl))
+BUILD_CONTENT := $(subst BUILD_FULL,$(BUILD_FULL),$(BUILD_CONTENT))
+BUILD_CONTENT := $(subst BUILD_DATE,$(BUILD_DATE),$(BUILD_CONTENT))
+BUILD_CONTENT := $(subst BUILD_TIME,$(BUILD_TIME),$(BUILD_CONTENT))
+BUILD_CONTENT := $(subst BUILD_YEAR,$(BUILD_YEAR),$(BUILD_CONTENT))
+BUILD_CONTENT := $(subst BUILD_HASH,$(BUILD_HASH),$(BUILD_CONTENT))
+BUILD_CONTENT := $(subst GIT_COMMIT,$(GIT_COMMIT),$(BUILD_CONTENT))
+BUILD_CONTENT := $(subst CODE_VERSION,$(CODE_VERSION),$(BUILD_CONTENT))
+$(info [$(White)$(DT)$(NC)] BUILD_CONTENT [$(Yellow)$(BUILD_CONTENT)$(NC)])
+$(file > config/build.json,$(BUILD_CONTENT))
+$(info [$(White)$(DT)$(NC)] Created file [$(Yellow)BUILD_CONTENT$(NC):$(BPurple)$(WD)/config/build.json$(NC)])
 
 ##  ------------------------------------------------------------------------  ##
-$(file > COMMIT,${GIT_COMMIT});
-$(info [${Cyan}${DT}${NC}] Created file [${BYellow}COMMIT${NC}:${BPurple}${GIT_COMMIT}${NC}]);
+
+$(file > COMMIT,$(GIT_COMMIT));
+$(info [$(White)$(DT)$(NC)] Created file [$(BYellow)COMMIT$(NC):$(BPurple)$(GIT_COMMIT)$(NC)]);
 
 DIR_SRC := ${WD}/src
 DIR_BUILD := ${WD}/build-${CODE_VERSION}
 DIR_DIST := ${WD}/dist-${CODE_VERSION}
 DIR_WEB := ${WD}/webroot
 
-APP_DIRS := $(addprefix ${WD}/,build-* dist-* webroot)
+# APP_DIRS := $(addprefix ${WD}/,build-* dist-* webroot)
 
 ##  ------------------------------------------------------------------------  ##
-# Query the default goal.
 
+# Query the default goal.
 ifeq ($(.DEFAULT_GOAL),)
 .DEFAULT_GOAL := default
 endif
+$(info [$(White)$(DT)$(NC)] $(BYellow)Goal$(NC) [$(Yellow)DEFAULT$(NC):$(BPurple)$(.DEFAULT_GOAL)$(NC)]);
 
-$(info [$(Cyan)$(DT)$(NC)] $(BYellow)Default goal is$(NC): [$(BPurple)$(.DEFAULT_GOAL)]$(NC));
 ##  ------------------------------------------------------------------------  ##
 ##                                  INCLUDES                                  ##
 ##  ------------------------------------------------------------------------  ##
@@ -75,19 +79,18 @@ include ./bin/*.mk
 
 .PHONY: default
 
-# default: all;
-default: dev;
+default: test ;
 
 ##  ------------------------------------------------------------------------  ##
 
 .PHONY: test
 
-test: banner state help;
+test: state help usage banner ;
 	@ NODE_ENV=${APP_ENV}; npm run test
 
 ##  ------------------------------------------------------------------------  ##
 
-.PHONY: setup setup-globals setup-deps build release deploy
+.PHONY: setup setup-globals setup-deps build dist deploy watch
 
 setup: setup-globals setup-deps ;
 
@@ -99,23 +102,29 @@ setup-deps:
 	@ bower i --production
 
 build:
-	@ NODE_ENV=${APP_ENV}; npm run prepare
+	# @ NODE_ENV=${APP_ENV}; npm run prepare
 	@ NODE_ENV=${APP_ENV}; npm run build
 
 # @ NODE_ENV=${APP_ENV}; gulp build
 
-release:
+dist:
 	@ NODE_ENV=${APP_ENV}; gulp dist
 
 deploy:
-	@ NODE_ENV=${APP_ENV}; gulp deploy
+	@ NODE_ENV=${APP_ENV}; npm run deploy
+
+watch:
+	@ NODE_ENV=${APP_ENV}; npm run watch
 
 ##  ------------------------------------------------------------------------  ##
 
-.PHONY: rebuild redeploy
+.PHONY: rebuild redeploy config
 
-rebuild: build;
-redeploy: rebuild deploy banner;
+rebuild: build ;
+redeploy: rebuild deploy banner ;
+
+config:
+	@ NODE_ENV=${APP_ENV}; npm run config
 
 ##  ------------------------------------------------------------------------  ##
 
@@ -123,13 +132,14 @@ redeploy: rebuild deploy banner;
 #* means the word "all" doesn't represent a file name in this Makefile;
 #* means the Makefile has nothing to do with a file called "all" in the same directory.
 
-all: clean banner cycle;
+all: clean cycle banner ;
 
-full: clean-all all;
+full: clean-all all banner ;
 
-cycle: rights setup build deploy banner;
-cycle-dev: build deploy banner;
+cycle: rights setup build deploy banner ;
+cycle-dev: build deploy banner ;
 
-dev: clean-build clean-files cycle-dev;
+# dev: clean-build clean-files cycle-dev;
+dev: clean-build cycle-dev watch banner ;
 
 ##  ------------------------------------------------------------------------  ##
