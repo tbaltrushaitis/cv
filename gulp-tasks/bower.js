@@ -15,9 +15,10 @@ const path = require('path');
 const util = require('util');
 const utin = util.inspect;
 
-const vinylPaths     = require('vinyl-paths');
 const mainBowerFiles = require('main-bower-files');
 const merge          = require('merge-stream');
+const readConfig     = require('read-config');
+const vinylPaths     = require('vinyl-paths');
 
 const changed   = require('gulp-changed');
 const concatCSS = require('gulp-concat-css');
@@ -37,9 +38,8 @@ utin.defaultOptions = Object.assign({}, ME.pkg.options.iopts || {});
 
 const modName = path.basename(module.filename, '.js');
 const modPath = path.relative(ME.WD, path.dirname(module.filename));
-const confPath = path.join(ME.WD, 'config', path.sep);
-const modConfigFile = `${path.join(confPath, modPath, modName)}.json`;
-const modConfig = require('read-config')(modConfigFile);
+const modConfigFile = `${path.join(ME.WD, 'config', modPath, modName)}.json`;
+const modConfig = readConfig(modConfigFile, Object.assign({}, ME.pkg.options.readconf));
 
 ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
 
@@ -55,7 +55,6 @@ module.exports = function (gulp) {
       base:   ME.BOWER
     , group:  ['front']
   });
-
 
   let DEST = path.join(ME.BUILD, 'assets');
   let KEEP = path.join(ME.BUILD, 'resources/assets');

@@ -17,9 +17,11 @@ const utin = util.inspect;
 
 const vinylPaths = require('vinyl-paths');
 const dirSync = require('gulp-directory-sync');
-const changed = require('gulp-changed');
+// const changed = require('gulp-changed');
 const merge = require('merge-stream');
-
+const gulpif = require('gulp-if');
+const livereload = require('gulp-livereload');
+const htmlmin = require('gulp-htmlmin');
 
 //  ------------------------------------------------------------------------  //
 //  ----------------------------  CONFIGURATION  ---------------------------  //
@@ -36,19 +38,21 @@ const modConfig = require('read-config')(modConfigFile, ME.pkg.options.readconf)
 
 ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
 
-
 //  ------------------------------------------------------------------------  //
 //  -------------------------------  EXPOSE  -------------------------------  //
 //  ------------------------------------------------------------------------  //
 
 module.exports = function (gulp) {
   console.log(`[${new Date().toISOString()}][${modPath}/${modName}] with [${utin(modConfigFile)}]`);
+  livereload.listen({start: true, quiet: false});
 
   let wFiles =  gulp.src([
                     path.join(ME.BUILD, 'index.html')
                   , path.join(ME.BUILD, 'robots.txt')
                 ])
+                .pipe(htmlmin(ME.pkg.options.htmlmin))
                 .pipe(gulp.dest(ME.WEB))
+                .pipe(gulpif('dev' === ME.NODE_ENV, livereload()))
                 .on('error', console.error.bind(console));
 
   let wAssets = gulp.src('')
@@ -67,6 +71,6 @@ module.exports = function (gulp) {
                   ))
                   .on('error', console.error.bind(console));
 
-  return merge(wFiles, wAssets, wData);
+  return merge(wAssets, wData, wFiles);
 
 };

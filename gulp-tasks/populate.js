@@ -31,13 +31,8 @@ utin.defaultOptions = Object.assign({}, ME.pkg.options.iopts || {});
 
 const modName = path.basename(module.filename, '.js');
 const modPath = path.relative(ME.WD, path.dirname(module.filename));
-const confPath = path.join(ME.WD, 'config', path.sep);
-const modConfigFile = `${path.join(confPath, modPath, modName)}.json`;
-const modConfig = readConfig(modConfigFile, Object.assign({}, ME.pkg.options.readconf,
-  {
-    basedir: path.join(ME.WD, 'config')
-  }
-));
+const modConfigFile = `${path.join(ME.WD, 'config', modPath, modName)}.json`;
+const modConfig = readConfig(modConfigFile, Object.assign({}, ME.pkg.options.readconf));
 
 ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
 
@@ -48,7 +43,7 @@ ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
 
 module.exports = function (gulp) {
   console.log(`[${new Date().toISOString()}][${modPath}/${modName}] with [${utin(modConfigFile)}]`);
-  console.log(`[${new Date().toISOString()}][${modPath}/${modName}] [(${typeof ME.Config}):${utin(ME.Config)}]`);
+  // console.log(`[${new Date().toISOString()}][${modPath}/${modName}] [(${typeof ME.Config}):${utin(ME.Config)}]`);
 
   let CONF = Object.assign({}, ME.Config); // require('./config/person.json'); // ME.Config
   let SRC = path.join(ME.SRC);
@@ -83,7 +78,7 @@ module.exports = function (gulp) {
         path.join(SRC, JS, '**/*.js')
     ])
     .pipe(vinylPaths(function (paths) {
-      console.info('[FRONTEND] JS:', paths);
+      console.info('[FRONT] JS:', paths);
       return Promise.resolve(paths);
     }))
     .pipe(replace({global: CONF}))
@@ -97,7 +92,7 @@ module.exports = function (gulp) {
         path.join(SRC, DATA, '**/*.*')
     ])
     .pipe(vinylPaths(function (paths) {
-      console.info('[FRONTEND] DATA:', paths);
+      console.info('[FRONT] DATA:', paths);
       return Promise.resolve(paths);
     }))
     .pipe(gulp.dest(path.resolve(DEST, DATA)));
