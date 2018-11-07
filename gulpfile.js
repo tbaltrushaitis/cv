@@ -62,7 +62,6 @@ ME.NODE_ENV = argv.env
                     : ME.NODE_ENV || 'test';
 
 process.env.NODE_ENV = ME.NODE_ENV;
-// process.env.INIT_CWD = ME.WD;
 
 ME.VERSION = fs.existsSync('./VERSION') ? fs.readFileSync('./VERSION', ME.pkg.options.file).trim() : 'VERSION_UNKNOWN';
 ME.COMMIT  = fs.existsSync('./COMMIT') ? fs.readFileSync('./COMMIT', ME.pkg.options.file).trim() : 'COMMIT_UNKNOWN';

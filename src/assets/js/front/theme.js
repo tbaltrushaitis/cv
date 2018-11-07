@@ -148,7 +148,7 @@ window.jQuery(function ($) {
         , size:       140
         , trackColor: '#3a4149'
         , animate: {
-            duration: 3500
+            duration: 2500
             , enabled: true
           }
         , onStep: function (from, to, percent) {

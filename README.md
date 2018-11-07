@@ -1,18 +1,21 @@
-[![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg?style=plastic)](https://github.com/conventional-changelog/standard-version)
-[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/tbaltrushaitis/cv/blob/master/LICENSE)
-[![dependencies Status](https://david-dm.org/tbaltrushaitis/cv/status.svg)](https://david-dm.org/tbaltrushaitis/cv)
-[![devDependencies Status](https://david-dm.org/tbaltrushaitis/cv/dev-status.svg)](https://david-dm.org/tbaltrushaitis/cv?type=dev)
-[![Contributors](https://img.shields.io/github/contributors/tbaltrushaitis/cv.svg)](https://github.com/tbaltrushaitis/cv/graphs/contributors)
+<p align="center">
+  <a href="https://github.com/tbaltrushaitis/cv/releases"><img src="	https://img.shields.io/github/release/tbaltrushaitis/cv.svg?style=flat" alt="GitHub release"></a>
+  <a href="https://github.com/tbaltrushaitis/cv/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat" alt="License"></a>
+  <img src="https://img.shields.io/david/tbaltrushaitis/cv.svg" alt="Dependencies">
+  <img src="https://img.shields.io/david/dev/tbaltrushaitis/cv.svg" alt="Dev Dependencies">
+</p>
 
 # CV, Resume and Portfolio website #
 
 <p align="center">
-  <img max-width="640px" max-height="360px" src="assets/img/cv-demo-01.gif" alt="CV, Resume and Portfolio website template" />
+  <a href="http://bit.ly/tomascv?ref=readme">
+    <img max-width="640px" max-height="360px" src="assets/img/cv-demo-01.gif" alt="Modern CV, Resume and Portfolio website template" />
+  </a>
 </p>
 
 Modern CV, Resume and Portfolio website template. All-in-One-Page site with configurable builder.
 
-`cv` `resume` `portfolio` `portfolio-website` `cv-template` `IT` `curriculum-vitae` `cv-summary` `website` `resume-template` `resume-website` `cv-website` `animated` `animate-css` `template-project` `modern` `skills` `skillset`
+`modern` `cv` `resume` `template` `portfolio` `portfolio-website` `cv-template` `IT` `curriculum-vitae` `cv-summary` `resume-template` `resume-website` `cv-website` `animated` `animate-css` `template-project`
 
 ---
 
@@ -29,7 +32,7 @@ CVs include information on one’s academic background, including teaching exper
 
 A curriculum vitae summary is a one-to-two-page, condensed version of a full curriculum vitae. A CV summary is a way to quickly and concisely convey one’s skills and qualifications. Sometimes large organizations will ask for a `one-page CV` summary when they expect a large pool of applicants.
 
-[Source](https://www.thebalance.com/cv-vs-resume-2058495)
+Full article about what is [Curriculum vitae](http://bit.ly/2QfaIBD)
 
 ---
 
@@ -44,7 +47,7 @@ $ APP_NAME=cv \
 
 ---
 
-### 2. Setup ###
+### 2. Setup environment ###
 ```shell
 $ make setup
 ```
@@ -92,11 +95,11 @@ For example: [Modern CV](http://bit.ly/tomascv)
 - [ ] - upgrade to bootstrap v4
 - [ ] - implement require.js configuration
 
-See the [Changelog][Changelog] for the history of changes and improvements.
+See [CHANGELOG][Changelog] for the history of changes and improvements.
 
 ---
 
-Read [License][License] for copyright information
+Read [LICENSE][License] for copyright information
 
 ---
 
