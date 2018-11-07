@@ -6,7 +6,7 @@
 
 usage:
 	@ echo ${BCyan}---------------------------------------------------------${NC};
-	@ echo ${BBlue}AVAILABLE ${BYellow}HANDY-Commands:${NC};
+	@ echo ${Blue}OTHER${NC} ${White}Commands${NC}:;
 	@ echo "\t" make ${BCyan}clone${NC} "\t" - CLONE project sources;
 	@ echo ${BCyan}---------------------------------------------------------${NC};
 

@@ -23,6 +23,7 @@ BPurple=[1;1;35m
 BWhite=[1;1;37m
 
 ##  Background  ##
+On_Black=[40m
 On_Red=[41m
 On_Green=[42m
 On_Yellow=[43m
@@ -30,7 +31,6 @@ On_Blue=[44m
 On_Purple=[45m
 On_Cyan=[46m
 On_White=[47m
-On_Black=[40m
 
 ##  Helpers  ##
 NC=[m

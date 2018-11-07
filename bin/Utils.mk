@@ -1,9 +1,11 @@
 ##  ------------------------------------------------------------------------  ##
-##                      Report Environment Variables                          ##
+##                             Utility Helpers                                ##
 ##  ------------------------------------------------------------------------  ##
 
 include ./bin/.bash_colors
 
+##  ------------------------------------------------------------------------  ##
+##                      Report Environment Variables                          ##
 ##  ------------------------------------------------------------------------  ##
 
 .PHONY: state
@@ -17,10 +19,9 @@ state:
 	@ echo "\t APP_ENV \t = ${APP_ENV}";
 	@ echo "\t APP_DEBUG \t = ${APP_DEBUG}";
 	@ echo "\t APP_LOGO \t = ${APP_LOGO}";
-	@ echo "\t APP_DIRS \t = [${APP_DIRS}]";
 	@ echo ${BCyan}REPOSITORY:${NC};
 	@ echo "\t APP_BRANCH \t = ${APP_BRANCH}";
-	@ echo "\t REPO_URL \t = ${REPO_URL}";
+	@ echo "\t APP_REPO \t = ${APP_REPO}";
 	@ echo "\t GIT_COMMIT \t = ${GIT_COMMIT}";
 	@ echo ${BCyan}ENGINE:${NC};
 	@ echo "\t WD \t\t = ${WD}";
@@ -31,13 +32,6 @@ state:
 	@ echo "\t DIR_WEB \t = ${DIR_WEB}";
 	@ echo ${BCyan}---------------------------------------------------------${NC};
 
-##  ------------------------------------------------------------------------  ##
-##                 Lists all targets defined in this makefile                 ##
-##  ------------------------------------------------------------------------  ##
-
-.PHONY: list
-list:
-	@$(MAKE) -pRrn : -f $(MAKEFILE_LIST) 2>/dev/null | awk -v RS= -F: '/^# File/,/^# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}' | egrep -v -e '^[^[:alnum:]]' -e '^$@$$' | sort
 
 ##  ------------------------------------------------------------------------  ##
 ##                          Show project's banner                             ##
@@ -47,6 +41,15 @@ list:
 
 banner:
 	@ if [ -f "${APP_LOGO}" ]; then cat "${APP_LOGO}"; fi
+
+
+##  ------------------------------------------------------------------------  ##
+##                 Lists all targets defined in this makefile                 ##
+##  ------------------------------------------------------------------------  ##
+
+.PHONY: list
+list:
+	@$(MAKE) -pRrn : -f $(MAKEFILE_LIST) 2>/dev/null | awk -v RS= -F: '/^# File/,/^# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}' | egrep -v -e '^[^[:alnum:]]' -e '^$@$$' | sort
 
 ##  ------------------------------------------------------------------------  ##
 
