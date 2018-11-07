@@ -1,23 +1,23 @@
-{   "name":        "cv"
-  , "title":       "CV, Resume and Portfolio website."
+{   "name": "cv"
+  , "title": "CV, Resume and Portfolio website."
   , "description": "Modern CV, Resume and Portfolio website template. All-in-One-Page site with configurable builder."
-  , "version":     "0.1.5"
+  , "version": "0.1.5"
   , "authors": [
       "tbaltrushaitis@gmail.com"
     ]
-  , "license":  "MIT"
-  , "private":  false
+  , "license": "MIT"
+  , "private": false
   , "homepage": "https://github.com/tbaltrushaitis/cv"
-  , "main":     ""
+  , "main": ""
   , "keywords": [
       "bio"
-    , "cv"
-    , "cv-template"
-    , "portfolio"
-    , "portfolio-website"
-    , "resume"
-    , "skills"
-    , "skill-demo"
+      , "cv"
+      , "cv-template"
+      , "portfolio"
+      , "portfolio-website"
+      , "resume"
+      , "skills"
+      , "skill-demo"
     ]
   , "moduleType": [
       "project"
@@ -37,7 +37,7 @@
         "animate.css":    "^3.7.0"
       , "bootstrap":      "~3.3.7"
       , "bower-jquery-easyPieChart": "^0.0.1"
-      , "font-awesome":   "^5.3.1"
+      , "font-awesome":   "^5.4.2"
       , "fitvids":        "jquery.fitvids#^1.2.0"
       , "html5shiv":      "~3.7.3"
       , "jquery":         "~3.3.1"
@@ -74,23 +74,21 @@
           , "!**/*.min.js"
           , "!*-theme.*"
         ]
-      , "main-4": [
-            "dist/js/bootstrap.js"
-          , "dist/css/bootstrap.css"
-          , "dist/fonts/*.*"
-        ]
-      }
-    , "font-awesome-off": {
-        "main": [
-            "**/webfonts/*.*"
-          , "**/css/*.css"
-          , "!css/*.min.css"
-        ]
+        , "main-4": [
+              "dist/js/bootstrap.js"
+            , "dist/css/bootstrap.css"
+            , "dist/fonts/*.*"
+          ]
       }
     , "font-awesome": {
         "main": [
             "web-fonts-with-css/webfonts/*.*"
           , "web-fonts-with-css/css/fontawesome-all.css"
+          , "!css/*.min.css"
+        ]
+      , "main-off": [
+          "**/webfonts/*.*"
+          , "**/css/*.css"
           , "!css/*.min.css"
         ]
       }

@@ -14,27 +14,31 @@
   , "website":  "http://cv.gsm-center.com.ua/"
   , "readmeFilename": "README.md"
   , "engines": {
-      "node": ">=6.9.1"
+      "node": ">=8.0.0"
     }
   , "os": ["linux"]
-  , "main": "gulpfile.js"
+  , "main": "npm run default"
   , "scripts": {
         "preinstall-disabled": "[ -f ./NODE_ENV ] || cp -prv config/.NODE_ENV ./NODE_ENV ; [ -f ./.bowerrc ] || cp -prv config/.bowerrc ./ ;"
-      , "postinstall": ""
-      , "start":    ""
-      , "test":     "gulp test"
-      , "check":    "gulp test"
-      , "prepare":  "gulp populate"
-      , "setup":    ""
-      , "prebuild": ""
-      , "build":    "gulp build"
-      , "deploy":   ""
-      , "rebuild":  ""
-      , "all":      ""
-      , "default":  "gulp --env=test"
-      , "dev":      "gulp --env=dev"
-      , "prod":     "gulp --env=production"
-      , "watch":    "gulp watch"
+      , "preinstall": "echo \"[PRE-INSTALL] is NOT DEFINED\" ;"
+      , "install": "echo \"[INSTALL] is NOT DEFINED\" ;"
+      , "postinstall": "echo \"[POST-INSTALL] is NOT DEFINED\" ;"
+      , "start":    "echo \"[START] is NOT DEFINED\" ;"
+      , "test":     "echo \"[TEST] \" ; gulp test"
+      , "check":    "echo \"[CHECK] \" ; gulp lint"
+      , "config":    "echo \"[CONFIG] \" ; gulp show:config"
+      , "prepare":  "echo \"[PREPARE] \" ; gulp populate"
+      , "setup":    "echo \"[SETUP] is NOT DEFINED\" ;"
+      , "prebuild": "echo \"[PRE-BUILD] is NOT DEFINED\" ;"
+      , "build":    "echo \"[BUILD] \" ; gulp build"
+      , "deploy":   "echo \"[DEPLOY] \" ; gulp deploy"
+      , "rebuild":  "echo \"[RE-BUILD] is NOT DEFINED\" ;"
+      , "all":      "echo \"[ALL] is NOT DEFINED\" ;"
+      , "default":  "echo \"[DEFAULT] \" ; gulp --env=test"
+      , "live":     "echo \"[LIVE] \" ; livereload ./webroot --port 8090 -d -w 1000"
+      , "dev":      "echo \"[DEV] \" ; gulp --env=dev"
+      , "prod":     "echo \"[PROD] \" ; gulp --env=production"
+      , "watch":    "echo \"[WATCH] \" ; gulp watch"
     }
   , "repository": {
         "type": "git"
@@ -49,7 +53,6 @@
       , "dateformat":          "^3.0.3"
       , "del":                 "^3.0.0"
       , "gulp":                "^3.9.1"
-      , "gulp-add-src":        "^1.0.0"
       , "gulp-changed":        "^3.2.0"
       , "gulp-chmod":          "^2.0.0"
       , "gulp-chown":          "^2.0.0"
@@ -62,10 +65,12 @@
       , "gulp-filter":         "^5.1.0"
       , "gulp-gzip":           "^1.4.2"
       , "gulp-headerfooter":   "^1.0.3"
+      , "gulp-htmlmin":        "^5.0.1"
       , "gulp-if":             "^2.0.1"
       , "gulp-jimp":           "^1.2.9"
       , "gulp-jscs":           "^4.1.0"
       , "gulp-jshint":         "^2.1.0"
+      , "gulp-livereload":     "^4.0.0"
       , "gulp-newer":          "^1.4.0"
       , "gulp-rename":         "^1.4.0"
       , "gulp-replace":        "^1.0.0"
@@ -83,22 +88,23 @@
       , "main-bower-files":    "^2.13.1"
       , "merge-stream":        "^1.0.1"
       , "minimist":            "^1.2.0"
+      , "nodemon":             "^1.18.6"
       , "read-config":         "^2.0.0"
       , "vinyl-paths":         "^2.1.0"
       , "yargs":               "^12.0.2"
     }
   , "outdatedDependencies": {
-        "babel-preset-es2015": "^6.24.1"
+      "gulp-add-src":      "^1.0.0"
       , "gulp-data":       "^1.3.1"
       , "gulp-minify-css": "^1.2.4"
       , "gulp-template":   "^5.0.0"
       , "jquery":          "^3.3.1"
+      , "livereload":      "^0.7.0"
       , "nconf":           "^0.10.0"
-      , "pump":            "^3.0.0"
     }
   , "options": {
       "bower": {
-          "debugging": true
+          "debugging": false
         , "paths": {
               "bowerDirectory": "bower_modules"
             , "bowerrc":        ".bowerrc"
@@ -169,7 +175,7 @@
     , "watch": {
         "ignoreInitial": false
       , "verbose":       true
-      , "readDelay":     100
+      , "readDelay":     200
       }
     , "iopts": {
           "showHidden": false
@@ -177,14 +183,20 @@
         , "colors":     true
       }
     , "readconf": {
-          "replaceEnv":   "%"
+          "basedir": null
+        , "replaceEnv": "%"
         , "replaceLocal": "@"
-        , "override":     true
+        , "override": true
         , "skipUnresolved": true
       }
     , "readconf-disabled": {
-        "basedir": null
       }
+    , "htmlmin": {
+        "collapseWhitespace": true
+      , "collapseInlineTagWhitespace": true
+      , "conservativeCollapse": true
+      , "removeComments": true
+    }
     }
   , "jshintConfig": {}
   , "keywords": [
