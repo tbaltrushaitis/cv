@@ -1,7 +1,7 @@
 {   "name": "cv"
-  , "title": "CV, Resume and Portfolio website."
-  , "description": "Modern CV, Resume and Portfolio website template. All-in-One-Page site with configurable builder."
-  , "version": "0.1.5"
+  , "title": "Best-in-Class modern CV, Resume and Portfolio website"
+  , "description": "Best-in-Class modern CV, Resume and Portfolio website template. Easy customizable All-in-One-Page site with configurable builder."
+  , "version": "0.2.0"
   , "authors": [
       "tbaltrushaitis@gmail.com"
     ]
@@ -24,8 +24,8 @@
     ]
   , "ignore": [
         "**/.*"
-      , "build"
       , "bower_modules"
+      , "build"
       , "dist"
       , "docs"
       , "node_modules"
@@ -51,7 +51,6 @@
       , "noty":           "~2.4.1"
       , "requirejs":      "~2.3.6"
       , "respond":        "~1.4.2"
-      , "segoe-fonts":    "^1.0.1"
       , "smoothscroll":   "^0.4.2"
       , "shufflejs":      "^5.2.0"
       , "waypoints":      "^4.0.1"
@@ -62,6 +61,7 @@
   , "disabledDependencies": {
         "jquery.shuffle": "#9cf47a1590"
       , "normalize-css":  "^8.0.0"
+      , "segoe-fonts":    "^1.0.1"
     }
   , "resolutions": {
     }
@@ -82,12 +82,12 @@
       }
     , "font-awesome": {
         "main": [
-            "web-fonts-with-css/webfonts/*.*"
-          , "web-fonts-with-css/css/fontawesome-all.css"
-          , "!css/*.min.css"
+            "webfonts/*.*"
+          , "css/all.css"
         ]
       , "main-off": [
-          "**/webfonts/*.*"
+            "web-fonts-with-css/webfonts/*.*"
+          , "web-fonts-with-css/css/fontawesome-all.css"
           , "**/css/*.css"
           , "!css/*.min.css"
         ]
@@ -95,6 +95,11 @@
     , "smoothscroll": {
         "main": [
           "src/smoothscroll.js"
+        ]
+      }
+    , "jquery.shuffle": {
+        "main": [
+          "jquery.shuffle.js"
         ]
       }
     , "shufflejs": {
@@ -110,15 +115,7 @@
       }
     }
   , "group": {
-      "ui": [
-          "animate.css"
-        , "normalize-css"
-        , "smoothscroll"
-        , "shufflejs"
-        , "waypoints"
-        , "wow"
-      ]
-    , "fonts": [
+      "fonts": [
           "font-awesome"
         , "segoe-fonts"
       ]
@@ -137,10 +134,18 @@
         , "jquery.inview"
         , "jquery.stellar"
         , "jquery-sticky"
-        , "jquery.shuffle"
         , "jquery-throttle-debounce"
+        , "shufflejs"
         , "noty"
         , "respond"
+      ]
+    , "ui": [
+        "animate.css"
+        , "normalize-css"
+        , "smoothscroll"
+        , "shufflejs"
+        , "waypoints"
+        , "wow"
       ]
     , "front": ["fonts", "libs", "plugins", "ui"]
     }
