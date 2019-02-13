@@ -1,4 +1,5 @@
 /*!
+ * Project:     cv
  * File:        ./gulp-tasks/populate.js
  * Copyright(c) 2018-nowdays Baltrushaitis Tomas
  * License:     MIT
@@ -38,12 +39,11 @@ ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
 
 
 //  ------------------------------------------------------------------------  //
-//  --------------------------------  EXPOSE  ------------------------------  //
+//  ------------------------------  FUNCTIONS  -----------------------------  //
 //  ------------------------------------------------------------------------  //
 
-module.exports = function (gulp) {
+const populate = function (gulp) {
   console.log(`[${new Date().toISOString()}][${modPath}/${modName}] with [${utin(modConfigFile)}]`);
-  // console.log(`[${new Date().toISOString()}][${modPath}/${modName}] [(${typeof ME.Config}):${utin(ME.Config)}]`);
 
   let CONF = Object.assign({}, ME.Config); // require('./config/person.json'); // ME.Config
   let SRC = path.join(ME.SRC);
@@ -64,7 +64,7 @@ module.exports = function (gulp) {
   //--------------//
   let srcVoid = gulp.src(Void)
     .pipe(vinylPaths(function (paths) {
-      console.info('[RESOURCE] STATIC:', paths);
+      console.log(`[${new Date().toISOString()}][${modName.toUpperCase()}] STATIC: \t ${paths}`);
       return Promise.resolve(paths);
     }))
     .pipe(replace({global: CONF}))
@@ -78,7 +78,7 @@ module.exports = function (gulp) {
         path.join(SRC, JS, '**/*.js')
     ])
     .pipe(vinylPaths(function (paths) {
-      console.info('[FRONT] JS:', paths);
+      console.log(`[${new Date().toISOString()}][${modName.toUpperCase()}] JS: \t ${paths}`);
       return Promise.resolve(paths);
     }))
     .pipe(replace({global: CONF}))
@@ -89,10 +89,10 @@ module.exports = function (gulp) {
   //    DATA      //
   //--------------//
   let srcData = gulp.src([
-        path.join(SRC, DATA, '**/*.*')
+      path.join(SRC, DATA, '**/*.*')
     ])
     .pipe(vinylPaths(function (paths) {
-      console.info('[FRONT] DATA:', paths);
+      console.log(`[${new Date().toISOString()}][${modName.toUpperCase()}] DATA: \t ${paths}`);
       return Promise.resolve(paths);
     }))
     .pipe(gulp.dest(path.resolve(DEST, DATA)));
@@ -100,3 +100,11 @@ module.exports = function (gulp) {
   return merge(srcVoid, srcJS, srcData);
 
 };
+
+
+/**
+ * EXPOSE
+ * @public
+ */
+
+module.exports = exports = populate;

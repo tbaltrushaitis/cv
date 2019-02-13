@@ -15,9 +15,9 @@ const path = require('path');
 const util = require('util');
 const utin = util.inspect;
 
+const dirSync = require('gulp-directory-sync');
 const vinylPaths = require('vinyl-paths');
 const merge = require('merge-stream');
-const dirSync = require('gulp-directory-sync');
 
 //  ------------------------------------------------------------------------  //
 //  ----------------------------  CONFIGURATION  ---------------------------  //
@@ -35,19 +35,29 @@ const modConfig = require('read-config')(modConfigFile, ME.pkg.options.readconf)
 ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
 
 //  ------------------------------------------------------------------------  //
-//  -------------------------------  EXPORTS  ------------------------------  //
+//  -----------------------------  FUNCTIONS  ------------------------------  //
 //  ------------------------------------------------------------------------  //
 
-module.exports = function (gulp) {
+const src2build = function (gulp) {
   console.log(`[${new Date().toISOString()}][${modPath}/${modName}] with [${utin(modConfigFile)}]`);
 
   let IMG = path.join('assets/img');
-  return  gulp.src('')
+  let wImg = gulp.src('')
             .pipe(dirSync(
                 path.join(ME.SRC, IMG)
               , path.join(ME.BUILD, IMG)
-              , ME.pkg.options.sync)
-            )
+              , ME.pkg.options.sync
+            ))
             .on('error', console.error.bind(console));
 
+  return merge(wImg)
+          .on('error', console.error.bind(console));
 };
+
+
+/**
+ * EXPOSE
+ * @public
+ */
+
+module.exports = exports = src2build;

@@ -1,4 +1,5 @@
 /*!
+ * Project:     cv
  * File:        ./gulp-tasks/build/img.js
  * Copyright(c) 2018-nowdays Baltrushaitis Tomas
  * License:     MIT
@@ -57,13 +58,13 @@ module.exports = function (gulp) {
   let DEST = path.join(ME.BUILD, 'assets');
   let IMG  = path.join('img');
   let TUMB = path.join('thumbs');
-  let SRC = path.join(FROM, IMG, 'works', '**/*.*');
+  let SRC  = path.join(FROM, IMG, 'works', '**/*.*');
 
 
   let PNGS = gulp.src([SRC])
     .pipe(filter(['**/*.png']))
     .pipe(vinylPaths(function (paths) {
-      console.log(`[${new Date().toISOString()}][FRONT][IMAGE] Crop PNG: [${utin(paths)}]`);
+      console.log(`[${new Date().toISOString()}][JIMP] Crop PNG: [${utin(paths)}]`);
       return Promise.resolve(paths);
     }))
     .pipe(jimp({
@@ -88,7 +89,7 @@ module.exports = function (gulp) {
       , '**/*.jpeg'
     ]))
     .pipe(vinylPaths(function (paths) {
-      console.log(`[${new Date().toISOString()}][FRONT][IMAGE] Crop JPEG: [${utin(paths)}]`);
+      console.log(`[${new Date().toISOString()}][JIMP] Crop JPEG: [${utin(paths)}]`);
       return Promise.resolve(paths);
     }))
     .pipe(jimp({

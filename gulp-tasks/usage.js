@@ -1,4 +1,5 @@
 /*!
+ * Project:     cv
  * File:        ./gulp-tasks/usage.js
  * Copyright(c) 2018-nowdays Baltrushaitis Tomas
  * License:     MIT
@@ -38,21 +39,24 @@ ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
 module.exports = function (gulp) {
   console.log(`[${new Date().toISOString()}][${modPath}/${modName}] with [${utin(modConfigFile)}]`);
   let C = ME.Config.colors;
-  let L = `\n${C.White}${(new Array(50).join('-'))}${C.NC}`;
+  let L = `\n${C.White}${(new Array(80).join('-'))}${C.NC}\n`;
 
-  console.log(L);
-  console.log(`\n${C.Cyan}Usage${C.NC}:`);
-  console.log(`\t${C.BYellow}gulp ${C.Purple}<task>${C.NC}\t-\tRun gulp task(s) specified`);
-  console.log(`\n, where ${C.Purple}<task>${C.NC} is one of:\n`);
-  console.log(`\t${C.Yellow}usage${C.NC} \t\t - Show this topic`);
-  console.log(`\tshow:config \t - Show Configuration file`);
-  console.log(`\tshow:src \t - Log File Paths in the Stream`);
-  console.log(`\n\tclean \t\t - Empty given folders and Delete files`);
-  console.log(`\tclean:build \t - Clean directory with BUILD`);
-  console.log(`\tclean:dist \t - Distro files`);
-  console.log(`\tclean:resources  - Static CSS, JS and Images`);
-  console.log(`\tclean:public \t - Directory visible from Internet`);
-  console.log(L);
+  console.log(`${L}
+${C.Cyan}Usage${C.NC}:
+    ${C.BYellow}gulp${C.NC} <${C.Purple}task${C.NC}> \t - \t Run gulp task(s) specified
+
+  , where ${C.Purple}task${C.NC} is one of:
+
+    ${C.Yellow}usage${C.NC} \t\t - \t Show this topic
+    show:config \t - \t Show Configuration file
+    show:src \t\t - \t Log File Paths in the Stream
+
+    clean \t\t - \t Empty given folders and Delete files
+    clean:build \t - \t Clean directory with current BUILD
+    clean:dist \t\t - \t Distro files
+    clean:resources \t - \t Static CSS, JS and Images
+    clean:public \t - \t Directory visible from Internet
+${L}`);
 
   return Promise.resolve();
 };

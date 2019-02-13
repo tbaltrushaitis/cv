@@ -1,4 +1,5 @@
 /*!
+ * Project:     cv
  * File:        ./gulp-tasks/bower.js
  * Copyright(c) 2018-nowdays Baltrushaitis Tomas
  * License:     MIT

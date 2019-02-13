@@ -15,9 +15,8 @@ const path = require('path');
 const util = require('util');
 const utin = util.inspect;
 
-const vinylPaths = require('vinyl-paths');
 const dirSync = require('gulp-directory-sync');
-// const changed = require('gulp-changed');
+const vinylPaths = require('vinyl-paths');
 const merge = require('merge-stream');
 const gulpif = require('gulp-if');
 const livereload = require('gulp-livereload');
@@ -39,20 +38,22 @@ const modConfig = require('read-config')(modConfigFile, ME.pkg.options.readconf)
 ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
 
 //  ------------------------------------------------------------------------  //
-//  -------------------------------  EXPOSE  -------------------------------  //
+//  ------------------------------  FUNCTIONS  -----------------------------  //
 //  ------------------------------------------------------------------------  //
 
-module.exports = function (gulp) {
+const build2web = function (gulp) {
   console.log(`[${new Date().toISOString()}][${modPath}/${modName}] with [${utin(modConfigFile)}]`);
-  livereload.listen({start: true, quiet: false});
+  if ('dev' === ME.NODE_ENV || 'development' === ME.NODE_ENV) {
+    livereload.listen(ME.pkg.options.livereload);
+  }
 
   let wFiles =  gulp.src([
                     path.join(ME.BUILD, 'index.html')
                   , path.join(ME.BUILD, 'robots.txt')
                 ])
-                .pipe(htmlmin(ME.pkg.options.htmlmin))
+                .pipe(gulpif('production' === ME.NODE_ENV, htmlmin(ME.pkg.options.htmlmin)))
                 .pipe(gulp.dest(ME.WEB))
-                .pipe(gulpif('dev' === ME.NODE_ENV, livereload()))
+                // .pipe(gulpif('dev' === ME.NODE_ENV, livereload()))
                 .on('error', console.error.bind(console));
 
   let wAssets = gulp.src('')
@@ -71,6 +72,17 @@ module.exports = function (gulp) {
                   ))
                   .on('error', console.error.bind(console));
 
-  return merge(wAssets, wData, wFiles);
+  // return merge(wAssets, wData, wFiles);
+  return merge(wAssets, wData, wFiles)
+          .pipe(gulpif('dev' === ME.NODE_ENV, livereload()))
+          .on('error', console.error.bind(console));
 
 };
+
+
+/**
+ * EXPOSE
+ * @public
+ */
+
+module.exports = exports = build2web;
