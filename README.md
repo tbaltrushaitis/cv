@@ -5,7 +5,9 @@
   <img src="https://img.shields.io/david/dev/tbaltrushaitis/cv.svg" alt="Dev Dependencies">
 </p>
 
-# CV, Resume and Portfolio website #
+<p align="center">
+  <h1 class="text-center">Modern CV, Resume and Portfolio Template</h1>
+</p>
 
 <p align="center">
   <a href="http://bit.ly/tomascv?ref=readme">
@@ -13,14 +15,16 @@
   </a>
 </p>
 
-Modern CV, Resume and Portfolio website template. All-in-One-Page site with configurable builder.
+<!-- # Best-in-Class modern CV, Resume and Portfolio # -->
 
-`modern` `cv` `resume` `template` `portfolio` `portfolio-website` `cv-template` `IT` `curriculum-vitae` `cv-summary` `resume-template` `resume-website` `cv-website` `animated` `animate-css` `template-project`
+:mortar_board: Best-in-Class modern CV, Resume and Portfolio website template. All-in-One-Page site with fully customizable builder.
+
+`modern` `cv` `resume` `template` `portfolio` `portfolio-website` `cv-template` `IT` `curriculum-vitae` `cv-summary` `resume-template` `resume-website` `cv-website` `animated` `template-project`
 
 ---
 
 ## :computer: Live Demo ##
-See it in action at :point_right: [Modern CV Site](http://bit.ly/tomascv?ref=readme) :point_left:
+See it in action at :point_right: [Modern CV](http://bit.ly/tomascv?ref_domain=github.com&ref_section=docs&ref_file=readme) :point_left:
 
 ---
 
@@ -73,19 +77,31 @@ For example: [Modern CV](http://bit.ly/tomascv)
 
 ---
 
-## :octocat: Credits ##
+## :label: Components ##
 
- Name | Version | Description |
-:-----|:-------:|:------------|
- [animate.css](http://daneden.github.io/animate.css/) | 3.7.0 | A cross-browser library of CSS animations
- [normalize.css](http://necolas.github.io/normalize.css/) | 8.0.0 | A modern alternative to CSS resets
- [FontAwesome](http://fontawesome.io/) | 5.3.1 | The iconic Font and CSS toolkit
- [Bootstrap](http://getbootstrap.com) | 3.3.7 | Front-end framework for developing responsive, mobile first projects on the web
- [jQuery](http://jquery.com/) | 3.3.1 | JavaScript Library
- [noty](http://ned.im/noty) | 2.4.1 | Notification library
- [waypoints](https://github.com/imakewebthings/waypoints) | 4.0.1 | Easily execute a function when you scroll to an element
- [wow.js](https://wowjs.uk/) | 1.3.0 | Reveal CSS animation as you scroll down a page
- [iamx](https://trendytheme.net/items/i-am-x-html-resume-template/) | 1.2.0 | Trendy Theme
+ Name | Version | Scope | Description |
+:-----|:-------:|:-----:|:------------|
+ [animate.css](http://daneden.github.io/animate.css/) | 3.7.0 | Front | A cross-browser library of CSS animations
+ [normalize.css](http://necolas.github.io/normalize.css/) | 8.0.0 | Front | A modern alternative to CSS resets
+ [FontAwesome](http://fontawesome.io/) | 5.3.1 | Front | The iconic Font and CSS toolkit
+ [Bootstrap](http://getbootstrap.com) | 3.3.7 | Front | Front-end framework for developing responsive, mobile first projects on the web
+ [jQuery](http://jquery.com/) | 3.3.1 | Front | JavaScript Library
+ [noty](http://ned.im/noty) | 2.4.1 | Front | Notification library
+ [waypoints](https://github.com/imakewebthings/waypoints) | 4.0.1 | Front | Easily execute a function when you scroll to an element
+ [wow.js](https://wowjs.uk/) | 1.3.0 | Front | Reveal CSS animation as you scroll down a page
+ [iamx](https://trendytheme.net/items/i-am-x-html-resume-template/) | 1.2.0 | Front | Trendy Theme
+
+
+---
+
+## :wrench: Tools ##
+
+ Name | Scope | Description |
+:-----|:-----:|:------------|
+ [bower](http://bower.io) | - | A package manager for the web
+ [gulp](http://gulpjs.com) | - | Toolkit for automating tasks in development workflow
+ [jimp](https://github.com/oliver-moran/jimp) | - | An image processing library written entirely in JavaScript for Node, with zero external or native dependencies
+ [terser](https://github.com/terser-js/terser) | - | JavaScript parser, mangler, optimizer and compressor toolkit for ES6+
 
 ---
 
