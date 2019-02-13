@@ -7,6 +7,7 @@
 help: banner
 	@ echo ${BCyan}---------------------------------------------------------${NC};
 	@ echo ${BBlue}DEVELOPMENT${NC} ${White}Commands${NC}:;
+	@ echo "\t" make ${Purple}help${NC} "\t" - show usage info;
 	@ echo "\t" make ${Purple}clean${NC} "\t" - CLEAR directories and delete files;
 	@ echo "\t" make ${Purple}setup${NC} "\t" - Check for installations of php, node, bower and other dependencies;
 	@ echo "\t" make ${Purple}build${NC} "\t" - BUILD project from sources;

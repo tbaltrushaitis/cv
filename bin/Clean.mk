@@ -2,38 +2,37 @@
 ##                                 Clean Environment                          ##
 ##  ------------------------------------------------------------------------  ##
 
-.PHONY: clean clean-all
-.PHONY: clean-deps
+.PHONY: clean clean-all clean-deps
 .PHONY: clean-build clean-dist clean-files
 
 clean-all: clean clean-dist
-	@ echo "Done: Clean all";
+	@ echo "[DONE] Clean all";
 
 clean: clean-build clean-files
-	@ echo "Done: Clean";
+	@ echo "[DONE] Clean";
 
 clean-build:
-	@ echo "Cleaning build ... ";
+	@ echo "Clean: build ... ";
 	@ rm -rf ${DIR_BUILD}
 
 clean-dist:
-	@ echo "Cleaning distro ... ";
+	@ echo "Clean: distro ... ";
 	@ rm -rf ${DIR_DIST}
 
 clean-deps:
-	@ echo "Cleaning deps ... ";
+	@ echo "Clean: deps ... ";
 	@ rm -rf \
 		bower_modules/ \
 		node_modules/ ;
 
 clean-files:
-	@ echo "Cleaning files ... ";
-	@ rm -rf COMMIT \
+	@ echo "Clean: files ... ";
+	@ rm -rf BUILD-* \
+		COMMIT \
 		*.md \
 		bitbucket-pipelines.yml \
 		codeclimate-config.patch \
 		_config.yml \
-		package-lock.json \
 		yarn.lock \
 		yarn-error.log ;
 
