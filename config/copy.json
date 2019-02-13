@@ -16,4 +16,7 @@
     , "email": "@{./abbr}@gmail.com"
     , "url":   "https://github.com/@{author.abbr}"
   }
+, "project": {
+    "license": "MIT"
+  }
 }
