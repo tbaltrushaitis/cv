@@ -81,7 +81,7 @@
 
 </head>
 
-<body>
+<body data-env="{{app.env}}">
 
   <!--/  Preloader  /-->
   <div id="tt-preloader">
@@ -93,9 +93,9 @@
   <!--/  Home  /-->
   <section id="home" class="tt-fullHeight" data-stellar-vertical-offset="50" data-stellar-background-ratio="0.5">
     <div class="intro">
-      <div class="intro-sub wow" data-wow-duration="3.0s" data-wow-delay="0.0s">Baltrushaitis Tomas</div>
-      <h1 class="wow" data-wow-duration="2.7s" data-wow-delay="0.3s"><span class="first">Full-Stack</span> <span class="">Engineer</span></h1>
-      <p class="wow" data-wow-duration="2.5s" data-wow-delay="0.5s">#high #skilled #experienced #guru</p>
+      <div class="intro-sub wow" data-wow-duration="3.0s" data-wow-delay="0.0s">{{person.name.full}}</div>
+      <h1 class="wow" data-wow-duration="2.7s" data-wow-delay="0.3s"><span class="first">{{person.home.pos-prefix}}</span> <span class="">{{person.home.pos-title}}</span></h1>
+      <p class="wow" data-wow-duration="2.5s" data-wow-delay="0.5s">{{person.home.pos-tags}}</p>
 
       <div class="social-icons" id="social-icons">
         <ul class="list-inline">
@@ -125,7 +125,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="index.html">
-            <img class="hidden" src="assets/img/logo.png" alt="Tom&acute;AS" />
+            <img class="hidden" src="assets/img/logo.png" alt="{{author.nick}}" />
           </a>
         </div>
 
@@ -154,7 +154,7 @@
         <div class="col-md-4 col-md-push-8">
           <div class="biography" data-wow-duration="1.0s">
             <div class="myphoto wow" id="avatar" data-wow-duration="1.0s">
-              <img src="assets/img/Avatar-rhomb.png" alt="Baltrushaitis Tomas" />
+              <img src="assets/img/Avatar-rhomb.png" alt="{{person.name.full}}" />
             </div>
             <ul class="list-check">
               <li class="row">
@@ -162,30 +162,29 @@
                   <i class="fa fa-fw fa-id-badge"></i>
                   <strong class="hidden-xs">Name:</strong>
                 </div>
-                <div class="col-xs-10 col-sm-6 col-md-6"><span>Baltrushaitis Tomas</span></div>
+                <div class="col-xs-10 col-sm-6 col-md-6"><span>{{person.name.full}}</span></div>
               </li>
               <li class="row">
                 <div class="col-xs-2 col-sm-6 col-md-6">
                   <i class="fa fa-fw fa-calendar"></i>
                   <strong class="hidden-xs">Birth:</strong>
                 </div>
-                <div class="col-xs-10 col-sm-6 col-md-6">October &apos;82</div>
+                <div class="col-xs-10 col-sm-6 col-md-6">{{person.bio.birth}}</div>
               </li>
               <li class="row">
                 <div class="col-xs-2 col-sm-6 col-md-6">
                   <i class="fa fa-fw fa-home"></i>
                   <strong class="hidden-xs">Location:</strong>
                 </div>
-                <div class="col-xs-10 col-sm-6 col-md-6">Ukraine, Kyiv</div>
+                <div class="col-xs-10 col-sm-6 col-md-6">{{person.bio.location.full}}</div>
               </li>
               <li class="row">
                 <div class="col-xs-2 col-sm-6 col-md-6">
                   <i class="fa fa-fw fa-globe"></i>
                   <strong class="hidden-xs">Citizenship:</strong>
                 </div>
-                <div class="col-xs-10 col-sm-6 col-md-6">Ukrainian</div>
+                <div class="col-xs-10 col-sm-6 col-md-6">{{person.bio.citizenship}}</div>
               </li>
-              <!-- <li class="row"><div class="col-md-6"><strong>Email:</strong></div> <div class="col-md-6"><a href="mailto:abc@gmail.com">Drop a line</a></div></li> -->
             </ul>
           </div>
         </div> <!--/ col-md-4 /-->
@@ -239,9 +238,9 @@ services with usable and friendly interfaces is awesome!
 </p>
 
             <ul class="row list-check" >
-              <li class="col-xs-12 col-md-6 wow" id="whatido-01"><i class="fas fa-fw fa-database"></i>Large&nbsp;Databases&nbsp;Design</li>
+              <li class="col-xs-12 col-md-6 wow" id="whatido-01"><i class="fas fa-fw fa-database"></i>Databases&nbsp;Design</li>
               <li class="col-xs-12 col-md-6 wow" id="whatido-02"><i class="fab fa-fw fa-react"></i>Modern&nbsp;Websites</li>
-              <li class="col-xs-12 col-md-6 wow" id="whatido-03"><i class="fas fa-fw fa-percentage"></i>Accounting&nbsp;Applications</li>
+              <li class="col-xs-12 col-md-6 wow" id="whatido-03"><i class="fas fa-fw fa-percentage"></i>Accounting&nbsp;Apps</li>
               <li class="col-xs-12 col-md-6 wow" id="whatido-04"><i class="fas fa-fw fa-project-diagram"></i>Data&nbsp;Visualization</li>
               <li class="col-xs-12 col-md-6 wow" id="whatido-05"><i class="fas fa-fw fa-mobile-alt"></i>API&nbsp;for&nbsp;Mobile&nbsp;Apps</li>
               <li class="col-xs-12 col-md-6 wow" id="whatido-06"><i class="fas fa-fw fa-chart-pie"></i>Data&nbsp;Analysis</li>
@@ -1317,23 +1316,21 @@ services with usable and friendly interfaces is awesome!
   <footer class="footer-wrapper">
     <div class="container">
       <div class="row">
-        <div class="col-sm-12 col-md-4 hidden">
+        <div class="hidden-xs col-sm-4 col-md-4">
           <div class="copyright text-left">
-            <p class="hidden">Powered by <a href="{{author.url}}" target="_blank">{{author.nick}}</a></p>
+            <p class="">Powered by <a href="{{author.url}}" target="_blank">{{author.nick}}</a></p>
           </div>
         </div>
-        <div class="col-sm-12 col-md-4">
+        <div class="col-xs-10 col-sm-4 col-md-4">
           <div class="copyright text-center">
             {{built.year}} &copy; {{person.name.full}}
           </div>
         </div>
-        <div class="col-sm-12 col-md-4 hidden-xs">
+        <div class="col-xs-2 col-sm-4 col-md-4">
           <div class="copyright text-right">
-            <p>
-              <small>{{built.hash}}</small>
-              <small class="label label-warning label-sm">v{{version}}</small>
-              <small>{{built.date}}</small>
-            </p>
+            <small class="hidden-xs">{{built.hash}}</small>
+            <small class="label label-success label-sm">v{{version}}-b{{built.cntr}}</small>
+            <small class="hidden-xs">{{built.date}}</small>
           </div>
         </div>
       </div>
@@ -1372,9 +1369,11 @@ services with usable and friendly interfaces is awesome!
   <script src="assets/js/lib/jquery.magnific-popup.js"></script>
 
   <script src="assets/js/front/theme.js"></script>
-  <script src="assets/js/front/front.js"></script>
+  <script src="assets/js/front/index.js"></script>
 
-  <script src="http://cv.kate:35729/livereload.js?snipver=1"></script>
+  <script>
+    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+  </script>
 
   <!--/ JavaScripts
   ========================================================================= /-->
