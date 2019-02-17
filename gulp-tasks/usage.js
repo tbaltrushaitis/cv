@@ -1,7 +1,7 @@
 /*!
  * Project:     cv
  * File:        ./gulp-tasks/usage.js
- * Copyright(c) 2018-nowdays Baltrushaitis Tomas
+ * Copyright(c) 2018-nowdays Baltrushaitis Tomas <tbaltrushaitis@gmail.com>
  * License:     MIT
  */
 
@@ -12,8 +12,7 @@
 //  ------------------------------------------------------------------------  //
 
 const path = require('path');
-const util = require('util');
-const utin = util.inspect;
+const utin = require('util').inspect;
 
 const readConfig = require('read-config');
 
@@ -31,15 +30,16 @@ const modConfig = readConfig(modConfigFile, Object.assign({}, ME.pkg.options.rea
 
 ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
 
+let C = ME.Config.colors;
+let L = `\n${C.White}${(new Array(80).join('-'))}${C.NC}\n`;
+
 
 //  ------------------------------------------------------------------------  //
 //  --------------------------------  EXPOSE  ------------------------------  //
 //  ------------------------------------------------------------------------  //
 
 module.exports = function (gulp) {
-  console.log(`[${new Date().toISOString()}][${modPath}/${modName}] with [${utin(modConfigFile)}]`);
-  let C = ME.Config.colors;
-  let L = `\n${C.White}${(new Array(80).join('-'))}${C.NC}\n`;
+  console.log(`${L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}] with [${modConfigFile}]`);
 
   console.log(`${L}
 ${C.Cyan}Usage${C.NC}:
