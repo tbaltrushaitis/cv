@@ -18,6 +18,10 @@
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 */
 
+html, body {
+  overflow-x: hidden;
+}
+
 body {
   background-color: #fff;
   color:        #282828;
@@ -25,13 +29,9 @@ body {
   font-size:    14px;
   font-weight:  300;
   line-height:  28px;
-  -webkit-text-size-adjust:     100%;
-  -webkit-font-smoothing:       antialiased !important;
-  -webkit-overflow-scrolling:   touch;
-}
-
-body, html {
-  overflow-x: hidden;
+  -webkit-text-size-adjust:   100%;
+  -webkit-font-smoothing:     antialiased !important;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Link style
@@ -39,12 +39,14 @@ body, html {
 a {
   color: #68c3a3;
 }
+
   a
 , a > * {
   cursor:   pointer;
   outline:  none;
   text-decoration: none;
 }
+
   a:focus
 , a:hover {
   color:    #333;
