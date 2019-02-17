@@ -1,5 +1,5 @@
 /*
-- - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     1. General
     2. Typography
     3. Home
@@ -15,7 +15,7 @@
     13. Hire
     14. Contact
     15. Footer
-- - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 */
 
 body {
@@ -86,7 +86,8 @@ a {
 }
 
 
-/* === Typography === */
+/* Typography
+/* -------------------------------------------------------------------------- */
 
 h1, h2, h3, h4, h5, h6 {
   font-weight:      700;
@@ -122,9 +123,8 @@ h6 {
 }
 
 
-
-/* === FORM STYLE === */
-
+/* FORM STYLES
+------------------------------------------------------------------------------*/
 .form-control {
   background-color: #f7f7f7;
   border:           1px solid #e8e8e8;
@@ -155,9 +155,8 @@ h6 {
 }
 
 
-
 /* BUTTON STYLES
------------------------------------------------------*/
+------------------------------------------------------------------------------*/
 
 /* common-btn */
 .btn {
@@ -232,7 +231,8 @@ button:focus {
 }
 
 
-/* IMAGES */
+/* IMAGES
+------------------------------------------------------------------------------*/
 img {
   width: 100%;
 }
@@ -246,8 +246,9 @@ hr {
   padding: 0;
 }
 
+
 /* LIST STYLE
--------------------------------------------------- */
+------------------------------------------------------------------------------*/
 ul, ol {
   margin:       0;
   padding:      0;
@@ -282,7 +283,7 @@ ul.list-check li::before {
 
 
 /* SECTION TITLE
------------------------------------------------------ */
+------------------------------------------------------------------------------*/
 .section-title {
   color:        #2c3e50;
   font-size:    50px;
@@ -305,7 +306,8 @@ ul.list-check li::before {
 }
 
 
-/* === HOME === */
+/* HOME
+------------------------------------------------------------------------------*/
 @media (max-width : 640px) {
   .tt-fullHeight{
     height: 560px !important;
@@ -372,9 +374,8 @@ ul.list-check li::before {
   margin-bottom:    20px;
 }
 
-/*
-SOCIAL ICON
--------------------------------------------*/
+/* SOCIAL ICONS
+------------------------------------------------------------------------------*/
 .social-icons {
   margin-top: 20px;
 }
@@ -421,7 +422,8 @@ SOCIAL ICON
 }
 
 
-/* === NAVIGATION === */
+/* NAVIGATION
+------------------------------------------------------------------------------*/
 .header {
   border-bottom: 1px solid #eee;
   position: relative;
@@ -535,8 +537,8 @@ SOCIAL ICON
 }
 
 
-
-/* === About Section === */
+/* About Section
+------------------------------------------------------------------------------*/
 .short-info {
   margin-bottom: 40px;
 }
@@ -614,9 +616,8 @@ SOCIAL ICON
 }
 
 
-
-/* === Video Section === */
-
+/* Video Section
+------------------------------------------------------------------------------*/
 .video-section {
   background: url("../img/video-bg.jpg") no-repeat center center;
   background-size: cover;
@@ -656,7 +657,6 @@ SOCIAL ICON
   margin-top: 30px;
   text-transform: uppercase;
 }
-
 
 
 /* ---------------------------------------------- /*
@@ -776,7 +776,6 @@ SOCIAL ICON
   left: 20px;
 }
 
-
 .timeline>li .posted-date .month {
   font-size: 18px;
   line-height: 20px;
@@ -822,7 +821,6 @@ SOCIAL ICON
 .timeline-heading span a {
   text-decoration: underline;
 }
-
 
 
 @media(min-width:992px) {
@@ -958,8 +956,9 @@ SOCIAL ICON
 }
 
 
-
-/* === Skill Section === */
+/* ---------------------------------------------- /*
+ *  Skill Section
+/* ---------------------------------------------- */
 .skills-section {
   background-color: #1a1e23;
   color: #fff;
@@ -983,12 +982,13 @@ SOCIAL ICON
 }
 
 
-
-/* progress-bar */
-
+/* ---------------------------------------------- /*
+ *  progress-bar
+/* ---------------------------------------------- */
 .skill-progress {
   position: relative;
 }
+
 .progress {
   height: 10px;
   margin-bottom: 40px;
@@ -1035,7 +1035,9 @@ SOCIAL ICON
 }
 
 
-/* === Chart CSS  === */
+/* ---------------------------------------------- /*
+ *  Chart CSS
+/* ---------------------------------------------- */
 .chart {
   position: relative;
   display: inline-block;
@@ -1077,8 +1079,9 @@ SOCIAL ICON
 .chart .chart-text h3{font-size:22px;}
 
 
-
-/* === Portfolio Section === */
+/* ---------------------------------------------- /*
+ *  Portfolio Section
+/* ---------------------------------------------- */
 .portfolio-section {
   background-color: #f7f7f7;
 }
@@ -1108,7 +1111,9 @@ SOCIAL ICON
 }
 
 
-/* Shuffle Filter */
+/* ---------------------------------------------- /*
+ *  Shuffle Filter
+/* ---------------------------------------------- */
 #filter {
   margin: 0 0 35px;
   text-align: center;
@@ -1240,7 +1245,9 @@ SOCIAL ICON
 }
 
 
-/* PopUp fade effect */
+/* ---------------------------------------------- /*
+ *  PopUp fade effect
+/* ---------------------------------------------- */
 .mfp-with-zoom .mfp-container,
 .mfp-with-zoom.mfp-bg {
   opacity: 0;
@@ -1265,7 +1272,9 @@ SOCIAL ICON
 }
 
 
-/* === Facts Section === */
+/* ---------------------------------------------- /*
+ *  Facts Section
+/* ---------------------------------------------- */
 .facts-section {
   background: url("../img/video-bg.jpg") no-repeat center center;
   background-attachment: fixed;
@@ -1294,10 +1303,12 @@ SOCIAL ICON
 }
 
 
-/* === Blog Section === */
+/* ---------------------------------------------- /*
+ *  Blog Section
+/* ---------------------------------------------- */
 .latest-blog-section {
-
 }
+
 .blog-post-wrapper {
   padding: 4px;
   border: 1px solid #eee;
@@ -1431,7 +1442,10 @@ SOCIAL ICON
   left: 0;
 }
 
-/* === Hire Section === */
+
+/* ---------------------------------------------- /*
+ *  Hire Section
+/* ---------------------------------------------- */
 .hire-section {
   background: url("../img/hire-bg.jpg") no-repeat top center #68C3A3;
   background-attachment: fixed;
@@ -1456,7 +1470,9 @@ SOCIAL ICON
 }
 
 
-/* === Contact Section === */
+/* ---------------------------------------------- /*
+ *  Contact Section
+/* ---------------------------------------------- */
 .contact-section {
 }
 
@@ -1490,7 +1506,9 @@ SOCIAL ICON
 }
 
 
-/* MAP */
+/* ---------------------------------------------- /*
+ *  MAP
+/* ---------------------------------------------- */
 .location-map {
   padding: 4px;
   border: 1px solid #eee;
@@ -1501,8 +1519,9 @@ SOCIAL ICON
 }
 
 
-
-/* === Footer Wrapper === */
+/* ---------------------------------------------- /*
+ *  Footer Wrapper
+/* ---------------------------------------------- */
 .footer-wrapper {
   background: #1a1e23;
   padding: 36px 0;
@@ -1513,11 +1532,9 @@ SOCIAL ICON
 }
 
 
-
 /* ---------------------------------------------- /*
  *  Scroll to top
 /* ---------------------------------------------- */
-
 .scroll-up {
   position: fixed;
   display: none;
@@ -1547,7 +1564,6 @@ SOCIAL ICON
 /* ---------------------------------------------- /*
  *  Mouse animate icon
 /* ---------------------------------------------- */
-
 .mouse-icon {
   position: absolute;
   left: 50%;
@@ -1603,7 +1619,6 @@ SOCIAL ICON
 /* ---------------------------------------------- /*
  *  Preloader
 /* ---------------------------------------------- */
-
 #tt-preloader {
   background: #fff;
   bottom: 0;
@@ -1636,7 +1651,9 @@ SOCIAL ICON
 }
 
 
-/* === About Section === */
+/* ---------------------------------------------- /*
+ *  About Section
+/* ---------------------------------------------- */
 .short-info {
   margin-bottom: 40px;
 }
@@ -1666,8 +1683,9 @@ SOCIAL ICON
 }
 
 
-
-/* SERVICE SECTION */
+/* ---------------------------------------------- /*
+ *  SERVICE SECTION
+/* ---------------------------------------------- */
 .service-section {
   background:      url("../img/service-bg.jpg") no-repeat center center;
   background-size: cover;

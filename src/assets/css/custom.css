@@ -30,6 +30,14 @@ body {
 }
 
 /* ---------------------------------------------- /*
+ *               About Section
+/* ---------------------------------------------- */
+.short-info h3 {
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+
+/* ---------------------------------------------- /*
  *               Resume Section
 /* ---------------------------------------------- */
 
@@ -54,7 +62,9 @@ body {
   margin-bottom: 5px;
 }
 
-/* === Skill Section === */
+/* ---------------------------------------------- /*
+ *               Skill Section
+/* ---------------------------------------------- */
 
 .skill-icon {
   width: 15%;
@@ -108,7 +118,9 @@ body {
 }
 
 
-/* === Chart CSS === */
+/* ---------------------------------------------- /*
+ *               Chart CSS
+/* ---------------------------------------------- */
 .percent {
   font-size: 28px;
   font-weight: 500;
@@ -119,7 +131,10 @@ body {
 }
 
 
-/*   -------------------------   Cusomizations ----------------------------   */
+/* ---------------------------------------------- /*
+ *               Cusomizations
+/* ---------------------------------------------- */
+
 .navbar-brand {
   transform: translate3d(0px, 0px, 0px);
   transition: transform 0.5s ease 0s, -webkit-transform 0.5s ease 0s;
@@ -138,4 +153,9 @@ ul.list-check li i {
 .scroll-up a {
   opacity: 0.4;
   font-size: 26px;
+}
+
+form {
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
