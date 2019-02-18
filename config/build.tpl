@@ -1,7 +1,7 @@
 {
     "__parent": "./colors.json"
   , "built": {
-        "cntr": "BUILD_CNTR"
+        "cntr": BUILD_CNTR
       , "full": "BUILD_FULL"
       , "date": "BUILD_DATE"
       , "time": "BUILD_TIME"
