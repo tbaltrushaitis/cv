@@ -42,10 +42,10 @@ let C = ME.Config.colors;
 let L = `\n${C.White}${(new Array(80).join('-'))}${C.NC}\n`;
 
 //  ------------------------------------------------------------------------  //
-//  --------------------------------  EXPOSE  ------------------------------  //
+//  ------------------------------  FUNCTIONS  -----------------------------  //
 //  ------------------------------------------------------------------------  //
 
-module.exports = function (gulp) {
+const buildImg = function (gulp) {
   console.log(`${L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}] with [${modConfigFile}]`);
 
   //
@@ -106,6 +106,15 @@ module.exports = function (gulp) {
     }))
     .pipe(gulp.dest(path.join(DEST, IMG, TUMB, 'works')));
 
-  return merge(PNGS, JPGS);
+  return merge(PNGS, JPGS)
+          .on('error', console.error.bind(console));
 
 };
+
+
+/**
+ * EXPOSE
+ * @public
+ */
+
+module.exports = exports = buildImg;

@@ -1,7 +1,7 @@
 /*!
  * Project:     cv
  * File:        ./gulp-tasks/bower.js
- * Copyright(c) 2018-nowdays Baltrushaitis Tomas
+ * Copyright(c) 2018-nowdays Baltrushaitis Tomas <tbaltrushaitis@gmail.com>
  * License:     MIT
  */
 
@@ -13,21 +13,19 @@
 
 const fs   = require('fs');
 const path = require('path');
-const util = require('util');
-const utin = util.inspect;
+const utin = require('util').inspect;
 
-const mainBowerFiles = require('main-bower-files');
-const merge          = require('merge-stream');
-const readConfig     = require('read-config');
-const vinylPaths     = require('vinyl-paths');
+const mBowerFiles = require('main-bower-files');
+const readConfig  = require('read-config');
 
-const changed   = require('gulp-changed');
 const concatCSS = require('gulp-concat-css');
 const cleanCSS  = require('gulp-clean-css');
 const filter    = require('gulp-filter');
 const gulpif    = require('gulp-if');
 const headfoot  = require('gulp-headerfooter');
+const merge     = require('merge-stream');
 const terser    = require('gulp-terser');
+const vPaths    = require('vinyl-paths');
 
 
 //  ------------------------------------------------------------------------  //
@@ -44,15 +42,20 @@ const modConfig = readConfig(modConfigFile, Object.assign({}, ME.pkg.options.rea
 
 ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
 
+let C = ME.Config.colors;
+let L = `\n${C.White}${(new Array(80).join('-'))}${C.NC}\n`;
+
 //  ------------------------------------------------------------------------  //
-//  --------------------------------  EXPOSE  ------------------------------  //
+//  ------------------------------  FUNCTIONS  -----------------------------  //
 //  ------------------------------------------------------------------------  //
 
-module.exports = function (gulp) {
-  console.log(`[${new Date().toISOString()}][${modPath}/${modName}] with [${utin(modConfigFile)}]`);
+const bowerFiles = function (gulp) {
+  console.log(`${L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}] with [${modConfigFile}]`);
 
+  //
   //  BOWER - responsible for FrontEnd assets
-  let mBower = mainBowerFiles(ME.pkg.options.bower, {
+  //
+  let mBower = mBowerFiles(ME.pkg.options.bower, {
       base:   ME.BOWER
     , group:  ['front']
   });
@@ -72,11 +75,11 @@ module.exports = function (gulp) {
       , '!**/*.min.js'
       , '!**/npm.js'
     ]))
-    .pipe(vinylPaths(function (paths) {
-      console.log(`[${new Date().toISOString()}][BOWER] JS: [${utin(paths)}]`);
-      return Promise.resolve(paths);
+    .pipe(vPaths(function (p) {
+      console.log(`[${new Date().toISOString()}][${C.White}BOWER${C.NC}] JS: [${p}]`);
+      return Promise.resolve(p);
     }))
-    .pipe(gulpif('production' === ME.NODE_ENV, terser()))
+    .pipe(gulpif('production' === ME.NODE_ENV, terser(ME.pkg.options.terser)))
     //  Write banners
     .pipe(headfoot.header(ME.Banner.header))
     .pipe(headfoot.footer(ME.Banner.footer))
@@ -91,13 +94,9 @@ module.exports = function (gulp) {
       , "!**/*.css.min.map"
       , "!**/*.min.css.map"
     ]))
-    // .pipe(vinylPaths(function (paths) {
-    //   console.info('[BOWER] CSS:', paths);
-    //   return Promise.resolve(paths);
-    // }))
     .pipe(concatCSS('bower-bundle.css', {rebaseUrls: false, commonBase: path.join(DEST, CSS)}))
     .pipe(gulpif('production' === ME.NODE_ENV, new cleanCSS({debug: false, rebase: false}, function (d) {
-      console.log(`[${new Date().toISOString()}][BOWER] Compress CSS [${utin(d.path)}]: [${utin(d.stats.originalSize)} -> ${utin(d.stats.minifiedSize)}] [${utin(parseFloat((100 * d.stats.efficiency).toFixed(2)))}%] in [${utin(d.stats.timeSpent)}ms]`);
+      console.log(`[${new Date().toISOString()}][${C.White}BOWER${C.NC}] Compress CSS [${d.path}]: [${utin(d.stats.originalSize)} -> ${utin(d.stats.minifiedSize)}] [${utin(parseFloat((100 * d.stats.efficiency).toFixed(2)))}%] in [${utin(d.stats.timeSpent)}ms]`);
     }), false))
     //  Write banners
     .pipe(headfoot.header(ME.Banner.header))
@@ -107,18 +106,18 @@ module.exports = function (gulp) {
 
   let bowerFonts = gulp.src(mBower)
     .pipe(filter(['**/fonts/*.*']))
-    .pipe(vinylPaths(function (paths) {
-      console.log(`[${new Date().toISOString()}][BOWER] FONT: [${utin(paths)}]`);
-      return Promise.resolve(paths);
+    .pipe(vPaths(function (p) {
+      console.log(`[${new Date().toISOString()}][${C.White}BOWER${C.NC}] FONT: [${p}]`);
+      return Promise.resolve(p);
     }))
     .pipe(gulp.dest(path.resolve(DEST, FONT)));
 
 
   let webFonts = gulp.src(mBower)
     .pipe(filter(['**/webfonts/*.*']))
-    .pipe(vinylPaths(function (paths) {
-      console.log(`[${new Date().toISOString()}][BOWER] WEBFONT: [${utin(paths)}]`);
-      return Promise.resolve(paths);
+    .pipe(vPaths(function (p) {
+      console.log(`[${new Date().toISOString()}][${C.White}BOWER${C.NC}] WEBFONT: [${p}]`);
+      return Promise.resolve(p);
     }))
     .pipe(gulp.dest(path.resolve(DEST, WEBFONT)));
 
@@ -134,13 +133,22 @@ module.exports = function (gulp) {
       , '**/*.gif'
       , '**/*.ico'
     ]))
-    .pipe(vinylPaths(function (paths) {
-      console.log(`[${new Date().toISOString()}][BOWER] IMG: [${utin(paths)}]`);
-      return Promise.resolve(paths);
+    .pipe(vPaths(function (p) {
+      console.log(`[${new Date().toISOString()}][${C.White}BOWER${C.NC}] IMG: [${p}]`);
+      return Promise.resolve(p);
     }))
     .pipe(gulp.dest(path.join(DEST, IMG)));
 
 
-  return merge(bowerJS, bowerCSS, bowerFonts, webFonts, bowerImg);
+  return merge(bowerJS, bowerCSS, bowerFonts, webFonts, bowerImg)
+          .on('error', console.error.bind(console));
 
 };
+
+
+/**
+ * EXPOSE
+ * @public
+ */
+
+module.exports = exports = bowerFiles;

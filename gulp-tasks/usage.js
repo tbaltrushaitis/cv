@@ -33,12 +33,11 @@ ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
 let C = ME.Config.colors;
 let L = `\n${C.White}${(new Array(80).join('-'))}${C.NC}\n`;
 
-
 //  ------------------------------------------------------------------------  //
-//  --------------------------------  EXPOSE  ------------------------------  //
+//  ------------------------------  FUNCTIONS  -----------------------------  //
 //  ------------------------------------------------------------------------  //
 
-module.exports = function (gulp) {
+const usage = function (gulp) {
   console.log(`${L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}] with [${modConfigFile}]`);
 
   console.log(`${L}
@@ -60,3 +59,11 @@ ${L}`);
 
   return Promise.resolve();
 };
+
+
+/**
+ * EXPOSE
+ * @public
+ */
+
+module.exports = exports = usage;

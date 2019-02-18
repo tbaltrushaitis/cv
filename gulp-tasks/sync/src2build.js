@@ -1,7 +1,7 @@
 /*!
  * Project:     cv
  * File:        ./gulp-tasks/sync/src2build.js
- * Copyright(c) 2016-nowdays Baltrushaitis Tomas
+ * Copyright(c) 2016-nowdays Baltrushaitis Tomas <tbaltrushaitis@gmail.com>
  * License:     MIT
  */
 
@@ -12,12 +12,11 @@
 //  ------------------------------------------------------------------------  //
 
 const path = require('path');
-const util = require('util');
-const utin = util.inspect;
+const utin = require('util').inspect;
 
-const dirSync = require('gulp-directory-sync');
-const vinylPaths = require('vinyl-paths');
-const merge = require('merge-stream');
+const dirSync    = require('gulp-directory-sync');
+const merge      = require('merge-stream');
+const readConfig = require('read-config');
 
 //  ------------------------------------------------------------------------  //
 //  ----------------------------  CONFIGURATION  ---------------------------  //
@@ -30,16 +29,19 @@ const modName = path.basename(module.filename, '.js');
 const modPath = path.relative(ME.WD, path.dirname(module.filename));
 const confPath = path.join(ME.WD, 'config', path.sep);
 const modConfigFile = `${path.join(confPath, modPath, modName)}.json`;
-const modConfig = require('read-config')(modConfigFile, ME.pkg.options.readconf);
+const modConfig = readConfig(modConfigFile, ME.pkg.options.readconf);
 
 ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
+
+let C = ME.Config.colors;
+let L = `\n${C.White}${(new Array(80).join('-'))}${C.NC}\n`;
 
 //  ------------------------------------------------------------------------  //
 //  -----------------------------  FUNCTIONS  ------------------------------  //
 //  ------------------------------------------------------------------------  //
 
 const src2build = function (gulp) {
-  console.log(`[${new Date().toISOString()}][${modPath}/${modName}] with [${utin(modConfigFile)}]`);
+  console.log(`${L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}] with [${modConfigFile}]`);
 
   let IMG = path.join('assets/img');
   let wImg = gulp.src('')
@@ -47,8 +49,7 @@ const src2build = function (gulp) {
                 path.join(ME.SRC, IMG)
               , path.join(ME.BUILD, IMG)
               , ME.pkg.options.sync
-            ))
-            .on('error', console.error.bind(console));
+            ));
 
   return merge(wImg)
           .on('error', console.error.bind(console));

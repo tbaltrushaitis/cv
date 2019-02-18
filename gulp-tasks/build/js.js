@@ -40,10 +40,10 @@ let C = ME.Config.colors;
 let L = `\n${C.White}${(new Array(80).join('-'))}${C.NC}\n`;
 
 //  ------------------------------------------------------------------------  //
-//  --------------------------------  EXPOSE  ------------------------------  //
+//  ------------------------------  FUNCTIONS  -----------------------------  //
 //  ------------------------------------------------------------------------  //
 
-module.exports = function (gulp) {
+const buildJs = function (gulp) {
   console.log(`${L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}] with [${modConfigFile}]`);
 
   let FROM = path.join(ME.BUILD, 'resources/assets');
@@ -58,11 +58,20 @@ module.exports = function (gulp) {
       return Promise.resolve(p);
     }))
     .pipe(gulpif('production' === ME.NODE_ENV, terser(ME.pkg.options.terser)))
-    // //  Write banners
+    //  Write banners
     .pipe(headfoot.header(ME.Banner.header))
     .pipe(headfoot.footer(ME.Banner.footer))
     .pipe(gulp.dest(path.resolve(DEST, JS)));
 
-  return merge(JSfront);
+  return merge(JSfront)
+          .on('error', console.error.bind(console));
 
 };
+
+
+/**
+ * EXPOSE
+ * @public
+ */
+
+module.exports = exports = buildJs;

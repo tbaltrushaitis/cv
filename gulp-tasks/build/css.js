@@ -40,10 +40,10 @@ let C = ME.Config.colors;
 let L = `\n${C.White}${(new Array(80).join('-'))}${C.NC}\n`;
 
 //  ------------------------------------------------------------------------  //
-//  --------------------------------  EXPOSE  ------------------------------  //
+//  ------------------------------  FUNCTIONS  -----------------------------  //
 //  ------------------------------------------------------------------------  //
 
-module.exports = function (gulp) {
+const buildCss = function (gulp) {
   console.log(`${L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}] with [${modConfigFile}]`);
 
   //
@@ -57,7 +57,7 @@ module.exports = function (gulp) {
     ])
     .pipe(gulpif('production' === ME.NODE_ENV, cleanCSS({debug: true, rebase: false}, function (d) {
       console.log(`[${new Date().toISOString()}][${C.White}FRONT${C.NC}] Compress CSS: [${d.path}]: [${utin(d.stats.originalSize)} -> ${utin(d.stats.minifiedSize)}] [${utin(parseFloat((100 * d.stats.efficiency).toFixed(2)))}%] in [${utin(d.stats.timeSpent)}ms]`);
-    }), false))
+    })))
     // .pipe(gulp.dest(DEST))
     // .pipe(concatCSS('frontend-bundle.css', {rebaseUrls: true}))
     //  Write banners
@@ -65,6 +65,15 @@ module.exports = function (gulp) {
     .pipe(headfoot.footer(ME.Banner.footer))
     .pipe(gulp.dest(DEST));
 
-  return merge(frontCSS);
+  return merge(frontCSS)
+          .on('error', console.error.bind(console));
 
 };
+
+
+/**
+ * EXPOSE
+ * @public
+ */
+
+module.exports = exports = buildCss;
