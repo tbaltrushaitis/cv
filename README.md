@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <h1 class="text-center">Modern CV, Resume and Portfolio Template</h1>
+  <h1 class="text-center">CV, Resume and Portfolio Template</h1>
 </p>
 
 <p align="center">
@@ -49,30 +49,31 @@ $ APP_NAME=cv \
 && cd ${APP_NAME}
 ```
 
----
-
-### 2. Setup environment ###
+### 2. Install deps ###
 ```shell
 $ make setup
 ```
 
----
+### 3. Configure ###
 
-### 3. Fill in ###
-
-Input your data into proper sections of `index.html`
-
----
+Replace values in `config/person.json` with your personal information
 
 ### 4. Build ###
 ```shell
 $ make build
 ```
----
 
-### 5. Share  ###
+### 5. Deploy ###
+```shell
+$ make deploy
+```
 
-Post a link to your CV on a sites where you need your personal profile page should be discovered by other users and that provide a lots of information about your professional skills and experience.
+This will create/update `webroot` directory inside the project root.
+Use this directory as DocumentRoot in VirtualHost configuration of your web server.
+
+### 6. Enjoy  ###
+
+Post a link to your CV on sites where you need your personal profile page should be discovered by other users and that provide a lots of information about your professional skills and experience.
 For example: [Modern CV](http://bit.ly/tomascv)
 
 ---
@@ -82,15 +83,13 @@ For example: [Modern CV](http://bit.ly/tomascv)
  Name | Version | Scope | Description |
 :-----|:-------:|:-----:|:------------|
  [animate.css](http://daneden.github.io/animate.css/) | 3.7.0 | Front | A cross-browser library of CSS animations
- [normalize.css](http://necolas.github.io/normalize.css/) | 8.0.0 | Front | A modern alternative to CSS resets
- [FontAwesome](http://fontawesome.io/) | 5.3.1 | Front | The iconic Font and CSS toolkit
+ [FontAwesome](https://fontawesome.com/) | 5.7.2 | Front | The iconic Font and CSS toolkit
  [Bootstrap](http://getbootstrap.com) | 3.3.7 | Front | Front-end framework for developing responsive, mobile first projects on the web
  [jQuery](http://jquery.com/) | 3.3.1 | Front | JavaScript Library
  [noty](http://ned.im/noty) | 2.4.1 | Front | Notification library
  [waypoints](https://github.com/imakewebthings/waypoints) | 4.0.1 | Front | Easily execute a function when you scroll to an element
  [wow.js](https://wowjs.uk/) | 1.3.0 | Front | Reveal CSS animation as you scroll down a page
  [iamx](https://trendytheme.net/items/i-am-x-html-resume-template/) | 1.2.0 | Front | Trendy Theme
-
 
 ---
 
@@ -100,8 +99,9 @@ For example: [Modern CV](http://bit.ly/tomascv)
 :-----|:-----:|:------------|
  [bower](http://bower.io) | - | A package manager for the web
  [gulp](http://gulpjs.com) | - | Toolkit for automating tasks in development workflow
+ [gulp-token-replace](https://github.com/Pictela/gulp-token-replace) | - | Token replace plugin for Gulp
  [jimp](https://github.com/oliver-moran/jimp) | - | An image processing library written entirely in JavaScript for Node, with zero external or native dependencies
- [terser](https://github.com/terser-js/terser) | - | JavaScript parser, mangler, optimizer and compressor toolkit for ES6+
+ [terser](https://github.com/terser-js/terser) | - | A JavaScript parser and mangler/compressor toolkit for ES6+
 
 ---
 
