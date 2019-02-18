@@ -1,7 +1,8 @@
-{   "name":     "cv"
-  , "version":  "0.1.5"
+{
+    "name":     "cv"
+  , "version":  "0.2.0"
   , "title":    "Modern CV, Resume and Portfolio website"
-  , "description": "Modern CV, Resume and Portfolio website template. Easy customizable All-in-One-Page site with configurable builder."
+  , "description": "Best-in-Class website template for modern CV, Resume and Portfolio. Easy customizable All-in-One-Page static website with simple and smart builder."
   , "homepage": "https://github.com/tbaltrushaitis/cv"
   , "bugs":     "https://github.com/tbaltrushaitis/cv/issues"
   , "license":  "MIT"
@@ -10,8 +11,12 @@
       , "email": "tbaltrushaitis@gmail.com"
       , "url":   "https://github.com/tbaltrushaitis"
     }
-  , "private":  false
-  , "website":  "http://cv.gsm-center.com.ua/"
+  , "private": false
+  , "repository": {
+        "type": "git"
+      , "url":  "git+https://github.com/tbaltrushaitis/cv.git"
+    }
+  , "website":  "http://bit.ly/tomascv"
   , "readmeFilename": "README.md"
   , "engines": {
       "node": ">=8.0.0"
@@ -19,51 +24,55 @@
   , "os": ["linux"]
   , "main": ""
   , "scripts": {
-        "preinstall-disabled": "[ -f ./NODE_ENV ] || cp -prv config/.NODE_ENV ./NODE_ENV ; [ -f ./.bowerrc ] || cp -prv config/.bowerrc ./ ;"
-      , "preinstall": "echo \"[PRE-INSTALL] is NOT DEFINED\" ;"
-      , "install": "echo \"[INSTALL] is NOT DEFINED\" ;"
-      , "postinstall": "echo \"[POST-INSTALL] is NOT DEFINED\" ;"
-      , "start":    "echo \"[START] is NOT DEFINED\" ;"
-      , "test":     "echo \"[TEST] \" ; gulp test"
-      , "check":    "echo \"[CHECK] \" ; gulp lint"
-      , "config":   "echo \"[CONFIG] \" ; gulp show:config"
-      , "prepare":  "echo \"[PREPARE] \" ; gulp populate"
-      , "setup":    "echo \"[SETUP] is NOT DEFINED\" ;"
-      , "prebuild": "echo \"[PRE-BUILD] is NOT DEFINED\" ;"
-      , "build":    "echo \"[BUILD] \" ; gulp build"
-      , "deploy":   "echo \"[DEPLOY] \" ; gulp deploy"
-      , "rebuild":  "echo \"[RE-BUILD] is NOT DEFINED\" ;"
-      , "all":      "echo \"[ALL] is NOT DEFINED\" ;"
-      , "default":  "echo \"[DEFAULT] \" ; gulp --env=test"
-      , "live":     "echo \"[LIVE] \" ; livereload ./webroot --port 8090 -d -w 1000"
-      , "dev":      "echo \"[DEV] \" ; gulp --env=dev"
-      , "prod":     "echo \"[PROD] \" ; gulp --env=production"
-      , "watch":    "echo \"[WATCH] \" ; gulp watch"
+        "default":       "echo [DEFAULT] DEBUG=* gulp default --color"
+      , "all":           "echo [ALL]; DEBUG=* gulp --color"
+      , "preinstall":    "echo [PRE-INSTALL] --- "
+      , "install":       "echo [INSTALL] --- "
+      , "postinstall":   "echo [POST-INSTALL] --- "
+      , "preuninstall":  "echo [PRE-UNINSTALL] --- "
+      , "uninstall":     "echo [UNINSTALL] --- "
+      , "postuninstall": "echo [POST-UNINSTALL] --- "
+      , "start":         "echo [START] --- "
+      , "pretest":       "echo [PRE-TEST] --- "
+      , "test":          "echo [TEST]; DEBUG=* gulp test --color"
+      , "posttest":      "echo [POST-TEST] --- "
+      , "check":         "echo [CHECK]; DEBUG=* gulp lint --color"
+      , "config":        "echo [CONFIG]; gulp show:config --color"
+      , "changed":       "echo [CONFIG]; gulp show:src --color"
+      , "prepare":       "echo [PREPARE] --- "
+      , "setup":         "echo [SETUP] --- "
+      , "prebuild":      "echo [PRE-BUILD]; gulp populate --color"
+      , "build":         "echo [BUILD]; gulp build --color"
+      , "postbuild":     "echo [POST-BUILD] --- "
+      , "prepublish":    "echo [PRE-PUBLISH] --- "
+      , "prepack":       "echo [PRE-PACK] --- "
+      , "populate":      "echo [POPULATE]; gulp populate --color"
+      , "deploy":        "echo [DEPLOY]; gulp deploy --color"
+      , "rebuild":       "echo [RE-BUILD] --- "
+      , "usage":         "echo [USAGE]; gulp usage --color"
+      , "list":          "echo [LIST]; gulp --tasks --depth 1 --color"
+      , "live":          "echo [LIVE]; livereload ./webroot --port 35729 -d -w 1000"
+      , "dev":           "echo [DEV]; DEBUG=* gulp dev --color"
+      , "prod":          "echo [PROD]; gulp --env=production --color"
+      , "watch":         "echo [WATCH]; DEBUG=* gulp watch --color"
     }
-  , "repository": {
-        "type": "git"
-      , "url":  "git+https://github.com/tbaltrushaitis/cv.git"
+  , "scripts-disabled": {
+      "preinstall": "[ -f ./NODE_ENV ] || cp -prv config/.NODE_ENV ./NODE_ENV ; [ -f ./.bowerrc ] || cp -prv config/.bowerrc ./ ;"
     }
   , "directories": {
       "test": "test"
     }
   , "dependencies": {}
   , "devDependencies": {
-        "bower":               "^1.8.4"
+        "bower":               "^1.8.8"
       , "dateformat":          "^3.0.3"
       , "del":                 "^3.0.0"
       , "gulp":                "^3.9.1"
       , "gulp-changed":        "^3.2.0"
-      , "gulp-chmod":          "^2.0.0"
-      , "gulp-chown":          "^2.0.0"
       , "gulp-clean-css":      "^3.10.0"
-      , "gulp-concat":         "^2.6.0"
       , "gulp-concat-css":     "^3.1.0"
       , "gulp-directory-sync": "^1.2.3"
-      , "gulp-exec":           "^3.0.2"
-      , "gulp-file-include":   "^2.0.1"
       , "gulp-filter":         "^5.1.0"
-      , "gulp-gzip":           "^1.4.2"
       , "gulp-headerfooter":   "^1.0.3"
       , "gulp-htmlmin":        "^5.0.1"
       , "gulp-if":             "^2.0.1"
@@ -71,36 +80,42 @@
       , "gulp-jscs":           "^4.1.0"
       , "gulp-jshint":         "^2.1.0"
       , "gulp-livereload":     "^4.0.0"
-      , "gulp-newer":          "^1.4.0"
-      , "gulp-rename":         "^1.4.0"
       , "gulp-replace":        "^1.0.0"
       , "gulp-require-tasks":  "^1.2.1"
       , "gulp-sequence":       "^1.0.0"
       , "gulp-terser":         "^1.1.5"
       , "gulp-token-replace":  "^1.1.2"
-      , "gulp-uglify":         "^3.0.1"
-      , "gulp-util":           "^3.0.8"
       , "gulp-watch":          "^5.0.1"
-      , "jimp":                "^0.5.6"
-      , "jshint":              "^2.9.6"
+      , "jimp":                "^0.6.0"
+      , "jshint":              "^2.10.1"
       , "jshint-stylish":      "^2.2.1"
       , "lodash":              "^4.17.11"
       , "main-bower-files":    "^2.13.1"
       , "merge-stream":        "^1.0.1"
-      , "minimist":            "^1.2.0"
-      , "nodemon":             "^1.18.6"
       , "read-config":         "^2.0.0"
       , "vinyl-paths":         "^2.1.0"
-      , "yargs":               "^12.0.2"
+      , "yargs":               "^13.2.0"
     }
-  , "outdatedDependencies": {
-      "gulp-add-src":      "^1.0.0"
-      , "gulp-data":       "^1.3.1"
-      , "gulp-minify-css": "^1.2.4"
-      , "gulp-template":   "^5.0.0"
-      , "jquery":          "^3.3.1"
-      , "livereload":      "^0.7.0"
-      , "nconf":           "^0.10.0"
+  , "devDependencies-DISABLED": {
+        "gulp-add-src":      "^1.0.0"
+      , "gulp-chmod":        "^2.0.0"
+      , "gulp-chown":        "^2.0.0"
+      , "gulp-concat":       "^2.6.0"
+      , "gulp-data":         "^1.3.1"
+      , "gulp-exec":         "^3.0.2"
+      , "gulp-file-include": "^2.0.1"
+      , "gulp-gzip":         "^1.4.2"
+      , "gulp-minify-css":   "^1.2.4"
+      , "gulp-newer":        "^1.4.0"
+      , "gulp-rename":       "^1.4.0"
+      , "gulp-template":     "^5.0.0"
+      , "gulp-uglify":       "^3.0.1"
+      , "gulp-util":         "^3.0.8"
+      , "jquery":            "^3.3.1"
+      , "livereload":        "^0.7.0"
+      , "minimist":          "^1.2.0"
+      , "nconf":             "^0.10.0"
+      , "nodemon":           "^1.18.10"
     }
   , "options": {
       "bower": {
@@ -173,9 +188,14 @@
         }
       }
     , "watch": {
-        "ignoreInitial": false
-      , "verbose":       true
-      , "readDelay":     200
+          "ignoreInitial": false
+        , "verbose":       true
+        , "readDelay":     200
+      }
+    , "livereload": {
+          "start": true
+        , "port":  35729
+        , "quiet": false
       }
     , "iopts": {
           "showHidden": false
@@ -183,20 +203,24 @@
         , "colors":     true
       }
     , "readconf": {
-          "basedir": null
-        , "replaceEnv": "%"
-        , "replaceLocal": "@"
-        , "override": true
+          "basedir":        null
+        , "replaceEnv":     "%"
+        , "replaceLocal":   "@"
+        , "override":       true
         , "skipUnresolved": true
       }
     , "readconf-disabled": {
       }
     , "htmlmin": {
-        "collapseWhitespace": true
-      , "collapseInlineTagWhitespace": true
-      , "conservativeCollapse": true
-      , "removeComments": true
-    }
+          "collapseWhitespace":          true
+        , "collapseInlineTagWhitespace": true
+        , "conservativeCollapse":        true
+        , "removeComments":              true
+      }
+    , "terser": {
+          "keep_fnames": true
+        , "mangle":      true
+      }
     }
   , "jshintConfig": {}
   , "keywords": [
@@ -209,5 +233,7 @@
       , "resume"
       , "skills"
       , "skill-demo"
+      , "Technical"
+      , "Full-Stack"
     ]
 }
