@@ -21,6 +21,11 @@
         }
       , "citizenship": "Ukrainian"
     }
+  , "home": {
+        "pos-prefix": "full-stack"
+      , "pos-title": "engineer"
+      , "pos-tags": "#high #skilled #experienced #guru"
+    }
   , "socials": [
       {
           "name": "li"
@@ -50,11 +55,6 @@
   , "contacts": {
         "cell": "KzM4MCg2NykgNzgtemVyby0zMS0xOA=="
       , "email": "bWFpbHRvOnRiYWx0cnVzaGFpdGlzQGdtYWlsLmNvbQ=="
-    }
-  , "home": {
-        "pos-prefix": "full-stack"
-      , "pos-title": "engineer"
-      , "pos-tags": "#high #skilled #experienced #guru"
     }
   }
 }
