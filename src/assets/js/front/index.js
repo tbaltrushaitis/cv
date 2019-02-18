@@ -103,7 +103,7 @@ window.jQuery(($) => {
       return Promise.resolve(loAnimations).then(function (lo) {
         return new Promise(function (resolve, reject) {
 
-          $.each(lo, function (i, o) {
+          $.each(lo, (i, o) => {
             // Assign Waypoint animation handler
             wShow(o);
           });
@@ -173,50 +173,6 @@ window.jQuery(($) => {
       $('[name="contact-email"]').prop('href', atob('{{person.contacts.email}}'));
     });
 
-  })();
-
-  // ---------------------------------------------------------------------------
-  //  Notifications
-  // ---------------------------------------------------------------------------
-
-  (function () {
-    $(window).on('load', function () {
-      // console.log('SETTING TIMEOUTS FOR UX NOTIFICATIONS');
-      //       setTimeout(function () {
-      //         console.log('SHOWING WELCOME NOTIFICATION');
-      //         window.noty({
-      //           layout: 'topLeft'
-      //           , text: `
-      // <div class="noty-container noty_body">
-      //   <span class="h3">Welcome!</span>
-      // <div>
-      // `
-      //           , timeout: 5000
-      //           , type:    'information'
-      //         });
-      //       }, 4000);
-
-      //       setTimeout(function () {
-      //         console.log('SHOWING BUILD DATE NOTIFICATION');
-      //         window.noty({
-      //           layout: 'bottomRight'
-      //           , text: `
-      // <div class="noty-container noty_body">
-      // <p>
-      // <i class="fa fa-calendar fa-fw fa-2x"></i>
-      // Content was last updated at <br />
-      // <strong class="text-success">{{built.date}}</strong>
-      // </p>
-      // <div>
-      // `
-      //           , timeout: 8000
-      //           , type:    'success'
-      //         });
-      //       }, 10000);
-
-      // for {{person.name.full}} <br />
-
-    });
   })();
 
   /* ------------------------------------------------------------------------ /*
