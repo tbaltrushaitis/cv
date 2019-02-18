@@ -94,7 +94,7 @@ const bowerFiles = function (gulp) {
       , "!**/*.css.min.map"
       , "!**/*.min.css.map"
     ]))
-    .pipe(concatCSS('bower-bundle.css', {rebaseUrls: false, commonBase: path.join(DEST, CSS)}))
+    .pipe(concatCSS('bower-bundle.css', {rebaseUrls: false, commonBase: path.join(DEST)}))
     .pipe(gulpif('production' === ME.NODE_ENV, new cleanCSS({debug: false, rebase: false}, function (d) {
       console.log(`[${new Date().toISOString()}][${C.White}BOWER${C.NC}] Compress CSS [${d.path}]: [${utin(d.stats.originalSize)} -> ${utin(d.stats.minifiedSize)}] [${utin(parseFloat((100 * d.stats.efficiency).toFixed(2)))}%] in [${utin(d.stats.timeSpent)}ms]`);
     }), false))
@@ -105,7 +105,7 @@ const bowerFiles = function (gulp) {
 
 
   let bowerFonts = gulp.src(mBower)
-    .pipe(filter(['**/fonts/*.*']))
+    .pipe(filter(['**/fonts/**/*.*']))
     .pipe(vPaths(function (p) {
       console.log(`[${new Date().toISOString()}][${C.White}BOWER${C.NC}] FONT: [${p}]`);
       return Promise.resolve(p);

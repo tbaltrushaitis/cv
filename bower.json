@@ -46,15 +46,14 @@
       , "waypoints":      "^4.0.1"
       , "wow":            "wow-mit#~1.3.0"
     }
-  , "devDependencies": {
-    }
-  , "disabledDependencies": {
+  , "devDependencies": {}
+  , "dependencies-DISABLED": {
         "jquery.shuffle": "#9cf47a1590"
-      , "normalize-css":  "^8.0.0"
+      , "lato-font":      "^3.0.0"
+      , "normalize-css":  "^8.0.1"
       , "segoe-fonts":    "^1.0.1"
     }
-  , "resolutions": {
-    }
+  , "resolutions": {}
   , "overrides": {
       "bootstrap": {
         "main": [
@@ -75,21 +74,10 @@
             "webfonts/*.*"
           , "css/all.css"
         ]
-      , "main-off": [
-            "web-fonts-with-css/webfonts/*.*"
-          , "web-fonts-with-css/css/fontawesome-all.css"
-          , "**/css/*.css"
-          , "!css/*.min.css"
-        ]
       }
     , "smoothscroll": {
         "main": [
           "src/smoothscroll.js"
-        ]
-      }
-    , "jquery.shuffle": {
-        "main": [
-          "jquery.shuffle.js"
         ]
       }
     , "shufflejs": {
@@ -106,8 +94,7 @@
     }
   , "group": {
       "fonts": [
-          "font-awesome"
-        , "segoe-fonts"
+        "font-awesome"
       ]
     , "libs": [
           "jquery"
@@ -116,9 +103,7 @@
       ]
     , "plugins": [
           "bower-jquery-easyPieChart"
-        , "html5shiv"
         , "magnific-popup"
-        , "modernizr"
         , "fitvids"
         , "jquery-countTo"
         , "jquery.inview"
@@ -127,11 +112,9 @@
         , "jquery-throttle-debounce"
         , "shufflejs"
         , "noty"
-        , "respond"
       ]
     , "ui": [
-        "animate.css"
-        , "normalize-css"
+          "animate.css"
         , "smoothscroll"
         , "shufflejs"
         , "waypoints"
