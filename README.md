@@ -91,17 +91,15 @@ For example: [Modern CV](http://bit.ly/tomascv)
  [wow.js](https://wowjs.uk/) | 1.3.0 | Front | Reveal CSS animation as you scroll down a page
  [iamx](https://trendytheme.net/items/i-am-x-html-resume-template/) | 1.2.0 | Front | Trendy Theme
 
----
+## :wrench: Dev Tools ##
 
-## :wrench: Tools ##
-
- Name | Scope | Description |
-:-----|:-----:|:------------|
- [bower](http://bower.io) | - | A package manager for the web
- [gulp](http://gulpjs.com) | - | Toolkit for automating tasks in development workflow
- [gulp-token-replace](https://github.com/Pictela/gulp-token-replace) | - | Token replace plugin for Gulp
- [jimp](https://github.com/oliver-moran/jimp) | - | An image processing library written entirely in JavaScript for Node, with zero external or native dependencies
- [terser](https://github.com/terser-js/terser) | - | A JavaScript parser and mangler/compressor toolkit for ES6+
+ Name | Description |
+:-----|:------------|
+ [bower](http://bower.io) | A package manager for the web
+ [gulp](http://gulpjs.com) | Toolkit for automating tasks in development workflow
+ [gulp-token-replace](https://github.com/Pictela/gulp-token-replace) | Token replace plugin for Gulp
+ [jimp](https://github.com/oliver-moran/jimp) | An image processing library written entirely in JavaScript for Node
+ [terser](https://github.com/terser-js/terser) | A JavaScript parser and mangler/compressor toolkit for ES6+
 
 ---
 

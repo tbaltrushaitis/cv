@@ -41,6 +41,8 @@ clean-files:
 		package-lock.json \
 		.bowerrc \
 		.npmrc \
+		setup \
+		setup-deps \
 		bitbucket-pipelines.yml \
 		codeclimate-config.patch \
 		_config.yml \

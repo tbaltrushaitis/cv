@@ -1,8 +1,10 @@
 /*!  Custom Styles  */
 
-/*   -------------------------   Theme covers   ---------------------------   */
+/* ---------------------------------------------- /*
+ *               Theme covers
+/* ---------------------------------------------- */
 body {
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, 'Roboto', sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, 'Roboto', sans-serif;
 }
 
 .h4 {
@@ -145,17 +147,20 @@ body {
   .grow:hover { transform: scale(1.2); }
 }
 
+ul.list-check li {
+  font-family: "Lato";
+}
+
 ul.list-check li i {
   color: #68c3a3;
   margin-right: 5px;
 }
 
 .scroll-up a {
-  opacity: 0.4;
+  opacity: 0.6;
   font-size: 26px;
 }
 
 form {
-  padding-top: 15px;
-  padding-bottom: 15px;
+  margin-bottom: 15px;
 }
