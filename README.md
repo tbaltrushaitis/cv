@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <h1 class="text-center">CV, Resume and Portfolio Template</h1>
+  <h1 align="center">CV, Resume and Portfolio website Template</h1>
 </p>
 
 <p align="center">
