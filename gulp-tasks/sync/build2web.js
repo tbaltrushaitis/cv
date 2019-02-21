@@ -46,7 +46,7 @@ let L = `\n${C.White}${(new Array(80).join('-'))}${C.NC}\n`;
 const build2web = function (gulp) {
   console.log(`${L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}] with [${modConfigFile}]`);
 
-  if ('dev' === ME.NODE_ENV || 'development' === ME.NODE_ENV) {
+  if ('dev' == ME.NODE_ENV || 'dev' == process.env.npm_lifecycle_event) {
     livereload.listen(ME.pkg.options.livereload);
   }
 
@@ -73,7 +73,7 @@ const build2web = function (gulp) {
     ));
 
   return merge(wAssets, wData, wFiles)
-          .pipe(gulpif('dev' === ME.NODE_ENV, livereload()))
+          .pipe(gulpif('dev' == ME.NODE_ENV || 'dev' == process.env.npm_lifecycle_event, livereload()))
           .on('error', console.error.bind(console));
 
 };
