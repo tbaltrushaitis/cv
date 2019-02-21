@@ -5,7 +5,9 @@
   <img src="https://img.shields.io/david/dev/tbaltrushaitis/cv.svg" alt="Dev Dependencies">
 </p>
 
-# CV, Resume and Portfolio website #
+<p align="center">
+  <h1 align="center">CV, Resume and Portfolio website template</h1>
+</p>
 
 <p align="center">
   <a href="http://bit.ly/tomascv?ref=readme">
@@ -13,9 +15,11 @@
   </a>
 </p>
 
-Modern CV, Resume and Portfolio website template. All-in-One-Page site with configurable builder.
+<!-- # Best-in-Class modern CV, Resume and Portfolio # -->
 
-`modern` `cv` `resume` `template` `portfolio` `portfolio-website` `cv-template` `IT` `curriculum-vitae` `cv-summary` `resume-template` `resume-website` `cv-website` `animated` `animate-css` `template-project`
+:mortar_board: Best-in-Class modern CV, Resume and Portfolio website template. All-in-One-Page site with fully customizable builder.
+
+`modern` `cv` `resume` `template` `portfolio` `portfolio-website` `cv-template` `IT` `curriculum-vitae` `cv-summary` `resume-template` `resume-website` `cv-website` `animated` `template-project`
 
 ---
 
