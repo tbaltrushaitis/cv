@@ -22,7 +22,6 @@ const jimp       = require('gulp-jimp');
 const merge      = require('merge-stream');
 const vPaths     = require('vinyl-paths');
 
-
 //  ------------------------------------------------------------------------  //
 //  ----------------------------  CONFIGURATION  ---------------------------  //
 //  ------------------------------------------------------------------------  //
@@ -37,16 +36,14 @@ const modConfigFile = `${path.join(confPath, modPath, modName)}.json`;
 const modConfig = readConfig(modConfigFile, ME.pkg.options.readconf);
 
 ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
-
 let C = ME.Config.colors;
-let L = `\n${C.White}${(new Array(80).join('-'))}${C.NC}\n`;
 
 //  ------------------------------------------------------------------------  //
 //  ------------------------------  FUNCTIONS  -----------------------------  //
 //  ------------------------------------------------------------------------  //
 
 const buildImg = function (gulp) {
-  console.log(`${L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}] with [${modConfigFile}]`);
+  console.log(`${ME.L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}] with [${modConfigFile}]`);
 
   //
   //  JIMP - responsible for image processing
@@ -56,6 +53,17 @@ const buildImg = function (gulp) {
   let IMG  = path.join('img');
   let TUMB = path.join('thumbs');
   let SRC  = path.join(FROM, IMG, 'works', '**/*.*');
+  let defs = Object.assign({}, {
+      autocrop: {
+          tolerance: 0.0002
+        , cropOnlyFrames: false
+      }
+    , resize: {
+          width: 270
+        , height: 180
+      }
+    , type: 'png'
+  });
 
 
   let PNGS = gulp.src([SRC])
@@ -67,17 +75,7 @@ const buildImg = function (gulp) {
       return Promise.resolve(p);
     }))
     .pipe(jimp({
-      '': {
-          autocrop: {
-              tolerance: 0.0002
-            , cropOnlyFrames: false
-          }
-        , resize: {
-              width: 270
-            , height: 180
-          }
-        , type: 'png'
-      }
+      '': defs
     }))
     .pipe(gulp.dest(path.join(DEST, IMG, TUMB, 'works')));
 
@@ -92,17 +90,9 @@ const buildImg = function (gulp) {
       return Promise.resolve(p);
     }))
     .pipe(jimp({
-      '': {
-          autocrop: {
-              tolerance: 0.0002
-            , cropOnlyFrames: false
-          }
-        , resize: {
-              width: 270
-            , height: 180
-          }
-        , type: 'jpg'
-      }
+      '': Object.assign({}, defs, {
+            type: 'jpg'
+          })
     }))
     .pipe(gulp.dest(path.join(DEST, IMG, TUMB, 'works')));
 
