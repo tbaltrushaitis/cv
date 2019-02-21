@@ -35,16 +35,14 @@ const modConfigFile = `${path.join(confPath, modPath, modName)}.json`;
 const modConfig = readConfig(modConfigFile, ME.pkg.options.readconf);
 
 ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
-
 let C = ME.Config.colors;
-let L = `\n${C.White}${(new Array(80).join('-'))}${C.NC}\n`;
 
 //  ------------------------------------------------------------------------  //
 //  ------------------------------  FUNCTIONS  -----------------------------  //
 //  ------------------------------------------------------------------------  //
 
 const buildCss = function (gulp) {
-  console.log(`${L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}] with [${modConfigFile}]`);
+  console.log(`${ME.L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}] with [${modConfigFile}]`);
 
   //
   //  PROCESS CSS files

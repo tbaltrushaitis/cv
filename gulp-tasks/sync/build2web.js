@@ -35,16 +35,14 @@ const modConfigFile = `${path.join(confPath, modPath, modName)}.json`;
 const modConfig = readConfig(modConfigFile, ME.pkg.options.readconf);
 
 ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
-
 let C = ME.Config.colors;
-let L = `\n${C.White}${(new Array(80).join('-'))}${C.NC}\n`;
 
 //  ------------------------------------------------------------------------  //
 //  ------------------------------  FUNCTIONS  -----------------------------  //
 //  ------------------------------------------------------------------------  //
 
 const build2web = function (gulp) {
-  console.log(`${L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}] with [${modConfigFile}]`);
+  console.log(`${ME.L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}] with [${modConfigFile}]`);
 
   if ('dev' === ME.NODE_ENV || 'dev' === process.env.npm_lifecycle_event) {
     livereload.listen(ME.pkg.options.livereload);
@@ -73,7 +71,7 @@ const build2web = function (gulp) {
     ));
 
   return merge(wAssets, wData, wFiles)
-          .pipe(gulpif('dev' == ME.NODE_ENV || 'dev' == process.env.npm_lifecycle_event, livereload()))
+          .pipe(gulpif('dev' === ME.NODE_ENV || 'dev' === process.env.npm_lifecycle_event, livereload()))
           .on('error', console.error.bind(console));
 
 };
