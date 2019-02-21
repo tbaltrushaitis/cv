@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <h1 align="center">CV, Resume and Portfolio website Template</h1>
+  <h1 align="center">CV, Resume and Portfolio website template</h1>
 </p>
 
 <p align="center">
@@ -108,6 +108,7 @@ For example: [Modern CV](http://bit.ly/tomascv)
 - [ ] - upgrade to noty v3
 - [ ] - upgrade to bootstrap v4
 - [ ] - implement require.js configuration
+- [ ] - upgrade gulp to v4
 
 See [CHANGELOG][Changelog] for the history of changes and improvements.
 

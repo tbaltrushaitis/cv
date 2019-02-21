@@ -21,6 +21,10 @@ Modern CV, Resume and Portfolio website template. All-in-One-Page site with conf
 
 ## :memo: Change history ##
 
+### v0.2.0: ###
+- [x] For several links attribute `rel="noopener"` added for higher security
+- [x] Many major improvements for gulp tasks
+
 ### v0.1.6: ###
 - [x] Changed outdated javascripts minifier `gulp-uglify` to one with es6 support - [Terser](https://github.com/terser-js/terser)
 - [x] Using [jimp](https://github.com/oliver-moran/jimp) from now to automatically create thumbnails for portfolio images.
