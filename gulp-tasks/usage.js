@@ -29,18 +29,16 @@ const modConfigFile = `${path.join(ME.WD, 'config', modPath, modName)}.json`;
 const modConfig = readConfig(modConfigFile, Object.assign({}, ME.pkg.options.readconf || {}));
 
 ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
-
 let C = ME.Config.colors;
-let L = `\n${C.White}${(new Array(80).join('-'))}${C.NC}\n`;
 
 //  ------------------------------------------------------------------------  //
 //  ------------------------------  FUNCTIONS  -----------------------------  //
 //  ------------------------------------------------------------------------  //
 
 const usage = function (gulp) {
-  console.log(`${L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}] with [${modConfigFile}]`);
+  console.log(`${ME.L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}] with [${modConfigFile}]`);
 
-  console.log(`${L}
+  console.log(`${ME.L}
 ${C.Cyan}Usage${C.NC}:
     ${C.BYellow}gulp${C.NC} <${C.Purple}task${C.NC}> \t - \t Run gulp task(s) specified
 
@@ -55,7 +53,7 @@ ${C.Cyan}Usage${C.NC}:
     clean:dist \t\t - \t Distro files
     clean:resources \t - \t Static CSS, JS and Images
     clean:public \t - \t Directory visible from Internet
-${L}`);
+${ME.L}`);
 
   return Promise.resolve();
 };
