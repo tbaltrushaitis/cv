@@ -46,7 +46,7 @@ let L = `\n${C.White}${(new Array(80).join('-'))}${C.NC}\n`;
 const build2web = function (gulp) {
   console.log(`${L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}] with [${modConfigFile}]`);
 
-  if ('dev' == ME.NODE_ENV || 'dev' == process.env.npm_lifecycle_event) {
+  if ('dev' === ME.NODE_ENV || 'dev' === process.env.npm_lifecycle_event) {
     livereload.listen(ME.pkg.options.livereload);
   }
 
