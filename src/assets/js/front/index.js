@@ -168,9 +168,9 @@ window.jQuery(($) => {
   (function () {
 
     $(window).on('load', function () {
-      console.log('SETTING UP CONTACTS');
       $('[name="contact-cell"]').html(atob('{{person.contacts.cell}}'));
       $('[name="contact-email"]').prop('href', atob('{{person.contacts.email}}'));
+      console.log('CONTACTS SET');
     });
 
   })();
