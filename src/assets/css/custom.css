@@ -4,7 +4,7 @@
  *               Theme covers
 /* ---------------------------------------------- */
 body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, 'Roboto', sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, 'sans-serif';
 }
 
 .h4 {
@@ -12,7 +12,7 @@ body {
 }
 
 .copyright {
-  font-family: 'Lato', Calibri, Arial, sans-serif;
+  font-family: 'Lato', Calibri, Tahoma, Arial, 'sans-serif';
   font-weight: 400;
   font-size: 12px;
 }
@@ -148,7 +148,8 @@ body {
 }
 
 ul.list-check li {
-  font-family: "Lato";
+  /* font-family: "Helvetica"; */
+  /* font-weight: 100; */
 }
 
 ul.list-check li i {
