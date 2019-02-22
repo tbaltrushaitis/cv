@@ -119,7 +119,7 @@ tasktree:
 
 ##  ------------------------------------------------------------------------  ##
 
-.PHONY: setup-globals build dist deploy watch
+.PHONY: build dist deploy pre-update update
 
 setup: setup-deps ;
 	@ touch setup
@@ -138,8 +138,10 @@ dist:
 deploy:
 	@ export NODE_ENV="${APP_ENV}"; npm run deploy
 
-watch:
-	@ export NODE_ENV="${APP_ENV}"; npm run watch
+pre-update:
+	@ rm -f setup setup-deps ;
+
+update: pre-update setup ;
 
 ##  ------------------------------------------------------------------------  ##
 
@@ -150,7 +152,7 @@ redeploy: rebuild deploy banner ;
 
 ##  ------------------------------------------------------------------------  ##
 
-.PHONY: all full cycle cycle-dev dev run
+.PHONY: all full cycle cycle-dev dev run watch
 #* means the word "all" doesn't represent a file name in this Makefile;
 #* means the Makefile has nothing to do with a file called "all" in the same directory.
 
@@ -162,10 +164,12 @@ cycle: rights setup build deploy ;
 cycle-dev: build deploy ;
 
 dev: clean-build cycle-dev banner ;
-	@ export NODE_ENV="${APP_ENV}"; npm run dev --env=dev ;
-	@ export NODE_ENV="${APP_ENV}"; npm run watch --env=dev ;
+	@ export NODE_ENV="${APP_ENV}"; npm run dev ;
 
 run: banner help ;
-	@ export NODE_ENV="${APP_ENV}"; npm run all ;
+	@ export NODE_ENV="${APP_ENV}"; npm run all
+
+watch:
+	@ export NODE_ENV="${APP_ENV}"; npm run watch
 
 ##  ------------------------------------------------------------------------  ##
