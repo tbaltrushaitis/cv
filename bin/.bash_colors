@@ -1,5 +1,5 @@
 ##  ------------------------------------------------------------------------  ##
-##        Colors definitions (taken from Color Bash Prompt HowTo)             ##
+##             Colors definition (from "Color Bash Prompt" HowTo)             ##
 ##  ------------------------------------------------------------------------  ##
 
 ##  Normal Colors  ##
@@ -11,6 +11,7 @@ Blue='[0;1;34m'
 Purple='[0;1;35m'
 Cyan='[0;1;36m'
 White='[0;1;37m'
+Orange='[38;5;178m'
 
 ##  Bold  ##
 BBlack='[1;1;30m'
@@ -32,8 +33,10 @@ On_Purple='[45m'
 On_Cyan='[46m'
 On_White='[47m'
 
-##  Helpers  ##
+##  Color Reset  ##
 NC='[m'
+
+##  Helpers  ##
 ALERT=${BWhite}${On_Red}
 
 ##  ------------------------------------------------------------------------  ##

@@ -2,39 +2,52 @@
 ##                                 Clean Environment                          ##
 ##  ------------------------------------------------------------------------  ##
 
-.PHONY: clean clean-all
-.PHONY: clean-deps
-.PHONY: clean-build clean-dist clean-files
+include bin/.bash_colors
 
-clean-all: clean clean-dist
-	@ echo "Done: Clean all";
+.PHONY: clean clean-all clean-full
+.PHONY: clean-build clean-dist clean-files clean-deps
 
 clean: clean-build clean-files
-	@ echo "Done: Clean";
+	@ echo [${BYellow}${On_Blue}COMPLETED${NC}] Clean;
+
+clean-all: clean clean-dist
+	@ echo [${BYellow}${On_Blue}COMPLETED${NC}] Clean ALL;
+
+clean-full: clean-all clean-deps
+	@ echo [${BYellow}${On_Blue}COMPLETED${NC}] Clean FULL;
 
 clean-build:
-	@ echo "Cleaning build ... ";
-	@ rm -rf ${DIR_BUILD}
+	@ echo -n "Clean: build \t ... ";
+	@ rm -rf ${DIR_BUILD} ;
+	@ echo [${White}OK${NC}];
 
 clean-dist:
-	@ echo "Cleaning distro ... ";
-	@ rm -rf ${DIR_DIST}
+	@ echo -n "Clean: dist \t ... ";
+	@ rm -rf ${DIR_DIST} ;
+	@ echo [${White}OK${NC}];
 
 clean-deps:
-	@ echo "Cleaning deps ... ";
+	@ echo -n "Clean: deps \t ... ";
 	@ rm -rf \
 		bower_modules/ \
 		node_modules/ ;
+	@ echo [${White}OK${NC}];
 
 clean-files:
-	@ echo "Cleaning files ... ";
-	@ rm -rf COMMIT \
+	@ echo -n "Clean: files \t ... ";
+	@ rm -rf BUILD-* \
+		COMMIT \
 		*.md \
+		package-lock.json \
+		.bowerrc \
+		.npmrc \
+		setup \
+		setup-deps \
 		bitbucket-pipelines.yml \
 		codeclimate-config.patch \
 		_config.yml \
-		package-lock.json \
 		yarn.lock \
 		yarn-error.log ;
+	@ echo [${White}OK${NC}];
 
 ##  ------------------------------------------------------------------------  ##

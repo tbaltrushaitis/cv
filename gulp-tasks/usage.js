@@ -1,51 +1,67 @@
 /*!
+ * Project:     cv
  * File:        ./gulp-tasks/usage.js
- * Copyright(c) 2018-nowdays Baltrushaitis Tomas
+ * Copyright(c) 2018-nowdays Baltrushaitis Tomas <tbaltrushaitis@gmail.com>
  * License:     MIT
  */
 
 'use strict';
 
-//--------------//
-// DEPENDENCIES //
-//--------------//
+//  ------------------------------------------------------------------------  //
+//  -----------------------------  DEPENDENCIES  ---------------------------  //
+//  ------------------------------------------------------------------------  //
 
-const _ = require('lodash');
+const path = require('path');
+const utin = require('util').inspect;
 
-const path  = require('path');
-const util  = require('util');
-const utin  = util.inspect;
+const readConfig = require('read-config');
 
-//---------------//
-// CONFIGURATION //
-//---------------//
+//  ------------------------------------------------------------------------  //
+//  ----------------------------  CONFIGURATION  ---------------------------  //
+//  ------------------------------------------------------------------------  //
+
+let ME = Object.assign({}, global.ME || {});
+utin.defaultOptions = Object.assign({}, ME.pkg.options.iopts || {});
 
 const modName = path.basename(module.filename, '.js');
-const modPath = path.relative(global.ME.WD, path.dirname(module.filename));
+const modPath = path.relative(ME.WD, path.dirname(module.filename));
+const modConfigFile = `${path.join(ME.WD, 'config', modPath, modName)}.json`;
+const modConfig = readConfig(modConfigFile, Object.assign({}, ME.pkg.options.readconf || {}));
 
-const modConfigFile = `config/${path.join(modPath, modName)}.json`;
-const modConfig = require('read-config')(modConfigFile);
+ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
+let C = ME.Config.colors;
 
+//  ------------------------------------------------------------------------  //
+//  ------------------------------  FUNCTIONS  -----------------------------  //
+//  ------------------------------------------------------------------------  //
 
-//--------------//
-//  EXPOSE      //
-//--------------//
+const usage = function (gulp) {
+  console.log(`${ME.L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}] with [${modConfigFile}]`);
 
-module.exports = function (gulp) {
-  console.log(`[${new Date().toISOString()}][${modPath}/${modName}] ACTIVATED with modConfig = [${utin(modConfig)}]`);
+  console.log(`${ME.L}
+${C.Cyan}Usage${C.NC}:
+    ${C.BYellow}gulp${C.NC} <${C.Purple}task${C.NC}> \t - \t Run gulp task(s) specified
 
-  console.log('\n' + (new Array(50).join('-')));
-  console.info('\nUsage:\n\t gulp <task>\t-\tRun gulp task(s) specified');
-  console.info('\nwhere <task> is one of:\n');
-  console.warn('\tusage' + '\t\t', 'Show this topic');
-  console.warn('\tshow:config' + '\t', 'Show Configuration file');
-  console.warn('\tshow:src' + '\t', 'Log File Paths in the Stream');
-  console.warn('\n\tclean' + '\t\t', 'Empty given folders and Delete files');
-  console.warn('\tclean:build' + '\t', 'Clean directory with BUILD');
-  console.warn('\tclean:dist' + '\t', 'Distro files');
-  console.warn('\tclean:resources' + '\t', 'Static CSS, JS and Images');
-  console.warn('\tclean:public' + '\t', 'Directory visible from Internet');
-  console.log('\n' + (new Array(50).join('-')) + '\n');
+  , where ${C.Purple}task${C.NC} is one of:
+
+    ${C.Yellow}usage${C.NC} \t\t - \t Show this topic
+    show:config \t - \t Show Configuration file
+    show:src \t\t - \t Log File Paths in the Stream
+
+    clean \t\t - \t Empty given folders and Delete files
+    clean:build \t - \t Clean directory with current BUILD
+    clean:dist \t\t - \t Distro files
+    clean:resources \t - \t Static CSS, JS and Images
+    clean:public \t - \t Directory visible from Internet
+${ME.L}`);
 
   return Promise.resolve();
 };
+
+
+/**
+ * EXPOSE
+ * @public
+ */
+
+module.exports = exports = usage;

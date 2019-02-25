@@ -1,5 +1,5 @@
 {
-    "__parent": "./build.json"
+    "__parent": "./config.json"
   , "section":  "default"
   , "xhr_timeout": 7000
 }

@@ -10,18 +10,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
   <meta http-equiv="Content-Type"    content="text/html; charset=utf-8" />
 
-  <title>Baltrushaitis Tomas :: Personal CV, Resume and Portfolio</title>
+  <title>{{person.name.full}} :: Personal CV, Resume and Portfolio</title>
 
   <!--/  Mobile Specific Metas
   ========================================================================= /-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes" />
 
   <!--/  Metas
   ========================================================================= /-->
-  <meta name="title"         content="Baltrushaitis Tomas - Personal Resume and Portfolio" />
-  <meta name="description"   content="Personal resume of Baltrushaitis Tomas" />
-  <meta name="keywords"      content="tbaltrushaitis, resume, cv, portfolio, vcard" />
-  <meta name="author"        content="Tomas Baltrushaitis" />
+  <meta name="title"         content="{{person.name.full}} - Personal Resume and Portfolio" />
+  <meta name="description"   content="Personal resume of {{person.name.full}}" />
+  <meta name="keywords"      content="modern, cv, resume, template, portfolio, portfolio-website, cv-template, IT, curriculum-vitae, cv-summary, resume-template, resume-website, cv-website, animated, animate-css, template-project" />
+  <meta name="author"        content="{{author.name.full}}" />
   <meta name="language"      content="en" />
   <meta name="robots"        content="index, nofollow, noarchive" />
   <meta name="revisit-after" content="15 days" />
@@ -29,17 +29,18 @@
   <!--/  Metas for Crawlers
   ========================================================================= /-->
   <meta property="og:type"        content="portfolio" />
-  <meta property="og:title"       content="Baltrushaitis Tomas - Personal Resume and Portfolio" />
-  <meta property="og:description" content="Personal resume of Baltrushaitis Tomas" />
+  <meta property="og:title"       content="{{person.name.full}} - Personal Resume and Portfolio" />
+  <meta property="og:description" content="Personal resume of {{person.name.full}}" />
   <meta property="og:image"       content="assets/img/Avatar-rhomb.png" />
-  <meta property="og:site_name"   content="Personal resume of Tomas Baltrushaitis" />
+  <meta property="og:site_name"   content="Modern CV, Resume and Portfolio" />
   <meta property="og:url"         content="/" />
-  <meta property="og:see_also"    content="https://github.com/tbaltrushaitis" />
+  <meta property="og:see_also"    content="{{author.url}}" />
 
   <!--/  Fonts
   ========================================================================= /-->
   <!--/  Google Web Fonts  /-->
-  <link type="text/css" rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" id="css-font-roboto" />
+  <!-- <link type="text/css" rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" id="css-font-roboto" /> -->
+  <!-- <link type="text/css" rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Lato:300,400,700" id="css-font-lato" /> -->
 
   <!--/  Styles
   ========================================================================= /-->
@@ -48,7 +49,7 @@
   <link type="text/css" rel="stylesheet" media="screen" href="assets/css/bower-bundle.css" id="css-bower-bundle" />
 
   <!--/  Theme  /-->
-  <link type="text/css" rel="stylesheet" media="screen" href="assets/css/iamx.css" id="css-iamx" />
+  <link type="text/css" rel="stylesheet" media="screen" href="assets/css/theme.css" id="css-theme" />
 
   <!--/  Magnific  /-->
   <link type="text/css" rel="stylesheet" media="screen" href="assets/css/magnific-popup.css" id="css-magnific-popup" />
@@ -58,6 +59,7 @@
 
   <!--/  Custom  /-->
   <link type="text/css" rel="stylesheet" media="screen" href="assets/css/custom.css" id="css-custom" />
+  <link type="text/css" rel="stylesheet" media="screen" href="assets/css/fa-colors.css" id="css-fa-colors" />
 
   <!--/ HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries /-->
   <!--/ WARNING: Respond.js doesn't work if you view the page via file:// /-->
@@ -80,7 +82,7 @@
 
 </head>
 
-<body>
+<body data-env="{{app.env}}">
 
   <!--/  Preloader  /-->
   <div id="tt-preloader">
@@ -92,16 +94,24 @@
   <!--/  Home  /-->
   <section id="home" class="tt-fullHeight" data-stellar-vertical-offset="50" data-stellar-background-ratio="0.5">
     <div class="intro">
-      <div class="intro-sub wow" data-wow-duration="3.0s" data-wow-delay="0.0s">Baltrushaitis Tomas</div>
-      <h1 class="wow" data-wow-duration="2.7s" data-wow-delay="0.3s"><span class="first">Full-Stack</span> <span class="">Engineer</span></h1>
-      <p class="wow" data-wow-duration="2.5s" data-wow-delay="0.5s">#high #skilled #experienced #guru</p>
+      <div class="intro-sub wow" data-wow-duration="3.0s" data-wow-delay="0.0s">{{person.name.full}}</div>
+      <h1 class="wow" data-wow-duration="2.7s" data-wow-delay="0.3s"><span class="first">{{person.home.pos-prefix}}</span> <span class="">{{person.home.pos-title}}</span></h1>
+      <p class="wow" data-wow-duration="2.5s" data-wow-delay="0.5s">{{person.home.pos-tags}}</p>
 
       <div class="social-icons" id="social-icons">
         <ul class="list-inline">
-          <li class="wow" data-wow-duration="1.4s" data-wow-delay="1.6s"><a href="http://bit.ly/tomas-in" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-          <li class="wow" data-wow-duration="1.6s" data-wow-delay="1.4s"><a href="http://bit.ly/tomas-git" target="_blank"><i class="fab fa-github"></i></a></li>
-          <li class="wow" data-wow-duration="1.8s" data-wow-delay="1.2s"><a href="http://bit.ly/tomas-bb" target="_blank"><i class="fab fa-bitbucket"></i></a></li>
-          <li class="wow" data-wow-duration="2.0s" data-wow-delay="1.0s"><a href="http://bit.ly/tomas-hub" target="_blank"><i class="fab fa-docker"></i></a></li>
+          <li class="wow" data-wow-duration="1.4s" data-wow-delay="1.6s">
+            <a href="http://bit.ly/tomas-in" target="_blank" rel="noopener"><i class="fab fa-linkedin" title="LinkedIn"></i></a>
+          </li>
+          <li class="wow" data-wow-duration="1.6s" data-wow-delay="1.4s">
+            <a href="http://bit.ly/tomas-git" target="_blank" rel="noopener"><i class="fab fa-github" title="GitHub"></i></a>
+          </li>
+          <li class="wow" data-wow-duration="1.8s" data-wow-delay="1.2s">
+            <a href="http://bit.ly/tomas-bb" target="_blank" rel="noopener"><i class="fab fa-bitbucket" title="BitBucket"></i></a>
+          </li>
+          <li class="wow" data-wow-duration="2.0s" data-wow-delay="1.0s">
+            <a href="http://bit.ly/tomas-hub" target="_blank" rel="noopener"><i class="fab fa-docker" title="DockerHub"></i></a>
+          </li>
         </ul>
       </div> <!--/ /.social-icons /-->
     </div>
@@ -123,8 +133,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">
-            <img class="hidden" src="assets/img/logo.png" alt="Tom&acute;AS" />
+          <a class="navbar-brand hidden" href="index.html">
+            <img class="hidden" src="assets/img/logo.png" alt="{{author.nick}}" />
           </a>
         </div>
 
@@ -153,14 +163,37 @@
         <div class="col-md-4 col-md-push-8">
           <div class="biography" data-wow-duration="1.0s">
             <div class="myphoto wow" id="avatar" data-wow-duration="1.0s">
-              <img src="assets/img/Avatar-rhomb.png" alt="Baltrushaitis Tomas" />
+              <img src="assets/img/Avatar-rhomb.png" alt="{{person.name.full}}" />
             </div>
             <ul class="list-check">
-              <li class="row"><div class="col-xs-12 col-sm-6 col-md-6"><i class="fa fa-fw fa-id-badge"></i><strong>Name:</strong></div> <div class="col-xs-12 col-sm-6 col-md-6">Baltrushaitis Tomas</div></li>
-              <li class="row"><div class="col-xs-12 col-sm-6 col-md-6"><i class="fa fa-fw fa-calendar"></i><strong>Birth:</strong></div> <div class="col-xs-12 col-sm-6 col-md-6">28 Oct &apos;82</div></li>
-              <li class="row"><div class="col-xs-12 col-sm-6 col-md-6"><i class="fa fa-fw fa-home"></i><strong>Location:</strong></div> <div class="col-xs-12 col-sm-6 col-md-6">Ukraine, Kyiv</div></li>
-              <li class="row"><div class="col-xs-12 col-sm-6 col-md-6"><i class="fa fa-fw fa-globe"></i><strong>Citizenship:</strong></div> <div class="col-xs-12 col-sm-6 col-md-6">Ukrainian</div></li>
-              <!-- <li class="row"><div class="col-md-6"><strong>Email:</strong></div> <div class="col-md-6"><a href="mailto:abc@gmail.com">Drop a line</a></div></li> -->
+              <li class="row">
+                <div class="col-xs-2 col-sm-6 col-md-6">
+                  <i class="fa fa-fw fa-id-badge"></i>
+                  <strong class="hidden-xs">Name:</strong>
+                </div>
+                <div class="col-xs-10 col-sm-6 col-md-6"><span>{{person.name.full}}</span></div>
+              </li>
+              <li class="row">
+                <div class="col-xs-2 col-sm-6 col-md-6">
+                  <i class="fa fa-fw fa-calendar"></i>
+                  <strong class="hidden-xs">Birth:</strong>
+                </div>
+                <div class="col-xs-10 col-sm-6 col-md-6">{{person.bio.birth}}</div>
+              </li>
+              <li class="row">
+                <div class="col-xs-2 col-sm-6 col-md-6">
+                  <i class="fa fa-fw fa-home"></i>
+                  <strong class="hidden-xs">Location:</strong>
+                </div>
+                <div class="col-xs-10 col-sm-6 col-md-6">{{person.bio.location.full}}</div>
+              </li>
+              <li class="row">
+                <div class="col-xs-2 col-sm-6 col-md-6">
+                  <i class="fa fa-fw fa-globe"></i>
+                  <strong class="hidden-xs">Citizenship:</strong>
+                </div>
+                <div class="col-xs-10 col-sm-6 col-md-6">{{person.bio.citizenship}}</div>
+              </li>
             </ul>
           </div>
         </div> <!--/ col-md-4 /-->
@@ -191,31 +224,33 @@
             <h3 class="wow">Selfie</h3>
             <p class="wow">I've started my professional career in a far 2003 on a position of "Systems Engineer"
 and was involved in a continuous code development/improvement/upgrade
-of city-wide client-server system used for collecting, sorting/grouping, processing and reporting of utilities payments data.
-There was many technologies used but the key roles were played by (in order of being in development):
+of city-wide client-server system used for collecting, sorting/grouping, processing and reporting of the utilities payments data.
+There were many technologies used but the key roles were played by (in order of being in development):
 FoxPro, dBase, SQL, HTML, ASP, JavaScript.
-Also most parts of system infrastructure components was sagnificantly improved and upgraded
-to run as a Visual FoxPro desktop applications with modern windows-styled interfaces built from set of visual components.
-            </p>
+Also most parts of the system infrastructure components were sagnificantly improved and upgraded
+to run as the Visual FoxPro desktop applications with modern windows-styled interfaces built from set of visual components.
+</p>
 
-            <p class="wow">As of now I have advanced knowledge of 5+ programming languages (JavaScript, Node.js, PHP, Perl, ASP, Visual FoxPro)
-and related fields (OS Linux, Bash-scripting, HTML, CSS, MySQL, MongoDB, Docker, Redis, RabbitMQ, OpenStack, Git, Nginx, Apache, etc.).
-Websites creation, OpenSource projects deployments, applications development, building, testing and deployments
-- are the things everyday I'm working with and in what I'm improving my skills constantly.
-            </p>
+            <p class="wow">At present I have advanced knowledge of 5+ programming languages (JavaScript, Node.js, PHP, Perl, ASP, Visual FoxPro)
+and related fields (OS Linux, Bash-scripting, HTML, CSS, MySQL, MongoDB, Docker, Redis, RabbitMQ, Git, Nginx, Apache, etc.).
+Websites creation, OpenSource projects deployments, applications development, building, testing and improvement
+- these are the number of skills every day I'm work with and in what I'm improving my abilities constantly.
+</p>
           </div>
 
           <div class="short-info" id="whatido">
             <h3 class="wow">What I Do</h3>
-            <p class="wow">Last few years I have been working mostly as a back-end and in some projects
-as a front-end developer. I have a love of clean, elegant styling code and a lots of experience
-in production of high-loaded modern web systems. Strongly believe that making useful
-services with usable and friendly interfaces is awesome!</p>
+            <p class="wow">During last few years I have been working mostly
+as a back-end and in few projects - as a front-end developer also.
+I am passionate about clean and elegant code.
+Have a lots of experience in production of high-loaded modern web systems.
+Strongly believe that making useful services with usable and friendly interfaces is awesome!
+</p>
 
             <ul class="row list-check" >
-              <li class="col-xs-12 col-md-6 wow" id="whatido-01"><i class="fas fa-fw fa-database"></i>Large&nbsp;Databases&nbsp;Design</li>
+              <li class="col-xs-12 col-md-6 wow" id="whatido-01"><i class="fas fa-fw fa-database"></i>Databases&nbsp;Design</li>
               <li class="col-xs-12 col-md-6 wow" id="whatido-02"><i class="fab fa-fw fa-react"></i>Modern&nbsp;Websites</li>
-              <li class="col-xs-12 col-md-6 wow" id="whatido-03"><i class="fas fa-fw fa-percentage"></i>Accounting&nbsp;Applications</li>
+              <li class="col-xs-12 col-md-6 wow" id="whatido-03"><i class="fas fa-fw fa-percentage"></i>Accounting&nbsp;Apps</li>
               <li class="col-xs-12 col-md-6 wow" id="whatido-04"><i class="fas fa-fw fa-project-diagram"></i>Data&nbsp;Visualization</li>
               <li class="col-xs-12 col-md-6 wow" id="whatido-05"><i class="fas fa-fw fa-mobile-alt"></i>API&nbsp;for&nbsp;Mobile&nbsp;Apps</li>
               <li class="col-xs-12 col-md-6 wow" id="whatido-06"><i class="fas fa-fw fa-chart-pie"></i>Data&nbsp;Analysis</li>
@@ -226,14 +261,14 @@ services with usable and friendly interfaces is awesome!</p>
             </ul>
           </div>
 
-          <div class="my-signature hidden">
+          <!-- <div class="my-signature hidden">
             <img src="assets/img/sign.png" alt="Signature example" />
-          </div>
+          </div> -->
 
-          <div class="download-button hidden">
+          <!-- <div class="download-button hidden">
             <a class="btn btn-info btn-lg" href="#contact"><i class="fa fa-paper-plane"></i> Send me message</a>
             <a class="btn btn-primary btn-lg" href="#"><i class="fa fa-download"></i> Download my cv</a>
-          </div>
+          </div> -->
 
         </div>
 
@@ -346,7 +381,7 @@ services with usable and friendly interfaces is awesome!</p>
                     <div class="panel-heading timeline-heading row">
 
                       <div class="col-md-2 col-xs-4 pull-right">
-                        <a href="http://bit.ly/cg-off" class="thumbnail" target="_blank">
+                        <a href="http://bit.ly/cg-off" class="thumbnail" target="_blank" rel="noopener">
                           <img class="media-object" src="assets/img/logos/logo-cg-sm.png" alt="Carts Guru" />
                         </a>
                       </div>
@@ -354,7 +389,7 @@ services with usable and friendly interfaces is awesome!</p>
                       <div class="col-md-10 col-xs-8 pull-left">
                         <h3 class="panel-title">Senior Node.js Developer</h3>
                         <span>
-                          <a href="http://bit.ly/cg-off" class="h4 text-success" target="_blank">Carts Guru</a><br />Kyiv, Ukraine
+                          <a href="http://bit.ly/cg-off" class="h4 text-success" target="_blank" rel="noopener">Carts Guru</a><br />Kyiv, Ukraine
                         </span>
                       </div>
 
@@ -362,7 +397,7 @@ services with usable and friendly interfaces is awesome!</p>
 
                     <div class="panel-body timeline-body">
                       <p>eCommerce platforms (Shopify, Magento, WooCommerce, PrestaShop) <strong class="text-primary">Visitors Tracker</strong> with cross-site customer identification and behaviour prediction. Used to boost conversion rate and on-site revenue by sharing data and communicating with Machine Learning Engine through API interface.</p>
-                      <p>Later it was used as a core module for rapid creation of a new project called <strong><a href="javascript:void(0)" target="_blank" class="text-primary">Visitors Guru</a></strong> - simple tool to find out what companies are visiting website.</p>
+                      <p>Later it was used as a core module for rapid creation of a new project called <strong><a href="javascript:void(0)" target="_blank" rel="noopener" class="text-primary">Visitors Guru</a></strong> - simple tool to find out what companies are visiting website.</p>
                     </div>
 
                   </div>
@@ -411,7 +446,7 @@ services with usable and friendly interfaces is awesome!</p>
                       <div class="col-md-8 col-xs-8 pull-left">
                         <h3 class="panel-title">Operations Team Lead</h3>
                         <span>
-                          <a href="http://bit.ly/mage-off" class="h4 text-success" target="_blank">Magento Commerce</a>
+                          <a href="http://bit.ly/mage-off" class="h4 text-success" target="_blank" rel="noopener">Magento Commerce</a>
                           <br />Kyiv, Ukraine
                         </span>
                       </div>
@@ -462,7 +497,7 @@ services with usable and friendly interfaces is awesome!</p>
                     <div class="panel-heading timeline-heading row">
 
                       <div class="col-md-2 col-xs-4 pull-right">
-                        <a href="http://bit.ly/rc-off" class="thumbnail" target="_blank">
+                        <a href="http://bit.ly/rc-off" class="thumbnail" target="_blank" rel="noopener">
                           <img class="media-object" src="assets/img/logos/logo-rc-md.png" alt="Running Code LLC" />
                         </a>
                       </div>
@@ -470,7 +505,7 @@ services with usable and friendly interfaces is awesome!</p>
                       <div class="col-md-10 col-xs-8 pull-left">
                         <h3 class="panel-title">Senior Systems Administrator</h3>
                         <span>
-                          <a href="http://bit.ly/rc-off" class="h4 text-success" target="_blank">Running Code LLC</a>
+                          <a href="http://bit.ly/rc-off" class="h4 text-success" target="_blank" rel="noopener">Running Code LLC</a>
                           <br />Kyiv, Ukraine
                         </span>
                       </div>
@@ -509,7 +544,7 @@ services with usable and friendly interfaces is awesome!</p>
                     <div class="panel-heading timeline-heading row">
 
                       <div class="col-md-2 col-xs-4 pull-right">
-                        <a href="http://bit.ly/m1-off" class="thumbnail" target="_blank">
+                        <a href="http://bit.ly/m1-off" class="thumbnail" target="_blank" rel="noopener">
                           <img class="media-object" src="assets/img/logos/logo-m1-sm.png" alt="M1 Television Music Channel" />
                         </a>
                       </div>
@@ -517,7 +552,7 @@ services with usable and friendly interfaces is awesome!</p>
                       <div class="col-md-10 col-xs-8 pull-left">
                         <h3 class="panel-title">IT Engineer</h3>
                         <span>
-                          <a href="http://bit.ly/m1-off" class="h4 text-success" target="_blank">M1 TV Music Channel</a>
+                          <a href="http://bit.ly/m1-off" class="h4 text-success" target="_blank" rel="noopener">M1 TV Music Channel</a>
                           <br />Kyiv, Ukraine
                         </span>
                       </div>
@@ -551,7 +586,7 @@ services with usable and friendly interfaces is awesome!</p>
                     </div><!--/ /timeline-heading /-->
 
                     <div class="panel-body timeline-body">
-                      <p>Company-wide operations management and costs <a href="http://bit.ly/sklad-git" class="text-primary" target="_blank">Accounting system</a></p>
+                      <p>Company-wide operations management and costs <a href="http://bit.ly/sklad-git" class="text-primary" target="_blank" rel="noopener">Accounting system</a></p>
                     </div><!--/ /timeline-body /-->
                   </div> <!--/ /timeline-content /-->
                 </div><!--/ /timeline-panel /-->
@@ -652,7 +687,7 @@ services with usable and friendly interfaces is awesome!</p>
           <div class="skill-progress">
             <div class="skill-title">
               <i class="fab fa-2x fa-fw fa-steam"></i>
-              <span>Steam Trade API</span>
+              <span>Steam API</span>
             </div>
             <div class="progress">
               <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="52" aria-valuemin="0" aria-valuemax="100" ><span>52%</span></div>
@@ -662,7 +697,7 @@ services with usable and friendly interfaces is awesome!</p>
           <div class="skill-progress">
             <div class="skill-title">
               <i class="fab fa-2x fa-fw fa-microsoft"></i>
-              <span>Microsoft Azure</span>
+              <span>Azure</span>
             </div>
             <div class="progress">
               <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100" ><span>39%</span></div>
@@ -766,7 +801,7 @@ services with usable and friendly interfaces is awesome!</p>
           <div class="skill-progress">
             <div class="skill-title">
               <i class="fab fa-2x fa-fw fa-aws"></i>
-              <span>Amazon Services</span>
+              <span>Amazon Cloud</span>
             </div>
             <div class="progress">
               <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" ><span>45%</span></div>
@@ -879,7 +914,7 @@ services with usable and friendly interfaces is awesome!</p>
                 <div class="tt-overlay"></div>
                 <div class="links">
                   <a class="image-link" href="assets/img/works/openstack-virtual-hosts-diagram-002.png"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/lvs-vis" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                  <a href="http://bit.ly/lvs-vis" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div><!--/ /.links /-->
                 <img src="assets/img/thumbs/works/openstack-virtual-hosts-diagram-002.png" alt="OpenStack Visual Diagram" />
                 <div class="portfolio-info">
@@ -894,10 +929,10 @@ services with usable and friendly interfaces is awesome!</p>
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
-                  <a class="image-link" href="assets/img/works/network-diagram-003.png"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/cmdb-demo" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                  <a class="image-link" href="assets/img/works/network-diagram-003.jpg"><i class="fa fa-search-plus"></i></a>
+                  <a href="http://bit.ly/cmdb-demo" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
-                <img src="assets/img/thumbs/works/network-diagram-003.png" alt="CMDB Visual" />
+                <img src="assets/img/thumbs/works/network-diagram-003.jpg" alt="CMDB Visual" />
                 <div class="portfolio-info">
                   <h3>CMDB Visual</h3>
                 </div>
@@ -911,7 +946,7 @@ services with usable and friendly interfaces is awesome!</p>
                 <div class="tt-overlay"></div>
                 <div class="links">
                   <a class="image-link" href="assets/img/works/mp3web-front-003.png"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/mp3-web" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                  <a href="http://bit.ly/mp3-web" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/mp3web-front-003.png" alt="Web MP3 Player" />
                 <div class="portfolio-info">
@@ -927,7 +962,7 @@ services with usable and friendly interfaces is awesome!</p>
                 <div class="tt-overlay"></div>
                 <div class="links">
                   <a class="image-link" href="assets/img/works/cmdb-rtm-poc.gif"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/cmdb-rtm" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                  <a href="http://bit.ly/cmdb-rtm" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/works/cmdb-rtm-poc.gif" alt="Real-time Data Visualization" />
                 <div class="portfolio-info">
@@ -942,10 +977,10 @@ services with usable and friendly interfaces is awesome!</p>
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
-                  <a class="image-link" href="assets/img/works/infograph-004.png"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/maps-demo" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                  <a class="image-link" href="assets/img/works/infograph-004.jpg"><i class="fa fa-search-plus"></i></a>
+                  <a href="http://bit.ly/maps-demo" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
-                <img src="assets/img/thumbs/works/infograph-004.png" alt="Maps Infographics" />
+                <img src="assets/img/thumbs/works/infograph-004.jpg" alt="Maps Infographics" />
                 <div class="portfolio-info">
                   <h3>Maps Infographics</h3>
                 </div>
@@ -958,10 +993,10 @@ services with usable and friendly interfaces is awesome!</p>
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
-                  <a class="image-link" href="assets/img/works/wcl.png"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/wcl-com" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                  <a class="image-link" href="assets/img/works/wcl.jpg"><i class="fa fa-search-plus"></i></a>
+                  <a href="http://bit.ly/wcl-com" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
-                <img src="assets/img/thumbs/works/wcl.png" alt="World Cossackers League" />
+                <img src="assets/img/thumbs/works/wcl.jpg" alt="World Cossackers League" />
                 <div class="portfolio-info">
                   <h3>World Cossackers League</h3>
                 </div>
@@ -974,10 +1009,10 @@ services with usable and friendly interfaces is awesome!</p>
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
-                  <a class="image-link" href="assets/img/works/mb-grill.png"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/mb-grill" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                  <a class="image-link" href="assets/img/works/mb-grill.jpg"><i class="fa fa-search-plus"></i></a>
+                  <a href="http://bit.ly/mb-grill" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
-                <img src="assets/img/thumbs/works/mb-grill.png" alt="Grills Store" />
+                <img src="assets/img/thumbs/works/mb-grill.jpg" alt="Grills Store" />
                 <div class="portfolio-info">
                   <h3>Grills Store</h3>
                 </div>
@@ -990,10 +1025,10 @@ services with usable and friendly interfaces is awesome!</p>
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
-                  <a class="image-link" href="assets/img/works/cheesecake.png"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/kyiv-cake" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                  <a class="image-link" href="assets/img/works/cheesecake.jpg"><i class="fa fa-search-plus"></i></a>
+                  <a href="http://bit.ly/kyiv-cake" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
-                <img src="assets/img/thumbs/works/cheesecake.png" alt="Cheesecake Online Store" />
+                <img src="assets/img/thumbs/works/cheesecake.jpg" alt="Cheesecake Online Store" />
                 <div class="portfolio-info">
                   <h3>Cheesecake Store</h3>
                 </div>
@@ -1006,10 +1041,10 @@ services with usable and friendly interfaces is awesome!</p>
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
-                  <a class="image-link" href="assets/img/works/knifes-front-view-001.png"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/knifes-demo" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                  <a class="image-link" href="assets/img/works/knifes-front-view-001.jpg"><i class="fa fa-search-plus"></i></a>
+                  <a href="http://bit.ly/knifes-demo" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
-                <img src="assets/img/thumbs/works/knifes-front-view-001.png" alt="Online CS:GO Skins Lottery" />
+                <img src="assets/img/thumbs/works/knifes-front-view-001.jpg" alt="Online CS:GO Skins Lottery" />
                 <div class="portfolio-info">
                   <h3>Online CS:GO Lottery</h3>
                 </div>
@@ -1023,8 +1058,8 @@ services with usable and friendly interfaces is awesome!</p>
                 <div class="tt-overlay"></div>
                 <div class="links">
                   <a class="image-link" href="assets/img/works/http-404-animated-with-socials-001.gif"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/http-404-git" target="_blank"><i class="fab fa-github"></i></a>
-                  <a href="http://bit.ly/http-404" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                  <a href="http://bit.ly/http-404-git" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                  <a href="http://bit.ly/http-404" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/works/http-404-animated-with-socials-001.gif" alt="HTTP Error 404" />
                 <div class="portfolio-info">
@@ -1040,8 +1075,8 @@ services with usable and friendly interfaces is awesome!</p>
                 <div class="tt-overlay"></div>
                 <div class="links">
                   <a class="image-link" href="assets/img/works/roulette.png"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/roulette-predictor-git" target="_blank"><i class="fab fa-github"></i></a>
-                  <a href="http://bit.ly/roulette-predictor" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                  <a href="http://bit.ly/roulette-predictor-git" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                  <a href="http://bit.ly/roulette-predictor" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/roulette.png" alt="Online Casino Roulette Predictor" />
                 <div class="portfolio-info">
@@ -1057,7 +1092,7 @@ services with usable and friendly interfaces is awesome!</p>
                 <div class="tt-overlay"></div>
                 <div class="links">
                   <a class="image-link" href="assets/img/works/fp-001.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/fp-git" target="_blank"><i class="fab fa-github"></i></a>
+                  <a href="http://bit.ly/fp-git" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/fp-001.jpg" alt="Financial Planning" />
                 <div class="portfolio-info">
@@ -1073,11 +1108,11 @@ services with usable and friendly interfaces is awesome!</p>
                 <div class="tt-overlay"></div>
                 <div class="links">
                   <a class="image-link" href="assets/img/works/kassa-001.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/kassa-git" target="_blank"><i class="fab fa-github"></i></a>
+                  <a href="http://bit.ly/kassa-git" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/kassa-001.jpg" alt="Kassa" />
                 <div class="portfolio-info">
-                  <h3>Payments Service</h3>
+                  <h3>Communal Payments</h3>
                 </div>
               </div>
             </div>
@@ -1089,7 +1124,7 @@ services with usable and friendly interfaces is awesome!</p>
                 <div class="tt-overlay"></div>
                 <div class="links">
                   <a class="image-link" href="assets/img/works/sklad-001.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/sklad-git" target="_blank"><i class="fab fa-github"></i></a>
+                  <a href="http://bit.ly/sklad-git" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/sklad-001.jpg" alt="Sklad" />
                 <div class="portfolio-info">
@@ -1105,7 +1140,7 @@ services with usable and friendly interfaces is awesome!</p>
                 <div class="tt-overlay"></div>
                 <div class="links">
                   <a class="image-link" href="assets/img/works/voda-001.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/aqua-git" target="_blank"><i class="fab fa-github"></i></a>
+                  <a href="http://bit.ly/aqua-git" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/voda-001.jpg" alt="Water delivery service" />
                 <div class="portfolio-info">
@@ -1121,7 +1156,7 @@ services with usable and friendly interfaces is awesome!</p>
                 <div class="tt-overlay"></div>
                 <div class="links">
                   <a class="image-link" href="assets/img/works/domSlugba-001.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/domslugba-git" target="_blank"><i class="fab fa-github"></i></a>
+                  <a href="http://bit.ly/domslugba-git" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/domSlugba-001.jpg" alt="Home services" />
                 <div class="portfolio-info">
@@ -1137,8 +1172,8 @@ services with usable and friendly interfaces is awesome!</p>
                 <div class="tt-overlay"></div>
                 <div class="links">
                   <a class="image-link" href="assets/img/works/wailing-wall.gif"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/wish-wall-git" target="_blank"><i class="fab fa-github"></i></a>
-                  <a href="http://bit.ly/wish-wall" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                  <a href="http://bit.ly/wish-wall-git" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                  <a href="http://bit.ly/wish-wall" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/works/wailing-wall.gif" alt="Wailing Wall" />
                 <div class="portfolio-info">
@@ -1153,13 +1188,29 @@ services with usable and friendly interfaces is awesome!</p>
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
-                  <a class="image-link" href="assets/img/works/git-emoji-cheat-sheet.png"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/gh-emoji" target="_blank"><i class="fab fa-github"></i></a>
-                  <a href="http://bit.ly/demo-emoji" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                  <a class="image-link" href="assets/img/works/git-emoji-cheat-sheet.jpg"><i class="fa fa-search-plus"></i></a>
+                  <a href="http://bit.ly/gh-emoji" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                  <a href="http://bit.ly/demo-emoji" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
-                <img src="assets/img/thumbs/works/git-emoji-cheat-sheet.png" alt="Git Emoji Cheat Sheet" />
+                <img src="assets/img/thumbs/works/git-emoji-cheat-sheet.jpg" alt="Git Emoji Cheat Sheet" />
                 <div class="portfolio-info">
                   <h3>Emoji Cheat Sheet</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "desktop", "accounting"]'>
+            <div class="portfolio-bg">
+              <div class="portfolio">
+                <div class="tt-overlay"></div>
+                <div class="links">
+                  <a class="image-link" href="assets/img/works/scratch-001.jpg"><i class="fa fa-search-plus"></i></a>
+                  <a href="http://bit.ly/scratch-git" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                </div>
+                <img src="assets/img/thumbs/works/scratch-001.jpg" alt="Scratch - Accounting system of electronic payment vouchers for services of mobile operators" />
+                <div class="portfolio-info">
+                  <h3>Mobile Scratch Cards</h3>
                 </div>
               </div>
             </div>
@@ -1177,35 +1228,33 @@ services with usable and friendly interfaces is awesome!</p>
     <div class="tt-overlay-bg">
       <div class="container">
         <div class="row">
-          <div class="col-md-12">
-            <div class="count-wrap">
+          <div class="count-wrap">
 
-              <div class="col-sm-3 col-xs-6">
-                <i class="fas fa-code-branch"></i>
-                <h3 class="timer">2003</h3>
-                <p>Begin developer journey</p>
-              </div>
+            <div class="col-xs-12 col-sm-3">
+              <i class="fab fa-themeco"></i>
+              <h3 class="timer" data-original-text="2003">2003</h3>
+              <p>My developer&acute;s way began</p>
+            </div>
 
-              <div class="col-sm-3 col-xs-6">
-                <i class="fa fa-code"></i>
-                <h3 class="timer">5</h3>
-                <p>Programming languages</p>
-              </div>
+            <div class="col-xs-12 col-sm-3">
+              <i class="fas fa-brain"></i>
+              <h3 class="timer" data-original-text="5">5</h3>
+              <p>Programming languages</p>
+            </div>
 
-              <div class="col-sm-3 col-xs-6">
-                <i class="fab fa-js"></i>
-                <h3 class="timer">2013</h3>
-                <p>Start coding in JavaScript</p>
-              </div>
+            <div class="col-xs-12 col-sm-3">
+              <i class="fab fa-js"></i>
+              <h3 class="timer" data-original-text="2013">2013</h3>
+              <p>Start of coding in JavaScript</p>
+            </div>
 
-              <div class="col-sm-3 col-xs-6">
-                <i class="fab fa-node"></i>
-                <h3 class="timer">2015</h3>
-                <p>Creating backends since</p>
-              </div>
+            <div class="col-xs-12 col-sm-3">
+              <i class="fab fa-node-js"></i>
+              <h3 class="timer" data-original-text="2015">2015</h3>
+              <p>Creating APIs with node.js since</p>
+            </div>
 
-            </div><!--/ /count-wrap /-->
-          </div><!--/ /.col-md-12 /-->
+          </div><!--/ /count-wrap /-->
         </div><!--/ /.row /-->
       </div><!--/ /.container /-->
     </div>
@@ -1222,7 +1271,7 @@ services with usable and friendly interfaces is awesome!</p>
 
         <div class="col-xs-12 col-md-6">
           <div class="contact-form">
-            <strong>Send me a message</strong>
+            <strong>Send me a short message</strong>
             <form id="contactForm" name="contact-form" action="sendemail.php" method="POST">
 
               <div class="form-group">
@@ -1245,7 +1294,7 @@ services with usable and friendly interfaces is awesome!</p>
                 <textarea id="message" name="message" class="form-control" rows="5" required=""></textarea>
               </div>
 
-              <button type="submit" name="submit" class="btn btn-primary">Send Message</button>
+              <button type="submit" name="submit" class="btn btn-primary">Send</button>
 
             </form>
           </div><!--/ /.contact-form /-->
@@ -1265,7 +1314,7 @@ services with usable and friendly interfaces is awesome!</p>
             <div class="col-xs-6 col-sm-6">
               <i class="fa fa-at"></i>
               <div class="contact-number">
-                <strong>Email:</strong><a href="javascript:void(0);" name="contact-email">Write a message</a>
+                <strong>Email:</strong><a href="javascript:void(0);" name="contact-email">Write a letter</a>
               </div>
             </div>
 
@@ -1291,19 +1340,21 @@ services with usable and friendly interfaces is awesome!</p>
   <footer class="footer-wrapper">
     <div class="container">
       <div class="row">
-        <div class="col-sm-12 col-md-4">
+        <div class="hidden-xs col-sm-4 col-md-4">
           <div class="copyright text-left">
-            <p>Powered by <a href="{{author.url}}" target="_blank">{{author.nick}}</a></p>
+            <p class="">Powered by <a href="{{author.url}}" target="_blank" rel="noopener">{{author.nick}}</a></p>
           </div>
         </div>
-        <div class="col-sm-12 col-md-4">
+        <div class="col-xs-10 col-sm-4 col-md-4">
           <div class="copyright text-center">
-            <p>&copy; {{author.name.full}} [2016 - {{built.year}}]</p>
+            {{built.year}} &copy; {{person.name.full}}
           </div>
         </div>
-        <div class="col-sm-12 col-md-4">
+        <div class="col-xs-2 col-sm-4 col-md-4">
           <div class="copyright text-right">
-            <p><small class="label label-warning label-sm">v{{version}}</small>&nbsp;<small>{{built.date}}</small></p>
+            <small class="hidden-xs">{{built.hash}}</small>
+            <small class="hidden-xs label label-success label-sm">v{{version}}-b{{built.cntr}}</small>
+            <small class="hidden-xs">{{built.date}}</small>
           </div>
         </div>
       </div>
@@ -1337,12 +1388,16 @@ services with usable and friendly interfaces is awesome!</p>
   <script src="assets/js/lib/jquery.inview.js"></script>
   <script src="assets/js/lib/jquery.easypiechart.js"></script>
 
-  <script src="assets/js/plugins/modernizr.custom.js"></script>
+  <!-- <script src="assets/js/plugins/modernizr.custom.js"></script> -->
   <script src="assets/js/lib/shuffle.js"></script>
   <script src="assets/js/lib/jquery.magnific-popup.js"></script>
 
-  <script src="assets/js/front/iamx.js"></script>
-  <script src="assets/js/front/front.js"></script>
+  <script src="assets/js/front/theme.js"></script>
+  <script src="assets/js/front/index.js"></script>
+
+  <script>
+    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+  </script>
 
   <!--/ JavaScripts
   ========================================================================= /-->

@@ -1,24 +1,53 @@
 /*!
+ * Project:     cv
  * File:        ./gulp-tasks/clean/build.js
- * Copyright(c) 2016-2017 Baltrushaitis Tomas
+ * Copyright(c) 2016-nowdays Baltrushaitis Tomas <tbaltrushaitis@gmail.com>
  * License:     MIT
  */
 
 'use strict';
 
-//--------------//
-// DEPENDENCIES //
-//--------------//
+//  ------------------------------------------------------------------------  //
+//  -----------------------------  DEPENDENCIES  ---------------------------  //
+//  ------------------------------------------------------------------------  //
+
+const path = require('path');
+const utin = require('util').inspect;
 
 const del        = require('del');
-const vinylPaths = require('vinyl-paths');
+const readConfig = require('read-config');
+const vPaths     = require('vinyl-paths');
 
 
-//--------------//
-//   EXPORTS    //
-//--------------//
+//  ------------------------------------------------------------------------  //
+//  ----------------------------  CONFIGURATION  ---------------------------  //
+//  ------------------------------------------------------------------------  //
 
-module.exports = function (gulp) {
-  console.log(`LOADED: [${module.filename}]`);
-  return gulp.src([ME.BUILD]).pipe(vinylPaths(del));
+let ME = Object.assign({}, global.ME || {});
+utin.defaultOptions = Object.assign({}, ME.pkg.options.iopts || {});
+
+const modName = path.basename(module.filename, '.js');
+const modPath = path.relative(ME.WD, path.dirname(module.filename));
+const modConfigFile = `${path.join(ME.WD, 'config', modPath, modName)}.json`;
+
+ME.Config = Object.assign({}, ME.Config || {});
+let C = ME.Config.colors;
+
+//  ------------------------------------------------------------------------  //
+//  ------------------------------  FUNCTIONS  -----------------------------  //
+//  ------------------------------------------------------------------------  //
+
+const cleanBuild = function (gulp) {
+  console.log(`${ME.L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}]`);
+
+  return gulp.src([ME.BUILD])
+          .pipe(vPaths(del));
 };
+
+
+/**
+ * EXPOSE
+ * @public
+ */
+
+module.exports = exports = cleanBuild;

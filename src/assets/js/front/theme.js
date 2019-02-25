@@ -1,8 +1,9 @@
 /* jshint unused:false */
 /*!
+ * Project:     {{app.name}}
  * File:        ./src/assets/js/front/theme.js
  * Copyright(c) 2016-nowdays {{author.name.full}} <{{author.email}}>
- * License:     MIT
+ * License:     {{project.license}}
  */
 /*!
  * Theme Name:  IAMX
@@ -20,8 +21,6 @@
   =   More skill
   =   Shuffle
   =   Magnific Popup
-  -   Vidio auto play
-  -   Fit Vids
   =   Google Map
  */
 
@@ -47,7 +46,7 @@ window.jQuery(function ($) {
     $('a[href*="#"]').bind('click', function (e) {
       var anchor = $(this);
       $('html, body').stop().animate({
-        scrollTop: $(anchor.attr('href')).offset().top
+        scrollTop:  $(anchor.attr('href')).offset().top
       }, 1000);
       e.preventDefault();
     });
@@ -148,7 +147,7 @@ window.jQuery(function ($) {
         , size:       140
         , trackColor: '#3a4149'
         , animate: {
-            duration: 3500
+            duration: 2500
             , enabled: true
           }
         , onStep: function (from, to, percent) {
@@ -201,64 +200,6 @@ window.jQuery(function ($) {
       , type:         'image'
     });
   }());
-
-  // (function () {
-  // $('.popup-video').magnificPopup({
-  // disableOn:       700
-  // , type:            'iframe'
-  // , mainClass:       'mfp-with-zoom'
-  // , removalDelay:    300
-  // , preloader:       false
-  // , fixedContentPos: false
-  // });
-  // }());
-
-  // ---------------------------------------------------------------------------
-  //  Fit Vids
-  // ---------------------------------------------------------------------------
-
-  // (function () {
-  //   $('.video-container').fitVids();
-  // }());
-
-  // ---------------------------------------------------------------------------
-  //  Video auto play
-  // ---------------------------------------------------------------------------
-
-  /* Vimeo API: http://developer.vimeo.com/player/js-api */
-  /*
-  (function () {
-
-    var iframe = document.getElementById('nofocusvideo');
-      // $f == Froogaloop
-      var player = $f(iframe);
-
-      $('.modal').on('hidden.bs.modal', function () {
-        player.api('pause');
-      })
-
-      $('.modal').on('shown.bs.modal', function () {
-        player.api('play');
-      })
-
-  }());
-  */
-
-  // ---------------------------------------------------------------------------
-  //  STELLAR FOR BACKGROUND SCROLLING
-  // ---------------------------------------------------------------------------
-
-  $(window).on('load', function () {
-
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    } else {
-      // $.stellar({
-      //     horizontalScrolling: false
-      //   , responsive:          true
-      // });
-    }
-
-  });
 
   // ---------------------------------------------------------------------------
   //  WOW JS
@@ -319,9 +260,11 @@ window.jQuery(function ($) {
 
   (function () {
 
-    let myLatlng, styles, mapOptions, map, marker, contentString, infowindow;
+    let myLatlng, myLat, myLng, styles, mapOptions, map, marker, contentString, infowindow;
 
-    myLatlng = new window.google.maps.LatLng(50.436336, 30.488619);
+    myLat = parseFloat('{{person.bio.location.lat}}');
+    myLng = parseFloat('{{person.bio.location.lng}}');
+    myLatlng = new window.google.maps.LatLng(myLat, myLng);
 
     styles = [
       { featureType: 'landscape'
@@ -331,7 +274,7 @@ window.jQuery(function ($) {
     }
     , { featureType: 'road'
       , stylers: [
-            {hue:        '#fff'}
+            {hue: '#fff'}
           , {saturation: -70}
         ]
     }
@@ -357,7 +300,7 @@ window.jQuery(function ($) {
       position:  myLatlng
       , map:       map
       , animation: window.google.maps.Animation.DROP
-      , title:     'I@Kyiv'
+      , title:     'I@{{person.bio.location.city}}'
     });
 
     contentString = 'Hello' + ' ' + 'Visitor!';

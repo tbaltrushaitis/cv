@@ -1,18 +1,9 @@
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *
-   ______     __    ____   ___  ____ _____ _____ ___  _     ___ ___
-  / ___\ \   / /_  |  _ \ / _ \|  _ \_   _|  ___/ _ \| |   |_ _/ _ \
- | |    \ \ / /| |_| |_) | | | | |_) || | | |_ | | | | |    | | | | |
- | |___  \ V /_   _|  __/| |_| |  _ < | | |  _|| |_| | |___ | | |_| |
-  \____|  \_/  |_| |_|    \___/|_| \_\|_| |_|   \___/|_____|___\___/
-
- * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *
- * Project:     <%= pkg.title %>
- * Built:       <%= pkg.built %>
+ * Project:     <%= pkg.name %> - <%= pkg.title %>
  * Description: <%= pkg.description %>
  * Version:     <%= ME.VERSION %>
- * Author:      <%= pkg.author.email %>
- * License:     <%= pkg.license %> (<%= pkg.repository.url %>/blob/master/LICENSE.md)
- * Visit:       <%= pkg.homepage %>
+ * Homepage:    <%= pkg.homepage %>
+ * License:     <%= pkg.license %>
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *
  */

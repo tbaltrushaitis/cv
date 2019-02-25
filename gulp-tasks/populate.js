@@ -1,6 +1,7 @@
 /*!
+ * Project:     cv
  * File:        ./gulp-tasks/populate.js
- * Copyright(c) 2018-nowdays Baltrushaitis Tomas
+ * Copyright(c) 2018-nowdays Baltrushaitis Tomas <tbaltrushaitis@gmail.com>
  * License:     MIT
  */
 
@@ -11,15 +12,14 @@
 //  ------------------------------------------------------------------------  //
 
 const path = require('path');
-const util = require('util');
-const utin = util.inspect;
+const utin = require('util').inspect;
 
-const readConfig = require('read-config');
-const vinylPaths = require('vinyl-paths');
 const gulpif     = require('gulp-if');
 const headfoot   = require('gulp-headerfooter');
 const merge      = require('merge-stream');
+const readConfig = require('read-config');
 const replace    = require('gulp-token-replace');
+const vPaths     = require('vinyl-paths');
 
 
 //  ------------------------------------------------------------------------  //
@@ -31,27 +31,21 @@ utin.defaultOptions = Object.assign({}, ME.pkg.options.iopts || {});
 
 const modName = path.basename(module.filename, '.js');
 const modPath = path.relative(ME.WD, path.dirname(module.filename));
-const confPath = path.join(ME.WD, 'config', path.sep);
-const modConfigFile = `${path.join(confPath, modPath, modName)}.json`;
-const modConfig = readConfig(modConfigFile, Object.assign({}, ME.pkg.options.readconf,
-  {
-    basedir: path.join(ME.WD, 'config')
-  }
-));
+const modConfigFile = `${path.join(ME.WD, 'config', modPath, modName)}.json`;
+const modConfig = readConfig(modConfigFile, Object.assign({}, ME.pkg.options.readconf));
 
 ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
-
+let C = ME.Config.colors;
 
 //  ------------------------------------------------------------------------  //
-//  --------------------------------  EXPOSE  ------------------------------  //
+//  ------------------------------  FUNCTIONS  -----------------------------  //
 //  ------------------------------------------------------------------------  //
 
-module.exports = function (gulp) {
-  console.log(`[${new Date().toISOString()}][${modPath}/${modName}] with [${utin(modConfigFile)}]`);
-  console.log(`[${new Date().toISOString()}][${modPath}/${modName}] [(${typeof ME.Config}):${utin(ME.Config)}]`);
+const populate = function (gulp) {
+  console.log(`${ME.L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}] with [${modConfigFile}]`);
 
-  let CONF = Object.assign({}, ME.Config); // require('./config/person.json'); // ME.Config
-  let SRC = path.join(ME.SRC);
+  let CONF = Object.assign({}, ME.Config);
+  let SRC  = path.join(ME.SRC);
   let DEST = path.join(ME.BUILD);
   let RESO = path.join('resources');
 
@@ -59,8 +53,8 @@ module.exports = function (gulp) {
       path.join(SRC, '*.html')
     , path.join(SRC, '*.txt')
   ];
-  let JS = path.join('assets/js');
-  let CSS = path.join('assets/css');
+  let JS   = path.join('assets/js');
+  let CSS  = path.join('assets/css');
   let DATA = path.join('data');
 
 
@@ -68,11 +62,11 @@ module.exports = function (gulp) {
   // STATIC FILES //
   //--------------//
   let srcVoid = gulp.src(Void)
-    .pipe(vinylPaths(function (paths) {
-      console.info('[RESOURCE] STATIC:', paths);
-      return Promise.resolve(paths);
+    .pipe(vPaths(function (p) {
+      console.log(`[${new Date().toISOString()}][${C.White}${modName.toUpperCase()}${C.NC}] STATIC: \t [${p}]`);
+      return Promise.resolve(p);
     }))
-    .pipe(replace({global: CONF}))
+    .pipe(replace({global: CONF, preserveUnknownTokens: true}))
     .pipe(gulp.dest(path.resolve(DEST)));
 
 
@@ -80,13 +74,13 @@ module.exports = function (gulp) {
   // JAVASCRIPTS //
   //--------------//
   let srcJS = gulp.src([
-        path.join(SRC, JS, '**/*.js')
+      path.join(SRC, JS, '**/*.js')
     ])
-    .pipe(vinylPaths(function (paths) {
-      console.info('[FRONTEND] JS:', paths);
-      return Promise.resolve(paths);
+    .pipe(vPaths(function (p) {
+      console.log(`[${new Date().toISOString()}][${C.White}${modName.toUpperCase()}${C.NC}] JS: \t [${p}]`);
+      return Promise.resolve(p);
     }))
-    .pipe(replace({global: CONF}))
+    .pipe(replace({global: CONF, preserveUnknownTokens: true}))
     .pipe(gulp.dest(path.resolve(DEST, RESO, JS)));
 
 
@@ -94,14 +88,23 @@ module.exports = function (gulp) {
   //    DATA      //
   //--------------//
   let srcData = gulp.src([
-        path.join(SRC, DATA, '**/*.*')
+      path.join(SRC, DATA, '**/*.*')
     ])
-    .pipe(vinylPaths(function (paths) {
-      console.info('[FRONTEND] DATA:', paths);
-      return Promise.resolve(paths);
+    .pipe(vPaths(function (p) {
+      console.log(`[${new Date().toISOString()}][${C.White}${modName.toUpperCase()}${C.NC}] DATA: \t [${p}]`);
+      return Promise.resolve(p);
     }))
     .pipe(gulp.dest(path.resolve(DEST, DATA)));
 
-  return merge(srcVoid, srcJS, srcData);
+  return merge(srcVoid, srcJS, srcData)
+          .on('error', console.error.bind(console));
 
 };
+
+
+/**
+ * EXPOSE
+ * @public
+ */
+
+module.exports = exports = populate;
