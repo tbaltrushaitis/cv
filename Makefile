@@ -125,6 +125,7 @@ setup: setup-deps ;
 	@ touch setup
 
 setup-deps:
+	@ npm i -g bower ;
 	@ npm i ;
 	@ bower i --production ;
 	@ touch setup-deps
