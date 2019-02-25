@@ -1,6 +1,7 @@
 /*!
+ * Project:     cv
  * File:        ./gulp-tasks/build/js.js
- * Copyright(c) 2018-nowdays Baltrushaitis Tomas
+ * Copyright(c) 2018-nowdays Baltrushaitis Tomas <tbaltrushaitis@gmail.com>
  * License:     MIT
  */
 
@@ -11,16 +12,14 @@
 //  ------------------------------------------------------------------------  //
 
 const path = require('path');
-const util = require('util');
-const utin = util.inspect;
+const utin = require('util').inspect;
 
-const vinylPaths = require('vinyl-paths');
-const gulpif = require('gulp-if');
-const changed = require('gulp-changed');
-const headfoot = require('gulp-headerfooter');
-const jscs = require('gulp-jscs');
-const merge = require('merge-stream');
-const terser = require('gulp-terser');
+const readConfig = require('read-config');
+const gulpif     = require('gulp-if');
+const headfoot   = require('gulp-headerfooter');
+const merge      = require('merge-stream');
+const terser     = require('gulp-terser');
+const vPaths     = require('vinyl-paths');
 
 //  ------------------------------------------------------------------------  //
 //  ----------------------------  CONFIGURATION  ---------------------------  //
@@ -33,37 +32,44 @@ const modName = path.basename(module.filename, '.js');
 const modPath = path.relative(ME.WD, path.dirname(module.filename));
 const confPath = path.join(ME.WD, 'config', path.sep);
 const modConfigFile = `${path.join(confPath, modPath, modName)}.json`;
-const modConfig = require('read-config')(modConfigFile, ME.pkg.options.readconf);
+const modConfig = readConfig(modConfigFile, ME.pkg.options.readconf);
 
 ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
-
+let C = ME.Config.colors;
 
 //  ------------------------------------------------------------------------  //
-//  --------------------------------  EXPOSE  ------------------------------  //
+//  ------------------------------  FUNCTIONS  -----------------------------  //
 //  ------------------------------------------------------------------------  //
 
-module.exports = function (gulp) {
-  console.log(`[${new Date().toISOString()}][${modPath}/${modName}] with [${utin(modConfigFile)}]`);
+const buildJs = function (gulp) {
+  console.log(`${ME.L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}] with [${modConfigFile}]`);
 
   let FROM = path.join(ME.BUILD, 'resources/assets');
   let DEST = path.join(ME.BUILD, 'assets');
   let JS = path.join('js');
 
   let JSfront = gulp.src([
-        path.join(FROM, JS, '**/*.js')
+      path.join(FROM, JS, '**/*.js')
     ])
-    .pipe(vinylPaths(function (paths) {
-      console.log(`[${new Date().toISOString()}][FRONTEND] JS: [${utin(paths)}]`);
-      return Promise.resolve(paths);
+    .pipe(vPaths(function (p) {
+      console.log(`[${new Date().toISOString()}][${C.White}FRONT${C.NC}] JS: [${p}]`);
+      return Promise.resolve(p);
     }))
-    // .pipe(jscs({configPath: 'config/.jscsrc'}))
-    // .pipe(jscs.reporter())
-    .pipe(gulpif('production' === ME.NODE_ENV, terser()))
-    // //  Write banners
+    .pipe(gulpif('production' === ME.NODE_ENV, terser(ME.pkg.options.terser)))
+    //  Write banners
     .pipe(headfoot.header(ME.Banner.header))
     .pipe(headfoot.footer(ME.Banner.footer))
     .pipe(gulp.dest(path.resolve(DEST, JS)));
 
-  return merge(JSfront);
+  return merge(JSfront)
+          .on('error', console.error.bind(console));
 
 };
+
+
+/**
+ * EXPOSE
+ * @public
+ */
+
+module.exports = exports = buildJs;

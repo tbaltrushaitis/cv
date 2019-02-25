@@ -1,23 +1,30 @@
-[![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg?style=plastic)](https://github.com/conventional-changelog/standard-version)
-[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/tbaltrushaitis/cv/blob/master/LICENSE)
-[![dependencies Status](https://david-dm.org/tbaltrushaitis/cv/status.svg)](https://david-dm.org/tbaltrushaitis/cv)
-[![devDependencies Status](https://david-dm.org/tbaltrushaitis/cv/dev-status.svg)](https://david-dm.org/tbaltrushaitis/cv?type=dev)
-[![Contributors](https://img.shields.io/github/contributors/tbaltrushaitis/cv.svg)](https://github.com/tbaltrushaitis/cv/graphs/contributors)
-
-# CV, Resume and Portfolio website #
-
 <p align="center">
-  <img max-width="640px" max-height="360px" src="assets/img/cv-demo-01.gif" alt="CV, Resume and Portfolio website template" />
+  <a href="https://github.com/tbaltrushaitis/cv/releases"><img src="https://img.shields.io/github/release/tbaltrushaitis/cv.svg?style=flat" alt="GitHub release"></a>
+  <a href="https://github.com/tbaltrushaitis/cv/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat" alt="License"></a>
+  <img src="https://img.shields.io/david/tbaltrushaitis/cv.svg" alt="Dependencies">
+  <img src="https://img.shields.io/david/dev/tbaltrushaitis/cv.svg" alt="Dev Dependencies">
 </p>
 
-Modern CV, Resume and Portfolio website template. All-in-One-Page site with configurable builder.
+<p align="center">
+  <h1 align="center">CV, Resume and Portfolio website template</h1>
+</p>
 
-`cv` `resume` `portfolio` `portfolio-website` `cv-template` `IT` `curriculum-vitae` `cv-summary` `website` `resume-template` `resume-website` `cv-website` `animated` `animate-css` `template-project` `modern` `skills` `skillset`
+<p align="center">
+  <a href="http://bit.ly/tomascv?ref=readme">
+    <img max-width="640px" max-height="360px" src="assets/img/cv-demo-01.gif" alt="Modern CV, Resume and Portfolio website template" />
+  </a>
+</p>
+
+<!-- # Best-in-Class modern CV, Resume and Portfolio # -->
+
+:mortar_board: Best-in-Class modern CV, Resume and Portfolio website template. All-in-One-Page site with fully customizable builder.
+
+`modern` `cv` `resume` `template` `portfolio` `portfolio-website` `cv-template` `IT` `curriculum-vitae` `cv-summary` `resume-template` `resume-website` `cv-website` `animated` `template-project`
 
 ---
 
 ## :computer: Live Demo ##
-See it in action at :point_right: [Modern CV Site](http://bit.ly/tomascv) :point_left:
+See it in action at :point_right: [Modern CV](http://bit.ly/tomascv?ref_domain=github.com&ref_section=docs&ref_file=readme) :point_left:
 
 ---
 
@@ -29,7 +36,7 @@ CVs include information on one’s academic background, including teaching exper
 
 A curriculum vitae summary is a one-to-two-page, condensed version of a full curriculum vitae. A CV summary is a way to quickly and concisely convey one’s skills and qualifications. Sometimes large organizations will ask for a `one-page CV` summary when they expect a large pool of applicants.
 
-[Source](https://www.thebalance.com/cv-vs-resume-2058495)
+Full article about what is [Curriculum vitae](http://bit.ly/2QfaIBD)
 
 ---
 
@@ -42,47 +49,57 @@ $ APP_NAME=cv \
 && cd ${APP_NAME}
 ```
 
----
-
-### 2. Setup ###
+### 2. Install deps ###
 ```shell
 $ make setup
 ```
 
----
+### 3. Configure ###
 
-### 3. Fill in ###
-
-Input your data into proper sections of `index.html`
-
----
+Replace values in `config/person.json` with your personal information
 
 ### 4. Build ###
 ```shell
 $ make build
 ```
----
 
-### 5. Share  ###
+### 5. Deploy ###
+```shell
+$ make deploy
+```
 
-Post a link to your CV on a sites where you need your personal profile page should be discovered by other users and that provide a lots of information about your professional skills and experience.
+This will create/update `webroot` directory inside the project root.
+Use this directory as DocumentRoot in VirtualHost configuration of your web server.
+
+### 6. Enjoy  ###
+
+Post a link to your CV on sites where you need your personal profile page should be discovered by other users and that provide a lots of information about your professional skills and experience.
 For example: [Modern CV](http://bit.ly/tomascv)
 
 ---
 
-## :octocat: Credits ##
+## :label: Components ##
 
- Name | Version | Description |
-:-----|:-------:|:------------|
- [animate.css](http://daneden.github.io/animate.css/) | 3.7.0 | A cross-browser library of CSS animations
- [normalize.css](http://necolas.github.io/normalize.css/) | 8.0.0 | A modern alternative to CSS resets
- [FontAwesome](http://fontawesome.io/) | 5.3.1 | The iconic Font and CSS toolkit
- [Bootstrap](http://getbootstrap.com) | 3.3.7 | Front-end framework for developing responsive, mobile first projects on the web
- [jQuery](http://jquery.com/) | 3.3.1 | JavaScript Library
- [noty](http://ned.im/noty) | 2.4.1 | Notification library
- [waypoints](https://github.com/imakewebthings/waypoints) | 4.0.1 | Easily execute a function when you scroll to an element
- [wow.js](https://wowjs.uk/) | 1.3.0 | Reveal CSS animation as you scroll down a page
- [iamx](https://trendytheme.net/items/i-am-x-html-resume-template/) | 1.2.0 | Trendy Theme
+ Name | Version | Scope | Description |
+:-----|:-------:|:-----:|:------------|
+ [animate.css](http://daneden.github.io/animate.css/) | 3.7.0 | Front | A cross-browser library of CSS animations
+ [FontAwesome](https://fontawesome.com/) | 5.7.2 | Front | The iconic Font and CSS toolkit
+ [Bootstrap](http://getbootstrap.com) | 3.3.7 | Front | Front-end framework for developing responsive, mobile first projects on the web
+ [jQuery](http://jquery.com/) | 3.3.1 | Front | JavaScript Library
+ [noty](http://ned.im/noty) | 2.4.1 | Front | Notification library
+ [waypoints](https://github.com/imakewebthings/waypoints) | 4.0.1 | Front | Easily execute a function when you scroll to an element
+ [wow.js](https://wowjs.uk/) | 1.3.0 | Front | Reveal CSS animation as you scroll down a page
+ [iamx](https://trendytheme.net/items/i-am-x-html-resume-template/) | 1.2.0 | Front | Trendy Theme
+
+## :wrench: Dev Tools ##
+
+ Name | Description |
+:-----|:------------|
+ [bower](http://bower.io) | A package manager for the web
+ [gulp](http://gulpjs.com) | Toolkit for automating tasks in development workflow
+ [gulp-token-replace](https://github.com/Pictela/gulp-token-replace) | Token replace plugin for Gulp
+ [jimp](https://github.com/oliver-moran/jimp) | An image processing library written entirely in JavaScript for Node
+ [terser](https://github.com/terser-js/terser) | A JavaScript parser and mangler/compressor toolkit for ES6+
 
 ---
 
@@ -91,12 +108,13 @@ For example: [Modern CV](http://bit.ly/tomascv)
 - [ ] - upgrade to noty v3
 - [ ] - upgrade to bootstrap v4
 - [ ] - implement require.js configuration
+- [ ] - upgrade gulp to v4
 
-See the [Changelog][Changelog] for the history of changes and improvements.
+See [CHANGELOG][Changelog] for the history of changes and improvements.
 
 ---
 
-Read [License][License] for copyright information
+Read [LICENSE][License] for copyright information
 
 ---
 

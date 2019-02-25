@@ -1,13 +1,14 @@
 /* jshint unused:false */
 /*!
- * File:        ./src/assets/js/front/front.js
+ * Project:     {{app.name}}
+ * File:        ./src/assets/js/front/index.js
  * Copyright(c) 2016-nowdays {{author.name.full}} <{{author.email}}>
- * License:     MIT
+ * License:     {{project.license}}
  */
 
 'use strict';
 
-window.jQuery(function($) {
+window.jQuery(($) => {
 
   let defOpts = Object.assign({}, {
     selector: 'div'
@@ -19,36 +20,33 @@ window.jQuery(function($) {
    *  Waypoints
   /* ------------------------------------------------------------------------ */
 
-  let wShow = function (o) {
+  let wShow = (o) => {
     let opts = Object.assign({}, defOpts || {}, o || {});
 
     new window.Waypoint.Inview({
       element: $(opts.selector)
       , enter: function (dir) {
-          // console.log('Enter triggered for', this.element , dir);
+          // console.log('Enter fired for', this.element , dir);
           this.element.removeClass(opts.outclass).addClass(opts.inclass);
         }
       , entered: function (dir) {
-          // noty({text: 'Entered triggered with direction ' + dir, type: 'information'});
+          // noty({text: 'Entered fired with direction ' + dir, type: 'information'});
         }
       , exit: function (dir) {
-          // noty({text: 'Exit triggered with direction ' + dir, type: 'notification'});
+          // noty({text: 'Exit fired with direction ' + dir, type: 'notification'});
           // console.log('exit() for ', this.element , dir);
         }
       , exited: function (dir) {
-          // console.log('Exited triggered for ', this.element , dir);
+          // console.log('Exited fired for ', this.element , dir);
           this.element.removeClass(opts.inclass).addClass(opts.outclass);
         }
-      , offset: function () {
-          // console.info('this.element.clientHeight = ', this.element.clientHeight);
-          return 70 + this.element.clientHeight;
-        }
+      , offset: opts.offset || '-50%'
     });
 
-    /*
-    // , offset: opts.offset
-    // , offset: '-50%'
-    */
+    // , offset: function () {
+    //     // console.info('this.element.clientHeight = ', this.element.clientHeight);
+    //     return 70 + this.element.clientHeight;
+    //   }
 
   };
 
@@ -105,7 +103,7 @@ window.jQuery(function($) {
       return Promise.resolve(loAnimations).then(function (lo) {
         return new Promise(function (resolve, reject) {
 
-          $.each(lo, function (i, o) {
+          $.each(lo, (i, o) => {
             // Assign Waypoint animation handler
             wShow(o);
           });
@@ -118,6 +116,7 @@ window.jQuery(function($) {
     })
     .catch(function (e) {
       console.warn('Failed to Enable Animations: [', e, ']');
+      return Promise.resolve();
     });
 
     AnimationsEnabled.then(function () {
@@ -169,28 +168,9 @@ window.jQuery(function($) {
   (function () {
 
     $(window).on('load', function () {
-      console.log('SETTING UP CONTACTS');
-      $('[name="contact-cell"]').html(atob('{{person.cell}}'));
-      $('[name="contact-email"]').prop('href', atob('{{person.email}}'));
-    });
-
-  })();
-
-  // ---------------------------------------------------------------------------
-  //  Notifications
-  // ---------------------------------------------------------------------------
-
-  (function () {
-
-    $(window).on('load', function () {
-      setTimeout(function () {
-        console.log('SHOWING INTRO NOTIFICATION');
-        window.noty({
-          text:      'Content was last updated at {{built.date}}'
-          , timeout: 10000
-          , type:    'information'
-        });
-      }, 15000);
+      $('[name="contact-cell"]').html(atob('{{person.contacts.cell}}'));
+      $('[name="contact-email"]').prop('href', atob('{{person.contacts.email}}'));
+      console.log('CONTACTS SET');
     });
 
   })();

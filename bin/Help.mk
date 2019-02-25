@@ -2,23 +2,20 @@
 ##                              Show help topic                               ##
 ##  ------------------------------------------------------------------------  ##
 
-include ./bin/.bash_colors
-
-##  ------------------------------------------------------------------------  ##
-
 .PHONY: help
 
 help: banner
 	@ echo ${BCyan}---------------------------------------------------------${NC};
-	@ echo ${BBlue}AVAILABLE ${BWhite}CLI-Commands:${NC};
-	@ echo "\t" make ${BPurple}clean${NC} "\t" - CLEAR directories and delete files;
-	@ echo "\t" make ${BPurple}setup${NC} "\t" - check for php, node and bower installations;
-	@ echo "\t" make ${BPurple}build${NC} "\t" - BUILD project from sources;
-	@ echo "\t" make ${BPurple}release${NC} "\t" - COMPILE project distro;
-	@ echo "\t" make ${BPurple}deploy${NC} "\t" - DEPLOY compiled project to \"webroot\" directory;
-	@ echo "\t" make ${BRed}all${NC} "\t" -${BGreen}Run all operations for current stage from NODE_ENV file${NC};
-	@ echo "\t" make ${BRed}rebuild${NC} "\t" -${BGreen}Execute [build, release, deploy] tasks${NC};
-	@ echo "\t" make ${BRed}redeploy${NC} " "-${BGreen}Execute [rebuild, deploy] tasks${NC};
+	@ echo ${BBlue}DEVELOPMENT${NC} ${White}Commands${NC}:;
+	@ echo "\t" make ${Purple}help${NC} "\t" - show usage info;
+	@ echo "\t" make ${Purple}clean${NC} "\t" - CLEAR directories and delete files;
+	@ echo "\t" make ${Purple}setup${NC} "\t" - Check for installations of php, node, bower and other dependencies;
+	@ echo "\t" make ${Purple}build${NC} "\t" - BUILD project from sources;
+	@ echo "\t" make ${Purple}release${NC} "\t" - COMPILE project distro;
+	@ echo "\t" make ${BPurple}deploy${NC} "\t" - sync public dir [${Yellow}${DIR_WEB}${NC}] with compiled project distro [${Cyan}$(DIR_DIST)${NC}];
+	@ echo "\t" make ${BRed}rebuild${NC} "\t" - Run [${Yellow}build, release, deploy${NC}] tasks;
+	@ echo "\t" make ${BRed}redeploy${NC} " " - Run [${Yellow}rebuild, deploy${NC}] tasks;
+	@ echo "\t" make ${BRed}all${NC} "\t" - Run ${Yellow}all${NC} defined tasks for current stage [${Red}$(APP_ENV)${NC}] read from ${Cyan}NODE_ENV${NC};
 	@ echo ${BCyan}---------------------------------------------------------${NC};
 
 ##  ------------------------------------------------------------------------  ##

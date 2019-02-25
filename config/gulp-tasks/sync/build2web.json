@@ -1,1 +1,5 @@
-{ "xhr_timeout":  5000}
+{
+  "build2web": {
+    "title": "Build to WEB"
+  }
+}

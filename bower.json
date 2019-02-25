@@ -1,31 +1,21 @@
-{   "name":        "cv"
-  , "title":       "CV, Resume and Portfolio website."
-  , "description": "Modern CV, Resume and Portfolio website template. All-in-One-Page site with configurable builder."
-  , "version":     "0.1.5"
+{   "name": "cv"
+  , "version": "0.2.0"
+  , "title": "Modern CV, Resume and Portfolio website"
+  , "description": "Best-in-Class website template for modern CV, Resume and Portfolio. Easy customizable static website with simple smart easy-to-use builder."
+  , "homepage": "https://github.com/tbaltrushaitis/cv"
+  , "license": "MIT"
   , "authors": [
       "tbaltrushaitis@gmail.com"
     ]
-  , "license":  "MIT"
-  , "private":  false
-  , "homepage": "https://github.com/tbaltrushaitis/cv"
-  , "main":     ""
-  , "keywords": [
-      "bio"
-    , "cv"
-    , "cv-template"
-    , "portfolio"
-    , "portfolio-website"
-    , "resume"
-    , "skills"
-    , "skill-demo"
-    ]
+  , "private": false
+  , "main": ""
   , "moduleType": [
       "project"
     ]
   , "ignore": [
         "**/.*"
-      , "build"
       , "bower_modules"
+      , "build"
       , "dist"
       , "docs"
       , "node_modules"
@@ -37,7 +27,7 @@
         "animate.css":    "^3.7.0"
       , "bootstrap":      "~3.3.7"
       , "bower-jquery-easyPieChart": "^0.0.1"
-      , "font-awesome":   "^5.3.1"
+      , "font-awesome":   "#5.7.2"
       , "fitvids":        "jquery.fitvids#^1.2.0"
       , "html5shiv":      "~3.7.3"
       , "jquery":         "~3.3.1"
@@ -51,20 +41,19 @@
       , "noty":           "~2.4.1"
       , "requirejs":      "~2.3.6"
       , "respond":        "~1.4.2"
-      , "segoe-fonts":    "^1.0.1"
       , "smoothscroll":   "^0.4.2"
       , "shufflejs":      "^5.2.0"
       , "waypoints":      "^4.0.1"
       , "wow":            "wow-mit#~1.3.0"
     }
-  , "devDependencies": {
-    }
-  , "disabledDependencies": {
+  , "devDependencies": {}
+  , "dependencies-DISABLED": {
         "jquery.shuffle": "#9cf47a1590"
-      , "normalize-css":  "^8.0.0"
+      , "lato-font":      "^3.0.0"
+      , "normalize-css":  "^8.0.1"
+      , "segoe-fonts":    "^1.0.1"
     }
-  , "resolutions": {
-    }
+  , "resolutions": {}
   , "overrides": {
       "bootstrap": {
         "main": [
@@ -74,24 +63,16 @@
           , "!**/*.min.js"
           , "!*-theme.*"
         ]
-      , "main-4": [
-            "dist/js/bootstrap.js"
-          , "dist/css/bootstrap.css"
-          , "dist/fonts/*.*"
-        ]
-      }
-    , "font-awesome-off": {
-        "main": [
-            "**/webfonts/*.*"
-          , "**/css/*.css"
-          , "!css/*.min.css"
-        ]
+        , "main-4": [
+              "dist/js/bootstrap.js"
+            , "dist/css/bootstrap.css"
+            , "dist/fonts/*.*"
+          ]
       }
     , "font-awesome": {
         "main": [
-            "web-fonts-with-css/webfonts/*.*"
-          , "web-fonts-with-css/css/fontawesome-all.css"
-          , "!css/*.min.css"
+            "webfonts/*.*"
+          , "css/all.css"
         ]
       }
     , "smoothscroll": {
@@ -112,17 +93,8 @@
       }
     }
   , "group": {
-      "ui": [
-          "animate.css"
-        , "normalize-css"
-        , "smoothscroll"
-        , "shufflejs"
-        , "waypoints"
-        , "wow"
-      ]
-    , "fonts": [
-          "font-awesome"
-        , "segoe-fonts"
+      "fonts": [
+        "font-awesome"
       ]
     , "libs": [
           "jquery"
@@ -131,19 +103,36 @@
       ]
     , "plugins": [
           "bower-jquery-easyPieChart"
-        , "html5shiv"
         , "magnific-popup"
-        , "modernizr"
         , "fitvids"
         , "jquery-countTo"
         , "jquery.inview"
         , "jquery.stellar"
         , "jquery-sticky"
-        , "jquery.shuffle"
         , "jquery-throttle-debounce"
+        , "shufflejs"
         , "noty"
-        , "respond"
+      ]
+    , "ui": [
+          "animate.css"
+        , "smoothscroll"
+        , "shufflejs"
+        , "waypoints"
+        , "wow"
       ]
     , "front": ["fonts", "libs", "plugins", "ui"]
     }
+  , "keywords": [
+    "bio"
+    , "cv"
+    , "cv-template"
+    , "portfolio"
+    , "portfolio-website"
+    , "portfolio-template"
+    , "resume"
+    , "skills"
+    , "skill-demo"
+    , "Technical"
+    , "Full-Stack"
+  ]
 }

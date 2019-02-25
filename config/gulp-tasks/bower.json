@@ -1,1 +1,6 @@
-{"xhr_timeout":  5000}
+{
+  "__parent": "./colors.json"
+, "bower": {
+    "title": "BOWER TASK"
+  }
+}

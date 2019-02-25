@@ -1,1 +1,8 @@
-{"xhr_timeout":  5000}
+{
+  "__parent": "./config.json"
+, "__parent_1": "%{INIT_CWD}/config/%{NODE_ENV|test}.json"
+, "__parent_2": "./%{NODE_ENV|test}.json"
+, "usage": {
+    "title": "USAGE TASK"
+  }
+}

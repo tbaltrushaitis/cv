@@ -1,24 +1,14 @@
 {
-  "__parent": "./default.json"
+  "__parent": "./build.json"
+, "app": {
+      "name": "%{APP_NAME|cv}"
+    , "version": "0.2.0"
+    , "url": "http://@{./name}.%{NODE_ENV|test}"
+    , "env": "%{NODE_ENV|production}"
+  }
 , "app_url": "http://cv.%{NODE_ENV|test}"
 , "engine": {
-      "name":    "custom"
-    , "version": "0.1.1"
-  }
-, "keys": {
-      "google": {
-        "maps": "AIzaSyDc8Z_XhUPpwU99YLs7C24Bd36_MawARJk"
-      }
-  }
-, "author": {
-      "name":  {
-          "first": "Tomas"
-        , "last": "Baltrushaitis"
-        , "full": "@{./last} @{./first}"
-      }
-    , "nick": "Tom&acute;AS"
-    , "abbr": "tbaltrushaitis"
-    , "email": "@{./abbr}@gmail.com"
-    , "url":   "https://github.com/@{./abbr}"
+      "name":    "cv-template"
+    , "version": "0.2.0"
   }
 }

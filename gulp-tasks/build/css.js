@@ -1,6 +1,7 @@
 /*!
+ * Project:     cv
  * File:        ./gulp-tasks/build/css.js
- * Copyright(c) 2016-nowdays Baltrushaitis Tomas
+ * Copyright(c) 2016-nowdays Baltrushaitis Tomas <tbaltrushaitis@gmail.com>
  * License:     MIT
  */
 
@@ -11,16 +12,14 @@
 //  ------------------------------------------------------------------------  //
 
 const path = require('path');
-const util = require('util');
-const utin = util.inspect;
+const utin = require('util').inspect;
 
-const vinylPaths = require('vinyl-paths');
-const gulpif = require('gulp-if');
-const cleanCSS = require('gulp-clean-css');
-const concatCSS = require('gulp-concat-css');
-const headfoot = require('gulp-headerfooter');
-const merge = require('merge-stream');
-
+const readConfig = require('read-config');
+const cleanCSS   = require('gulp-clean-css');
+const gulpif     = require('gulp-if');
+const headfoot   = require('gulp-headerfooter');
+const merge      = require('merge-stream');
+// const concatCSS = require('gulp-concat-css');
 
 //  ------------------------------------------------------------------------  //
 //  ----------------------------  CONFIGURATION  ---------------------------  //
@@ -33,32 +32,30 @@ const modName = path.basename(module.filename, '.js');
 const modPath = path.relative(ME.WD, path.dirname(module.filename));
 const confPath = path.join(ME.WD, 'config', path.sep);
 const modConfigFile = `${path.join(confPath, modPath, modName)}.json`;
-const modConfig = require('read-config')(modConfigFile, ME.pkg.options.readconf);
+const modConfig = readConfig(modConfigFile, ME.pkg.options.readconf);
 
 ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
-
+let C = ME.Config.colors;
 
 //  ------------------------------------------------------------------------  //
-//  --------------------------------  EXPOSE  ------------------------------  //
+//  ------------------------------  FUNCTIONS  -----------------------------  //
 //  ------------------------------------------------------------------------  //
 
-module.exports = function (gulp) {
-  console.log(`[${new Date().toISOString()}][${modPath}/${modName}] with [${utin(modConfigFile)}]`);
+const buildCss = function (gulp) {
+  console.log(`${ME.L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}] with [${modConfigFile}]`);
 
-  //  BUNDLE CSS
+  //
+  //  PROCESS CSS files
+  //
   let FROM = path.join(ME.SRC, 'assets/css');
   let DEST = path.join(ME.BUILD, 'assets/css');
 
   let frontCSS = gulp.src([
       path.join(FROM, '*.css')
     ])
-    // .pipe(vinylPaths(function (paths) {
-    //   console.info('[FRONTEND] CSS:', paths);
-    //   return Promise.resolve(paths);
-    // }))
     .pipe(gulpif('production' === ME.NODE_ENV, cleanCSS({debug: true, rebase: false}, function (d) {
-      console.log(`[${new Date().toISOString()}][FRONTEND] Compressing CSS: [${utin(d.path)}]: [${utin(d.stats.originalSize)} -> ${utin(d.stats.minifiedSize)}] [${utin(parseFloat((100 * d.stats.efficiency).toFixed(2)))}%] in [${utin(d.stats.timeSpent)}ms]`);
-    }), false))
+      console.log(`[${new Date().toISOString()}][${C.White}FRONT${C.NC}] Compress CSS: [${d.path}]: [${utin(d.stats.originalSize)} -> ${utin(d.stats.minifiedSize)}] [${utin(parseFloat((100 * d.stats.efficiency).toFixed(2)))}%] in [${utin(d.stats.timeSpent)}ms]`);
+    })))
     // .pipe(gulp.dest(DEST))
     // .pipe(concatCSS('frontend-bundle.css', {rebaseUrls: true}))
     //  Write banners
@@ -66,6 +63,15 @@ module.exports = function (gulp) {
     .pipe(headfoot.footer(ME.Banner.footer))
     .pipe(gulp.dest(DEST));
 
-  return merge(frontCSS);
+  return merge(frontCSS)
+          .on('error', console.error.bind(console));
 
 };
+
+
+/**
+ * EXPOSE
+ * @public
+ */
+
+module.exports = exports = buildCss;
