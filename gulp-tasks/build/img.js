@@ -65,7 +65,6 @@ const buildImg = function (gulp) {
     , type: 'png'
   });
 
-
   let PNGS = gulp.src([SRC])
     .pipe(filter([
       '**/*.png'
@@ -78,7 +77,6 @@ const buildImg = function (gulp) {
       '': defs
     }))
     .pipe(gulp.dest(path.join(DEST, IMG, TUMB, 'works')));
-
 
   let JPGS = gulp.src(SRC)
     .pipe(filter([

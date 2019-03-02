@@ -50,8 +50,8 @@ const populate = function (gulp) {
   let RESO = path.join('resources');
 
   let Void = [
-      path.join(SRC, '*.html')
-    , path.join(SRC, '*.txt')
+      path.join(SRC, '*.*')
+    , path.join(SRC, '.*')
   ];
   let JS   = path.join('assets/js');
   let CSS  = path.join('assets/css');

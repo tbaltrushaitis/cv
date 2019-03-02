@@ -42,14 +42,14 @@ Full article about what is [Curriculum vitae](http://bit.ly/2QfaIBD)
 
 ## :runner: Usage ##
 
-### 1. Download ###
+### 1. Clone the repository and enter its directory ###
 ```shell
 $ APP_NAME=cv \
 && git clone https://github.com/tbaltrushaitis/${APP_NAME}.git \
 && cd ${APP_NAME}
 ```
 
-### 2. Install deps ###
+### 2. Install the dependencies ###
 ```shell
 $ make setup
 ```
