@@ -165,8 +165,18 @@ function defaultTask (cb) {
     }
   })();
 
-  cb();
+  if ('function' === typeof cb) {
+    cb();
+  }
+
 }
+
+
+gulp.task('default', [], (cb) => {
+  defaultTask();
+  console.log(`[${new Date().toISOString()}][${C.Yellow}DEFAULT${C.NC}] ${C.BWhite}${C.On_Blue}FINISHED${C.NC}`);
+  cb();
+});
 
 gulp.task('lint', [
     'jscs'
@@ -239,8 +249,6 @@ gulp.task('build:dev', [
     }
     console.log(`[${new Date().toISOString()}][${C.Yellow}BUILD:DEV${C.NC}] ${C.BWhite}${C.On_Blue}FINISHED${C.NC}`);
   });
-
-  // console.log(`[${new Date().toISOString()}][${C.Yellow}BUILD:DEV${C.NC}] ${C.BWhite}${C.On_Blue}FINISHED${C.NC}`);
 });
 
 
@@ -256,11 +264,7 @@ gulp.task('build', [
       return cb();
     }
   });
-
-  // console.log(`[${new Date().toISOString()}][${C.Yellow}BUILD${C.NC}] ${C.BWhite}${C.On_Blue}FINISHED${C.NC}`);
-  // cb();
 });
-
 
 
 gulp.task('build:fast', [
@@ -273,7 +277,6 @@ gulp.task('build:fast', [
     }
     console.log(`[${new Date().toISOString()}][${C.Yellow}BUILD:FAST${C.NC}] ${C.BWhite}${C.On_Blue}FINISHED${C.NC}`);
   });
-  // console.log(`[${new Date().toISOString()}][${C.Yellow}BUILD:FAST${C.NC}] ${C.BWhite}${C.On_Blue}FINISHED${C.NC}`);
   cb();
 });
 
