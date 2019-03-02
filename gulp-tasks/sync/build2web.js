@@ -48,9 +48,14 @@ const build2web = function (gulp) {
     livereload.listen(ME.pkg.options.livereload);
   }
 
-  let wFiles =  gulp.src([
-        path.join(ME.BUILD, 'index.html')
-      , path.join(ME.BUILD, 'robots.txt')
+  let wFiles = gulp.src([
+        path.join(ME.BUILD, '.*')
+      , path.join(ME.BUILD, '*.txt')
+    ])
+    .pipe(gulp.dest(ME.WEB));
+
+  let wHtml = gulp.src([
+      path.join(ME.BUILD, '*.html')
     ])
     .pipe(gulpif('production' === ME.NODE_ENV, htmlmin(ME.pkg.options.htmlmin)))
     .pipe(gulp.dest(ME.WEB));
@@ -70,7 +75,7 @@ const build2web = function (gulp) {
       , ME.pkg.options.sync
     ));
 
-  return merge(wAssets, wData, wFiles)
+  return merge(wHtml, wAssets, wData, wFiles)
           .pipe(gulpif('dev' === ME.NODE_ENV || 'dev' === process.env.npm_lifecycle_event, livereload()))
           .on('error', console.error.bind(console));
 

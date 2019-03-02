@@ -14,6 +14,7 @@ clean-all: clean clean-dist
 	@ echo [${BYellow}${On_Blue}COMPLETED${NC}] Clean ALL;
 
 clean-full: clean-all clean-deps
+	@ rm -rf BUILD-* ;
 	@ echo [${BYellow}${On_Blue}COMPLETED${NC}] Clean FULL;
 
 clean-build:
@@ -30,24 +31,23 @@ clean-deps:
 	@ echo -n "Clean: deps \t ... ";
 	@ rm -rf \
 		bower_modules/ \
-		node_modules/ ;
+		node_modules/ \
+		package-lock.json \
+		setup-deps \
+		setup ;
 	@ echo [${White}OK${NC}];
 
 clean-files:
 	@ echo -n "Clean: files \t ... ";
-	@ rm -rf BUILD-* \
-		COMMIT \
-		*.md \
-		package-lock.json \
+	@ rm -rf COMMIT \
 		.bowerrc \
 		.npmrc \
-		setup \
-		setup-deps \
 		bitbucket-pipelines.yml \
 		codeclimate-config.patch \
 		_config.yml \
 		yarn.lock \
-		yarn-error.log ;
+		*.md \
+		*.log ;
 	@ echo [${White}OK${NC}];
 
 ##  ------------------------------------------------------------------------  ##

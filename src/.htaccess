@@ -1,0 +1,69 @@
+AddDefaultCharset utf-8
+
+# disable directory browsing
+Options All -Indexes
+
+<FilesMatch "\.(htaccess|htpasswd)$">
+  Order Deny,Allow
+  Deny from all
+</FilesMatch>
+
+<FilesMatch "\.(txt|log|sh)$">
+  Order Deny,Allow
+  Deny from all
+  Allow from localhost
+</FilesMatch>
+
+RewriteEngine on
+RewriteRule .* - [E=HTTP_IF_MODIFIED_SINCE:%{HTTP:If-Modified-Since}]
+RewriteRule .* - [E=HTTP_IF_NONE_MATCH:%{HTTP:If-None-Match}]
+
+## EXPIRES CACHING ##
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpg "access 1 month"
+  ExpiresByType image/jpeg "access 1 month"
+  ExpiresByType image/gif "access 1 month"
+  ExpiresByType image/png "access 1 month"
+  ExpiresByType text/css "access 1 month"
+  ExpiresByType application/json "access 1 month"
+  ExpiresByType application/pdf "access 1 month"
+  ExpiresByType text/x-javascript "access 1 month"
+  ExpiresByType application/x-shockwave-flash "access 1 month"
+  ExpiresByType image/x-icon "access 1 year"
+  ExpiresDefault "access plus 1 month"
+</IfModule>
+## EXPIRES CACHING ##
+
+## CACHING CONTROL ##
+## max-age=
+## 2592000 = 30 days
+## 604800 = 7 days
+<ifModule mod_headers.c>
+
+  <FilesMatch "\.(js|css|json|xml|gz)$">
+    Header unset Vary
+    Header set Vary "Accept-Encoding, X-HTTP-Method-Override, X-Forwarded-For, Remote-Address, X-Real-IP, X-Forwarded-Proto, X-Forwarded-Host, X-Forwarded-Port, X-Forwarded-Server"
+  </FilesMatch>
+
+  <filesMatch "\\.(ico|pdf|flv|jpg|jpeg|png|gif|swf)$">
+    Header set Cache-Control "max-age=2592000, public"
+  </filesMatch>
+
+  <filesMatch "\\.(css)$">
+    Header set Cache-Control "max-age=604800, public"
+  </filesMatch>
+
+  <filesMatch "\\.(js)$">
+    Header set Cache-Control "max-age=604800, private"
+  </filesMatch>
+
+  <filesMatch "\\.(xml|txt|json)$">
+    Header set Cache-Control "max-age=604800, public, must-revalidate"
+  </filesMatch>
+
+  <filesMatch "\\.(html|htm|php)$">
+    Header set Cache-Control "max-age=1, private, must-revalidate"
+  </filesMatch>
+
+</ifModule>
