@@ -95,22 +95,23 @@
   <section id="home" class="tt-fullHeight" data-stellar-vertical-offset="50" data-stellar-background-ratio="0.5">
     <div class="intro">
       <div class="intro-sub wow" data-wow-duration="3.0s" data-wow-delay="0.0s">{{person.name.full}}</div>
-      <h1 class="wow" data-wow-duration="2.7s" data-wow-delay="0.3s"><span class="first">{{person.home.pos-prefix}}</span> <span class="">{{person.home.pos-title}}</span></h1>
+      <h1 class="wow" data-wow-duration="2.7s" data-wow-delay="0.3s">
+        <span class="first">{{person.home.pos-prefix}}</span> <span class="">{{person.home.pos-title}}</span></h1>
       <p class="wow" data-wow-duration="2.5s" data-wow-delay="0.5s">{{person.home.pos-tags}}</p>
 
       <div class="social-icons" id="social-icons">
         <ul class="list-inline">
           <li class="wow" data-wow-duration="1.4s" data-wow-delay="1.6s">
-            <a href="http://bit.ly/tomas-in" target="_blank" rel="noopener"><i class="fab fa-linkedin" title="LinkedIn"></i></a>
+            <a target="_blank" rel="noopener" href="{{person.socials.li.url}}"><i class="{{person.socials.li.icon}}" title="{{person.socials.li.title}}"></i></a>
           </li>
           <li class="wow" data-wow-duration="1.6s" data-wow-delay="1.4s">
-            <a href="http://bit.ly/tomas-git" target="_blank" rel="noopener"><i class="fab fa-github" title="GitHub"></i></a>
+            <a target="_blank" rel="noopener" href="{{person.socials.git.url}}"><i class="{{person.socials.git.icon}}" title="{{person.socials.git.title}}"></i></a>
           </li>
           <li class="wow" data-wow-duration="1.8s" data-wow-delay="1.2s">
-            <a href="http://bit.ly/tomas-bb" target="_blank" rel="noopener"><i class="fab fa-bitbucket" title="BitBucket"></i></a>
+            <a target="_blank" rel="noopener" href="{{person.socials.bb.url}}"><i class="{{person.socials.bb.icon}}" title="{{person.socials.bb.title}}"></i></a>
           </li>
           <li class="wow" data-wow-duration="2.0s" data-wow-delay="1.0s">
-            <a href="http://bit.ly/tomas-hub" target="_blank" rel="noopener"><i class="fab fa-docker" title="DockerHub"></i></a>
+            <a target="_blank" rel="noopener" href="{{person.socials.docker.url}}"><i class="{{person.socials.docker.icon}}" title="{{person.socials.docker.title}}"></i></a>
           </li>
         </ul>
       </div> <!--/ /.social-icons /-->
@@ -266,7 +267,6 @@ Strongly believe that making useful services with usable and friendly interfaces
           </div> -->
 
           <!-- <div class="download-button hidden">
-            <a class="btn btn-info btn-lg" href="#contact"><i class="fa fa-paper-plane"></i> Send me message</a>
             <a class="btn btn-primary btn-lg" href="#"><i class="fa fa-download"></i> Download my cv</a>
           </div> -->
 
@@ -913,8 +913,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/lvs-vis"><i class="fas fa-external-link-alt"></i></a>
                   <a class="image-link" href="assets/img/works/openstack-virtual-hosts-diagram-002.png"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/lvs-vis" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div><!--/ /.links /-->
                 <img src="assets/img/thumbs/works/openstack-virtual-hosts-diagram-002.png" alt="OpenStack Visual Diagram" />
                 <div class="portfolio-info">
@@ -929,8 +929,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/cmdb-demo"><i class="fas fa-external-link-alt"></i></a>
                   <a class="image-link" href="assets/img/works/network-diagram-003.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/cmdb-demo" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/network-diagram-003.jpg" alt="CMDB Visual" />
                 <div class="portfolio-info">
@@ -945,8 +945,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/mp3-web"><i class="fas fa-external-link-alt"></i></a>
                   <a class="image-link" href="assets/img/works/mp3web-front-003.png"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/mp3-web" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/mp3web-front-003.png" alt="Web MP3 Player" />
                 <div class="portfolio-info">
@@ -961,8 +961,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/cmdb-rtm"><i class="fas fa-external-link-alt"></i></a>
                   <a class="image-link" href="assets/img/works/cmdb-rtm-poc.gif"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/cmdb-rtm" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/works/cmdb-rtm-poc.gif" alt="Real-time Data Visualization" />
                 <div class="portfolio-info">
@@ -977,8 +977,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/maps-demo"><i class="fas fa-external-link-alt"></i></a>
                   <a class="image-link" href="assets/img/works/infograph-004.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/maps-demo" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/infograph-004.jpg" alt="Maps Infographics" />
                 <div class="portfolio-info">
@@ -993,8 +993,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/wcl-com"><i class="fas fa-external-link-alt"></i></a>
                   <a class="image-link" href="assets/img/works/wcl.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/wcl-com" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/wcl.jpg" alt="World Cossackers League" />
                 <div class="portfolio-info">
@@ -1009,8 +1009,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/mb-grill"><i class="fas fa-external-link-alt"></i></a>
                   <a class="image-link" href="assets/img/works/mb-grill.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/mb-grill" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/mb-grill.jpg" alt="Grills Store" />
                 <div class="portfolio-info">
@@ -1025,8 +1025,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/kyiv-cake"><i class="fas fa-external-link-alt"></i></a>
                   <a class="image-link" href="assets/img/works/cheesecake.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/kyiv-cake" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/cheesecake.jpg" alt="Cheesecake Online Store" />
                 <div class="portfolio-info">
@@ -1041,8 +1041,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/knifes-demo"><i class="fas fa-external-link-alt"></i></a>
                   <a class="image-link" href="assets/img/works/knifes-front-view-001.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/knifes-demo" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/knifes-front-view-001.jpg" alt="Online CS:GO Skins Lottery" />
                 <div class="portfolio-info">
@@ -1057,9 +1057,9 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/http-404"><i class="fas fa-external-link-alt"></i></a>
+                  <a target="_blank" rel="noopener" href="http://bit.ly/http-404-git"><i class="fab fa-github"></i></a>
                   <a class="image-link" href="assets/img/works/http-404-animated-with-socials-001.gif"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/http-404-git" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-                  <a href="http://bit.ly/http-404" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/works/http-404-animated-with-socials-001.gif" alt="HTTP Error 404" />
                 <div class="portfolio-info">
@@ -1074,9 +1074,9 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/roulette-predictor"><i class="fas fa-external-link-alt"></i></a>
+                  <a target="_blank" rel="noopener" href="http://bit.ly/roulette-predictor-git"><i class="fab fa-github"></i></a>
                   <a class="image-link" href="assets/img/works/roulette.png"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/roulette-predictor-git" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-                  <a href="http://bit.ly/roulette-predictor" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/roulette.png" alt="Online Casino Roulette Predictor" />
                 <div class="portfolio-info">
@@ -1091,8 +1091,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/fp-git"><i class="fab fa-github"></i></a>
                   <a class="image-link" href="assets/img/works/fp-001.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/fp-git" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/fp-001.jpg" alt="Financial Planning" />
                 <div class="portfolio-info">
@@ -1107,8 +1107,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/kassa-git"><i class="fab fa-github"></i></a>
                   <a class="image-link" href="assets/img/works/kassa-001.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/kassa-git" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/kassa-001.jpg" alt="Kassa" />
                 <div class="portfolio-info">
@@ -1123,8 +1123,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/sklad-git"><i class="fab fa-github"></i></a>
                   <a class="image-link" href="assets/img/works/sklad-001.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/sklad-git" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/sklad-001.jpg" alt="Sklad" />
                 <div class="portfolio-info">
@@ -1139,8 +1139,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/aqua-git"><i class="fab fa-github"></i></a>
                   <a class="image-link" href="assets/img/works/voda-001.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/aqua-git" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/voda-001.jpg" alt="Water delivery service" />
                 <div class="portfolio-info">
@@ -1155,8 +1155,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/domslugba-git"><i class="fab fa-github"></i></a>
                   <a class="image-link" href="assets/img/works/domSlugba-001.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/domslugba-git" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/domSlugba-001.jpg" alt="Home services" />
                 <div class="portfolio-info">
@@ -1171,9 +1171,9 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/wish-wall"><i class="fas fa-external-link-alt"></i></a>
+                  <a target="_blank" rel="noopener" href="http://bit.ly/wish-wall-git"><i class="fab fa-github"></i></a>
                   <a class="image-link" href="assets/img/works/wailing-wall.gif"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/wish-wall-git" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-                  <a href="http://bit.ly/wish-wall" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/works/wailing-wall.gif" alt="Wailing Wall" />
                 <div class="portfolio-info">
@@ -1188,9 +1188,9 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/demo-emoji"><i class="fas fa-external-link-alt"></i></a>
+                  <a target="_blank" rel="noopener" href="http://bit.ly/gh-emoji"><i class="fab fa-github"></i></a>
                   <a class="image-link" href="assets/img/works/git-emoji-cheat-sheet.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/gh-emoji" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-                  <a href="http://bit.ly/demo-emoji" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/git-emoji-cheat-sheet.jpg" alt="Git Emoji Cheat Sheet" />
                 <div class="portfolio-info">
@@ -1205,8 +1205,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/scratch-git"><i class="fab fa-github"></i></a>
                   <a class="image-link" href="assets/img/works/scratch-001.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/scratch-git" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/scratch-001.jpg" alt="Scratch - Accounting system of electronic payment vouchers for services of mobile operators" />
                 <div class="portfolio-info">
@@ -1342,7 +1342,7 @@ Strongly believe that making useful services with usable and friendly interfaces
       <div class="row">
         <div class="hidden-xs col-sm-4 col-md-4">
           <div class="copyright text-left">
-            <p class="">Powered by <a href="{{author.url}}" target="_blank" rel="noopener">{{author.nick}}</a></p>
+            <p class=""> <a href="{{author.url}}" target="_blank" rel="noopener">Powered by</a></p>
           </div>
         </div>
         <div class="col-xs-10 col-sm-4 col-md-4">
