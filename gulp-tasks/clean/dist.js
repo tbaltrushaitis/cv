@@ -35,7 +35,7 @@ let C = ME.Config.colors;
 //  ------------------------------------------------------------------------  //
 
 module.exports = function (gulp) {
-  console.log(`${ME.L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}]`);
+  console.log(`${ME.L}${ME.d()}[${C.Y}${modPath}/${modName}${C.N}]`);
 
   return gulp.src([ME.DIST])
             .pipe(vPaths(del));

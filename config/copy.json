@@ -1,20 +1,14 @@
 {
-  "keys": {
-      "google": {
-          "maps": "AIzaSyACVrotifUNDXuSqPIe_J3wDWd8WWaHfOk"
-        , "maps-0": "AIzaSyDc8Z_XhUPpwU99YLs7C24Bd36_MawARJk"
-      }
-  }
-, "author": {
-      "name": {
-          "first": "Tomas"
-        , "last": "Baltrushaitis"
-        , "full": "@{./last} @{./first}"
-      }
-    , "nick": "Tom&acute;AS"
-    , "abbr": "tbaltrushaitis"
-    , "email": "@{./abbr}@gmail.com"
-    , "url":   "https://github.com/@{author.abbr}"
+  "author": {
+    "name": {
+      "first": "Tomas"
+    , "last": "Baltrushaitis"
+    , "full": "@{./last} @{./first}"
+    }
+  , "nick": "Tom&acute;AS"
+  , "abbr": "tbaltrushaitis"
+  , "email": "@{./abbr}@gmail.com"
+  , "url":   "https://github.com/@{./abbr}"
   }
 , "project": {
     "license": "MIT"

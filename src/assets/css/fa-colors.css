@@ -1,4 +1,4 @@
-/*   ------------------   Fontawesome Colors Tweaks   ---------------------   */
+/*! - - - - - - - - - -    Fontawesome Colors Tweaks   - - - - - -  - - - - - */
 
 .fa-css3-alt {
   color: #0099e5;
@@ -119,6 +119,18 @@
 
 .fa-microsoft {
   color: #00a1f1;
+}
+
+.fa-windows {
+  color: #00a1f1;
+}
+
+.fa-perl {
+  color: #96bf48;
+}
+
+.fa-rabbit {
+  color: #96bf48;
 }
 
 .fa-redis {

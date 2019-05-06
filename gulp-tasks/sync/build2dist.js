@@ -1,7 +1,7 @@
 /*!
  * Project:     cv
- * File:        ./gulp-tasks/usage.js
- * Copyright(c) 2018-nowdays Baltrushaitis Tomas <tbaltrushaitis@gmail.com>
+ * File:        ./gulp-tasks/sync/build2dist.js
+ * Copyright(c) 2016-nowdays Baltrushaitis Tomas <tbaltrushaitis@gmail.com>
  * License:     MIT
  */
 
@@ -14,6 +14,10 @@
 const path = require('path');
 const utin = require('util').inspect;
 
+const dirSync    = require('gulp-directory-sync');
+const gulpif     = require('gulp-if');
+const htmlmin    = require('gulp-htmlmin');
+const merge      = require('merge-stream');
 const readConfig = require('read-config');
 
 //  ------------------------------------------------------------------------  //
@@ -25,8 +29,9 @@ utin.defaultOptions = Object.assign({}, ME.pkg.options.iopts || {});
 
 const modName = path.basename(module.filename, '.js');
 const modPath = path.relative(ME.WD, path.dirname(module.filename));
-const modConfigFile = `${path.join(ME.WD, 'config', modPath, modName)}.json`;
-const modConfig = readConfig(modConfigFile, Object.assign({}, ME.pkg.options.readconf || {}));
+const confPath = path.join(ME.WD, 'config');
+const modConfigFile = `${path.join(confPath, modPath, modName)}.json`;
+const modConfig = readConfig(modConfigFile, ME.pkg.options.readconf);
 
 ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
 let C = ME.Config.colors;
@@ -35,29 +40,46 @@ let C = ME.Config.colors;
 //  ------------------------------  FUNCTIONS  -----------------------------  //
 //  ------------------------------------------------------------------------  //
 
-const usage = function (gulp) {
+const build2dist = function (gulp) {
   console.log(`${ME.L}${ME.d()}[${C.Y}${modPath}/${modName}${C.N}] with [${modConfigFile}]`);
 
-  console.log(`
-${ME.L}
-${C.C}Usage${C.N}:
-    ${C.BY}gulp${C.N} <${C.P}task${C.N}> \t - \t Run gulp task(s) specified
+  let CONF = Object.assign({}, ME.Config);
+  let SRC  = path.join(ME.BUILD);
+  let DEST = path.join(ME.DIST);
 
-  , where ${C.P}task${C.N} is one of:
 
-    ${C.Y}usage${C.N} \t\t - \t Show this topic
-    show:config \t - \t Show Configuration file
-    show:src \t\t - \t Log File Paths in the Stream
+  let wFiles = gulp.src([
+        path.join(SRC, '.*')
+      , path.join(SRC, '*.txt')
+    ])
+    .pipe(gulp.dest(DEST));
 
-    clean \t\t - \t Empty given folders and Delete files
-    clean:build \t - \t Clean directory with current BUILD
-    clean:dist \t\t - \t Distro files
-    clean:resources \t - \t Static CSS, JS and Images
-    clean:public \t - \t Directory visible from Internet
-${ME.L}
-  `);
 
-  return Promise.resolve();
+  let wHtml = gulp.src([
+      path.join(SRC, '*.html')
+    ])
+    .pipe(htmlmin(ME.pkg.options.htmlmin))
+    .pipe(gulp.dest(DEST));
+
+
+  let wAssets = gulp.src('')
+    .pipe(dirSync(
+        path.join(SRC, 'assets')
+      , path.join(DEST, 'assets')
+      , ME.pkg.options.sync
+    ));
+
+
+  let wData = gulp.src('')
+    .pipe(dirSync(
+        path.join(SRC, 'data')
+      , path.join(DEST, 'data')
+      , ME.pkg.options.sync
+    ));
+
+  return merge(wHtml, wAssets, wData, wFiles)
+          .on('error', console.error.bind(console));
+
 };
 
 
@@ -66,4 +88,4 @@ ${ME.L}
  * @public
  */
 
-module.exports = exports = usage;
+module.exports = exports = build2dist;
