@@ -1,20 +1,20 @@
-/*
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    1. General
-    2. Typography
-    3. Home
-    4. Navigation
-    5. About
-    6. Video
-    7. Resume
-    8. Skill
-    9. Chart
-    10. Portfolio
-    11. Facts
-    12. Blog
-    13. Hire
-    14. Contact
-    15. Footer
+/*! - - - - - - - - - - - - - - -   Theme   - - - - - - - - - - - - - - - - - */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  1. General
+  2. Typography
+  3. Home
+  4. Navigation
+  5. About
+  6. Video
+  7. Resume
+  8. Skill
+  9. Chart
+  10. Portfolio
+  11. Facts
+  12. Blog
+  13. Hire
+  14. Contact
+  15. Footer
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 */
 
@@ -689,7 +689,7 @@ ul.list-check li::before {
   position: relative;
 }
 
-.resume:before{
+.resume:before {
   content: "";
   position: absolute;
   top: -8px;
@@ -705,7 +705,7 @@ ul.list-check li::before {
           transform: rotate(45deg);
 }
 
-.resume:after{
+.resume:after {
   content: "";
   position: absolute;
   bottom: -8px;
@@ -1003,11 +1003,6 @@ ul.list-check li::before {
 
 .progress-bar {
   background-color: #68c3a3;
-}
-.progress-bar span {
-  position: absolute;
-  top: -20px;
-  right: 15px;
 }
 
 .progress .progress-bar.six-sec-ease-in-out {

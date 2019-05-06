@@ -1,9 +1,9 @@
 /* jshint unused:false */
 /*!
- * Project:     {{app.name}}
- * File:        ./src/assets/js/front/theme.js
- * Copyright(c) 2016-nowdays {{author.name.full}} <{{author.email}}>
- * License:     {{project.license}}
+ * Project:     cv
+ * File:        ./assets/js/front/theme.js
+ * Copyright(c) 2016-present Baltrushaitis Tomas <tbaltrushaitis@gmail.com>
+ * License:     MIT
  */
 /*!
  * Theme Name:  IAMX
@@ -28,9 +28,9 @@ window.jQuery(function ($) {
 
   'use strict';
 
-  /* ------------------------------------------------------------------------ /*
-   *  Preloader
-  /* ------------------------------------------------------------------------ */
+  // ---------------------------------------------------------------------------
+  // Preloader
+  // ---------------------------------------------------------------------------
 
   // $(window).on('load', function () {
   $(document).ready(function () {
@@ -138,7 +138,7 @@ window.jQuery(function ($) {
     if (visible) {
       // configuration goes here
       $('.chart').easyPieChart({
-        easing:     'easeOut'
+        easing:       'easeOut'
         , barColor:   '#68c3a3'
         , delay:      2500
         , lineWidth:  8
@@ -147,7 +147,7 @@ window.jQuery(function ($) {
         , size:       140
         , trackColor: '#3a4149'
         , animate: {
-            duration: 2500
+            duration:  2500
             , enabled: true
           }
         , onStep: function (from, to, percent) {
@@ -267,22 +267,25 @@ window.jQuery(function ($) {
     myLatlng = new window.google.maps.LatLng(myLat, myLng);
 
     styles = [
-      { featureType: 'landscape'
-      , stylers: [
-          {color: '#f7f7f7'}
-        ]
-    }
-    , { featureType: 'road'
-      , stylers: [
+      {
+        featureType: 'landscape'
+        , stylers: [
+            {color: '#f7f7f7'}
+          ]
+      }
+      , {
+        featureType: 'road'
+        , stylers: [
             {hue: '#fff'}
-          , {saturation: -70}
-        ]
-    }
-    , { featureType: 'poi'   // points of interest
-      , stylers: [
-          {hue: ''}
-        ]
-    }
+            , {saturation: -70}
+          ]
+      }
+      , {
+        featureType: 'poi'   // points of interest
+        , stylers: [
+            {hue: ''}
+          ]
+      }
     ];
 
     mapOptions = {
@@ -297,13 +300,13 @@ window.jQuery(function ($) {
     map = new window.google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
 
     marker = new window.google.maps.Marker({
-      position:  myLatlng
+      position:    myLatlng
       , map:       map
       , animation: window.google.maps.Animation.DROP
       , title:     'I@{{person.bio.location.city}}'
     });
 
-    contentString = 'Hello' + ' ' + 'Visitor!';
+    contentString = `Hello, Visitor!`;
     infowindow = new window.google.maps.InfoWindow({
       content: contentString
     });
