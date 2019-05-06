@@ -42,10 +42,10 @@ let C = ME.Config.colors;
 //  ------------------------------------------------------------------------  //
 
 const build2web = function (gulp) {
-  console.log(`${ME.L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}] with [${modConfigFile}]`);
+  console.log(`${ME.L}${ME.d()}[${C.Y}${modPath}/${modName}${C.N}] with [${modConfigFile}]`);
 
   if ('dev' === ME.NODE_ENV || 'dev' === process.env.npm_lifecycle_event) {
-    livereload.listen(ME.pkg.options.livereload);
+    // livereload.listen(ME.pkg.options.livereload);
   }
 
   let wFiles = gulp.src([

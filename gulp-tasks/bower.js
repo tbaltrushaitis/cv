@@ -1,7 +1,7 @@
 /*!
  * Project:     cv
  * File:        ./gulp-tasks/bower.js
- * Copyright(c) 2018-nowdays Baltrushaitis Tomas <tbaltrushaitis@gmail.com>
+ * Copyright(c) 2018-present Baltrushaitis Tomas <tbaltrushaitis@gmail.com>
  * License:     MIT
  */
 
@@ -48,14 +48,14 @@ let C = ME.Config.colors;
 //  ------------------------------------------------------------------------  //
 
 const bowerFiles = function (gulp) {
-  console.log(`${ME.L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}] with [${modConfigFile}]`);
+  console.log(`${ME.L}${ME.d()}[${C.Y}${modPath}/${modName}${C.N}] with [${modConfigFile}]`);
 
   //
   //  BOWER - responsible for FrontEnd assets
   //
   let mBower = mBowerFiles(ME.pkg.options.bower, {
-      base:   ME.BOWER
-    , group:  ['front']
+      base:  ME.BOWER
+    , group: ['front']
   });
 
   let DEST = path.join(ME.BUILD, 'assets');
@@ -65,6 +65,22 @@ const bowerFiles = function (gulp) {
   let FONT = path.join('fonts');
   let IMG  = path.join('img');
   let WEBFONT = path.join('webfonts');
+  let CONF = {
+    debug: false
+  // , format: 'keep-breaks'
+  , rebase: false
+  , level: {
+      1: {
+        all: false
+      , removeEmpty: true
+      , specialComments: 'all'
+      }
+    , 2: {
+        all: false
+      , removeEmpty: true
+      }
+    }
+  };
 
 
   let bowerJS = gulp.src(mBower)
@@ -74,7 +90,7 @@ const bowerFiles = function (gulp) {
       , '!**/npm.js'
     ]))
     .pipe(vPaths(function (p) {
-      console.log(`[${new Date().toISOString()}][${C.White}BOWER${C.NC}] JS: [${p}]`);
+      console.log(`${ME.d()}[${C.W}BOWER${C.N}] Compress ${C.Y}JS${C.N}: [${p}]`);
       return Promise.resolve(p);
     }))
     .pipe(gulpif('production' === ME.NODE_ENV, terser(ME.pkg.options.terser)))
@@ -92,20 +108,24 @@ const bowerFiles = function (gulp) {
       , "!**/*.css.min.map"
       , "!**/*.min.css.map"
     ]))
+    .pipe(vPaths(function (p) {
+      console.log(`${ME.d()}[${C.W}BOWER${C.N}] Bundling ${C.Y}CSS${C.N}: [${p}]`);
+      return Promise.resolve(p);
+    }))
     .pipe(concatCSS('bower-bundle.css', {rebaseUrls: false, commonBase: path.join(DEST)}))
-    .pipe(gulpif('production' === ME.NODE_ENV, new cleanCSS({debug: false, rebase: false}, function (d) {
-      console.log(`[${new Date().toISOString()}][${C.White}BOWER${C.NC}] Compress CSS [${d.path}]: [${utin(d.stats.originalSize)} -> ${utin(d.stats.minifiedSize)}] [${utin(parseFloat((100 * d.stats.efficiency).toFixed(2)))}%] in [${utin(d.stats.timeSpent)}ms]`);
+    .pipe(gulpif('production' === ME.NODE_ENV, new cleanCSS(CONF, function (d) {
+      console.log(`${ME.d()}[${C.W}BOWER${C.N}] Compress ${C.Y}CSS${C.N} [${d.path}]: [${utin(d.stats.originalSize)} -> ${utin(d.stats.minifiedSize)}] [${utin(parseFloat((100 * d.stats.efficiency).toFixed(2)))}%] in [${utin(d.stats.timeSpent)}ms]`);
     }), false))
     //  Write banners
-    .pipe(headfoot.header(ME.Banner.header))
-    .pipe(headfoot.footer(ME.Banner.footer))
+    // .pipe(headfoot.header(ME.Banner.header))
+    // .pipe(headfoot.footer(ME.Banner.footer))
     .pipe(gulp.dest(path.resolve(DEST, CSS)));
 
 
   let bowerFonts = gulp.src(mBower)
     .pipe(filter(['**/fonts/**/*.*']))
     .pipe(vPaths(function (p) {
-      console.log(`[${new Date().toISOString()}][${C.White}BOWER${C.NC}] FONT: [${p}]`);
+      console.log(`${ME.d()}[${C.W}BOWER${C.N}] Copying ${C.Y}FONT${C.N}: [${p}]`);
       return Promise.resolve(p);
     }))
     .pipe(gulp.dest(path.resolve(DEST, FONT)));
@@ -114,7 +134,7 @@ const bowerFiles = function (gulp) {
   let webFonts = gulp.src(mBower)
     .pipe(filter(['**/webfonts/*.*']))
     .pipe(vPaths(function (p) {
-      console.log(`[${new Date().toISOString()}][${C.White}BOWER${C.NC}] WEBFONT: [${p}]`);
+      console.log(`${ME.d()}[${C.W}BOWER${C.N}] Copying ${C.Y}WEBFONT${C.N}: [${p}]`);
       return Promise.resolve(p);
     }))
     .pipe(gulp.dest(path.resolve(DEST, WEBFONT)));
@@ -132,7 +152,7 @@ const bowerFiles = function (gulp) {
       , '**/*.ico'
     ]))
     .pipe(vPaths(function (p) {
-      console.log(`[${new Date().toISOString()}][${C.White}BOWER${C.NC}] IMG: [${p}]`);
+      console.log(`${ME.d()}[${C.W}BOWER${C.N}] Copying ${C.Y}IMG${C.N}: [${p}]`);
       return Promise.resolve(p);
     }))
     .pipe(gulp.dest(path.join(DEST, IMG)));

@@ -38,7 +38,7 @@ let C = ME.Config.colors;
 //  ------------------------------------------------------------------------  //
 
 const cleanBuild = function (gulp) {
-  console.log(`${ME.L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}]`);
+  console.log(`${ME.L}${ME.d()}[${C.Y}${modPath}/${modName}${C.N}]`);
 
   return gulp.src([ME.BUILD])
           .pipe(vPaths(del));

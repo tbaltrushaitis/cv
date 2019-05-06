@@ -8,6 +8,8 @@
 .ONESHELL:
 
 SHELL = /bin/sh
+THIS_FILE := $(lastword $(MAKEFILE_LIST))
+TO_NULL = 2>&1 >/dev/null
 
 ##  ------------------------------------------------------------------------  ##
 $(shell [ -f NODE_ENV ] || cp -prfu config/.NODE_ENV ./NODE_ENV);
@@ -23,12 +25,11 @@ APP_REPO := $(shell git ls-remote --get-url)
 CODE_VERSION := $(shell cat ./VERSION)
 GIT_COMMIT := $(shell git rev-list --remove-empty --remotes --max-count=1 --date-order --reverse)
 WD := $(shell pwd -P)
-DT = $(shell date +'%Y%m%d%H%M%S')
+DT = $(shell date +'%Y-%m-%dT%H:%M:%S %Z')
 
 APP_ENV := $(strip $(shell [ -f NODE_ENV ] && cat NODE_ENV || cat config/.NODE_ENV))
 ifeq ($(APP_ENV),)
 $(info [$(White)$(DT)$(NC)] APP_ENV is NOT DETECTED!)
-APP_ENV := $(strip $(shell echo $([ -f NODE_ENV ] && cat NODE_ENV || cat config/.NODE_ENV)))
 endif
 
 BUILD_FILE = BUILD-$(CODE_VERSION)
@@ -66,19 +67,35 @@ BUILD_CONTENT := $(subst BUILD_HASH,$(BUILD_HASH),$(BUILD_CONTENT))
 BUILD_CONTENT := $(subst GIT_COMMIT,$(GIT_COMMIT),$(BUILD_CONTENT))
 BUILD_CONTENT := $(subst CODE_VERSION,$(CODE_VERSION),$(BUILD_CONTENT))
 
-# $(info [$(White)$(DT)$(NC)] BUILD_CONTENT [$(Yellow)$(BUILD_CONTENT)$(NC)])
 $(file > config/build.json,$(BUILD_CONTENT))
 $(info [$(White)$(DT)$(NC)] Created file [$(Yellow)BUILD_CONTENT$(NC):$(BPurple)$(WD)/config/build.json$(NC)])
 
 ##  ------------------------------------------------------------------------  ##
-
+##  COMMIT information
+##  ------------------------------------------------------------------------  ##
 $(file > COMMIT,$(GIT_COMMIT));
 $(info [$(White)$(DT)$(NC)] Created file [$(BYellow)COMMIT$(NC):$(BPurple)$(GIT_COMMIT)$(NC)]);
 
-DIR_SRC := ${WD}/src
-DIR_BUILD := ${WD}/build-${CODE_VERSION}
-DIR_DIST := ${WD}/dist-${CODE_VERSION}
-DIR_WEB := ${WD}/webroot
+##  ------------------------------------------------------------------------  ##
+##                               DIRECTORIES                                  ##
+##  ------------------------------------------------------------------------  ##
+
+ARC := arch
+SRC := src
+BLD := build-${CODE_VERSION}
+DST := dist-${CODE_VERSION}
+WEB := webroot
+
+$(shell [ -d $(ARC) ] || mkdir $(ARC))
+
+##  ------------------------------------------------------------------------  ##
+##                                 PATHS                                      ##
+##  ------------------------------------------------------------------------  ##
+
+DIR_SRC := $(WD)/$(SRC)
+DIR_BUILD := $(WD)/$(BLD)
+DIR_DIST := $(WD)/$(DST)
+DIR_WEB := $(WD)/$(WEB)
 
 ##  ------------------------------------------------------------------------  ##
 ##  Query default goal.
@@ -134,7 +151,9 @@ build:
 	@ export NODE_ENV="${APP_ENV}"; npm run build
 
 dist:
-	@ export NODE_ENV="${APP_ENV}"; gulp dist
+	@ export NODE_ENV="production"; npm run build
+	@ export NODE_ENV="${APP_ENV}"; npm run dist
+	@ tar -c "${DST}" | gzip -9 > "${ARC}/${APP_NAME}-v${CODE_VERSION}-b${BUILD_CNTR}.tar.gz"
 
 deploy:
 	@ export NODE_ENV="${APP_ENV}"; npm run deploy
@@ -146,10 +165,13 @@ update: pre-update setup ;
 
 ##  ------------------------------------------------------------------------  ##
 
-.PHONY: rebuild redeploy
+.PHONY: rebuild redeploy rb rd
 
 rebuild: build ;
 redeploy: rebuild deploy banner ;
+
+rb: rebuild;
+rd: redeploy;
 
 ##  ------------------------------------------------------------------------  ##
 
@@ -161,14 +183,13 @@ all: clean cycle banner ;
 
 full: clean-all all banner ;
 
-cycle: rights setup build deploy ;
+cycle: setup build deploy ;
 cycle-dev: build deploy ;
 
 dev: clean-build cycle-dev banner ;
 	@ export NODE_ENV="${APP_ENV}"; npm run dev ;
 
-run: banner help ;
-	@ export NODE_ENV="${APP_ENV}"; npm run all
+run: banner help cycle dist banner ;
 
 watch:
 	@ export NODE_ENV="${APP_ENV}"; npm run watch

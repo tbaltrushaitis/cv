@@ -42,7 +42,7 @@ let C = ME.Config.colors;
 //  ------------------------------------------------------------------------  //
 
 const populate = function (gulp) {
-  console.log(`${ME.L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}] with [${modConfigFile}]`);
+  console.log(`${ME.L}${ME.d()}[${C.Y}${modPath}/${modName}${C.N}] with [${modConfigFile}]`);
 
   let CONF = Object.assign({}, ME.Config);
   let SRC  = path.join(ME.SRC);
@@ -63,7 +63,7 @@ const populate = function (gulp) {
   //--------------//
   let srcVoid = gulp.src(Void)
     .pipe(vPaths(function (p) {
-      console.log(`[${new Date().toISOString()}][${C.White}${modName.toUpperCase()}${C.NC}] STATIC: \t [${p}]`);
+      console.log(`${ME.d()}[${C.W}${modName.toUpperCase()}${C.N}] STATIC: \t [${p}]`);
       return Promise.resolve(p);
     }))
     .pipe(replace({global: CONF, preserveUnknownTokens: true}))
@@ -77,7 +77,7 @@ const populate = function (gulp) {
       path.join(SRC, JS, '**/*.js')
     ])
     .pipe(vPaths(function (p) {
-      console.log(`[${new Date().toISOString()}][${C.White}${modName.toUpperCase()}${C.NC}] JS: \t [${p}]`);
+      console.log(`${ME.d()}[${C.W}${modName.toUpperCase()}${C.N}] JS: \t [${p}]`);
       return Promise.resolve(p);
     }))
     .pipe(replace({global: CONF, preserveUnknownTokens: true}))
@@ -91,7 +91,7 @@ const populate = function (gulp) {
       path.join(SRC, DATA, '**/*.*')
     ])
     .pipe(vPaths(function (p) {
-      console.log(`[${new Date().toISOString()}][${C.White}${modName.toUpperCase()}${C.NC}] DATA: \t [${p}]`);
+      console.log(`${ME.d()}[${C.W}${modName.toUpperCase()}${C.N}] DATA: \t [${p}]`);
       return Promise.resolve(p);
     }))
     .pipe(gulp.dest(path.resolve(DEST, DATA)));

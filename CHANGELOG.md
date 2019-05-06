@@ -1,8 +1,8 @@
 <p align="center">
-  <a href="https://github.com/tbaltrushaitis/cv/releases"><img src="https://img.shields.io/github/release/tbaltrushaitis/cv.svg?style=flat" alt="GitHub release"></a>
-  <a href="https://github.com/tbaltrushaitis/cv/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat" alt="License"></a>
-  <img src="https://img.shields.io/david/tbaltrushaitis/cv.svg" alt="Dependencies">
-  <img src="https://img.shields.io/david/dev/tbaltrushaitis/cv.svg" alt="Dev Dependencies">
+  <a href="https://github.com/tbaltrushaitis/cv/releases"><img src="https://img.shields.io/github/release/tbaltrushaitis/cv.svg?style=flat" alt="GitHub release" /></a>
+  <a href="https://github.com/tbaltrushaitis/cv/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat" alt="License" /></a>
+  <img src="https://img.shields.io/david/tbaltrushaitis/cv.svg" alt="Dependencies" />
+  <img src="https://img.shields.io/david/dev/tbaltrushaitis/cv.svg" alt="Dev Dependencies" />
 </p>
 
 <p align="center">
@@ -19,11 +19,29 @@
 
 :mortar_board: Best-in-Class modern CV, Resume and Portfolio website template. All-in-One-Page site with fully customizable builder.
 
-`modern` `cv` `resume` `template` `portfolio` `portfolio-website` `cv-template` `IT` `curriculum-vitae` `cv-summary` `resume-template` `resume-website` `cv-website` `animated` `template-project`
+`modern` `cv` `resume` `template` `portfolio` `portfolio-website` `cv-template` `IT` `curriculum-vitae` `cv-summary` `resume-template` `resume-website` `cv-website` `template-project`
 
 ---
 
 ## :memo: Change history ##
+
+### v0.2.2: ###
+- [x] Several tweaks for apache server caching and compressing added in `.htaccess` file
+- [x] Bower packages updated to latest versions: `modernizr`, `smoothscroll`, `font-awesome` and `jquery`
+- [x] NPM packages updated to latest versions: `jimp`, `jshint` and `yargs`
+- [x] Added colors for several skills icons
+- [x] Implemented Gulp and Make tasks for preparation of archive with project distro
+- [x] Fixed bug with responsive styling
+- [x] Added tooltips for skill icons in employment history cards
+- [x] Improved styles building gulp task
+- [x] Implemented FOUC (flash of unstyled content) workaround
+- [x] Added category keys for npm scripts in package.json - from [Jason Yu](https://dev.to/ycmjason/how-to-organise-npm-scripts-4d2m)
+- [x] Shorter color names for console logs
+- [x] One global function to show date and time in console logs
+
+### v0.2.1: ###
+- [x] For each item in the portfolio section buttons with links to live demos now goes before "zoom" and "github repo" buttons
+- [x] Added tooltips for links to profiles in social media at "home" section
 
 ### v0.2.0: ###
 - [x] For several links attribute `rel="noopener"` added for higher security

@@ -1,14 +1,14 @@
 {
   "__parent": "./build.json"
 , "app": {
-      "name": "%{APP_NAME|cv}"
-    , "version": "0.2.0"
-    , "url": "http://@{./name}.%{NODE_ENV|test}"
-    , "env": "%{NODE_ENV|production}"
+    "name": "%{APP_NAME|cv}"
+  , "version": "0.2.2"
+  , "url": "http://@{./name}.%{NODE_ENV|test}"
+  , "env": "%{NODE_ENV|production}"
   }
 , "app_url": "http://cv.%{NODE_ENV|test}"
 , "engine": {
-      "name":    "cv-template"
-    , "version": "0.2.0"
+    "name":    "cv-template"
+  , "version": "0.2.2"
   }
 }

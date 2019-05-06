@@ -16,11 +16,11 @@ const del  = require('del');
 const path = require('path');
 const utin = require('util').inspect;
 
-const readConfig = require('read-config');
 const filter     = require('gulp-filter');
 const jimp       = require('gulp-jimp');
 const merge      = require('merge-stream');
 const vPaths     = require('vinyl-paths');
+const readConfig = require('read-config');
 
 //  ------------------------------------------------------------------------  //
 //  ----------------------------  CONFIGURATION  ---------------------------  //
@@ -31,7 +31,7 @@ utin.defaultOptions = Object.assign({}, ME.pkg.options.iopts || {});
 
 const modName = path.basename(module.filename, '.js');
 const modPath = path.relative(ME.WD, path.dirname(module.filename));
-const confPath = path.join(ME.WD, 'config', path.sep);
+const confPath = path.join(ME.WD, 'config');
 const modConfigFile = `${path.join(confPath, modPath, modName)}.json`;
 const modConfig = readConfig(modConfigFile, ME.pkg.options.readconf);
 
@@ -43,7 +43,7 @@ let C = ME.Config.colors;
 //  ------------------------------------------------------------------------  //
 
 const buildImg = function (gulp) {
-  console.log(`${ME.L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}] with [${modConfigFile}]`);
+  console.log(`${ME.L}${ME.d()}[${C.Y}${modPath}/${modName}${C.N}] with [${modConfigFile}]`);
 
   //
   //  JIMP - responsible for image processing
@@ -53,6 +53,7 @@ const buildImg = function (gulp) {
   let IMG  = path.join('img');
   let TUMB = path.join('thumbs');
   let SRC  = path.join(FROM, IMG, 'works', '**/*.*');
+
   let defs = Object.assign({}, {
       autocrop: {
           tolerance: 0.0002
@@ -65,12 +66,13 @@ const buildImg = function (gulp) {
     , type: 'png'
   });
 
+
   let PNGS = gulp.src([SRC])
     .pipe(filter([
       '**/*.png'
     ]))
     .pipe(vPaths(function (p) {
-      console.log(`[${new Date().toISOString()}][${C.White}JIMP${C.NC}] Crop PNG: [${p}]`);
+      console.log(`${ME.d()}[${C.W}JIMP${C.N}] Crop PNG: [${p}]`);
       return Promise.resolve(p);
     }))
     .pipe(jimp({
@@ -78,13 +80,14 @@ const buildImg = function (gulp) {
     }))
     .pipe(gulp.dest(path.join(DEST, IMG, TUMB, 'works')));
 
+
   let JPGS = gulp.src(SRC)
     .pipe(filter([
         '**/*.jpg'
       , '**/*.jpeg'
     ]))
     .pipe(vPaths(function (p) {
-      console.log(`[${new Date().toISOString()}][${C.White}JIMP${C.NC}] Crop JPEG: [${p}]`);
+      console.log(`${ME.d()}[${C.W}JIMP${C.N}] Crop JPEG: [${p}]`);
       return Promise.resolve(p);
     }))
     .pipe(jimp({
@@ -93,6 +96,7 @@ const buildImg = function (gulp) {
           })
     }))
     .pipe(gulp.dest(path.join(DEST, IMG, TUMB, 'works')));
+
 
   return merge(PNGS, JPGS)
           .on('error', console.error.bind(console));

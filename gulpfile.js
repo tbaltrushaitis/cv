@@ -1,7 +1,7 @@
 /*!
  * Project:     cv
  * File:        ./gulpfile.js
- * Copyright(c) 2016-nowdays Baltrushaitis Tomas <tbaltrushaitis@gmail.com>
+ * Copyright(c) 2016-present Baltrushaitis Tomas <tbaltrushaitis@gmail.com>
  * License:     MIT
  */
 
@@ -31,16 +31,16 @@ const jscs         = require('gulp-jscs');
 const jshint       = require('gulp-jshint');
 const livereload   = require('gulp-livereload');
 
+const pkg = require('./package.json');
+
 //  ------------------------------------------------------------------------  //
 //  ----------------------------  CONFIGURATION  ---------------------------  //
 //  ------------------------------------------------------------------------  //
 
 let now = new Date();
-
-global.ME = {};
+let ME = global.ME = {};
 ME.WD = path.join(__dirname);
 
-const pkg = require('./package.json');
 ME.pkg = Object.assign({}, pkg || {});
 ME.version = ME.pkg.version;
 ME.pkg.built = `${dateFormat(now, 'yyyy-mm-dd')}T${dateFormat(now, 'HH:MM:ss')} ${dateFormat(now, 'Z')}`;
@@ -62,7 +62,7 @@ ME.NODE_ENV = process.env.NODE_ENV
 
 process.env.NODE_ENV = `${ME.NODE_ENV}`;
 
-ME.VERSION = fs.existsSync('./VERSION') ? fs.readFileSync('./VERSION', ME.pkg.options.file).trim() : 'VERSION_UNKNOWN';
+ME.VERSION = fs.existsSync('./VERSION') ? fs.readFileSync('./VERSION', ME.pkg.options.file).trim() : ME.version;
 ME.COMMIT  = fs.existsSync('./COMMIT') ? fs.readFileSync('./COMMIT', ME.pkg.options.file).trim() : 'COMMIT_UNKNOWN';
 
 var BUILD_FILE = path.join(ME.WD, `BUILD-${ME.VERSION}`);
@@ -76,15 +76,24 @@ const confBase = path.join(ME.WD, 'config', ME.NODE_ENV + '.json');
 let config = readConfig(confBase, Object.assign({}, ME.pkg.options.readconf));
 ME.Config = config;
 
+let C = ME.Config.colors;
+ME.L = `\n${C.W}${(new Array(80).join('-'))}${C.N}\n`;
+ME.d = function () {
+  return `[${C.Gray}${new Date().toISOString()}${C.N}][${C.C}${ME.pkg.name}${C.N}:${C.BC}${ME.VERSION}${C.N}]`;
+};
+
 ME.DIR    = {};
-ME.CURDIR = path.join(process.cwd(), path.sep);
-ME.DOC    = path.join('docs',     path.sep);
-ME.TMP    = path.join('tmp',      path.sep);
-ME.SRC    = path.join('src',      path.sep);
-ME.WEB    = path.join(`webroot`,  path.sep);
-ME.BUILD  = path.join(`build-${ME.VERSION}`,  path.sep);
-ME.DIST   = path.join(`dist-${ME.VERSION}`,   path.sep);
-ME.BOWER  = JSON.parse(fs.existsSync('.bowerrc') ? fs.readFileSync('.bowerrc') : '{"directory": "bower_modules"}').directory;
+ME.CURDIR = path.join(process.cwd());
+ME.DOC    = path.join('docs');
+ME.TMP    = path.join('tmp');
+ME.SRC    = path.join('src');
+ME.WEB    = path.join(`webroot`);
+ME.BUILD  = path.join(`build-${ME.VERSION}`);
+ME.DIST   = `dist-${ME.VERSION}`;
+ME.BOWER  = JSON.parse(fs.existsSync('.bowerrc')
+              ? fs.readFileSync('.bowerrc')
+              : '{"directory": "bower_modules"}'
+            ).directory;
 
 let headTplName = path.join(ME.WD, 'config', 'header.tpl');
 let footTplName = path.join(ME.WD, 'config', 'footer.tpl');
@@ -95,14 +104,16 @@ let headTplCtx = fs.existsSync( headTplName )
  * =========================================================================== *
  * <%= pkg.name %>@<%= pkg.version %>
  * =========================================================================== *
-**/`;
+**/
+`;
 let footTplCtx = fs.existsSync( footTplName )
                   ? fs.readFileSync( footTplName )
                   : `
 /*!
  * <%= pkg.name %>@<%= pkg.version %> - <%= pkg.title %> [${dateFormat(now, 'yyyy-mm-dd')}T${dateFormat(now, 'HH:MM:ss')}Z ${dateFormat(now, 'Z')}]
  * =========================================================================== *
-**/`;
+**/
+`;
 
 let headTpl = _.template(`${headTplCtx}`);
 let footTpl = _.template(`${footTplCtx}`);
@@ -113,12 +124,9 @@ const Banner = {
 };
 ME.Banner = Banner;
 
-let C = ME.Config.colors;
-ME.L = `\n${C.White}${(new Array(80).join('-'))}${C.NC}\n`;
-
 console.log(`${ME.L}`);
-console.log(`${C.BYellow}NPM_LIFECYCLE_EVENT${C.NC} = [${C.BRed}${process.env.npm_lifecycle_event}${C.NC}]`);
-console.log(`${C.BYellow}NODE_ENV${C.NC} = [${C.BRed}${ME.NODE_ENV}${C.NC}]`);
+console.log(`${C.BY}NPM_LIFECYCLE_EVENT${C.N} = [${C.BR}${process.env.npm_lifecycle_event}${C.N}]`);
+console.log(`${C.BY}NODE_ENV${C.N} = [${C.BR}${ME.NODE_ENV}${C.N}]`);
 console.log(`${ME.L}`);
 
 
@@ -143,159 +151,188 @@ function defaultTask (cb) {
   (function () {
     switch (ME.NODE_ENV) {
       case 'test': {
-        console.log(`[${new Date().toISOString()}] ${C.Yellow}Starting ${C.BWhite}${C.On_Blue}TEST${C.NC}`);
+        console.log(`${ME.d()} ${C.Y}Starting ${C.BW}${C.OnBlue}TEST${C.N}`);
         gulp.start('test');
         break;
       }
       case ('dev' || 'development'): {
-        console.log(`[${new Date().toISOString()}] ${C.Yellow}Starting ${C.BWhite}${C.On_Blue}DEV${C.NC}`);
+        console.log(`${ME.d()} ${C.Y}Starting ${C.BW}${C.OnBlue}DEV${C.N}`);
         gulp.start('dev');
         break;
       }
       case 'production': {
-        console.log(`[${new Date().toISOString()}] ${C.Yellow}Starting ${C.BWhite}${C.On_Blue}PROD${C.NC}`);
+        console.log(`${ME.d()} ${C.Y}Starting ${C.BW}${C.OnBlue}PROD${C.N}`);
         gulp.start('prod');
         break;
       }
       default: {
-        console.log(`[${new Date().toISOString()}] ${C.Yellow}Starting ${C.BWhite}${C.On_Blue}USAGE${C.NC}`);
+        console.log(`${ME.d()} ${C.Y}Starting ${C.BW}${C.OnBlue}USAGE${C.N}`);
         gulp.start('usage');
         break;
       }
     }
   })();
 
-  if ('function' === typeof cb) {
-    cb();
-  }
+  // if ('function' === typeof cb) {
+  //   cb();
+  // }
 
 }
 
 
 gulp.task('default', [], (cb) => {
   defaultTask();
-  console.log(`[${new Date().toISOString()}][${C.Yellow}DEFAULT${C.NC}] ${C.BWhite}${C.On_Blue}FINISHED${C.NC}`);
-  cb();
+  console.log(`${ME.d()}[${C.Y}DEFAULT${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
+
+  if ('function' === typeof cb) {
+    cb();
+  }
+
 });
 
 gulp.task('lint', [
     'jscs'
   , 'jshint'
-], (cb) => {
-  console.log(`[${new Date().toISOString()}][${C.Yellow}LINT${C.NC}] ${C.BWhite}${C.On_Blue}FINISHED${C.NC}`);
-  cb();
+  ], (cb) => {
+  console.log(`${ME.d()}[${C.Y}LINT${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
+  if ('function' === typeof cb) {
+    cb();
+  }
 });
 
 gulp.task('test', [
-    'lint'
-  , 'show:src'
-  , 'usage'
+    'show:env'
   , 'show:config'
-  , 'show:env'
-], (cb) => {
-  console.log(`[${new Date().toISOString()}][${C.Yellow}TEST${C.NC}] ${C.BWhite}${C.On_Blue}FINISHED${C.NC}`);
-  cb();
+  , 'lint'
+  ], (cb) => {
+  console.log(`${ME.d()}[${C.Y}TEST${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
+  if ('function' === typeof cb) {
+    cb();
+  }
 });
 
 gulp.task('clean', [
     'clean:build'
   , 'clean:dist'
-], (cb) => {
-  console.log(`[${new Date().toISOString()}][${C.Yellow}CLEAN${C.NC}] ${C.BWhite}${C.On_Blue}FINISHED${C.NC}`);
-  cb();
+  ], (cb) => {
+  console.log(`${ME.d()}[${C.Y}CLEAN${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
+  if ('function' === typeof cb) {
+    cb();
+  }
 });
 
 gulp.task('build:assets', [
     'build:css'
   , 'build:js'
   , 'build:img'
-], (cb) => {
-  console.log(`[${new Date().toISOString()}][${C.Yellow}BUILD:ASSETS${C.NC}] ${C.BWhite}${C.On_Blue}FINISHED${C.NC}`);
-  cb();
+  ], (cb) => {
+  console.log(`${ME.d()}[${C.Y}BUILD:ASSETS${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
+  if ('function' === typeof cb) {
+    cb();
+  }
 });
 
 gulp.task('build:assets:fast', [
     'build:css'
   , 'build:js'
-], (cb) => {
-  console.log(`[${new Date().toISOString()}][${C.Yellow}BUILD:ASSETS:FAST${C.NC}] ${C.BWhite}${C.On_Blue}FINISHED${C.NC}`);
-  cb();
+  ], (cb) => {
+  console.log(`${ME.d()}[${C.Y}BUILD:ASSETS:FAST${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
+  if ('function' === typeof cb) {
+    cb();
+  }
 });
 
 gulp.task('dev', [
-  'build:dev'
-], (cb) => {
+    'build:dev'
+  ], (cb) => {
   gulp.start('watch');
-  console.log(`[${new Date().toISOString()}][${C.Yellow}DEV${C.NC}] ${C.BWhite}${C.On_Blue}FINISHED${C.NC}`);
-  cb();
+  console.log(`${ME.d()}[${C.Y}DEV${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
+  if ('function' === typeof cb) {
+    cb();
+  }
 });
 
 gulp.task('prod', [
-  'build'
-], (cb) => {
+    'build'
+  ], (cb) => {
   gulp.start('deploy');
-  console.log(`[${new Date().toISOString()}][${C.Yellow}PROD${C.NC}] ${C.BWhite}${C.On_Blue}FINISHED${C.NC}`);
-  cb();
+  console.log(`${ME.d()}[${C.Y}PROD${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
+  if ('function' === typeof cb) {
+    cb();
+  }
 });
 
 
 gulp.task('build:dev', [
-  'bower'
-], () => {
+    'bower'
+  ], (cb) => {
   gulpSequence('sync:src2build', 'build:assets', 'deploy')((err) => {
     if (err) {
-      console.log(`[${new Date().toISOString()}][${C.Yellow}BUILD:DEV${C.NC}] ${C.BRed}ERROR${C.NC}: [${utin(err)}]`);
+      console.log(`${ME.d()}[${C.Y}BUILD:DEV${C.N}] ${C.BR}ERROR${C.N}: [${utin(err)}]`);
       return Promise.reject(1);
     }
-    console.log(`[${new Date().toISOString()}][${C.Yellow}BUILD:DEV${C.NC}] ${C.BWhite}${C.On_Blue}FINISHED${C.NC}`);
+    console.log(`${ME.d()}[${C.Y}BUILD:DEV${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
   });
+  if ('function' === typeof cb) {
+    cb();
+  }
 });
 
 
 gulp.task('build', [
-  'bower'
-], (cb) => {
+    'bower'
+  ], (cb) => {
   gulpSequence('sync:src2build', 'build:assets', 'deploy')((err) => {
     if (err) {
-      console.log(`[${new Date().toISOString()}][${C.Yellow}BUILD${C.NC}] ${C.BRed}ERROR${C.NC}: [${utin(err)}]`);
+      console.log(`${ME.d()}[${C.Y}BUILD${C.N}] ${C.BR}ERROR${C.N}: [${utin(err)}]`);
       return Promise.reject(1);
     }else{
-      console.log(`[${new Date().toISOString()}][${C.Yellow}BUILD${C.NC}] ${C.BWhite}${C.On_Blue}FINISHED${C.NC}`);
+      console.log(`${ME.d()}[${C.Y}BUILD${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
+    }
+    if ('function' === typeof cb) {
       return cb();
+    }else{
+      return Promise.resolve();
     }
   });
 });
 
 
 gulp.task('build:fast', [
-  'sync:src2build'
-], (cb) => {
+    'sync:src2build'
+  ], (cb) => {
   gulpSequence('build:assets:fast', 'deploy')((err) => {
     if (err) {
-      console.log(`[${new Date().toISOString()}][${C.Yellow}BUILD:FAST${C.NC}] ${C.BRed}ERROR${C.NC}: [${utin(err)}]`);
+      console.log(`${ME.d()}[${C.Y}BUILD:FAST${C.N}] ${C.BR}ERROR${C.N}: [${utin(err)}]`);
       return Promise.reject(1);
     }
-    console.log(`[${new Date().toISOString()}][${C.Yellow}BUILD:FAST${C.NC}] ${C.BWhite}${C.On_Blue}FINISHED${C.NC}`);
+    console.log(`${ME.d()}[${C.Y}BUILD:FAST${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
   });
-  cb();
+  if ('function' === typeof cb) {
+    cb();
+  }
 });
 
 
 gulp.task('dist', [
-  'clean:dist'
-], (cb) => {
+    'clean:dist'
+  ], (cb) => {
   gulp.start('sync:build2dist');
-  console.log(`[${new Date().toISOString()}][${C.Yellow}DIST${C.NC}] ${C.BWhite}${C.On_Blue}FINISHED${C.NC}`);
-  cb();
+  console.log(`${ME.d()}[${C.Y}DIST${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
+  if ('function' === typeof cb) {
+    cb();
+  }
 });
 
 
 gulp.task('deploy', [
-  'sync:build2web'
-], (cb) => {
+    'sync:build2web'
+  ], (cb) => {
   gulp.start('show:env');
-  console.log(`[${new Date().toISOString()}][${C.Yellow}DEPLOY${C.NC}] ${C.BWhite}${C.On_Blue}FINISHED${C.NC}`);
-  cb();
+  console.log(`${ME.d()}[${C.Y}DEPLOY${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
+  if ('function' === typeof cb) {
+    cb();
+  }
 });
 
 
@@ -307,8 +344,10 @@ gulp.task('watch', [], (cb) => {
 
   livereload.listen(ME.pkg.options.livereload);
   gulp.start('watch:src');
-  console.log(`[${new Date().toISOString()}][${C.Yellow}WATCH${C.NC}] ${C.BWhite}${C.On_Blue}FINISHED${C.NC}`);
-  cb();
+  console.log(`${ME.d()}[${C.Y}WATCH${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
+  if ('function' === typeof cb) {
+    cb();
+  }
 });
 
 gulp.task('watch:src', [
@@ -317,8 +356,10 @@ gulp.task('watch:src', [
   , 'watch:src:css'
   , 'watch:src:js'
 ], (cb) => {
-  console.log(`[${new Date().toISOString()}][${C.Yellow}WATCH:SRC${C.NC}] ${C.BWhite}${C.On_Blue}FINISHED${C.NC}`);
-  cb();
+  console.log(`${ME.d()}[${C.Y}WATCH:SRC${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
+  if ('function' === typeof cb) {
+    cb();
+  }
 });
 
 gulp.task('watch:src:default', function () {
@@ -330,14 +371,14 @@ gulp.task('watch:src:default', function () {
   , function () {
     gulpSequence('populate', 'sync:src2build', 'build:fast', 'deploy')((err) => {
       if (err) {
-        console.log(`[${new Date().toISOString()}][${C.Yellow}WATCH:SRC:DEFAULT${C.NC}] ${C.BRed}ERROR${C.NC}: [${utin(err)}]`);
+        console.log(`${ME.d()}[${C.Y}WATCH:SRC:DEFAULT${C.N}] ${C.BR}ERROR${C.N}: [${utin(err)}]`);
         return Promise.reject(1);
       };
-      console.log(`[${new Date().toISOString()}][${C.Yellow}WATCH:SRC:DEFAULT${C.NC}] ${C.BWhite}${C.On_Blue}FINISHED${C.NC}`);
+      console.log(`${ME.d()}[${C.Y}WATCH:SRC:DEFAULT${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
     });
   });
   wSRC.on('change', function (e) {
-    console.log(`[${new Date().toISOString()}][${C.White}WATCH:SRC:DEFAULT${C.NC}] FILE [${C.Purple}${e.path}${C.NC}] was [${C.On_Blue}${e.type}${C.NC}], running tasks ...`);
+    console.log(`${ME.d()}[${C.W}WATCH:SRC:DEFAULT${C.N}] FILE [${C.P}${e.path}${C.N}] was [${C.OnBlue}${e.type}${C.N}], running tasks ...`);
   });
 });
 
@@ -349,14 +390,14 @@ gulp.task('watch:src:configs', function () {
   , function () {
     gulpSequence('populate', 'build:fast', 'deploy')((err) => {
       if (err) {
-        console.log(`[${new Date().toISOString()}][${C.Yellow}WATCH:SRC:CONFIGS${C.NC}] ${C.BRed}ERROR${C.NC}: [${utin(err)}]`);
+        console.log(`${ME.d()}[${C.Y}WATCH:SRC:CONFIGS${C.N}] ${C.BR}ERROR${C.N}: [${utin(err)}]`);
         return Promise.reject(1);
       }
-      console.log(`[${new Date().toISOString()}][${C.Yellow}WATCH:SRC:CONFIGS${C.NC}] ${C.BWhite}${C.On_Blue}FINISHED${C.NC}`);
+      console.log(`${ME.d()}[${C.Y}WATCH:SRC:CONFIGS${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
     });
   });
   wCONF.on('change', function (e) {
-    console.log(`[${new Date().toISOString()}][${C.White}WATCH:SRC${C.NC}] CONFIG [${C.Purple}${e.path}${C.NC}] was [${C.White}${e.type}${C.NC}], running tasks ...`);
+    console.log(`${ME.d()}[${C.W}WATCH:SRC${C.N}] CONFIG [${C.P}${e.path}${C.N}] was [${C.W}${e.type}${C.N}], running tasks ...`);
   });
 });
 
@@ -368,14 +409,14 @@ gulp.task('watch:src:css', function () {
   , function () {
     gulpSequence('sync:src2build', 'build:css', 'deploy')((err) => {
       if (err) {
-        console.log(`[${new Date().toISOString()}][${C.Yellow}WATCH:SRC:CSS${C.NC}] ${C.BRed}ERROR${C.NC}: [${utin(err)}]`);
+        console.log(`${ME.d()}[${C.Y}WATCH:SRC:CSS${C.N}] ${C.BR}ERROR${C.N}: [${utin(err)}]`);
         return Promise.reject(1);
       }
-      console.log(`[${new Date().toISOString()}][${C.Yellow}WATCH:SRC:CSS${C.NC}] ${C.BWhite}${C.On_Blue}FINISHED${C.NC}`);
+      console.log(`${ME.d()}[${C.Y}WATCH:SRC:CSS${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
     });
   });
   wCSS.on('change', function (e) {
-    console.log(`[${new Date().toISOString()}][${C.White}WATCH:SRC${C.NC}] CSS [${C.Purple}${e.path}${C.NC}] was [${C.White}${e.type}${C.NC}], running tasks ...`);
+    console.log(`${ME.d()}[${C.W}WATCH:SRC${C.N}] CSS [${C.P}${e.path}${C.N}] was [${C.W}${e.type}${C.N}], running tasks ...`);
   });
 });
 
@@ -387,14 +428,14 @@ gulp.task('watch:src:js', function () {
   , function () {
     gulpSequence('lint', 'populate', 'sync:src2build', 'build:js', 'deploy')((err) => {
       if (err) {
-        console.log(`[${new Date().toISOString()}][${C.Yellow}WATCH:SRC:JS${C.NC}] ${C.BRed}ERROR${C.NC}: [${utin(err)}]`);
+        console.log(`${ME.d()}[${C.Y}WATCH:SRC:JS${C.N}] ${C.BRed}ERROR${C.N}: [${utin(err)}]`);
         return Promise.reject(1);
       }
-      console.log(`[${new Date().toISOString()}][${C.Yellow}WATCH:SRC:JS${C.NC}] ${C.BWhite}${C.On_Blue}FINISHED${C.NC}`);
+      console.log(`${ME.d()}[${C.Y}WATCH:SRC:JS${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
     });
   });
   wScripts.on('change', function (e) {
-    console.log(`[${new Date().toISOString()}][${C.White}WATCH:SRC${C.NC}] JS [${C.Purple}${e.path}${C.NC}] was [${C.White}${e.type}${C.NC}], running tasks ...`);
+    console.log(`${ME.d()}[${C.W}WATCH:SRC${C.N}] JS [${C.P}${e.path}${C.N}] was [${C.W}${e.type}${C.N}], running tasks ...`);
   });
 });
 
@@ -425,10 +466,10 @@ gulp.task('jshint', function () {
     ])
     .pipe(jshint(jshintConfig))
     .pipe(gulpif('production' === ME.NODE_ENV
-      , jshint.reporter('jshint-stylish',   {verbose: true})
-      , jshint.reporter('default',          {verbose: true})
+      , jshint.reporter('jshint-stylish', {verbose: true})
+      , jshint.reporter('default',        {verbose: true})
     ));
-    //  , jshint.reporter('fail',           {verbose: true})
+    //  , jshint.reporter('fail',         {verbose: true})
 });
 
 
@@ -441,7 +482,7 @@ gulp.task('show:src', function () {
   ])
   .pipe(changed(path.join(ME.BUILD, 'resources')))
   .pipe(vPaths((p) => {
-    console.info('SOURCE Changed:', p);
+    console.log(`${ME.d()} SOURCE Changed: [${p}]`);
     return Promise.resolve(p);
   }));
 });
@@ -454,7 +495,9 @@ gulp.task('show:config', function (cb) {
   console.log(`ME.Config = [${utin(ME.Config)}]`);
   console.log(`${ME.L}`);
 
-  cb();
+  if ('function' === typeof cb) {
+    cb();
+  }
 });
 
 
@@ -462,11 +505,13 @@ gulp.task('show:config', function (cb) {
 gulp.task('show:env', function (cb) {
 
   console.log(`${ME.L}`);
-  console.log(`${C.BYellow}NPM_LIFECYCLE_EVENT${C.NC} = [${C.BRed}${process.env.npm_lifecycle_event}${C.NC}]`);
-  console.log(`${C.BYellow}NODE_ENV${C.NC} = [${C.BRed}${ME.NODE_ENV}${C.NC}]`);
+  console.log(`${ME.d()} ${C.BY}NPM_LIFECYCLE_EVENT${C.N} = [${C.BR}${process.env.npm_lifecycle_event}${C.N}]`);
+  console.log(`${ME.d()} ${C.BY}NODE_ENV${C.N} = [${C.BR}${ME.NODE_ENV}${C.N}]`);
   console.log(`${ME.L}`);
 
-  cb();
+  if ('function' === typeof cb) {
+    cb();
+  }
 });
 
 

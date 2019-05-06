@@ -1,13 +1,13 @@
 {
-    "__parent": "./config.json"
-  , "xhr_timeout": 5000
-  , "app_url": "http://cv.%{NODE_ENV|test}"
-  , "production": {
-      "title": "PRODUCTION ENVIRONMENT"
-    }
-  , "keys": {
-      "google": {
-        "maps": "YOUR_GOOGLE_MAPS_KEY"
-      }
+  "__parent": "./config.json"
+, "app_url": "http://cv.%{NODE_ENV|test}"
+, "environment": {
+    "title": "PRODUCTION"
   }
+, "keys": {
+    "google": {
+      "maps": "YOUR_GOOGLE_MAPS_KEY"
+    }
+  }
+, "xhr_timeout": 5000
 }

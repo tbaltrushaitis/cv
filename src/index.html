@@ -4,6 +4,12 @@
 <!--[if IE 10]> <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="ie10"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="noie"> <!--<![endif]-->
 <head>
+  <!--/ FOUC workaround
+  ========================================================================= /-->
+  <style>
+    html {visibility: hidden; opacity: 0; display: none;}
+  </style>
+
   <!--/  Basic Page Needs
   ========================================================================= /-->
   <meta charset="utf-8" />
@@ -20,7 +26,7 @@
   ========================================================================= /-->
   <meta name="title"         content="{{person.name.full}} - Personal Resume and Portfolio" />
   <meta name="description"   content="Personal resume of {{person.name.full}}" />
-  <meta name="keywords"      content="modern, cv, resume, template, portfolio, portfolio-website, cv-template, IT, curriculum-vitae, cv-summary, resume-template, resume-website, cv-website, animated, animate-css, template-project" />
+  <meta name="keywords"      content="modern, cv, resume, template, portfolio, portfolio-website, cv-template, IT, curriculum-vitae, cv-summary, resume-template, resume-website, cv-website, animate-css, template-project" />
   <meta name="author"        content="{{author.name.full}}" />
   <meta name="language"      content="en" />
   <meta name="robots"        content="index, nofollow, noarchive" />
@@ -31,7 +37,7 @@
   <meta property="og:type"        content="portfolio" />
   <meta property="og:title"       content="{{person.name.full}} - Personal Resume and Portfolio" />
   <meta property="og:description" content="Personal resume of {{person.name.full}}" />
-  <meta property="og:image"       content="assets/img/Avatar-rhomb.png" />
+  <meta property="og:image"       content="assets/img/Avatar-rhomb-md.png" />
   <meta property="og:site_name"   content="Modern CV, Resume and Portfolio" />
   <meta property="og:url"         content="/" />
   <meta property="og:see_also"    content="{{author.url}}" />
@@ -48,18 +54,21 @@
   <!--/  Bower Bundle  /-->
   <link type="text/css" rel="stylesheet" media="screen" href="assets/css/bower-bundle.css" id="css-bower-bundle" />
 
+  <!--/  Frontend Bundle  /-->
+  <link type="text/css" rel="stylesheet" media="screen" href="assets/css/frontend-bundle.css" id="css-frontend-bundle" />
+
   <!--/  Theme  /-->
-  <link type="text/css" rel="stylesheet" media="screen" href="assets/css/theme.css" id="css-theme" />
+  <!-- <link type="text/css" rel="stylesheet" media="screen" href="assets/css/theme.css" id="css-theme" /> -->
 
   <!--/  Magnific  /-->
-  <link type="text/css" rel="stylesheet" media="screen" href="assets/css/magnific-popup.css" id="css-magnific-popup" />
+  <!-- <link type="text/css" rel="stylesheet" media="screen" href="assets/css/magnific-popup.css" id="css-magnific-popup" /> -->
 
   <!--/  Grid  /-->
-  <link type="text/css" rel="stylesheet" media="screen" href="assets/css/og-grid.css" id="css-og-grid" />
+  <!-- <link type="text/css" rel="stylesheet" media="screen" href="assets/css/og-grid.css" id="css-og-grid" /> -->
 
   <!--/  Custom  /-->
-  <link type="text/css" rel="stylesheet" media="screen" href="assets/css/custom.css" id="css-custom" />
-  <link type="text/css" rel="stylesheet" media="screen" href="assets/css/fa-colors.css" id="css-fa-colors" />
+  <!-- <link type="text/css" rel="stylesheet" media="screen" href="assets/css/custom.css" id="css-custom" /> -->
+  <!-- <link type="text/css" rel="stylesheet" media="screen" href="assets/css/fa-colors.css" id="css-fa-colors" /> -->
 
   <!--/ HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries /-->
   <!--/ WARNING: Respond.js doesn't work if you view the page via file:// /-->
@@ -95,22 +104,23 @@
   <section id="home" class="tt-fullHeight" data-stellar-vertical-offset="50" data-stellar-background-ratio="0.5">
     <div class="intro">
       <div class="intro-sub wow" data-wow-duration="3.0s" data-wow-delay="0.0s">{{person.name.full}}</div>
-      <h1 class="wow" data-wow-duration="2.7s" data-wow-delay="0.3s"><span class="first">{{person.home.pos-prefix}}</span> <span class="">{{person.home.pos-title}}</span></h1>
+      <h1 class="wow" data-wow-duration="2.7s" data-wow-delay="0.3s">
+        <span class="first">{{person.home.pos-prefix}}</span> <span class="">{{person.home.pos-title}}</span></h1>
       <p class="wow" data-wow-duration="2.5s" data-wow-delay="0.5s">{{person.home.pos-tags}}</p>
 
       <div class="social-icons" id="social-icons">
         <ul class="list-inline">
           <li class="wow" data-wow-duration="1.4s" data-wow-delay="1.6s">
-            <a href="http://bit.ly/tomas-in" target="_blank" rel="noopener"><i class="fab fa-linkedin" title="LinkedIn"></i></a>
+            <a target="_blank" rel="noopener" href="{{person.socials.li.url}}"><i class="{{person.socials.li.icon}}" title="{{person.socials.li.title}}"></i></a>
           </li>
           <li class="wow" data-wow-duration="1.6s" data-wow-delay="1.4s">
-            <a href="http://bit.ly/tomas-git" target="_blank" rel="noopener"><i class="fab fa-github" title="GitHub"></i></a>
+            <a target="_blank" rel="noopener" href="{{person.socials.git.url}}"><i class="{{person.socials.git.icon}}" title="{{person.socials.git.title}}"></i></a>
           </li>
           <li class="wow" data-wow-duration="1.8s" data-wow-delay="1.2s">
-            <a href="http://bit.ly/tomas-bb" target="_blank" rel="noopener"><i class="fab fa-bitbucket" title="BitBucket"></i></a>
+            <a target="_blank" rel="noopener" href="{{person.socials.bb.url}}"><i class="{{person.socials.bb.icon}}" title="{{person.socials.bb.title}}"></i></a>
           </li>
           <li class="wow" data-wow-duration="2.0s" data-wow-delay="1.0s">
-            <a href="http://bit.ly/tomas-hub" target="_blank" rel="noopener"><i class="fab fa-docker" title="DockerHub"></i></a>
+            <a target="_blank" rel="noopener" href="{{person.socials.docker.url}}"><i class="{{person.socials.docker.icon}}" title="{{person.socials.docker.title}}"></i></a>
           </li>
         </ul>
       </div> <!--/ /.social-icons /-->
@@ -134,7 +144,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand hidden" href="index.html">
-            <img class="hidden" src="assets/img/logo.png" alt="{{author.nick}}" />
+            <img class="hidden" src="assets/img/logo.png" max-width="200px" max-height="46px" alt="{{author.nick}}" />
           </a>
         </div>
 
@@ -163,7 +173,7 @@
         <div class="col-md-4 col-md-push-8">
           <div class="biography" data-wow-duration="1.0s">
             <div class="myphoto wow" id="avatar" data-wow-duration="1.0s">
-              <img src="assets/img/Avatar-rhomb-md.png" alt="{{person.name.full}}" />
+              <img src="assets/img/Avatar-rhomb-md.png" max-width="358px" max-height="358px" alt="{{person.name.full}}" />
             </div>
             <ul class="list-check">
               <li class="row">
@@ -217,6 +227,7 @@
               <li class="col-xs-12 col-md-6 wow" id="scope-06"><i class="fas fa-fw fa-check"></i>Networking</li>
               <li class="col-xs-12 col-md-6 wow" id="scope-07"><i class="fas fa-fw fa-check"></i>Machine&nbsp;Learning</li>
               <li class="col-xs-12 col-md-6 wow" id="scope-08"><i class="fas fa-fw fa-check"></i>DB&nbsp;Administration</li>
+              <li class="col-xs-12 col-md-6 wow" id="scope-08"><i class="fas fa-fw fa-check"></i>Artificial Intelligence</li>
             </ul>
           </div>
 
@@ -232,7 +243,7 @@ to run as the Visual FoxPro desktop applications with modern windows-styled inte
 </p>
 
             <p class="wow">At present I have advanced knowledge of 5+ programming languages (JavaScript, Node.js, PHP, Perl, ASP, Visual FoxPro)
-and related fields (OS Linux, Bash-scripting, HTML, CSS, MySQL, MongoDB, Docker, Redis, RabbitMQ, Git, Nginx, Apache, etc.).
+and related fields (OS Linux, Bash scripting, HTML, CSS, MySQL, MongoDB, Docker, Redis, RabbitMQ, Git, Nginx, Apache, etc.).
 Websites creation, OpenSource projects deployments, applications development, building, testing and improvement
 - these are the number of skills every day I'm work with and in what I'm improving my abilities constantly.
 </p>
@@ -266,7 +277,6 @@ Strongly believe that making useful services with usable and friendly interfaces
           </div> -->
 
           <!-- <div class="download-button hidden">
-            <a class="btn btn-info btn-lg" href="#contact"><i class="fa fa-paper-plane"></i> Send me message</a>
             <a class="btn btn-primary btn-lg" href="#"><i class="fa fa-download"></i> Download my cv</a>
           </div> -->
 
@@ -299,7 +309,7 @@ Strongly believe that making useful services with usable and friendly interfaces
                   <span class="month">2003 - 2004</span>
                 </div><!--/ /posted-date /-->
 
-                <div id="edu-01" class="panel timeline-panel wow" data-wow-duration="1.5s">
+                <div id="edu-01" class="panel panel-success timeline-panel wow" data-wow-duration="1.5s">
                   <div class="timeline-content">
 
                     <div class="panel-heading timeline-heading row">
@@ -330,7 +340,7 @@ Strongly believe that making useful services with usable and friendly interfaces
                   <span class="month">1999 - 2003</span>
                 </div>
 
-                <div id="edu-02" class="timeline-panel wow" data-wow-duration="1.5s">
+                <div id="edu-02" class="panel panel-success timeline-panel wow" data-wow-duration="1.5s">
                   <div class="timeline-content">
 
                     <div class="panel-heading timeline-heading row">
@@ -382,14 +392,15 @@ Strongly believe that making useful services with usable and friendly interfaces
 
                       <div class="col-md-2 col-xs-4 pull-right">
                         <a href="http://bit.ly/cg-off" class="thumbnail" target="_blank" rel="noopener">
-                          <img class="media-object" src="assets/img/logos/logo-cg-sm.png" alt="Carts Guru" />
+                          <img class="media-object" src="assets/img/logos/logo-cg-sm.png" max-width="96px" max-height="96px" alt="Carts Guru" />
                         </a>
                       </div>
 
                       <div class="col-md-10 col-xs-8 pull-left">
                         <h3 class="panel-title">Senior Node.js Developer</h3>
                         <span>
-                          <a href="http://bit.ly/cg-off" class="h4 text-success" target="_blank" rel="noopener">Carts Guru</a><br />Kyiv, Ukraine
+                          <a href="http://bit.ly/cg-off" class="h4 text-success" target="_blank" rel="noopener">Carts Guru LLC</a>
+                          <br />Kyiv, Ukraine
                         </span>
                       </div>
 
@@ -406,21 +417,21 @@ Strongly believe that making useful services with usable and friendly interfaces
                     <div class="btn-toolbar" role="toolbar" aria-label="technologies">
 
                       <div class="btn-group" role="group">
-                        <i class="fab fa-2x fa-fw fa-aws"></i>
-                        <i class="fab fa-2x fa-fw fa-bitbucket"></i>
-                        <i class="fab fa-2x fa-fw fa-docker"></i>
-                        <i class="fab fa-2x fa-fw fa-git-square"></i>
+                        <i class="fab fa-1x fa-fw fa-aws" title="Amazon Web Services"></i>
+                        <i class="fab fa-1x fa-fw fa-bitbucket" title="BitBucket"></i>
+                        <i class="fab fa-1x fa-fw fa-docker" title="Docker containers"></i>
+                        <i class="fab fa-1x fa-fw fa-git-square" title="GitHub"></i>
                       </div>
                       <div class="btn-group" role="group">
-                        <i class="fab fa-2x fa-fw fa-facebook"></i>
-                        <i class="fab fa-2x fa-fw fa-js-square"></i>
-                        <i class="fab fa-2x fa-fw fa-html5"></i>
-                        <i class="fab fa-2x fa-fw fa-facebook-messenger"></i>
+                        <i class="fab fa-1x fa-fw fa-facebook" title="Facebook API"></i>
+                        <i class="fab fa-1x fa-fw fa-js-square" title="JavaScript"></i>
+                        <i class="fab fa-1x fa-fw fa-html5" title="HTML5"></i>
+                        <i class="fab fa-1x fa-fw fa-facebook-messenger" title="Facebook Messenger Platform"></i>
                       </div>
                       <div class="btn-group" role="group">
-                        <i class="fab fa-2x fa-fw fa-gulp"></i>
-                        <i class="fab fa-2x fa-fw fa-node"></i>
-                        <i class="fab fa-2x fa-fw fa-npm"></i>
+                        <i class="fab fa-1x fa-fw fa-gulp" title="Gulp"></i>
+                        <i class="fab fa-1x fa-fw fa-node" title="Node.js"></i>
+                        <i class="fab fa-1x fa-fw fa-npm" title="Node Package Manager"></i>
                       </div>
 
                     </div>
@@ -434,19 +445,19 @@ Strongly believe that making useful services with usable and friendly interfaces
                   <span class="month">2011 - 2015</span>
                 </div>
 
-                <div id="car-04" class="timeline-panel wow" data-wow-duration="1.5s">
+                <div id="car-04" class="panel panel-success timeline-panel wow" data-wow-duration="1.5s">
                   <div class="timeline-content">
                     <div class="panel-heading timeline-heading row">
 
                       <div class="col-md-4 col-xs-4 pull-right">
-                        <i class="fab fa-3x fa-fw fa-magento"></i>
-                        <i class="fab fa-3x fa-fw fa-ebay"></i>
+                        <i class="fab fa-3x fa-fw fa-magento" title="Magento Commerce"></i>
+                        <i class="fab fa-3x fa-fw fa-ebay" title="eBay Enterprise"></i>
                       </div>
 
                       <div class="col-md-8 col-xs-8 pull-left">
                         <h3 class="panel-title">Operations Team Lead</h3>
                         <span>
-                          <a href="http://bit.ly/mage-off" class="h4 text-success" target="_blank" rel="noopener">Magento Commerce</a>
+                          <a href="http://bit.ly/mage-off" class="h4 text-success" target="_blank" rel="noopener">Magento Inc</a>
                           <br />Kyiv, Ukraine
                         </span>
                       </div>
@@ -470,15 +481,15 @@ Strongly believe that making useful services with usable and friendly interfaces
                     <div class="btn-toolbar" role="toolbar" aria-label="technologies">
 
                       <div class="btn-group" role="group">
-                        <i class="fab fa-2x fa-fw fa-linux"></i>
-                        <i class="fab fa-2x fa-fw fa-jenkins"></i>
-                        <i class="fab fa-2x fa-fw fa-docker"></i>
-                        <i class="fab fa-2x fa-fw fa-github"></i>
+                        <i class="fab fa-1x fa-fw fa-linux" title="Linux"></i>
+                        <i class="fab fa-1x fa-fw fa-jenkins" title="Jenkins"></i>
+                        <i class="fab fa-1x fa-fw fa-docker" title="Docker containers"></i>
+                        <i class="fab fa-1x fa-fw fa-github" title="GitHub"></i>
                       </div>
                       <div class="btn-group" role="group">
-                        <i class="fab fa-2x fa-fw fa-js-square"></i>
-                        <i class="fab fa-2x fa-fw fa-php"></i>
-                        <i class="fab fa-2x fa-fw fa-cc-paypal"></i>
+                        <i class="fab fa-1x fa-fw fa-js-square" title="JavaScript"></i>
+                        <i class="fab fa-1x fa-fw fa-php" title="PHP"></i>
+                        <i class="fab fa-1x fa-fw fa-cc-paypal" title="PayPal"></i>
                       </div>
 
                     </div>
@@ -492,13 +503,13 @@ Strongly believe that making useful services with usable and friendly interfaces
                   <span class="month">2008 - 2009</span>
                 </div>
 
-                <div id="car-03" class="panel timeline-panel wow" data-wow-duration="1.5s">
+                <div id="car-03" class="panel panel-success timeline-panel wow" data-wow-duration="1.5s">
                   <div class="timeline-content">
                     <div class="panel-heading timeline-heading row">
 
                       <div class="col-md-2 col-xs-4 pull-right">
                         <a href="http://bit.ly/rc-off" class="thumbnail" target="_blank" rel="noopener">
-                          <img class="media-object" src="assets/img/logos/logo-rc-md.png" alt="Running Code LLC" />
+                          <img class="media-object" src="assets/img/logos/logo-rc-md.png" max-width="220px" max-height="43px" alt="Running Code LLC" />
                         </a>
                       </div>
 
@@ -520,11 +531,12 @@ Strongly believe that making useful services with usable and friendly interfaces
                     <div class="btn-toolbar" role="toolbar" aria-label="technologies">
 
                       <div class="btn-group" role="group">
-                        <i class="fab fa-2x fa-fw fa-linux"></i>
+                        <i class="fab fa-1x fa-fw fa-linux" title="Linux"></i>
+                        <i class="fab fa-1x fa-fw fa-windows" title="Windows Server"></i>
                       </div>
                       <div class="btn-group" role="group">
-                        <i class="fab fa-2x fa-fw fa-php"></i>
-                        <i class="fab fa-2x fa-fw fa-java"></i>
+                        <i class="fab fa-1x fa-fw fa-php" title="PHP"></i>
+                        <i class="fab fa-1x fa-fw fa-java" title="Apache Tomcat"></i>
                       </div>
 
                     </div>
@@ -538,14 +550,14 @@ Strongly believe that making useful services with usable and friendly interfaces
                   <span class="month">2006 - 2008</span>
                 </div>
 
-                <div id="car-02" class="timeline-panel wow" data-wow-duration="1.5s">
+                <div id="car-02" class="panel panel-success timeline-panel wow" data-wow-duration="1.5s">
                   <div class="timeline-content">
 
                     <div class="panel-heading timeline-heading row">
 
                       <div class="col-md-2 col-xs-4 pull-right">
                         <a href="http://bit.ly/m1-off" class="thumbnail" target="_blank" rel="noopener">
-                          <img class="media-object" src="assets/img/logos/logo-m1-sm.png" alt="M1 Television Music Channel" />
+                          <img class="media-object" src="assets/img/logos/logo-m1-sm.png" max-width="95px" max-height="95px" alt="M1 Television Music Channel" />
                         </a>
                       </div>
 
@@ -563,6 +575,23 @@ Strongly believe that making useful services with usable and friendly interfaces
                       <p></p>
                     </div>
                   </div>
+
+                  <div class="panel-footer timeline-footer">
+                    <div class="btn-toolbar" role="toolbar" aria-label="technologies">
+
+                      <div class="btn-group" role="group">
+                        <i class="fab fa-1x fa-fw fa-linux" title="Linux"></i>
+                        <i class="fab fa-1x fa-fw fa-windows" title="Microsoft Windows"></i>
+                        <i class="fab fa-1x fa-fw fa-apple" title="Apple Macintosh"></i>
+                      </div>
+                      <div class="btn-group" role="group">
+                        <i class="fab fa-1x fa-fw fa-php" title="PHP"></i>
+                        <i class="fas fa-1x fa-fw fa-database fa-mysql" title="SQL"></i>
+                      </div>
+
+                    </div>
+                  </div>
+
                 </div>
               </li>
 
@@ -571,7 +600,7 @@ Strongly believe that making useful services with usable and friendly interfaces
                   <span class="month">2004 - 2006</span>
                 </div><!--/ /posted-date /-->
 
-                <div id="car-01" class="timeline-panel wow" data-wow-duration="1.5s">
+                <div id="car-01" class="panel panel-success timeline-panel wow" data-wow-duration="1.5s">
                   <div class="timeline-content">
                     <div class="panel-heading timeline-heading row">
 
@@ -586,9 +615,21 @@ Strongly believe that making useful services with usable and friendly interfaces
                     </div><!--/ /timeline-heading /-->
 
                     <div class="panel-body timeline-body">
-                      <p>Company-wide operations management and costs <a href="http://bit.ly/sklad-git" class="text-primary" target="_blank" rel="noopener">Accounting system</a></p>
+                      <p>Development, implementation and support of company-wide automated operations and finances <a href="http://bit.ly/sklad-git" class="text-primary" target="_blank" rel="noopener">Management system</a></p>
                     </div><!--/ /timeline-body /-->
                   </div> <!--/ /timeline-content /-->
+
+                  <div class="panel-footer timeline-footer">
+                    <div class="btn-toolbar" role="toolbar" aria-label="technologies">
+
+                      <div class="btn-group" role="group">
+                        <i class="fas fa-1x fa-fw fa-database fa-mysql" title="SQL"></i>
+                        <i class="fab fa-1x fa-fw fa-windows" title="Microsoft Windows"></i>
+                      </div>
+
+                    </div>
+                  </div><!--/ /timeline-footer /-->
+
                 </div><!--/ /timeline-panel /-->
               </li>
 
@@ -617,20 +658,24 @@ Strongly believe that making useful services with usable and friendly interfaces
           <div class="skill-progress">
             <div class="skill-title">
                 <i class="fa fa-2x fa-fw fa-hashtag"></i>
-                <span>Bash</span>
+                <span>Bash scripting</span>
               </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100" ><span>76%</span></div>
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="79" aria-valuemin="0" aria-valuemax="100">
+                <span>79%</span>
+              </div>
             </div>
           </div>
 
           <div class="skill-progress">
             <div class="skill-title">
-              <i class="fa fa-2x fa-fw fa-database"></i>
+              <i class="fas fa-2x fa-fw fa-database fa-mysql"></i>
               <span>MySQL</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="79" aria-valuemin="0" aria-valuemax="100" ><span>79%</span></div>
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100">
+                <span>76%</span>
+              </div>
             </div><!--/ /.progress /-->
           </div><!--/ /.skill-progress /-->
 
@@ -640,7 +685,9 @@ Strongly believe that making useful services with usable and friendly interfaces
               <span>JavaScript</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="84" aria-valuemin="0" aria-valuemax="100" ><span>84%</span></div>
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="84" aria-valuemin="0" aria-valuemax="100">
+                <span>84%</span>
+              </div>
             </div>
           </div>
 
@@ -650,7 +697,9 @@ Strongly believe that making useful services with usable and friendly interfaces
               <span>CSS3</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="59" aria-valuemin="0" aria-valuemax="100" ><span>59%</span></div>
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="59" aria-valuemin="0" aria-valuemax="100">
+                <span>59%</span>
+              </div>
             </div>
           </div>
 
@@ -660,7 +709,9 @@ Strongly believe that making useful services with usable and friendly interfaces
               <span>HTML5</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100" ><span>73%</span></div>
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100">
+                <span>73%</span>
+              </div>
             </div>
           </div>
 
@@ -670,17 +721,21 @@ Strongly believe that making useful services with usable and friendly interfaces
               <span>Laravel</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100" ><span>67%</span></div>
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100">
+                <span>67%</span>
+              </div>
             </div>
           </div>
 
           <div class="skill-progress">
             <div class="skill-title">
-              <i class="fas fa-2x fa-fw fa-caret-right"></i>
+              <i class="fas fa-2x fa-fw fa-check fa-shopify"></i>
               <span>Shopify API</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100" ><span>61%</span></div>
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100">
+                <span>61%</span>
+              </div>
             </div>
           </div>
 
@@ -690,7 +745,9 @@ Strongly believe that making useful services with usable and friendly interfaces
               <span>Steam API</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="52" aria-valuemin="0" aria-valuemax="100" ><span>52%</span></div>
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="52" aria-valuemin="0" aria-valuemax="100">
+                <span>52%</span>
+              </div>
             </div>
           </div>
 
@@ -700,27 +757,33 @@ Strongly believe that making useful services with usable and friendly interfaces
               <span>Azure</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100" ><span>39%</span></div>
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100">
+                <span>39%</span>
+              </div>
             </div>
           </div>
 
           <div class="skill-progress">
             <div class="skill-title">
-              <i class="fas fa-2x fa-fw fa-caret-right"></i>
+              <i class="fas fa-2x fa-fw fa-check fa-prestashop"></i>
               <span>Prestashop</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="44" aria-valuemin="0" aria-valuemax="100" ><span>44%</span></div>
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="44" aria-valuemin="0" aria-valuemax="100">
+                <span>44%</span>
+              </div>
             </div>
           </div>
 
           <div class="skill-progress">
             <div class="skill-title">
-              <i class="fas fa-2x fa-fw fa-caret-right"></i>
+              <i class="fas fa-2x fa-fw fa-check fa-redis"></i>
               <span>Redis</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100" ><span>66%</span></div>
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100">
+                <span>66%</span>
+              </div>
             </div>
           </div>
 
@@ -734,17 +797,21 @@ Strongly believe that making useful services with usable and friendly interfaces
               <span>MongoDB</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" ><span>72%</span></div>
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100">
+                <span>72%</span>
+              </div>
             </div><!--/ /.progress /-->
           </div><!--/ /.skill-progress /-->
 
           <div class="skill-progress">
             <div class="skill-title">
-              <i class="fas fa-2x fa-fw fa-caret-right"></i>
+              <i class="fas fa-2x fa-fw fa-check fa-perl"></i>
               <span>Perl</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100" ><span>38%</span></div>
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100">
+                <span>38%</span>
+              </div>
             </div>
           </div>
 
@@ -754,7 +821,9 @@ Strongly believe that making useful services with usable and friendly interfaces
               <span>Node.js</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" ><span>88%</span></div>
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                <span>88%</span>
+              </div>
             </div>
           </div>
 
@@ -764,7 +833,9 @@ Strongly believe that making useful services with usable and friendly interfaces
               <span>PHP</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" ><span>68%</span></div>
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100">
+                <span>68%</span>
+              </div>
             </div>
           </div>
 
@@ -774,7 +845,9 @@ Strongly believe that making useful services with usable and friendly interfaces
               <span>Magento</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" ><span>65%</span></div>
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+                <span>65%</span>
+              </div>
             </div>
           </div>
 
@@ -784,7 +857,9 @@ Strongly believe that making useful services with usable and friendly interfaces
               <span>jQuery</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" ><span>90%</span></div>
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                <span>90%</span>
+              </div>
             </div>
           </div>
 
@@ -794,7 +869,9 @@ Strongly believe that making useful services with usable and friendly interfaces
               <span>Facebook API</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100" ><span>71%</span></div>
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100">
+                <span>71%</span>
+              </div>
             </div>
           </div>
 
@@ -804,7 +881,9 @@ Strongly believe that making useful services with usable and friendly interfaces
               <span>Amazon Cloud</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" ><span>45%</span></div>
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">
+                <span>45%</span>
+              </div>
             </div>
           </div>
 
@@ -814,7 +893,9 @@ Strongly believe that making useful services with usable and friendly interfaces
               <span>CosmosDB</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100" ><span>87%</span></div>
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100">
+                <span>87%</span>
+              </div>
             </div>
           </div>
 
@@ -824,17 +905,21 @@ Strongly believe that making useful services with usable and friendly interfaces
               <span>Docker</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100" ><span>61%</span></div>
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100">
+                <span>61%</span>
+              </div>
             </div>
           </div>
 
           <div class="skill-progress">
             <div class="skill-title">
-              <i class="fas fa-2x fa-fw fa-caret-right"></i>
+              <i class="fas fa-2x fa-fw fa-check fa-rabbit"></i>
               <span>RabbitMQ</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100" ><span>74%</span></div>
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100">
+                <span>74%</span>
+              </div>
             </div>
           </div>
 
@@ -913,8 +998,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/lvs-vis"><i class="fas fa-external-link-alt"></i></a>
                   <a class="image-link" href="assets/img/works/openstack-virtual-hosts-diagram-002.png"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/lvs-vis" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div><!--/ /.links /-->
                 <img src="assets/img/thumbs/works/openstack-virtual-hosts-diagram-002.png" alt="OpenStack Visual Diagram" />
                 <div class="portfolio-info">
@@ -929,8 +1014,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/cmdb-demo"><i class="fas fa-external-link-alt"></i></a>
                   <a class="image-link" href="assets/img/works/network-diagram-003.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/cmdb-demo" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/network-diagram-003.jpg" alt="CMDB Visual" />
                 <div class="portfolio-info">
@@ -945,8 +1030,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/mp3-web"><i class="fas fa-external-link-alt"></i></a>
                   <a class="image-link" href="assets/img/works/mp3web-front-003.png"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/mp3-web" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/mp3web-front-003.png" alt="Web MP3 Player" />
                 <div class="portfolio-info">
@@ -961,8 +1046,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/cmdb-rtm"><i class="fas fa-external-link-alt"></i></a>
                   <a class="image-link" href="assets/img/works/cmdb-rtm-poc.gif"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/cmdb-rtm" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/works/cmdb-rtm-poc.gif" alt="Real-time Data Visualization" />
                 <div class="portfolio-info">
@@ -977,8 +1062,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/maps-demo"><i class="fas fa-external-link-alt"></i></a>
                   <a class="image-link" href="assets/img/works/infograph-004.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/maps-demo" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/infograph-004.jpg" alt="Maps Infographics" />
                 <div class="portfolio-info">
@@ -993,8 +1078,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/wcl-com"><i class="fas fa-external-link-alt"></i></a>
                   <a class="image-link" href="assets/img/works/wcl.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/wcl-com" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/wcl.jpg" alt="World Cossackers League" />
                 <div class="portfolio-info">
@@ -1009,8 +1094,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/mb-grill"><i class="fas fa-external-link-alt"></i></a>
                   <a class="image-link" href="assets/img/works/mb-grill.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/mb-grill" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/mb-grill.jpg" alt="Grills Store" />
                 <div class="portfolio-info">
@@ -1025,8 +1110,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/kyiv-cake"><i class="fas fa-external-link-alt"></i></a>
                   <a class="image-link" href="assets/img/works/cheesecake.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/kyiv-cake" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/cheesecake.jpg" alt="Cheesecake Online Store" />
                 <div class="portfolio-info">
@@ -1041,8 +1126,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/knifes-demo"><i class="fas fa-external-link-alt"></i></a>
                   <a class="image-link" href="assets/img/works/knifes-front-view-001.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/knifes-demo" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/knifes-front-view-001.jpg" alt="Online CS:GO Skins Lottery" />
                 <div class="portfolio-info">
@@ -1057,9 +1142,9 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/http-404"><i class="fas fa-external-link-alt"></i></a>
+                  <a target="_blank" rel="noopener" href="http://bit.ly/http-404-git"><i class="fab fa-github"></i></a>
                   <a class="image-link" href="assets/img/works/http-404-animated-with-socials-001.gif"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/http-404-git" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-                  <a href="http://bit.ly/http-404" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/works/http-404-animated-with-socials-001.gif" alt="HTTP Error 404" />
                 <div class="portfolio-info">
@@ -1074,9 +1159,9 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/roulette-predictor"><i class="fas fa-external-link-alt"></i></a>
+                  <a target="_blank" rel="noopener" href="http://bit.ly/roulette-predictor-git"><i class="fab fa-github"></i></a>
                   <a class="image-link" href="assets/img/works/roulette.png"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/roulette-predictor-git" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-                  <a href="http://bit.ly/roulette-predictor" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/roulette.png" alt="Online Casino Roulette Predictor" />
                 <div class="portfolio-info">
@@ -1091,8 +1176,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/fp-git"><i class="fab fa-github"></i></a>
                   <a class="image-link" href="assets/img/works/fp-001.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/fp-git" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/fp-001.jpg" alt="Financial Planning" />
                 <div class="portfolio-info">
@@ -1107,8 +1192,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/kassa-git"><i class="fab fa-github"></i></a>
                   <a class="image-link" href="assets/img/works/kassa-001.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/kassa-git" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/kassa-001.jpg" alt="Kassa" />
                 <div class="portfolio-info">
@@ -1123,8 +1208,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/sklad-git"><i class="fab fa-github"></i></a>
                   <a class="image-link" href="assets/img/works/sklad-001.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/sklad-git" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/sklad-001.jpg" alt="Sklad" />
                 <div class="portfolio-info">
@@ -1139,8 +1224,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/aqua-git"><i class="fab fa-github"></i></a>
                   <a class="image-link" href="assets/img/works/voda-001.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/aqua-git" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/voda-001.jpg" alt="Water delivery service" />
                 <div class="portfolio-info">
@@ -1155,8 +1240,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/domslugba-git"><i class="fab fa-github"></i></a>
                   <a class="image-link" href="assets/img/works/domSlugba-001.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/domslugba-git" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/domSlugba-001.jpg" alt="Home services" />
                 <div class="portfolio-info">
@@ -1171,9 +1256,9 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/wish-wall"><i class="fas fa-external-link-alt"></i></a>
+                  <a target="_blank" rel="noopener" href="http://bit.ly/wish-wall-git"><i class="fab fa-github"></i></a>
                   <a class="image-link" href="assets/img/works/wailing-wall.gif"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/wish-wall-git" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-                  <a href="http://bit.ly/wish-wall" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/works/wailing-wall.gif" alt="Wailing Wall" />
                 <div class="portfolio-info">
@@ -1188,9 +1273,9 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/demo-emoji"><i class="fas fa-external-link-alt"></i></a>
+                  <a target="_blank" rel="noopener" href="http://bit.ly/gh-emoji"><i class="fab fa-github"></i></a>
                   <a class="image-link" href="assets/img/works/git-emoji-cheat-sheet.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/gh-emoji" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-                  <a href="http://bit.ly/demo-emoji" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/git-emoji-cheat-sheet.jpg" alt="Git Emoji Cheat Sheet" />
                 <div class="portfolio-info">
@@ -1205,8 +1290,8 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/scratch-git"><i class="fab fa-github"></i></a>
                   <a class="image-link" href="assets/img/works/scratch-001.jpg"><i class="fa fa-search-plus"></i></a>
-                  <a href="http://bit.ly/scratch-git" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/scratch-001.jpg" alt="Scratch - Accounting system of electronic payment vouchers for services of mobile operators" />
                 <div class="portfolio-info">
@@ -1342,7 +1427,7 @@ Strongly believe that making useful services with usable and friendly interfaces
       <div class="row">
         <div class="hidden-xs col-sm-4 col-md-4">
           <div class="copyright text-left">
-            <p class="">Powered by <a href="{{author.url}}" target="_blank" rel="noopener">{{author.nick}}</a></p>
+            <p class=""> <a href="{{author.url}}" target="_blank" rel="noopener">MIT Licensed</a></p>
           </div>
         </div>
         <div class="col-xs-10 col-sm-4 col-md-4">
@@ -1353,7 +1438,7 @@ Strongly believe that making useful services with usable and friendly interfaces
         <div class="col-xs-2 col-sm-4 col-md-4">
           <div class="copyright text-right">
             <small class="hidden-xs">{{built.hash}}</small>
-            <small class="hidden-xs label label-success label-sm">v{{version}}-b{{built.cntr}}</small>
+            <span class="hidden-xs label label-success label-sm">v{{version}}-b{{built.cntr}}</span>
             <small class="hidden-xs">{{built.date}}</small>
           </div>
         </div>
@@ -1395,9 +1480,9 @@ Strongly believe that making useful services with usable and friendly interfaces
   <script src="assets/js/front/theme.js"></script>
   <script src="assets/js/front/index.js"></script>
 
-  <script>
+  <!-- <script>
     document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
-  </script>
+  </script> -->
 
   <!--/ JavaScripts
   ========================================================================= /-->
