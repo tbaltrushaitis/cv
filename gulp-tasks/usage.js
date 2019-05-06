@@ -36,15 +36,16 @@ let C = ME.Config.colors;
 //  ------------------------------------------------------------------------  //
 
 const usage = function (gulp) {
-  console.log(`${ME.L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}] with [${modConfigFile}]`);
+  console.log(`${ME.L}${ME.d()}[${C.Y}${modPath}/${modName}${C.N}] with [${modConfigFile}]`);
 
-  console.log(`${ME.L}
-${C.Cyan}Usage${C.NC}:
-    ${C.BYellow}gulp${C.NC} <${C.Purple}task${C.NC}> \t - \t Run gulp task(s) specified
+  console.log(`
+${ME.L}
+${C.C}Usage${C.N}:
+    ${C.BY}gulp${C.N} <${C.P}task${C.N}> \t - \t Run gulp task(s) specified
 
-  , where ${C.Purple}task${C.NC} is one of:
+  , where ${C.P}task${C.N} is one of:
 
-    ${C.Yellow}usage${C.NC} \t\t - \t Show this topic
+    ${C.Y}usage${C.N} \t\t - \t Show this topic
     show:config \t - \t Show Configuration file
     show:src \t\t - \t Log File Paths in the Stream
 
@@ -53,7 +54,8 @@ ${C.Cyan}Usage${C.NC}:
     clean:dist \t\t - \t Distro files
     clean:resources \t - \t Static CSS, JS and Images
     clean:public \t - \t Directory visible from Internet
-${ME.L}`);
+${ME.L}
+  `);
 
   return Promise.resolve();
 };
