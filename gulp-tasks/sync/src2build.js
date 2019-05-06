@@ -39,17 +39,26 @@ let C = ME.Config.colors;
 //  ------------------------------------------------------------------------  //
 
 const src2build = function (gulp) {
-  console.log(`${ME.L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}] with [${modConfigFile}]`);
+  console.log(`${ME.L}${ME.d()}[${C.Y}${modPath}/${modName}${C.N}] with [${modConfigFile}]`);
 
-  let IMG = path.join('assets/img');
+  let IMG  = 'assets/img';
+  let DATA = 'data';
+
   let wImg = gulp.src('')
-            .pipe(dirSync(
-                path.join(ME.SRC, IMG)
-              , path.join(ME.BUILD, IMG)
-              , ME.pkg.options.sync
-            ));
+    .pipe(dirSync(
+        path.join(ME.SRC, IMG)
+      , path.join(ME.BUILD, IMG)
+      , ME.pkg.options.sync
+    ));
 
-  return merge(wImg)
+  let wData = gulp.src('')
+    .pipe(dirSync(
+        path.join(ME.SRC, DATA)
+      , path.join(ME.BUILD, DATA)
+      , ME.pkg.options.sync
+    ));
+
+  return merge(wImg, wData)
           .on('error', console.error.bind(console));
 };
 
