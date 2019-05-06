@@ -1,5 +1,4 @@
-/*!  Custom Styles  */
-
+/*!  - - - - - - - - - - - -   Customizations   - - - - - - - - - - - - - - - */
 /* ---------------------------------------------- /*
  *               Theme covers
 /* ---------------------------------------------- */
@@ -17,10 +16,15 @@ body {
   font-size: 12px;
 }
 
+.copyright > span.label {
+  font-weight: 400;
+  font-size: 10px;
+}
+
 .footer-wrapper {
   background: #1a1e23;
-  padding: 16px 0;
   color: #ccc;
+  padding: 16px 0;
 }
 
 .footer-wrapper small {
@@ -89,23 +93,22 @@ body {
 .skill-title span {
   font-size: 16px;
   font-weight: 400;
-  text-transform: capitalize;
   margin-top: -4px;
+  text-transform: capitalize;
 }
 
 
-/* === progress-bar === */
+/* ---------------------------------------------- /*
+ *  progress-bar
+/* ---------------------------------------------- */
 .skill-progress .progress {
-  float-left;
-  background-color: #3a4149;
   background-image: none;
 }
 
-.progress {
-}
-
-.progress-bar {
-  background-color: #68c3a3;
+.progress-bar span {
+  position: absolute;
+  top: -20px;
+  right: 15px;
 }
 
 .progress-bar.six-sec-ease-in-out {
