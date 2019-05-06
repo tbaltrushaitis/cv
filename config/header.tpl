@@ -1,9 +1,6 @@
-
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *
- * Project:     <%= pkg.name %> - <%= pkg.title %>
- * Description: <%= pkg.description %>
- * Version:     <%= ME.VERSION %>
- * Homepage:    <%= pkg.homepage %>
- * License:     <%= pkg.license %>
+ * Project:  <%= pkg.name %>@<%= ME.VERSION %> - <%= pkg.title %>
+ * Homepage: <%= pkg.homepage %>
+ * License:  <%= pkg.license %>
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *
  */

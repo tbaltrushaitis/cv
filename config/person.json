@@ -41,7 +41,7 @@
       }
     , "bb": {
         "name": "bitbucket"
-      , "title": "BitBucket page"
+      , "title": "BitBucket repos"
       , "icon": "fab fa-bitbucket"
       , "url": "http://bit.ly/tomas-bb"
       }
