@@ -14,12 +14,12 @@
 const path = require('path');
 const utin = require('util').inspect;
 
-const readConfig = require('read-config');
 const gulpif     = require('gulp-if');
 const headfoot   = require('gulp-headerfooter');
 const merge      = require('merge-stream');
 const terser     = require('gulp-terser');
 const vPaths     = require('vinyl-paths');
+const readConfig = require('read-config');
 
 //  ------------------------------------------------------------------------  //
 //  ----------------------------  CONFIGURATION  ---------------------------  //
@@ -30,7 +30,7 @@ utin.defaultOptions = Object.assign({}, ME.pkg.options.iopts || {});
 
 const modName = path.basename(module.filename, '.js');
 const modPath = path.relative(ME.WD, path.dirname(module.filename));
-const confPath = path.join(ME.WD, 'config', path.sep);
+const confPath = path.join(ME.WD, 'config');
 const modConfigFile = `${path.join(confPath, modPath, modName)}.json`;
 const modConfig = readConfig(modConfigFile, ME.pkg.options.readconf);
 
@@ -42,7 +42,7 @@ let C = ME.Config.colors;
 //  ------------------------------------------------------------------------  //
 
 const buildJs = function (gulp) {
-  console.log(`${ME.L}[${new Date().toISOString()}][${C.Yellow}${modPath}/${modName}${C.NC}] with [${modConfigFile}]`);
+  console.log(`${ME.L}${ME.d()}[${C.Y}${modPath}/${modName}${C.N}] with [${modConfigFile}]`);
 
   let FROM = path.join(ME.BUILD, 'resources/assets');
   let DEST = path.join(ME.BUILD, 'assets');
@@ -52,7 +52,7 @@ const buildJs = function (gulp) {
       path.join(FROM, JS, '**/*.js')
     ])
     .pipe(vPaths(function (p) {
-      console.log(`[${new Date().toISOString()}][${C.White}FRONT${C.NC}] JS: [${p}]`);
+      console.log(`${ME.d()}[${C.W}FRONT${C.N}] ${C.Y}JS${C.N}: [${p}]`);
       return Promise.resolve(p);
     }))
     .pipe(gulpif('production' === ME.NODE_ENV, terser(ME.pkg.options.terser)))
