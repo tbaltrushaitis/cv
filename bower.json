@@ -30,7 +30,7 @@
       , "font-awesome":   "#5.8.1"
       , "fitvids":        "jquery.fitvids#^1.2.0"
       , "html5shiv":      "~3.7.3"
-      , "jquery":         "~3.4.0"
+      , "jquery":         "~3.4.1"
       , "jquery-countTo": "countto#^1.2.0"
       , "jquery.inview":  "jquery.inview#^1.1.2"
       , "jquery.stellar": "^0.6.2"

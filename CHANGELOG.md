@@ -25,6 +25,12 @@
 
 ## :memo: Change history ##
 
+### v0.2.3: ###
+- [x] Update `jquery` to version 3.4.1
+
+### Release: Mason ###
+Include all latest updates and fixes from v0.2.2
+
 ### v0.2.2: ###
 - [x] Several tweaks for apache server caching and compressing added in `.htaccess` file
 - [x] Bower packages updated to latest versions: `modernizr`, `smoothscroll`, `font-awesome` and `jquery`
