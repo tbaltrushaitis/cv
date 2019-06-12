@@ -27,15 +27,14 @@
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
----
-
-## [Unreleased] - Current ##
-
 <!-- ##### Added: ##### -->
 <!-- ##### Changed: ##### -->
 <!-- ##### Fixed: ##### -->
 <!-- ##### Removed: ##### -->
 
+---
+
+## [Unreleased] - Current ##
 
 ### Changed ###
 - [x] bower i jquery@3.4.1 --save
@@ -45,16 +44,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ##### Fixed: #####
 - [x] `js-yaml` Denial of Service vulnerability [WS-2019-0032](https://github.com/nodeca/js-yaml/issues/475)
-
----
-
-## [2019-06-03] ##
-### Added: ###
-- [x] Bash alias `pwg` - shorthand for `pwgen -s1 32`
-- [x] Special commands help topic `bfh` - shorthand for `bfiles_help`
-
-##### Changed: #####
-- [x] Root greeting message
 
 ---
 
