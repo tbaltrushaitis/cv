@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="http://bit.ly/tomascv?ref=readme">
-    <img max-width="640px" max-height="360px" src="assets/img/cv-demo-01.gif" alt="Modern CV, Resume and Portfolio website template" />
+    <img src="assets/img/cv-demo-01.gif" max-width="640px" max-height="360px" alt="Modern CV, Resume and Portfolio website template" />
   </a>
 </p>
 
@@ -83,9 +83,9 @@ For example: [Modern CV](http://bit.ly/tomascv)
  Name | Version | Scope | Description |
 :-----|:-------:|:-----:|:------------|
  [animate.css](http://daneden.github.io/animate.css/) | 3.7.0 | Front | A cross-browser library of CSS animations
- [FontAwesome](https://fontawesome.com/) | 5.7.2 | Front | The iconic Font and CSS toolkit
+ [FontAwesome](https://fontawesome.com/) | 5.8.2 | Front | The iconic Font and CSS toolkit
  [Bootstrap](http://getbootstrap.com) | 3.3.7 | Front | Front-end framework for developing responsive, mobile first projects on the web
- [jQuery](http://jquery.com/) | 3.3.1 | Front | JavaScript Library
+ [jQuery](http://jquery.com/) | 3.4.1 | Front | JavaScript Library
  [noty](http://ned.im/noty) | 2.4.1 | Front | Notification library
  [waypoints](https://github.com/imakewebthings/waypoints) | 4.0.1 | Front | Easily execute a function when you scroll to an element
  [wow.js](https://wowjs.uk/) | 1.3.0 | Front | Reveal CSS animation as you scroll down a page
