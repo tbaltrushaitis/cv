@@ -1,0 +1,1503 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if IE 8]> <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="ie9"> <![endif]-->
+<!--[if IE 10]> <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="ie10"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="noie"> <!--<![endif]-->
+<head>
+  <!--/ FOUC workaround
+  ========================================================================= /-->
+  <style>
+    html {visibility: hidden; opacity: 0; display: none;}
+  </style>
+
+  <!--/  Basic Page Needs
+  ========================================================================= /-->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+  <meta http-equiv="Content-Type"    content="text/html; charset=utf-8" />
+
+  <title>{{person.name.full}} :: Personal CV, Resume and Portfolio</title>
+
+  <!--/  Mobile Specific Metas
+  ========================================================================= /-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes" />
+
+  <!--/  Metas
+  ========================================================================= /-->
+  <meta name="author"        content="{{author.name.full}}" />
+  <meta name="description"   content="Personal resume of {{person.name.full}}" />
+  <meta name="generator"     content="{{engine.name}} v{{engine.version}}" />
+  <meta name="keywords"      content="modern, cv, resume, template, portfolio, portfolio-website, cv-template, IT, curriculum-vitae, cv-summary, resume-template, resume-website, cv-website, animate-css, template-project" />
+  <meta name="language"      content="en" />
+  <meta name="revisit-after" content="15 days" />
+  <meta name="robots"        content="index, nofollow, noarchive" />
+  <meta name="title"         content="{{person.name.full}} - Personal Resume and Portfolio" />
+
+  <link rel="canonical" href="http://cv.gsm-center.com.ua/" />
+
+  <!--/  Metas for Crawlers
+  ========================================================================= /-->
+  <meta property="og:locale"       content="en_US" />
+  <meta property="og:type"         content="website" />
+  <meta property="og:title"        content="{{person.name.full}} - Personal Resume and Portfolio" />
+  <meta property="og:description"  content="Personal resume of {{person.name.full}}" />
+  <meta property="og:image"        content="assets/img/Avatar-rhomb-md.png" />
+  <meta property="og:image:type"   content="image/png" />
+  <meta property="og:image:alt"    content="Photo of {{person.name.full}}" />
+  <meta property="og:image:height" content="358" />
+  <meta property="og:image:width"  content="358" />
+  <meta property="og:site_name"    content="Modern CV, Resume and Portfolio" />
+  <meta property="og:url"          content="http://cv.gsm-center.com.ua/" />
+  <meta property="og:updated_time" content="{{built.full}}" />
+  <meta property="og:see_also"     content="{{author.url}}" />
+
+
+  <!--/  Fonts
+  ========================================================================= /-->
+  <!--/  Google Web Fonts  /-->
+  <!-- <link type="text/css" rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" id="css-font-roboto" /> -->
+  <!-- <link type="text/css" rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Lato:300,400,700" id="css-font-lato" /> -->
+
+  <!--/  Styles
+  ========================================================================= /-->
+
+  <!--/  Bower Bundle  /-->
+  <link type="text/css" rel="stylesheet" media="screen" href="assets/css/bower-bundle.css" id="css-bower-bundle" />
+
+  <!--/  Frontend Bundle  /-->
+  <link type="text/css" rel="stylesheet" media="screen" href="assets/css/frontend-bundle.css" id="css-frontend-bundle" />
+
+  <!--/  Theme  /-->
+  <!-- <link type="text/css" rel="stylesheet" media="screen" href="assets/css/theme.css" id="css-theme" /> -->
+
+  <!--/  Magnific  /-->
+  <!-- <link type="text/css" rel="stylesheet" media="screen" href="assets/css/magnific-popup.css" id="css-magnific-popup" /> -->
+
+  <!--/  Grid  /-->
+  <!-- <link type="text/css" rel="stylesheet" media="screen" href="assets/css/og-grid.css" id="css-og-grid" /> -->
+
+  <!--/  Custom  /-->
+  <!-- <link type="text/css" rel="stylesheet" media="screen" href="assets/css/custom.css" id="css-custom" /> -->
+  <!-- <link type="text/css" rel="stylesheet" media="screen" href="assets/css/fa-colors.css" id="css-fa-colors" /> -->
+
+  <!--/ HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries /-->
+  <!--/ WARNING: Respond.js doesn't work if you view the page via file:// /-->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!--/  Mobile
+  ========================================================================= /-->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/img/ico/apple-touch-icon-144-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/img/ico/apple-touch-icon-114-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72"   href="assets/img/ico/apple-touch-icon-72-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" sizes=""        href="assets/img/ico/apple-touch-icon-57-precomposed.png" />
+
+  <!--/  Favicon
+  ========================================================================= /-->
+  <link type="image/x-icon" href="assets/img/ico/favicon.png" rel="icon" />
+  <link type="image/x-icon" href="assets/img/ico/favicon.png" rel="shortcut icon" />
+
+</head>
+
+<body data-env="{{app.env}}">
+
+  <!--/  Preloader  /-->
+  <div id="tt-preloader">
+    <div id="pre-status">
+      <div class="preload-placeholder"></div>
+    </div>
+  </div>
+
+  <!--/  Home  /-->
+  <section id="home" class="tt-fullHeight" data-stellar-vertical-offset="50" data-stellar-background-ratio="0.5">
+    <div class="intro">
+      <div class="intro-sub wow" data-wow-duration="3.0s" data-wow-delay="0.0s">{{person.name.full}}</div>
+      <h1 class="wow" data-wow-duration="2.7s" data-wow-delay="0.3s">
+        <span class="first">{{person.home.pos-prefix}}</span> <span class="">{{person.home.pos-title}}</span></h1>
+      <p class="wow" data-wow-duration="2.5s" data-wow-delay="0.5s">{{person.home.pos-tags}}</p>
+
+      <div class="social-icons" id="social-icons">
+        <ul class="list-inline">
+          <li class="wow" data-wow-duration="1.4s" data-wow-delay="1.6s">
+            <a target="_blank" rel="noopener" href="{{person.socials.li.url}}"><i class="{{person.socials.li.icon}}" title="{{person.socials.li.title}}"></i></a>
+          </li>
+          <li class="wow" data-wow-duration="1.6s" data-wow-delay="1.4s">
+            <a target="_blank" rel="noopener" href="{{person.socials.git.url}}"><i class="{{person.socials.git.icon}}" title="{{person.socials.git.title}}"></i></a>
+          </li>
+          <li class="wow" data-wow-duration="1.8s" data-wow-delay="1.2s">
+            <a target="_blank" rel="noopener" href="{{person.socials.bb.url}}"><i class="{{person.socials.bb.icon}}" title="{{person.socials.bb.title}}"></i></a>
+          </li>
+          <li class="wow" data-wow-duration="2.0s" data-wow-delay="1.0s">
+            <a target="_blank" rel="noopener" href="{{person.socials.docker.url}}"><i class="{{person.socials.docker.icon}}" title="{{person.socials.docker.title}}"></i></a>
+          </li>
+        </ul>
+      </div> <!--/ /.social-icons /-->
+    </div>
+
+    <div class="mouse-icon">
+      <div class="wheel"></div>
+    </div>
+  </section><!--/ End Home Section /-->
+
+  <!--/  Navigation  /-->
+  <header class="header">
+    <nav class="navbar navbar-custom" role="navigation">
+      <div class="container">
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#custom-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand hidden" href="index.html">
+            <img class="hidden" src="assets/img/logo.png" max-width="200px" max-height="46px" alt="{{author.nick}}" />
+          </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="custom-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+      </div><!--/ .container /-->
+    </nav>
+  </header><!--/ End Navigation /-->
+
+  <!--/  About  /-->
+  <section id="about" class="about-section section-padding">
+    <div class="container">
+      <h2 class="section-title wow" data-wow-duration="1.5s">Bio</h2>
+
+      <div class="row">
+
+        <div class="col-md-4 col-md-push-8">
+          <div class="biography" data-wow-duration="1.0s">
+            <div class="myphoto wow" id="avatar" data-wow-duration="1.0s">
+              <img src="assets/img/Avatar-rhomb-md.png" max-width="358px" max-height="358px" alt="{{person.name.full}}" />
+            </div>
+            <ul class="list-check">
+              <li class="row">
+                <div class="col-xs-2 col-sm-6 col-md-6">
+                  <i class="fa fa-fw fa-id-badge"></i>
+                  <strong class="hidden-xs">Name:</strong>
+                </div>
+                <div class="col-xs-10 col-sm-6 col-md-6"><span>{{person.name.full}}</span></div>
+              </li>
+              <li class="row">
+                <div class="col-xs-2 col-sm-6 col-md-6">
+                  <i class="fa fa-fw fa-calendar"></i>
+                  <strong class="hidden-xs">Birth:</strong>
+                </div>
+                <div class="col-xs-10 col-sm-6 col-md-6">{{person.bio.birth}}</div>
+              </li>
+              <li class="row">
+                <div class="col-xs-2 col-sm-6 col-md-6">
+                  <i class="fa fa-fw fa-home"></i>
+                  <strong class="hidden-xs">Location:</strong>
+                </div>
+                <div class="col-xs-10 col-sm-6 col-md-6">{{person.bio.location.full}}</div>
+              </li>
+              <li class="row">
+                <div class="col-xs-2 col-sm-6 col-md-6">
+                  <i class="fa fa-fw fa-globe"></i>
+                  <strong class="hidden-xs">Citizenship:</strong>
+                </div>
+                <div class="col-xs-10 col-sm-6 col-md-6">{{person.bio.citizenship}}</div>
+              </li>
+            </ul>
+          </div>
+        </div> <!--/ col-md-4 /-->
+
+        <div class="col-md-8 col-md-pull-4">
+
+          <div class="short-info" id="objective">
+            <h3 class="wow">Objective</h3>
+            <p class="wow">Full-stack developer (JavaScript, Node.js, PHP, etc.) + DevOps with practical experience in several IT areas.
+            </p>
+          </div>
+
+          <div class="short-info" id="scopes">
+            <h3 class="wow">Scopes</h3>
+            <ul class="row list-check">
+              <li class="col-xs-12 col-md-6 wow" id="scope-01"><i class="fas fa-fw fa-check"></i>Business&nbsp;Modeling</li>
+              <li class="col-xs-12 col-md-6 wow" id="scope-02"><i class="fas fa-fw fa-check"></i>eCommerce</li>
+              <li class="col-xs-12 col-md-6 wow" id="scope-03"><i class="fas fa-fw fa-check"></i>Software&nbsp;Development</li>
+              <li class="col-xs-12 col-md-6 wow" id="scope-04"><i class="fas fa-fw fa-check"></i>Web&nbsp;Development</li>
+              <li class="col-xs-12 col-md-6 wow" id="scope-05"><i class="fas fa-fw fa-check"></i>Systems&nbsp;Administration</li>
+              <li class="col-xs-12 col-md-6 wow" id="scope-06"><i class="fas fa-fw fa-check"></i>Networking</li>
+              <li class="col-xs-12 col-md-6 wow" id="scope-07"><i class="fas fa-fw fa-check"></i>Machine&nbsp;Learning</li>
+              <li class="col-xs-12 col-md-6 wow" id="scope-08"><i class="fas fa-fw fa-check"></i>DB&nbsp;Administration</li>
+              <li class="col-xs-12 col-md-6 wow" id="scope-08"><i class="fas fa-fw fa-check"></i>Artificial Intelligence</li>
+            </ul>
+          </div>
+
+          <div class="short-info" id="selfie">
+            <h3 class="wow">Selfie</h3>
+            <p class="wow">I've started my professional career in a far 2003 on a position of "Systems Engineer"
+and was involved in a continuous code development/improvement/upgrade
+of city-wide client-server system used for collecting, sorting/grouping, processing and reporting of the utilities payments data.
+There were many technologies used but the key roles were played by (in order of being in development):
+FoxPro, dBase, SQL, HTML, ASP, JavaScript.
+Also most parts of the system infrastructure components were sagnificantly improved and upgraded
+to run as the Visual FoxPro desktop applications with modern windows-styled interfaces built from set of visual components.
+</p>
+
+            <p class="wow">At present I have advanced knowledge of 5+ programming languages (JavaScript, Node.js, PHP, Perl, ASP, Visual FoxPro)
+and related fields (OS Linux, Bash scripting, HTML, CSS, MySQL, MongoDB, Docker, Redis, RabbitMQ, Git, Nginx, Apache, etc.).
+Websites creation, OpenSource projects deployments, applications development, building, testing and improvement
+- these are the number of skills every day I'm work with and in what I'm improving my abilities constantly.
+</p>
+          </div>
+
+          <div class="short-info" id="whatido">
+            <h3 class="wow">What I Do</h3>
+            <p class="wow">During last few years I have been working mostly
+as a back-end and in few projects - as a front-end developer also.
+I am passionate about clean and elegant code.
+Have a lots of experience in production of high-loaded modern web systems.
+Strongly believe that making useful services with usable and friendly interfaces is awesome!
+</p>
+
+            <ul class="row list-check" >
+              <li class="col-xs-12 col-md-6 wow" id="whatido-01"><i class="fas fa-fw fa-database"></i>Databases&nbsp;Design</li>
+              <li class="col-xs-12 col-md-6 wow" id="whatido-02"><i class="fab fa-fw fa-react"></i>Modern&nbsp;Websites</li>
+              <li class="col-xs-12 col-md-6 wow" id="whatido-03"><i class="fas fa-fw fa-percentage"></i>Accounting&nbsp;Apps</li>
+              <li class="col-xs-12 col-md-6 wow" id="whatido-04"><i class="fas fa-fw fa-project-diagram"></i>Data&nbsp;Visualization</li>
+              <li class="col-xs-12 col-md-6 wow" id="whatido-05"><i class="fas fa-fw fa-mobile-alt"></i>API&nbsp;for&nbsp;Mobile&nbsp;Apps</li>
+              <li class="col-xs-12 col-md-6 wow" id="whatido-06"><i class="fas fa-fw fa-chart-pie"></i>Data&nbsp;Analysis</li>
+              <li class="col-xs-12 col-md-6 wow" id="whatido-07"><i class="fas fa-fw fa-coins"></i>Scalable&nbsp;Environments</li>
+              <li class="col-xs-12 col-md-6 wow" id="whatido-08"><i class="fas fa-fw fa-heartbeat"></i>Real-time&nbsp;Data&nbsp;Processing</li>
+              <li class="col-xs-12 col-md-6 wow" id="whatido-09"><i class="fas fa-fw fa-robot"></i>Bots</li>
+              <li class="col-xs-12 col-md-6 wow" id="whatido-10"><i class="far fa-fw fa-smile"></i>Tryouts&nbsp;to&nbsp;Live&nbsp;Positive&nbsp;:)</li>
+            </ul>
+          </div>
+
+          <!-- <div class="my-signature hidden">
+            <img src="assets/img/sign.png" alt="Signature example" />
+          </div> -->
+
+          <!-- <div class="download-button hidden">
+            <a class="btn btn-primary btn-lg" href="#"><i class="fa fa-download"></i> Download my cv</a>
+          </div> -->
+
+        </div>
+
+      </div> <!--/ /.row /-->
+
+    </div> <!--/ /.container /-->
+
+  </section><!--/ End About Section /-->
+
+
+  <!--/ Resume /-->
+  <section id="resume" class="resume-section section-padding">
+    <div class="container">
+      <h2 class="section-title wow" data-wow-duration="1.5s">Resume</h2>
+
+      <div class="row">
+        <div class="col-md-12">
+
+          <div id="edu" class="resume-title wow">
+            <h2 class="text-center text-primary">Education</h2>
+          </div>
+
+          <div class="resume">
+            <ul class="timeline">
+
+              <li class="">
+                <div class="posted-date">
+                  <span class="month">2003 - 2004</span>
+                </div><!--/ /posted-date /-->
+
+                <div id="edu-01" class="panel panel-success timeline-panel wow" data-wow-duration="1.5s">
+                  <div class="timeline-content">
+
+                    <div class="panel-heading timeline-heading row">
+                      <div class="col-md-10 col-xs-8 pull-left">
+                        <h3 class="panel-title">Master's degree</h3>
+                        <span class="text-danger"> - diploma with honors</span>
+                      </div>
+
+                      <div class="col-md-2 col-xs-4 pull-right">
+                        <i class="fas fa-2x fa-user-graduate text-success"></i>
+                      </div>
+                    </div>
+
+                    <div class="panel-body timeline-body">
+                      <p>
+                        Electromechanical Engineering<br />
+                        Kremenchuk State Polytechnical University, Ukraine<br />
+                        <strong>7.091003</strong> - Design Engineer of Electronic Equipment
+                      </p>
+                      <p>Awarded an honorary diploma for the <strong class="text-info">2nd place</strong> in the competition for the best thesis project</p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="timeline-inverted">
+                <div class="posted-date">
+                  <span class="month">1999 - 2003</span>
+                </div>
+
+                <div id="edu-02" class="panel panel-success timeline-panel wow" data-wow-duration="1.5s">
+                  <div class="timeline-content">
+
+                    <div class="panel-heading timeline-heading row">
+                      <div class="col-md-10 col-xs-8 pull-left">
+                        <h3 class="panel-title">Bachelor's degree</h3>
+                        <span class="text-primary"> - graduate diploma</span>
+                      </div>
+
+                      <div class="col-md-2 col-xs-4 pull-right">
+                        <i class="fas fa-2x fa-graduation-cap text-success"></i>
+                      </div>
+                    </div>
+
+                    <div class="panel-body timeline-body">
+                      <p>
+                        Electromechanical Engineering<br />
+                        Kremenchuk State Polytechnical University, Ukraine<br />
+                        <strong>7.091003</strong> - Design Engineer of Electronic Equipment
+                      </p>
+                    </div><!--/ /timeline-body /-->
+                  </div><!--/ /timeline-content /-->
+                </div><!--/ /timeline-panel /-->
+              </li><!--/ /timeline /-->
+
+            </ul>
+          </div>
+
+        </div>
+      </div><!--/ /row /-->
+
+      <div class="row">
+        <div class="col-md-12">
+
+          <div id="career" class="resume-title wow">
+            <h2 class="text-center text-primary">Employment History</h2>
+          </div>
+
+          <div class="resume">
+            <ul class="timeline">
+
+              <li class="">
+                <div class="posted-date">
+                  <span class="month">2016 - 2017</span>
+                </div>
+
+                <div id="car-05" class="panel panel-success timeline-panel wow" data-wow-duration="1.5s">
+                  <div class="timeline-content">
+                    <div class="panel-heading timeline-heading row">
+
+                      <div class="col-md-2 col-xs-4 pull-right">
+                        <a href="http://bit.ly/cg-off" class="thumbnail" target="_blank" rel="noopener">
+                          <img class="media-object" src="assets/img/logos/logo-cg-sm.png" max-width="96px" max-height="96px" alt="Carts Guru" />
+                        </a>
+                      </div>
+
+                      <div class="col-md-10 col-xs-8 pull-left">
+                        <h3 class="panel-title">Senior Node.js Developer</h3>
+                        <span>
+                          <a href="http://bit.ly/cg-off" class="h4 text-success" target="_blank" rel="noopener">Carts Guru LLC</a>
+                          <br />Kyiv, Ukraine
+                        </span>
+                      </div>
+
+                    </div>
+
+                    <div class="panel-body timeline-body">
+                      <p>eCommerce platforms (Shopify, Magento, WooCommerce, PrestaShop) <strong class="text-primary">Visitors Tracker</strong> with cross-site customer identification and behaviour prediction. Used to boost conversion rate and on-site revenue by sharing data and communicating with Machine Learning Engine through API interface.</p>
+                      <p>Later it was used as a core module for rapid creation of a new project called <strong><a href="javascript:void(0)" target="_blank" rel="noopener" class="text-primary">Visitors Guru</a></strong> - simple tool to find out what companies are visiting website.</p>
+                    </div>
+
+                  </div>
+
+                  <div class="panel-footer timeline-footer">
+                    <div class="btn-toolbar" role="toolbar" aria-label="technologies">
+
+                      <div class="btn-group" role="group">
+                        <i class="fab fa-1x fa-fw fa-aws" title="Amazon Web Services"></i>
+                        <i class="fab fa-1x fa-fw fa-bitbucket" title="BitBucket"></i>
+                        <i class="fab fa-1x fa-fw fa-docker" title="Docker containers"></i>
+                        <i class="fab fa-1x fa-fw fa-git-square" title="GitHub"></i>
+                      </div>
+                      <div class="btn-group" role="group">
+                        <i class="fab fa-1x fa-fw fa-facebook" title="Facebook API"></i>
+                        <i class="fab fa-1x fa-fw fa-js-square" title="JavaScript"></i>
+                        <i class="fab fa-1x fa-fw fa-html5" title="HTML5"></i>
+                        <i class="fab fa-1x fa-fw fa-facebook-messenger" title="Facebook Messenger Platform"></i>
+                      </div>
+                      <div class="btn-group" role="group">
+                        <i class="fab fa-1x fa-fw fa-gulp" title="Gulp"></i>
+                        <i class="fab fa-1x fa-fw fa-node" title="Node.js"></i>
+                        <i class="fab fa-1x fa-fw fa-npm" title="Node Package Manager"></i>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+              </li>
+
+              <li class="timeline-inverted">
+                <div class="posted-date">
+                  <span class="month">2011 - 2015</span>
+                </div>
+
+                <div id="car-04" class="panel panel-success timeline-panel wow" data-wow-duration="1.5s">
+                  <div class="timeline-content">
+                    <div class="panel-heading timeline-heading row">
+
+                      <div class="col-md-4 col-xs-4 pull-right">
+                        <i class="fab fa-3x fa-fw fa-magento" title="Magento Commerce"></i>
+                        <i class="fab fa-3x fa-fw fa-ebay" title="eBay Enterprise"></i>
+                      </div>
+
+                      <div class="col-md-8 col-xs-8 pull-left">
+                        <h3 class="panel-title">Operations Team Lead</h3>
+                        <span>
+                          <a href="http://bit.ly/mage-off" class="h4 text-success" target="_blank" rel="noopener">Magento Inc</a>
+                          <br />Kyiv, Ukraine
+                        </span>
+                      </div>
+
+                    </div>
+
+                    <div class="panel-body timeline-body">
+                      <p>Providing operations services for high-loaded production systems<br />
+                        Deployment and configuration automation<br />
+                        24/7 monitoring and support<br />
+                        Operating Systems: CentOS, Ubuntu<br />
+                        Cloud platforms: public and private OpenStack<br />
+                        LAMP, Docker, Git, MySQL, MongoDB, Solr, Nginx, Apache, Zabbix<br />
+                        Web: PHP, Bootstrap, AJAX, JSON, HTML, CSS, jQuery<br />
+                        API: JIRA, OpenStack
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="panel-footer timeline-footer">
+                    <div class="btn-toolbar" role="toolbar" aria-label="technologies">
+
+                      <div class="btn-group" role="group">
+                        <i class="fab fa-1x fa-fw fa-linux" title="Linux"></i>
+                        <i class="fab fa-1x fa-fw fa-jenkins" title="Jenkins"></i>
+                        <i class="fab fa-1x fa-fw fa-docker" title="Docker containers"></i>
+                        <i class="fab fa-1x fa-fw fa-github" title="GitHub"></i>
+                      </div>
+                      <div class="btn-group" role="group">
+                        <i class="fab fa-1x fa-fw fa-js-square" title="JavaScript"></i>
+                        <i class="fab fa-1x fa-fw fa-php" title="PHP"></i>
+                        <i class="fab fa-1x fa-fw fa-cc-paypal" title="PayPal"></i>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+              </li>
+
+              <li class="">
+                <div class="posted-date">
+                  <span class="month">2008 - 2009</span>
+                </div>
+
+                <div id="car-03" class="panel panel-success timeline-panel wow" data-wow-duration="1.5s">
+                  <div class="timeline-content">
+                    <div class="panel-heading timeline-heading row">
+
+                      <div class="col-md-2 col-xs-4 pull-right">
+                        <a href="http://bit.ly/rc-off" class="thumbnail" target="_blank" rel="noopener">
+                          <img class="media-object" src="assets/img/logos/logo-rc-md.png" max-width="220px" max-height="43px" alt="Running Code LLC" />
+                        </a>
+                      </div>
+
+                      <div class="col-md-10 col-xs-8 pull-left">
+                        <h3 class="panel-title">Senior Systems Administrator</h3>
+                        <span>
+                          <a href="http://bit.ly/rc-off" class="h4 text-success" target="_blank" rel="noopener">Running Code LLC</a>
+                          <br />Kyiv, Ukraine
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="panel-body timeline-body">
+                      <p></p>
+                    </div>
+                  </div>
+
+                  <div class="panel-footer timeline-footer">
+                    <div class="btn-toolbar" role="toolbar" aria-label="technologies">
+
+                      <div class="btn-group" role="group">
+                        <i class="fab fa-1x fa-fw fa-linux" title="Linux"></i>
+                        <i class="fab fa-1x fa-fw fa-windows" title="Windows Server"></i>
+                      </div>
+                      <div class="btn-group" role="group">
+                        <i class="fab fa-1x fa-fw fa-php" title="PHP"></i>
+                        <i class="fab fa-1x fa-fw fa-java" title="Apache Tomcat"></i>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+              </li>
+
+              <li class="timeline-inverted">
+                <div class="posted-date">
+                  <span class="month">2006 - 2008</span>
+                </div>
+
+                <div id="car-02" class="panel panel-success timeline-panel wow" data-wow-duration="1.5s">
+                  <div class="timeline-content">
+
+                    <div class="panel-heading timeline-heading row">
+
+                      <div class="col-md-2 col-xs-4 pull-right">
+                        <a href="http://bit.ly/m1-off" class="thumbnail" target="_blank" rel="noopener">
+                          <img class="media-object" src="assets/img/logos/logo-m1-sm.png" max-width="95px" max-height="95px" alt="M1 Television Music Channel" />
+                        </a>
+                      </div>
+
+                      <div class="col-md-10 col-xs-8 pull-left">
+                        <h3 class="panel-title">IT Engineer</h3>
+                        <span>
+                          <a href="http://bit.ly/m1-off" class="h4 text-success" target="_blank" rel="noopener">M1 TV Music Channel</a>
+                          <br />Kyiv, Ukraine
+                        </span>
+                      </div>
+
+                    </div>
+
+                    <div class="panel-body timeline-body">
+                      <p></p>
+                    </div>
+                  </div>
+
+                  <div class="panel-footer timeline-footer">
+                    <div class="btn-toolbar" role="toolbar" aria-label="technologies">
+
+                      <div class="btn-group" role="group">
+                        <i class="fab fa-1x fa-fw fa-linux" title="Linux"></i>
+                        <i class="fab fa-1x fa-fw fa-windows" title="Microsoft Windows"></i>
+                        <i class="fab fa-1x fa-fw fa-apple" title="Apple Macintosh"></i>
+                      </div>
+                      <div class="btn-group" role="group">
+                        <i class="fab fa-1x fa-fw fa-php" title="PHP"></i>
+                        <i class="fas fa-1x fa-fw fa-database fa-mysql" title="SQL"></i>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+              </li>
+
+              <li class="">
+                <div class="posted-date">
+                  <span class="month">2004 - 2006</span>
+                </div><!--/ /posted-date /-->
+
+                <div id="car-01" class="panel panel-success timeline-panel wow" data-wow-duration="1.5s">
+                  <div class="timeline-content">
+                    <div class="panel-heading timeline-heading row">
+
+                      <div class="col-md-12 col-xs-12 pull-left">
+                        <h3 class="panel-title">Programs and Operations Manager</h3>
+                        <span>
+                          <strong class="h4 text-success">StanArt LLC</strong>
+                          <br />Kremenchuk, Ukraine
+                        </span>
+                      </div>
+
+                    </div><!--/ /timeline-heading /-->
+
+                    <div class="panel-body timeline-body">
+                      <p>Development, implementation and support of company-wide automated operations and finances <a href="http://bit.ly/sklad-git" class="text-primary" target="_blank" rel="noopener">Management system</a></p>
+                    </div><!--/ /timeline-body /-->
+                  </div> <!--/ /timeline-content /-->
+
+                  <div class="panel-footer timeline-footer">
+                    <div class="btn-toolbar" role="toolbar" aria-label="technologies">
+
+                      <div class="btn-group" role="group">
+                        <i class="fas fa-1x fa-fw fa-database fa-mysql" title="SQL"></i>
+                        <i class="fab fa-1x fa-fw fa-windows" title="Microsoft Windows"></i>
+                      </div>
+
+                    </div>
+                  </div><!--/ /timeline-footer /-->
+
+                </div><!--/ /timeline-panel /-->
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div><!--/ /row /-->
+
+    </div><!--/ /.container /-->
+  </section><!--/ End Resume Section /-->
+
+
+  <!--/  Skills  /-->
+  <section id="skills" class="skills-section section-padding">
+    <div class="container">
+      <h2 class="section-title wow">Skills</h2>
+
+      <div class="skill-chart text-center">
+        <h3>Technical</h3>
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-6">
+
+          <div class="skill-progress">
+            <div class="skill-title">
+                <i class="fa fa-2x fa-fw fa-hashtag"></i>
+                <span>Bash scripting</span>
+              </div>
+            <div class="progress">
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="79" aria-valuemin="0" aria-valuemax="100">
+                <span>79%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-progress">
+            <div class="skill-title">
+              <i class="fas fa-2x fa-fw fa-database fa-mysql"></i>
+              <span>MySQL</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100">
+                <span>76%</span>
+              </div>
+            </div><!--/ /.progress /-->
+          </div><!--/ /.skill-progress /-->
+
+          <div class="skill-progress">
+            <div class="skill-title">
+              <i class="fab fa-2x fa-fw fa-js"></i>
+              <span>JavaScript</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="84" aria-valuemin="0" aria-valuemax="100">
+                <span>84%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-progress">
+            <div class="skill-title">
+              <i class="fab fa-2x fa-fw fa-css3-alt"></i>
+              <span>CSS3</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="59" aria-valuemin="0" aria-valuemax="100">
+                <span>59%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-progress">
+            <div class="skill-title">
+              <i class="fab fa-2x fa-fw fa-html5"></i>
+              <span>HTML5</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100">
+                <span>73%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-progress">
+            <div class="skill-title">
+              <i class="fab fa-2x fa-fw fa-laravel"></i>
+              <span>Laravel</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100">
+                <span>67%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-progress">
+            <div class="skill-title">
+              <i class="fas fa-2x fa-fw fa-check fa-shopify"></i>
+              <span>Shopify API</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100">
+                <span>61%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-progress">
+            <div class="skill-title">
+              <i class="fab fa-2x fa-fw fa-steam"></i>
+              <span>Steam API</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="52" aria-valuemin="0" aria-valuemax="100">
+                <span>52%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-progress">
+            <div class="skill-title">
+              <i class="fab fa-2x fa-fw fa-microsoft"></i>
+              <span>Azure</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100">
+                <span>39%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-progress">
+            <div class="skill-title">
+              <i class="fas fa-2x fa-fw fa-check fa-prestashop"></i>
+              <span>Prestashop</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="44" aria-valuemin="0" aria-valuemax="100">
+                <span>44%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-progress">
+            <div class="skill-title">
+              <i class="fas fa-2x fa-fw fa-check fa-redis"></i>
+              <span>Redis</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100">
+                <span>66%</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!--/ /.col-md-6 /-->
+
+        <div class="col-md-6">
+
+          <div class="skill-progress">
+            <div class="skill-title">
+              <i class="fa fa-2x fa-fw fa-database fa-mongodb"></i>
+              <span>MongoDB</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100">
+                <span>72%</span>
+              </div>
+            </div><!--/ /.progress /-->
+          </div><!--/ /.skill-progress /-->
+
+          <div class="skill-progress">
+            <div class="skill-title">
+              <i class="fas fa-2x fa-fw fa-check fa-perl"></i>
+              <span>Perl</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100">
+                <span>38%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-progress">
+            <div class="skill-title">
+              <i class="fab fa-2x fa-fw fa-node-js"></i>
+              <span>Node.js</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                <span>88%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-progress">
+            <div class="skill-title">
+              <i class="fab fa-2x fa-fw fa-php"></i>
+              <span>PHP</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100">
+                <span>68%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-progress">
+            <div class="skill-title">
+              <i class="fab fa-2x fa-fw fa-magento"></i>
+              <span>Magento</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+                <span>65%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-progress">
+            <div class="skill-title">
+              <i class="fab fa-2x fa-fw fa-js"></i>
+              <span>jQuery</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                <span>90%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-progress">
+            <div class="skill-title">
+              <i class="fab fa-2x fa-fw fa-facebook"></i>
+              <span>Facebook API</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100">
+                <span>71%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-progress">
+            <div class="skill-title">
+              <i class="fab fa-2x fa-fw fa-aws"></i>
+              <span>Amazon Cloud</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">
+                <span>45%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-progress">
+            <div class="skill-title">
+              <i class="fab fa-2x fa-fw fa-microsoft"></i>
+              <span>CosmosDB</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100">
+                <span>87%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-progress">
+            <div class="skill-title">
+              <i class="fab fa-2x fa-fw fa-docker"></i>
+              <span>Docker</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100">
+                <span>61%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-progress">
+            <div class="skill-title">
+              <i class="fas fa-2x fa-fw fa-check fa-rabbit"></i>
+              <span>RabbitMQ</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100">
+                <span>74%</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!--/ /.col-md-6 /-->
+
+      </div><!--/ /.row /-->
+
+      <div class="skill-chart text-center">
+        <h3>Emotional</h3>
+      </div>
+
+      <div class="row more-skill text-center">
+
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="chart" data-percent="93" data-color="e74c3c">
+            <span class="percent"></span>
+            <div class="chart-text">
+              <span>Communication</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="chart" data-percent="54" data-color="2ecc71">
+            <span class="percent"></span>
+            <div class="chart-text">
+              <span>Creativity</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="chart" data-percent="82" data-color="3498db">
+            <span class="percent"></span>
+            <div class="chart-text">
+              <span>Leadership</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="chart" data-percent="95" data-color="3498db">
+            <span class="percent"></span>
+            <div class="chart-text">
+              <span>Problem Solving</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div><!--/ /.container /-->
+  </section><!--/ End Skills Section /-->
+
+
+  <!--/  Portfolio  /-->
+  <section id="portfolio" class="portfolio-section section-padding">
+    <div class="container">
+
+      <h2 class="section-title wow">Portfolio</h2>
+
+      <ul class="list-inline" id="filter">
+        <li><a data-group="all" class="active">All</a></li>
+        <li><a data-group="web">Web</a></li>
+        <li><a data-group="ecommerce">eCommerce</a></li>
+        <li><a data-group="devops">DevOps</a></li>
+        <li><a data-group="utilities">Utilities</a></li>
+        <li><a data-group="desktop">Accounting</a></li>
+      </ul>
+
+      <div class="row">
+        <div id="og-grid" data-id="og-grid" class="og-grid">
+
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "devops"]'>
+            <div class="portfolio-bg">
+              <div class="portfolio">
+                <div class="tt-overlay"></div>
+                <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/lvs-vis"><i class="fas fa-external-link-alt"></i></a>
+                  <a class="image-link" href="assets/img/works/openstack-virtual-hosts-diagram-002.png"><i class="fa fa-search-plus"></i></a>
+                </div><!--/ /.links /-->
+                <img src="assets/img/thumbs/works/openstack-virtual-hosts-diagram-002.png" alt="Visualization of VMs distribution on physical servers in OpenStack Cloud" />
+                <div class="portfolio-info">
+                  <h3>OpenStack Visual Diagram</h3>
+                </div><!--/ /.portfolio-info /-->
+              </div><!--/ /.portfolio /-->
+            </div><!--/ /.portfolio-bg /-->
+          </div><!--/ /.portfolio-item /-->
+
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "devops"]'>
+            <div class="portfolio-bg">
+              <div class="portfolio">
+                <div class="tt-overlay"></div>
+                <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/cmdb-demo"><i class="fas fa-external-link-alt"></i></a>
+                  <a class="image-link" href="assets/img/works/network-diagram-003.jpg"><i class="fa fa-search-plus"></i></a>
+                </div>
+                <img src="assets/img/thumbs/works/network-diagram-003.jpg" alt="Visual Assets and Configuration Management Database with Real-Time Data Representations" />
+                <div class="portfolio-info">
+                  <h3>CMDB Visual</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "web"]'>
+            <div class="portfolio-bg">
+              <div class="portfolio">
+                <div class="tt-overlay"></div>
+                <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/mp3-web"><i class="fas fa-external-link-alt"></i></a>
+                  <a class="image-link" href="assets/img/works/mp3web-front-003.png"><i class="fa fa-search-plus"></i></a>
+                </div>
+                <img src="assets/img/thumbs/works/mp3web-front-003.png" alt="Web MP3 Player" />
+                <div class="portfolio-info">
+                  <h3>Web MP3 Player</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "devops"]'>
+            <div class="portfolio-bg">
+              <div class="portfolio">
+                <div class="tt-overlay"></div>
+                <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/cmdb-rtm"><i class="fas fa-external-link-alt"></i></a>
+                  <a class="image-link" href="assets/img/works/cmdb-rtm-poc.gif"><i class="fa fa-search-plus"></i></a>
+                </div>
+                <img src="assets/img/works/cmdb-rtm-poc.gif" alt="Real-time Data Visualization" />
+                <div class="portfolio-info">
+                  <h3>Real-time Monitoring</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "utilities"]'>
+            <div class="portfolio-bg">
+              <div class="portfolio">
+                <div class="tt-overlay"></div>
+                <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/maps-demo"><i class="fas fa-external-link-alt"></i></a>
+                  <a class="image-link" href="assets/img/works/infograph-004.jpg"><i class="fa fa-search-plus"></i></a>
+                </div>
+                <img src="assets/img/thumbs/works/infograph-004.jpg" alt="Maps Infographics" />
+                <div class="portfolio-info">
+                  <h3>Maps Infographics</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "web"]'>
+            <div class="portfolio-bg">
+              <div class="portfolio">
+                <div class="tt-overlay"></div>
+                <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/wcl-com"><i class="fas fa-external-link-alt"></i></a>
+                  <a class="image-link" href="assets/img/works/wcl.jpg"><i class="fa fa-search-plus"></i></a>
+                </div>
+                <img src="assets/img/thumbs/works/wcl.jpg" alt="World Cossackers League" />
+                <div class="portfolio-info">
+                  <h3>World Cossackers League</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "ecommerce"]'>
+            <div class="portfolio-bg">
+              <div class="portfolio">
+                <div class="tt-overlay"></div>
+                <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/mb-grill"><i class="fas fa-external-link-alt"></i></a>
+                  <a class="image-link" href="assets/img/works/mb-grill.jpg"><i class="fa fa-search-plus"></i></a>
+                </div>
+                <img src="assets/img/thumbs/works/mb-grill.jpg" alt="Grills Store" />
+                <div class="portfolio-info">
+                  <h3>Grills Store</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "ecommerce"]'>
+            <div class="portfolio-bg">
+              <div class="portfolio">
+                <div class="tt-overlay"></div>
+                <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/kyiv-cake"><i class="fas fa-external-link-alt"></i></a>
+                  <a class="image-link" href="assets/img/works/cheesecake.jpg"><i class="fa fa-search-plus"></i></a>
+                </div>
+                <img src="assets/img/thumbs/works/cheesecake.jpg" alt="Cheesecake Online Store" />
+                <div class="portfolio-info">
+                  <h3>Cheesecake Store</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "ecommerce", "web"]'>
+            <div class="portfolio-bg">
+              <div class="portfolio">
+                <div class="tt-overlay"></div>
+                <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/knifes-demo"><i class="fas fa-external-link-alt"></i></a>
+                  <a class="image-link" href="assets/img/works/knifes-front-view-001.jpg"><i class="fa fa-search-plus"></i></a>
+                </div>
+                <img src="assets/img/thumbs/works/knifes-front-view-001.jpg" alt="Online CS:GO Skins Lottery" />
+                <div class="portfolio-info">
+                  <h3>Online CS:GO Lottery</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "web"]'>
+            <div class="portfolio-bg">
+              <div class="portfolio">
+                <div class="tt-overlay"></div>
+                <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/http-404"><i class="fas fa-external-link-alt"></i></a>
+                  <a target="_blank" rel="noopener" href="http://bit.ly/http-404-git"><i class="fab fa-github"></i></a>
+                  <a class="image-link" href="assets/img/works/http-404-animated-with-socials-001.gif"><i class="fa fa-search-plus"></i></a>
+                </div>
+                <img src="assets/img/works/http-404-animated-with-socials-001.gif" alt="HTTP Error 404" />
+                <div class="portfolio-info">
+                  <h3>ERROR 404 Page</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "web", "utilities"]'>
+            <div class="portfolio-bg">
+              <div class="portfolio">
+                <div class="tt-overlay"></div>
+                <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/roulette-predictor"><i class="fas fa-external-link-alt"></i></a>
+                  <a target="_blank" rel="noopener" href="http://bit.ly/roulette-predictor-git"><i class="fab fa-github"></i></a>
+                  <a class="image-link" href="assets/img/works/roulette.png"><i class="fa fa-search-plus"></i></a>
+                </div>
+                <img src="assets/img/thumbs/works/roulette.png" alt="Online Casino Roulette Predictor" />
+                <div class="portfolio-info">
+                  <h3>Casino Roulette Predictor</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "desktop", "accounting"]'>
+            <div class="portfolio-bg">
+              <div class="portfolio">
+                <div class="tt-overlay"></div>
+                <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/fp-git"><i class="fab fa-github"></i></a>
+                  <a class="image-link" href="assets/img/works/fp-001.jpg"><i class="fa fa-search-plus"></i></a>
+                </div>
+                <img src="assets/img/thumbs/works/fp-001.jpg" alt="Financial Planning" />
+                <div class="portfolio-info">
+                  <h3>Financial Planning</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "desktop", "tools"]'>
+            <div class="portfolio-bg">
+              <div class="portfolio">
+                <div class="tt-overlay"></div>
+                <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/kassa-git"><i class="fab fa-github"></i></a>
+                  <a class="image-link" href="assets/img/works/kassa-001.jpg"><i class="fa fa-search-plus"></i></a>
+                </div>
+                <img src="assets/img/thumbs/works/kassa-001.jpg" alt="Kassa" />
+                <div class="portfolio-info">
+                  <h3>Communal Payments</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "desktop", "system"]'>
+            <div class="portfolio-bg">
+              <div class="portfolio">
+                <div class="tt-overlay"></div>
+                <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/sklad-git"><i class="fab fa-github"></i></a>
+                  <a class="image-link" href="assets/img/works/sklad-001.jpg"><i class="fa fa-search-plus"></i></a>
+                </div>
+                <img src="assets/img/thumbs/works/sklad-001.jpg" alt="Sklad" />
+                <div class="portfolio-info">
+                  <h3>Fabric Accounting</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "desktop", "system"]'>
+            <div class="portfolio-bg">
+              <div class="portfolio">
+                <div class="tt-overlay"></div>
+                <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/aqua-git"><i class="fab fa-github"></i></a>
+                  <a class="image-link" href="assets/img/works/voda-001.jpg"><i class="fa fa-search-plus"></i></a>
+                </div>
+                <img src="assets/img/thumbs/works/voda-001.jpg" alt="Water delivery service" />
+                <div class="portfolio-info">
+                  <h3>Water Delivery Service</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "desktop", "accounting"]'>
+            <div class="portfolio-bg">
+              <div class="portfolio">
+                <div class="tt-overlay"></div>
+                <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/domslugba-git"><i class="fab fa-github"></i></a>
+                  <a class="image-link" href="assets/img/works/domSlugba-001.jpg"><i class="fa fa-search-plus"></i></a>
+                </div>
+                <img src="assets/img/thumbs/works/domSlugba-001.jpg" alt="Home services" />
+                <div class="portfolio-info">
+                  <h3>Home Services</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "web"]'>
+            <div class="portfolio-bg">
+              <div class="portfolio">
+                <div class="tt-overlay"></div>
+                <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/wish-wall"><i class="fas fa-external-link-alt"></i></a>
+                  <a target="_blank" rel="noopener" href="http://bit.ly/wish-wall-git"><i class="fab fa-github"></i></a>
+                  <a class="image-link" href="assets/img/works/wailing-wall.gif"><i class="fa fa-search-plus"></i></a>
+                </div>
+                <img src="assets/img/works/wailing-wall.gif" alt="Wailing Wall" />
+                <div class="portfolio-info">
+                  <h3>Wailing Wall</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "utilities"]'>
+            <div class="portfolio-bg">
+              <div class="portfolio">
+                <div class="tt-overlay"></div>
+                <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/demo-emoji"><i class="fas fa-external-link-alt"></i></a>
+                  <a target="_blank" rel="noopener" href="http://bit.ly/gh-emoji"><i class="fab fa-github"></i></a>
+                  <a class="image-link" href="assets/img/works/git-emoji-cheat-sheet.jpg"><i class="fa fa-search-plus"></i></a>
+                </div>
+                <img src="assets/img/thumbs/works/git-emoji-cheat-sheet.jpg" alt="Git Emoji Cheat Sheet" />
+                <div class="portfolio-info">
+                  <h3>Emoji Cheat Sheet</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "desktop", "accounting"]'>
+            <div class="portfolio-bg">
+              <div class="portfolio">
+                <div class="tt-overlay"></div>
+                <div class="links">
+                  <a target="_blank" rel="noopener" href="http://bit.ly/scratch-git"><i class="fab fa-github"></i></a>
+                  <a class="image-link" href="assets/img/works/scratch-001.jpg"><i class="fa fa-search-plus"></i></a>
+                </div>
+                <img src="assets/img/thumbs/works/scratch-001.jpg" alt="Scratch - Accounting system of electronic payment vouchers for services of mobile operators" />
+                <div class="portfolio-info">
+                  <h3>Mobile Scratch Cards</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!--/ /#grid /-->
+      </div><!--/ /.row /-->
+
+    </div><!--/ /.container /-->
+  </section><!--/ End Works Section /-->
+
+
+  <!--/  Facts  /-->
+  <section id="facts" class="facts-section text-center" data-stellar-vertical-offset="50" data-stellar-background-ratio="0.2">
+    <div class="tt-overlay-bg">
+      <div class="container">
+        <div class="row">
+          <div class="count-wrap">
+
+            <div class="col-xs-12 col-sm-3">
+              <i class="fab fa-themeco"></i>
+              <h3 class="timer" data-original-text="2003">2003</h3>
+              <p>My developer&acute;s way began</p>
+            </div>
+
+            <div class="col-xs-12 col-sm-3">
+              <i class="fas fa-brain"></i>
+              <h3 class="timer" data-original-text="5">5</h3>
+              <p>Programming languages</p>
+            </div>
+
+            <div class="col-xs-12 col-sm-3">
+              <i class="fab fa-js"></i>
+              <h3 class="timer" data-original-text="2013">2013</h3>
+              <p>Start of coding in JavaScript</p>
+            </div>
+
+            <div class="col-xs-12 col-sm-3">
+              <i class="fab fa-node-js"></i>
+              <h3 class="timer" data-original-text="2015">2015</h3>
+              <p>Creating APIs with node.js since</p>
+            </div>
+
+          </div><!--/ /count-wrap /-->
+        </div><!--/ /.row /-->
+      </div><!--/ /.container /-->
+    </div>
+  </section> <!--/ End Facts Section /-->
+
+
+  <!--/  Contact  /-->
+  <section id="contact" class="contact-section section-padding">
+    <div class="container">
+
+      <h2 class="section-title wow">Get in touch</h2>
+
+      <div class="row">
+
+        <div class="col-xs-12 col-md-6">
+          <div class="contact-form">
+            <strong>Send me a short message</strong>
+            <form id="contactForm" name="contact-form" action="sendemail.php" method="POST">
+
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" class="form-control" autocomplete="name" required />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" class="form-control" autocomplete="email" required />
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input id="subject" name="subject" type="text" class="form-control" />
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" class="form-control" rows="5" required=""></textarea>
+              </div>
+
+              <button type="submit" name="submit" class="btn btn-primary">Send</button>
+
+            </form>
+          </div><!--/ /.contact-form /-->
+        </div><!--/ /.col-md-6 /-->
+
+        <div class="col-xs-12 col-md-6">
+
+          <div class="row center-xs">
+
+            <div class="col-xs-6 col-sm-6">
+              <i class="fa fa-mobile-alt"></i>
+              <div class="contact-number">
+                <strong>Cell:</strong><span name="contact-cell"></span>
+              </div>
+            </div>
+
+            <div class="col-xs-6 col-sm-6">
+              <i class="fa fa-at"></i>
+              <div class="contact-number">
+                <strong>Email:</strong><a href="javascript:void(0);" name="contact-email">Write a letter</a>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="location-map">
+                <div id="mapCanvas" class="map-canvas"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div><!--/ /.row /-->
+
+    </div><!--/ /.container /-->
+  </section><!--/ End Contact Section /-->
+
+
+  <!--/  Footer  /-->
+  <footer class="footer-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="hidden-xs col-sm-4 col-md-4">
+          <div class="copyright text-left">
+            <p class=""> <a href="{{author.url}}" target="_blank" rel="noopener">MIT Licensed</a></p>
+          </div>
+        </div>
+        <div class="col-xs-10 col-sm-4 col-md-4">
+          <div class="copyright text-center">
+            {{built.year}} &copy; {{person.name.full}}
+          </div>
+        </div>
+        <div class="col-xs-2 col-sm-4 col-md-4">
+          <div class="copyright text-right">
+            <small class="hidden-xs">{{built.hash}}</small>
+            <span class="hidden-xs label label-success label-sm">v{{version}}-b{{built.cntr}}</span>
+            <small class="hidden-xs">{{built.date}}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer><!--/ End Footer Section /-->
+
+
+  <!--/  Scroll-up  /-->
+  <div class="scroll-up">
+    <a href="#home"><i class="fa fa-angle-up"></i></a>
+  </div>
+
+  <!--/ TEST VARIABLES
+  ========================================================================= /-->
+
+  <!--/  Javascript files
+  ========================================================================= /-->
+  <script defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;key={{keys.google.maps}}&amp;libraries=visualization"></script>
+
+  <script src="assets/js/lib/jquery.js"></script>
+  <script src="assets/js/lib/bootstrap.js"></script>
+  <script src="assets/js/lib/jquery.noty.packaged.js"></script>
+  <script src="assets/js/lib/jquery.waypoints.js"></script>
+  <script src="assets/js/lib/inview.js"></script>
+  <script src="assets/js/lib/jquery.stellar.js"></script>
+  <script src="assets/js/lib/jquery.sticky.js"></script>
+  <script src="assets/js/lib/smoothscroll.js"></script>
+  <script src="assets/js/lib/wow.js"></script>
+
+  <script src="assets/js/lib/jquery.countTo.js"></script>
+  <script src="assets/js/lib/jquery.inview.js"></script>
+  <script src="assets/js/lib/jquery.easypiechart.js"></script>
+
+  <!-- <script src="assets/js/plugins/modernizr.custom.js"></script> -->
+  <script src="assets/js/lib/shuffle.js"></script>
+  <script src="assets/js/lib/jquery.magnific-popup.js"></script>
+
+  <script src="assets/js/front/theme.js"></script>
+  <script src="assets/js/front/index.js"></script>
+
+  <!-- <script>
+    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+  </script> -->
+
+  <!--/ JavaScripts
+  ========================================================================= /-->
+  <!--/ Require.js /-->
+  <!-- <script src="assets/js/lib/require.js" data-main="assets/js/app-config-require.js"></script> -->
+
+</body>
+</html>

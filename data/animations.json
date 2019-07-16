@@ -1,0 +1,225 @@
+{
+  "animations": [
+    {}
+  , {
+      "selector": "#about .section-title"
+    , "inclass":  "fadeInDown"
+    , "outclass": "fadeOutDown"
+    }
+  , {
+      "selector": ".intro-sub"
+    , "inclass":  "zoomInUp"
+    , "outclass": "zoomOutDown"
+    }
+  , {
+      "selector": ".intro h1"
+    , "inclass":  "zoomIn"
+    , "outclass": "zoomOut"
+    }
+  , {
+      "selector": ".intro p"
+    , "inclass":  "rotateIn"
+    , "outclass": "rotateOut"
+    }
+  , {
+      "selector": "#social-icons ul.list-inline > li"
+    , "inclass":  "rollIn"
+    , "outclass": "rollOut"
+    }
+  , {
+      "selector": "#avatar"
+    , "inclass":  "flip"
+    , "outclass": "rubberBand"
+    }
+  , {
+      "selector": "#objective h3"
+    , "inclass":  "lightSpeedIn"
+    , "outclass": "lightSpeedOut"
+    }
+  , {
+      "selector": "#objective p"
+    , "inclass":  "fadeInLeft"
+    , "outclass": "fadeOutLeft"
+    }
+  , {
+      "selector": "#scopes h3"
+    , "inclass":  "lightSpeedIn"
+    , "outclass": "lightSpeedOut"
+    }
+  , {
+      "selector": "#scope-01"
+    , "inclass":  "bounceInLeft"
+    , "outclass": "bounceOutLeft"
+    }
+  , {
+      "selector": "#scope-02"
+    , "inclass":  "bounceInLeft"
+    , "outclass": "bounceOutLeft"
+    }
+  , {
+      "selector": "#scope-03"
+    , "inclass":  "bounceInLeft"
+    , "outclass": "bounceOutLeft"
+    }
+  , {
+      "selector": "#scope-04"
+    , "inclass":  "rotateInDownRight"
+    , "outclass": "rotateOutDownRight"
+    }
+  , {
+      "selector": "#scope-05"
+    , "inclass":  "fadeInRightBig"
+    , "outclass": "fadeOutRightBig"
+    }
+  , {
+      "selector": "#scope-06"
+    , "inclass":  "fadeInUpBig"
+    , "outclass": "fadeOutUpBig"
+    }
+  , {
+      "selector": "#scope-07"
+    , "inclass":  "fadeInUpBig"
+    , "outclass": "fadeOutUpBig"
+    }
+  , {
+      "selector": "#scope-08"
+    , "inclass":  "fadeInRightBig"
+    , "outclass": "fadeOutRightBig"
+    }
+  , {
+      "selector": "#selfie h3"
+    , "inclass":  "fadeInRight"
+    , "outclass": "fadeOutRight"
+    }
+  , {
+      "selector": "#selfie p"
+    , "inclass":  "fadeInLeft"
+    , "outclass": "fadeOutLeft"
+    }
+  , {
+      "selector": "#whatido h3"
+    , "inclass":  "fadeInRight"
+    , "outclass": "fadeOutRight"
+    }
+  , {
+      "selector": "#whatido p"
+    , "inclass":  "fadeInLeft"
+    , "outclass": "fadeOutLeft"
+    }
+  , {
+      "selector": "#whatido-01"
+    , "inclass":  "bounceInLeft"
+    , "outclass": "bounceOutLeft"
+    }
+  , {
+      "selector": "#whatido-02"
+    , "inclass":  "bounceInLeft"
+    , "outclass": "bounceOutLeft"
+    }
+  , {
+      "selector": "#whatido-03"
+    , "inclass":  "bounceInLeft"
+    , "outclass": "bounceOutLeft"
+    }
+  , {
+      "selector": "#whatido-04"
+    , "inclass":  "rotateInDownRight"
+    , "outclass": "rotateOutDownRight"
+    }
+  , {
+      "selector": "#whatido-05"
+    , "inclass":  "fadeInRightBig"
+    , "outclass": "fadeOutRightBig"
+    }
+  , {
+      "selector": "#whatido-06"
+    , "inclass":  "fadeInUpBig"
+    , "outclass": "fadeOutUpBig"
+    }
+  , {
+      "selector": "#whatido-07"
+    , "inclass":  "fadeInUpBig"
+    , "outclass": "fadeOutLeftBig"
+    }
+  , {
+      "selector": "#whatido-08"
+    , "inclass":  "fadeInRightBig"
+    , "outclass": "fadeOutRightBig"
+    }
+  , {
+      "selector": "#whatido-09"
+    , "inclass":  "bounceInLeft"
+    , "outclass": "bounceOutLeft"
+    }
+  , {
+      "selector": "#whatido-10"
+    , "inclass":  "rotateInUpRight"
+    , "outclass": "rotateOutUpRight"
+    }
+  , {
+      "selector": "#resume .section-title"
+    , "inclass":  "fadeInDown"
+    , "outclass": "fadeOutDown"
+    }
+  , {
+      "selector": "#edu"
+    , "inclass":  "fadeInUp"
+    , "outclass": "fadeOutUp"
+    }
+  , {
+      "selector": "#career"
+    , "inclass":  "fadeInUp"
+    , "outclass": "fadeOutUp"
+    }
+  , {
+      "selector": "#edu-01"
+    , "inclass":  "flipInY"
+    , "outclass": "flipOutY"
+    }
+  , {
+      "selector": "#edu-02"
+    , "inclass":  "flipInY"
+    , "outclass": "flipOutY"
+    }
+  , {
+      "selector": "#car-01"
+    , "inclass":  "flipInY"
+    , "outclass": "flipOutY"
+    }
+  , {
+      "selector": "#car-02"
+    , "inclass":  "flipInY"
+    , "outclass": "flipOutY"
+    }
+  , {
+      "selector": "#car-03"
+    , "inclass":  "flipInY"
+    , "outclass": "flipOutY"
+    }
+  , {
+      "selector": "#car-04"
+    , "inclass":  "flipInY"
+    , "outclass": "flipOutY"
+    }
+  , {
+      "selector": "#car-05"
+    , "inclass":  "flipInY"
+    , "outclass": "flipOutY"
+    }
+  , {
+      "selector": "#skills .section-title"
+    , "inclass":  "fadeInDown"
+    , "outclass": "fadeOutDown"
+    }
+  , {
+      "selector": "#portfolio .section-title"
+    , "inclass":  "fadeInDown"
+    , "outclass": "fadeOutDown"
+    }
+  , {
+      "selector": "#contact .section-title"
+    , "inclass":  "fadeInDown"
+    , "outclass": "fadeOutDown"
+    }
+  ]
+}

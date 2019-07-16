@@ -1,0 +1,170 @@
+/*!  - - - - - - - - - - - -   Customizations   - - - - - - - - - - - - - - - */
+/* ---------------------------------------------- /*
+ *               Theme covers
+/* ---------------------------------------------- */
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, 'sans-serif';
+}
+
+.h4 {
+  font-weight: 600;
+}
+
+.copyright {
+  font-family: 'Lato', Calibri, Tahoma, Arial, 'sans-serif';
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.copyright > span.label {
+  font-weight: 400;
+  font-size: 10px;
+}
+
+.footer-wrapper {
+  background: #1a1e23;
+  color: #ccc;
+  padding: 16px 0;
+}
+
+.footer-wrapper small {
+  color: #1a1e23;
+}
+
+.noty-container {
+  /* font-size: 14px; */
+}
+
+/* ---------------------------------------------- /*
+ *               About Section
+/* ---------------------------------------------- */
+.short-info h3 {
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+
+/* ---------------------------------------------- /*
+ *               Resume Section
+/* ---------------------------------------------- */
+
+/* === Resume Timeline === */
+
+.timeline-content {
+  padding: 0;
+}
+
+.timeline-content .panel-body p {
+  line-height: 24px;
+}
+
+.timeline-heading h3 {
+  /*font-size: 22px;*/
+  line-height: 26px;
+}
+
+.timeline-heading span {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+/* ---------------------------------------------- /*
+ *               Skill Section
+/* ---------------------------------------------- */
+
+.skill-icon {
+  width: 15%;
+}
+
+.skill-title {
+  width: 55%;
+}
+
+  .skill-title span
+, .skill-title i {
+  float: left;
+  margin-top: -6px;
+  line-height: 24px;
+}
+.skill-title i {
+  margin-right: 4px;
+}
+
+.skill-title span {
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: -4px;
+  text-transform: capitalize;
+}
+
+
+/* ---------------------------------------------- /*
+ *  progress-bar
+/* ---------------------------------------------- */
+.skill-progress .progress {
+  background-image: none;
+}
+
+.progress-bar span {
+  position: absolute;
+  top: -20px;
+  right: 15px;
+}
+
+.progress-bar.six-sec-ease-in-out {
+  background-image: linear-gradient(to bottom,#3b8269 0,#68c3a3 100%);
+}
+
+.progress .progress-bar.six-sec-ease-in-out {
+  -webkit-transition: width 4s ease-in-out;
+     -moz-transition: width 4s ease-in-out;
+       -o-transition: width 4s ease-in-out;
+          transition: width 4s ease-in-out;
+}
+
+
+/* ---------------------------------------------- /*
+ *               Chart CSS
+/* ---------------------------------------------- */
+.percent {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.chart-text span {
+  font-size: 18px;
+}
+
+
+/* ---------------------------------------------- /*
+ *               Cusomizations
+/* ---------------------------------------------- */
+
+.navbar-brand {
+  transform: translate3d(0px, 0px, 0px);
+  transition: transform 0.5s ease 0s, -webkit-transform 0.5s ease 0s;
+}
+
+@media(min-width:992px) {
+  .grow { transition: all .02s ease-in-out; }
+  .grow:hover { transform: scale(1.2); }
+}
+
+ul.list-check li {
+  /* font-family: "Helvetica"; */
+  /* font-weight: 100; */
+}
+
+ul.list-check li i {
+  color: #68c3a3;
+  margin-right: 5px;
+}
+
+.scroll-up a {
+  opacity: 0.6;
+  font-size: 26px;
+}
+
+form {
+  margin-bottom: 15px;
+}
