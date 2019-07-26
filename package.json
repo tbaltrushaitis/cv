@@ -96,7 +96,7 @@
   , "jimp":                "^0.6.0"
   , "jshint":              "^2.10.1"
   , "jshint-stylish":      "^2.2.1"
-  , "lodash":              "^4.17.11"
+  , "lodash":              "^4.17.13"
   , "main-bower-files":    "^2.13.1"
   , "merge-stream":        "^1.0.1"
   , "read-config":         "^2.0.0"
