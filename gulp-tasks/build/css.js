@@ -73,6 +73,7 @@ const buildCss = function (gulp) {
   // , path.join(FROM, 'magnific-popup.css')
     , path.join(FROM, 'og-grid.css')
     , path.join(FROM, 'custom.css')
+    , path.join(FROM, 'custom-animations.css')
     , path.join(FROM, 'fa-colors.css')
   ];
 

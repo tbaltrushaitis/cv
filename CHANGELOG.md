@@ -36,14 +36,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased] - Current ##
 
+---
+
+## [v0.2.3](https://github.com/tbaltrushaitis/cv/tree/v0.2.3) - 2019-08-02 ##
+
+### Added ###
+- [x] hue animation for current job position
+- [x] brand color for "Digital Ocean" font-awesome icon
+- [x] npm i dotenv@8.0.0 --save-dev
+
 ### Changed ###
 - [x] bower i jquery@3.4.1 --save
-- [x] bower i font-awesome@5.8.2 --save
 - [x] npm i yargs@13.2.4 --save-dev
 - [x] npm i merge-stream@2.0.0 --save-dev
+- [x] npm i lodash@4.17.14 --save
+- [x] bower i shufflejs@5.2.2 --save
+- [x] bower i font-awesome@5.9.0 --save
+- [x] bower i animate.css@3.7.2 --save
 
 ##### Fixed: #####
 - [x] `js-yaml` Denial of Service vulnerability [WS-2019-0032](https://github.com/nodeca/js-yaml/issues/475)
+- [x] Padding of document sections
 
 ---
 

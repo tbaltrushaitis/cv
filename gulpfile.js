@@ -7,12 +7,14 @@
 
 'use strict';
 
+//  Reads configuration from .env file
+require('dotenv').config();
+
 //  ------------------------------------------------------------------------  //
 //  -----------------------------  DEPENDENCIES  ---------------------------  //
 //  ------------------------------------------------------------------------  //
 
 const fs   = require('fs');
-const del  = require('del');
 const path = require('path');
 const utin = require('util').inspect;
 
@@ -39,7 +41,7 @@ const pkg = require('./package.json');
 
 let now = new Date();
 let ME = global.ME = {};
-ME.WD = path.join(__dirname);
+ME.WD  = path.join(__dirname);
 
 ME.pkg = Object.assign({}, pkg || {});
 ME.version = ME.pkg.version;
@@ -190,6 +192,7 @@ gulp.task('default', [], (cb) => {
 
 });
 
+
 gulp.task('lint', [
     'jscs'
   , 'jshint'
@@ -199,6 +202,7 @@ gulp.task('lint', [
     cb();
   }
 });
+
 
 gulp.task('test', [
     'show:env'
@@ -211,6 +215,7 @@ gulp.task('test', [
   }
 });
 
+
 gulp.task('clean', [
     'clean:build'
   , 'clean:dist'
@@ -220,6 +225,7 @@ gulp.task('clean', [
     cb();
   }
 });
+
 
 gulp.task('build:assets', [
     'build:css'
@@ -232,6 +238,7 @@ gulp.task('build:assets', [
   }
 });
 
+
 gulp.task('build:assets:fast', [
     'build:css'
   , 'build:js'
@@ -242,6 +249,7 @@ gulp.task('build:assets:fast', [
   }
 });
 
+
 gulp.task('dev', [
     'build:dev'
   ], (cb) => {
@@ -251,6 +259,7 @@ gulp.task('dev', [
     cb();
   }
 });
+
 
 gulp.task('prod', [
     'build'
@@ -336,6 +345,23 @@ gulp.task('deploy', [
 });
 
 
+// gulp.task('critical', ['build'], (cb) => {
+//
+//   critical.generate({
+//     inline: true,
+//     base:   `${ME.BUILD}/`,
+//     src:    'index.html',
+//     dest:   `${ME.DIST}/index-critical.html`,
+//     minify:  false,
+//     width:   320,
+//     height:  480
+//   });
+//
+//   console.log(`${ME.d()}[${C.Y}CRITICAL${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
+//
+// });
+
+
 //--------------//
 //   WATCHERS   //
 //--------------//
@@ -343,6 +369,7 @@ gulp.task('deploy', [
 gulp.task('watch', [], (cb) => {
 
   livereload.listen(ME.pkg.options.livereload);
+
   gulp.start('watch:src');
   console.log(`${ME.d()}[${C.Y}WATCH${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
   if ('function' === typeof cb) {
@@ -355,7 +382,7 @@ gulp.task('watch:src', [
   , 'watch:src:configs'
   , 'watch:src:css'
   , 'watch:src:js'
-], (cb) => {
+  ], (cb) => {
   console.log(`${ME.d()}[${C.Y}WATCH:SRC${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
   if ('function' === typeof cb) {
     cb();

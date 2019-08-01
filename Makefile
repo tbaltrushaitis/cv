@@ -25,7 +25,7 @@ APP_REPO := $(shell git ls-remote --get-url)
 CODE_VERSION := $(shell cat ./VERSION)
 GIT_COMMIT := $(shell git rev-list --remove-empty --remotes --max-count=1 --date-order --reverse)
 WD := $(shell pwd -P)
-DT = $(shell date +'%Y-%m-%dT%H:%M:%S %Z')
+DT = $(shell date +'%Y-%m-%dT%H:%M:%S%:z')
 
 APP_ENV := $(strip $(shell [ -f NODE_ENV ] && cat NODE_ENV || cat config/.NODE_ENV))
 ifeq ($(APP_ENV),)
@@ -36,7 +36,7 @@ BUILD_FILE = BUILD-$(CODE_VERSION)
 BUILD_CNTR = $(strip $(shell [ -f "$(BUILD_FILE)" ] && cat $(BUILD_FILE) || echo 0))
 BUILD_CNTR := $(shell echo $$(( $(BUILD_CNTR) + 1 )))
 
-BUILD_FULL := $(shell date +'%Y-%m-%dT%H:%M:%SZ %Z')
+BUILD_FULL := $(shell date +'%Y-%m-%dT%H:%M:%S%:z')
 BUILD_DATE := $(shell date +'%Y-%m-%d')
 BUILD_TIME := $(shell date +'%H:%M:%S')
 BUILD_YEAR := $(shell date +'%Y')
@@ -122,11 +122,14 @@ default: run ;
 
 .PHONY: test config tasklist tasktree
 
-test: state help usage banner ;
+test: state help banner ;
 	@ export NODE_ENV="${APP_ENV}"; npm run test
 
 config:
 	@ export NODE_ENV="${APP_ENV}"; npm run config
+
+critical:
+	@ export NODE_ENV="${APP_ENV}"; npm run crit
 
 tasklist:
 	@ gulp --tasks --depth 1 --color

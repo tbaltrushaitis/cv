@@ -82,8 +82,8 @@ For example: [Modern CV](http://bit.ly/tomascv)
 
  Name | Version | Scope | Description |
 :-----|:-------:|:-----:|:------------|
- [animate.css](http://daneden.github.io/animate.css/) | 3.7.0 | Front | A cross-browser library of CSS animations
- [FontAwesome](https://fontawesome.com/) | 5.8.2 | Front | The iconic Font and CSS toolkit
+ [animate.css](http://daneden.github.io/animate.css/) | 3.7.2 | Front | A cross-browser library of CSS animations
+ [FontAwesome](https://fontawesome.com/) | 5.9.0 | Front | The iconic Font and CSS toolkit
  [Bootstrap](http://getbootstrap.com) | 3.3.7 | Front | Front-end framework for developing responsive, mobile first projects on the web
  [jQuery](http://jquery.com/) | 3.4.1 | Front | JavaScript Library
  [noty](http://ned.im/noty) | 2.4.1 | Front | Notification library

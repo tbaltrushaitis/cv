@@ -24,7 +24,9 @@
   =   Google Map
  */
 
-window.jQuery(function ($) {
+var jQuery = jQuery || window.jQuery || window.$;
+
+jQuery(function ($) {
 
   'use strict';
 
@@ -32,8 +34,8 @@ window.jQuery(function ($) {
   // Preloader
   // ---------------------------------------------------------------------------
 
-  // $(window).on('load', function () {
-  $(document).ready(function () {
+  $(window).on('load', function () {
+    // $(document).ready(function () {
     $('#pre-status').fadeOut();
     $('#tt-preloader').delay(150).fadeOut('slow');
   });
@@ -75,7 +77,8 @@ window.jQuery(function ($) {
     });
 
     $('body').scrollspy({
-      target: '.navbar-custom'
+      // target: '.navbar-custom'
+      target: '#navbar-custom'
       , offset: 70
     });
 
@@ -214,12 +217,11 @@ window.jQuery(function ($) {
       , mobile:          true        //  trigger animations on mobile devices (default is true)
       , live:            true        //  act on asynchronously loaded content (default is true)
       , scrollContainer: null        //  optional scroll container selector, otherwise use window,
-      , resetAnimation:  false       //  reset animation on end (default is true)
+      , resetAnimation:  false        //  reset animation on end (default is true)
       , callback: function (box) {
           //  the callback is fired every time an animation is started
           //  the argument that is passed in is the DOM node being animated
-          //  console.log('WOW: animating <' + box.tagName.toLowerCase() + '>');
-          //  console.log('WOW: animating box:', box.tagName.toLowerCase() + '.' + box.className);
+          // console.log(`[WOW] animating box [${box.tagName.toLowerCase()}]: [${box.className}]`, box);
         }
     }).init();
 
@@ -260,7 +262,7 @@ window.jQuery(function ($) {
 
   (function () {
 
-    let myLatlng, myLat, myLng, styles, mapOptions, map, marker, contentString, infowindow;
+    let myLatlng, myLat, myLng, styles, mapOptions, map, marker, contentString, infoWindow;
 
     myLat = parseFloat('{{person.bio.location.lat}}');
     myLng = parseFloat('{{person.bio.location.lng}}');
@@ -307,12 +309,12 @@ window.jQuery(function ($) {
     });
 
     contentString = `Hello, Visitor!`;
-    infowindow = new window.google.maps.InfoWindow({
+    infoWindow = new window.google.maps.InfoWindow({
       content: contentString
     });
 
     window.google.maps.event.addListener(marker, 'click', function () {
-      infowindow.open(map, marker);
+      infoWindow.open(map, marker);
     });
 
   }());
