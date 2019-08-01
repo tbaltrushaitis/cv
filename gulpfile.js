@@ -7,12 +7,18 @@
 
 'use strict';
 
+//  Reads configuration from .env file
+require('dotenv').config();
+
 //  ------------------------------------------------------------------------  //
 //  -----------------------------  DEPENDENCIES  ---------------------------  //
 //  ------------------------------------------------------------------------  //
 
 const fs   = require('fs');
+<<<<<<< HEAD
 // const del  = require('del');
+=======
+>>>>>>> dev-0.2.3
 const path = require('path');
 const utin = require('util').inspect;
 
@@ -40,7 +46,7 @@ const pkg = require('./package.json');
 
 let now = new Date();
 let ME = global.ME = {};
-ME.WD = path.join(__dirname);
+ME.WD  = path.join(__dirname);
 
 ME.pkg = Object.assign({}, pkg || {});
 ME.version = ME.pkg.version;

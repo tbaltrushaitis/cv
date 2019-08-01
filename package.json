@@ -1,6 +1,6 @@
 {
   "name":     "cv"
-, "version":  "0.2.2"
+, "version":  "0.2.3"
 , "title":    "Modern CV, Resume and Portfolio website"
 , "description": "Best-in-Class website template for modern CV, Resume and Portfolio. Easy customizable All-in-One-Page static website with simple and smart builder."
 , "homepage": "https://github.com/tbaltrushaitis/cv"
@@ -21,7 +21,7 @@
 , "engines": {
     "node": ">=8.0.0"
   }
-, "os": ["linux"]
+, "os": ["linux", "win32"]
 , "main": ""
 , "scripts": {
     "preinstall":    "echo [PRE-INSTALL] --- "
@@ -59,6 +59,7 @@
   , "usage":         "echo [USAGE]; gulp usage --color"
   , "\n# DEVELOPMENT SCRIPTS:": ""
   , "dev":           "echo [DEV]; DEBUG=* gulp dev --color"
+  , "crit":          "echo [CRITICAL]; DEBUG=* gulp critical --color"
   , "live":          "echo [LIVE]; livereload ./webroot --port 35729 -d -w 1000"
   , "watch":         "echo [WATCH]; DEBUG=* gulp watch --color"
   , "\n# END": ""
@@ -74,6 +75,7 @@
     "bower":               "^1.8.8"
   , "dateformat":          "^3.0.3"
   , "del":                 "^3.0.0"
+  , "dotenv":              "^8.0.0"
   , "gulp":                "^3.9.1"
   , "gulp-changed":        "^3.2.0"
   , "gulp-clean-css":      "^3.10.0"
@@ -96,15 +98,17 @@
   , "jimp":                "^0.6.0"
   , "jshint":              "^2.10.1"
   , "jshint-stylish":      "^2.2.1"
-  , "lodash":              "^4.17.11"
+  , "js-yaml":             ">=3.13.1"
+  , "lodash":              "^4.17.14"
   , "main-bower-files":    "^2.13.1"
   , "merge-stream":        "^1.0.1"
   , "read-config":         "^2.0.0"
   , "vinyl-paths":         "^2.1.0"
-  , "yargs":               "^13.2.0"
+  , "yargs":               "^13.2.4"
   }
 , "devDependencies-DISABLED": {
-    "gulp-add-src":      "^1.0.0"
+    "critical":          "^1.3.4"
+  , "gulp-add-src":      "^1.0.0"
   , "gulp-chmod":        "^2.0.0"
   , "gulp-chown":        "^2.0.0"
   , "gulp-concat":       "^2.6.0"
