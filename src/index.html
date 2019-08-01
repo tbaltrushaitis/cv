@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="ie9"> <![endif]-->
 <!--[if IE 10]> <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="ie10"> <![endif]-->
@@ -6,9 +6,9 @@
 <head>
   <!--/ FOUC workaround
   ========================================================================= /-->
-  <style>
+  <!-- <style>
     html {visibility: hidden; opacity: 0; display: none;}
-  </style>
+  </style> -->
 
   <!--/  Basic Page Needs
   ========================================================================= /-->
@@ -27,7 +27,11 @@
   <meta name="author"        content="{{author.name.full}}" />
   <meta name="description"   content="Personal resume of {{person.name.full}}" />
   <meta name="generator"     content="{{engine.name}} v{{engine.version}}" />
+<<<<<<< HEAD
   <meta name="keywords"      content="modern, cv, resume, template, portfolio, portfolio-website, cv-template, IT, curriculum-vitae, cv-summary, resume-template, resume-website, cv-website, animate-css, template-project" />
+=======
+  <meta name="keywords"      content="modern, cv, resume, template, portfolio, portfolio-website, IT, curriculum-vitae, resume-website, cv-website" />
+>>>>>>> dev-0.2.3
   <meta name="language"      content="en" />
   <meta name="revisit-after" content="15 days" />
   <meta name="robots"        content="index, nofollow, noarchive" />
@@ -39,14 +43,22 @@
   ========================================================================= /-->
   <meta property="og:locale"       content="en_US" />
   <meta property="og:type"         content="website" />
+<<<<<<< HEAD
   <meta property="og:title"        content="{{person.name.full}} - Personal Resume and Portfolio" />
+=======
+  <meta property="og:title"        content="{{person.name.full}} - Resume and Portfolio" />
+>>>>>>> dev-0.2.3
   <meta property="og:description"  content="Personal resume of {{person.name.full}}" />
   <meta property="og:image"        content="assets/img/Avatar-rhomb-md.png" />
   <meta property="og:image:type"   content="image/png" />
   <meta property="og:image:alt"    content="Photo of {{person.name.full}}" />
   <meta property="og:image:height" content="358" />
   <meta property="og:image:width"  content="358" />
+<<<<<<< HEAD
   <meta property="og:site_name"    content="Modern CV, Resume and Portfolio" />
+=======
+  <meta property="og:site_name"    content="Modern CV, Resume and Portfolio - {{person.name.full}}" />
+>>>>>>> dev-0.2.3
   <meta property="og:url"          content="http://cv.gsm-center.com.ua/" />
   <meta property="og:updated_time" content="{{built.full}}" />
   <meta property="og:see_also"     content="{{author.url}}" />
@@ -101,7 +113,7 @@
 
 </head>
 
-<body data-env="{{app.env}}">
+<body data-spy="scroll" data-target="#navbar-custom" data-env="{{app.env}}">
 
   <!--/  Preloader  /-->
   <div id="tt-preloader">
@@ -142,7 +154,7 @@
   </section><!--/ End Home Section /-->
 
   <!--/  Navigation  /-->
-  <header class="header">
+  <header class="header" id="navbar-custom">
     <nav class="navbar navbar-custom" role="navigation">
       <div class="container">
 
@@ -159,7 +171,7 @@
         </div>
 
         <div class="collapse navbar-collapse" id="custom-collapse">
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right" role="tablist">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#resume">Resume</a></li>
@@ -181,7 +193,7 @@
       <div class="row">
 
         <div class="col-md-4 col-md-push-8">
-          <div class="biography" data-wow-duration="1.0s">
+          <div class="biography">
             <div class="myphoto wow" id="avatar" data-wow-duration="1.0s">
               <img src="assets/img/Avatar-rhomb-md.png" max-width="358px" max-height="358px" alt="{{person.name.full}}" />
             </div>
@@ -237,13 +249,13 @@
               <li class="col-xs-12 col-md-6 wow" id="scope-06"><i class="fas fa-fw fa-check"></i>Networking</li>
               <li class="col-xs-12 col-md-6 wow" id="scope-07"><i class="fas fa-fw fa-check"></i>Machine&nbsp;Learning</li>
               <li class="col-xs-12 col-md-6 wow" id="scope-08"><i class="fas fa-fw fa-check"></i>DB&nbsp;Administration</li>
-              <li class="col-xs-12 col-md-6 wow" id="scope-08"><i class="fas fa-fw fa-check"></i>Artificial Intelligence</li>
+              <li class="col-xs-12 col-md-6 wow" id="scope-09"><i class="fas fa-fw fa-check"></i>Artificial Intelligence</li>
             </ul>
           </div>
 
           <div class="short-info" id="selfie">
             <h3 class="wow">Selfie</h3>
-            <p class="wow">I've started my professional career in a far 2003 on a position of "Systems Engineer"
+            <p class="wow">I've started my professional career in a far 2002 on a position of "Systems Engineer"
 and was involved in a continuous code development/improvement/upgrade
 of city-wide client-server system used for collecting, sorting/grouping, processing and reporting of the utilities payments data.
 There were many technologies used but the key roles were played by (in order of being in development):
@@ -323,13 +335,13 @@ Strongly believe that making useful services with usable and friendly interfaces
                   <div class="timeline-content">
 
                     <div class="panel-heading timeline-heading row">
-                      <div class="col-md-10 col-xs-8 pull-left">
+                      <div class="col-md-10 col-xs-9 pull-left">
                         <h3 class="panel-title">Master's degree</h3>
                         <span class="text-danger"> - diploma with honors</span>
                       </div>
 
-                      <div class="col-md-2 col-xs-4 pull-right">
-                        <i class="fas fa-2x fa-user-graduate text-success"></i>
+                      <div class="col-md-2 col-xs-3 pull-right text-center">
+                        <i class="fas fa-3x fa-user-graduate text-success"></i>
                       </div>
                     </div>
 
@@ -354,13 +366,13 @@ Strongly believe that making useful services with usable and friendly interfaces
                   <div class="timeline-content">
 
                     <div class="panel-heading timeline-heading row">
-                      <div class="col-md-10 col-xs-8 pull-left">
+                      <div class="col-md-10 col-xs-9 pull-left">
                         <h3 class="panel-title">Bachelor's degree</h3>
                         <span class="text-primary"> - graduate diploma</span>
                       </div>
 
-                      <div class="col-md-2 col-xs-4 pull-right">
-                        <i class="fas fa-2x fa-graduation-cap text-success"></i>
+                      <div class="col-md-2 col-xs-3 pull-right text-center">
+                        <i class="fas fa-3x fa-graduation-cap text-success"></i>
                       </div>
                     </div>
 
@@ -393,6 +405,66 @@ Strongly believe that making useful services with usable and friendly interfaces
 
               <li class="">
                 <div class="posted-date">
+                  <span class="month hue">current</span><i class="fas fa-1x fa-heart hue"></i>
+                </div>
+
+                <div id="car-06" class="panel panel-success timeline-panel wow" data-wow-duration="1.5s">
+                  <div class="timeline-content">
+                    <div class="panel-heading timeline-heading row">
+
+                      <div class="col-md-3 col-xs-3 pull-right">
+                        <a href="http://bit.ly/dna325-off" class="thumbnail" target="_blank" rel="noopener">
+                          <img class="media-object" src="assets/img/logos/logo-dna325-sm.png" max-width="90px" max-height="90px" width="90px" height="90px" alt="DNA325" />
+                        </a>
+                      </div>
+
+                      <div class="col-md-9 col-xs-9 pull-left">
+                        <h3 class="panel-title">Software Architect</h3>
+                        <span>
+                          <a href="http://bit.ly/dna325-off" class="h4 text-success" target="_blank" rel="noopener">DNA325</a>
+                          <br />Ukraine
+                        </span>
+                      </div>
+
+                    </div>
+
+                    <div class="panel-body timeline-body">
+                      <p><strong class="text-primary hue">LAB325</strong> is a Product Engineering team with R&D facilities.<br />
+                        Specialized in whole IT solution services for fast-growing organizations around the world.<br />
+                        We are the team of product-realization IT experts who can analyze target markets,
+                        determine key deliverables, create an end-to-end development map and implement it.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="panel-footer timeline-footer">
+                    <div class="btn-toolbar" role="toolbar" aria-label="technologies">
+
+                      <div class="btn-group" role="group">
+                        <i class="fab fa-1x fa-fw fa-node" title="Node.js"></i>
+                        <i class="fab fa-1x fa-fw fa-js-square" title="JavaScript"></i>
+                        <i class="fab fa-1x fa-fw fa-html5" title="HTML5"></i>
+                        <i class="fas fa-1x fa-fw fa-database fa-mongodb" title="MongoDB"></i>
+                      </div>
+                      <div class="btn-group" role="group">
+                        <i class="fab fa-1x fa-fw fa-digital-ocean" title="Digital Ocean"></i>
+                        <i class="fab fa-1x fa-fw fa-linux" title="Linux"></i>
+                        <i class="fab fa-1x fa-fw fa-bitbucket" title="BitBucket"></i>
+                      </div>
+                      <div class="btn-group" role="group">
+                        <i class="fab fa-1x fa-fw fa-npm" title="Node Package Manager"></i>
+                        <i class="fab fa-1x fa-fw fa-gulp" title="Gulp"></i>
+                        <i class="fab fa-1x fa-fw fa-docker" title="Docker containers"></i>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+              </li>
+
+              <li class="timeline-inverted">
+                <div class="posted-date">
                   <span class="month">2016 - 2017</span>
                 </div>
 
@@ -400,13 +472,13 @@ Strongly believe that making useful services with usable and friendly interfaces
                   <div class="timeline-content">
                     <div class="panel-heading timeline-heading row">
 
-                      <div class="col-md-2 col-xs-4 pull-right">
+                      <div class="col-md-3 col-xs-3 pull-right">
                         <a href="http://bit.ly/cg-off" class="thumbnail" target="_blank" rel="noopener">
                           <img class="media-object" src="assets/img/logos/logo-cg-sm.png" max-width="96px" max-height="96px" alt="Carts Guru" />
                         </a>
                       </div>
 
-                      <div class="col-md-10 col-xs-8 pull-left">
+                      <div class="col-md-9 col-xs-9 pull-left">
                         <h3 class="panel-title">Senior Node.js Developer</h3>
                         <span>
                           <a href="http://bit.ly/cg-off" class="h4 text-success" target="_blank" rel="noopener">Carts Guru LLC</a>
@@ -437,6 +509,7 @@ Strongly believe that making useful services with usable and friendly interfaces
                         <i class="fab fa-1x fa-fw fa-js-square" title="JavaScript"></i>
                         <i class="fab fa-1x fa-fw fa-html5" title="HTML5"></i>
                         <i class="fab fa-1x fa-fw fa-facebook-messenger" title="Facebook Messenger Platform"></i>
+                        <i class="fas fa-1x fa-fw fa-database fa-mongodb" title="MongoDB"></i>
                       </div>
                       <div class="btn-group" role="group">
                         <i class="fab fa-1x fa-fw fa-gulp" title="Gulp"></i>
@@ -450,7 +523,7 @@ Strongly believe that making useful services with usable and friendly interfaces
                 </div>
               </li>
 
-              <li class="timeline-inverted">
+              <li class="">
                 <div class="posted-date">
                   <span class="month">2011 - 2015</span>
                 </div>
@@ -459,12 +532,12 @@ Strongly believe that making useful services with usable and friendly interfaces
                   <div class="timeline-content">
                     <div class="panel-heading timeline-heading row">
 
-                      <div class="col-md-4 col-xs-4 pull-right">
+                      <div class="col-md-3 col-xs-3 pull-right text-right">
                         <i class="fab fa-3x fa-fw fa-magento" title="Magento Commerce"></i>
-                        <i class="fab fa-3x fa-fw fa-ebay" title="eBay Enterprise"></i>
+                        <i class="fab fa-2x fa-fw fa-ebay hidden-xs" title="eBay Enterprise"></i>
                       </div>
 
-                      <div class="col-md-8 col-xs-8 pull-left">
+                      <div class="col-md-9 col-xs-9 pull-left">
                         <h3 class="panel-title">Operations Team Lead</h3>
                         <span>
                           <a href="http://bit.ly/mage-off" class="h4 text-success" target="_blank" rel="noopener">Magento Inc</a>
@@ -499,6 +572,7 @@ Strongly believe that making useful services with usable and friendly interfaces
                       <div class="btn-group" role="group">
                         <i class="fab fa-1x fa-fw fa-js-square" title="JavaScript"></i>
                         <i class="fab fa-1x fa-fw fa-php" title="PHP"></i>
+                        <i class="fas fa-1x fa-fw fa-database fa-mongodb" title="MongoDB"></i>
                         <i class="fab fa-1x fa-fw fa-cc-paypal" title="PayPal"></i>
                       </div>
 
@@ -508,7 +582,7 @@ Strongly believe that making useful services with usable and friendly interfaces
                 </div>
               </li>
 
-              <li class="">
+              <li class="timeline-inverted">
                 <div class="posted-date">
                   <span class="month">2008 - 2009</span>
                 </div>
@@ -517,13 +591,13 @@ Strongly believe that making useful services with usable and friendly interfaces
                   <div class="timeline-content">
                     <div class="panel-heading timeline-heading row">
 
-                      <div class="col-md-2 col-xs-4 pull-right">
+                      <div class="col-md-5 col-xs-5 pull-right">
                         <a href="http://bit.ly/rc-off" class="thumbnail" target="_blank" rel="noopener">
                           <img class="media-object" src="assets/img/logos/logo-rc-md.png" max-width="220px" max-height="43px" alt="Running Code LLC" />
                         </a>
                       </div>
 
-                      <div class="col-md-10 col-xs-8 pull-left">
+                      <div class="col-md-7 col-xs-7 pull-left">
                         <h3 class="panel-title">Senior Systems Administrator</h3>
                         <span>
                           <a href="http://bit.ly/rc-off" class="h4 text-success" target="_blank" rel="noopener">Running Code LLC</a>
@@ -555,7 +629,7 @@ Strongly believe that making useful services with usable and friendly interfaces
                 </div>
               </li>
 
-              <li class="timeline-inverted">
+              <li class="">
                 <div class="posted-date">
                   <span class="month">2006 - 2008</span>
                 </div>
@@ -565,13 +639,13 @@ Strongly believe that making useful services with usable and friendly interfaces
 
                     <div class="panel-heading timeline-heading row">
 
-                      <div class="col-md-2 col-xs-4 pull-right">
+                      <div class="col-md-3 col-xs-3 pull-right">
                         <a href="http://bit.ly/m1-off" class="thumbnail" target="_blank" rel="noopener">
                           <img class="media-object" src="assets/img/logos/logo-m1-sm.png" max-width="95px" max-height="95px" alt="M1 Television Music Channel" />
                         </a>
                       </div>
 
-                      <div class="col-md-10 col-xs-8 pull-left">
+                      <div class="col-md-9 col-xs-9 pull-left">
                         <h3 class="panel-title">IT Engineer</h3>
                         <span>
                           <a href="http://bit.ly/m1-off" class="h4 text-success" target="_blank" rel="noopener">M1 TV Music Channel</a>
@@ -605,7 +679,7 @@ Strongly believe that making useful services with usable and friendly interfaces
                 </div>
               </li>
 
-              <li class="">
+              <li class="timeline-inverted">
                 <div class="posted-date">
                   <span class="month">2004 - 2006</span>
                 </div><!--/ /posted-date /-->
@@ -1040,7 +1114,7 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
-                  <a target="_blank" rel="noopener" href="http://bit.ly/mp3-web"><i class="fas fa-external-link-alt"></i></a>
+                  <a target="_blank" rel="noopener" href="http://bit.ly/mp3web"><i class="fas fa-external-link-alt"></i></a>
                   <a class="image-link" href="assets/img/works/mp3web-front-003.png"><i class="fa fa-search-plus"></i></a>
                 </div>
                 <img src="assets/img/thumbs/works/mp3web-front-003.png" alt="Web MP3 Player" />
@@ -1327,7 +1401,7 @@ Strongly believe that making useful services with usable and friendly interfaces
 
             <div class="col-xs-12 col-sm-3">
               <i class="fab fa-themeco"></i>
-              <h3 class="timer" data-original-text="2003">2003</h3>
+              <h3 class="timer" data-original-text="2002">2002</h3>
               <p>My developer&acute;s way began</p>
             </div>
 
@@ -1402,14 +1476,14 @@ Strongly believe that making useful services with usable and friendly interfaces
             <div class="col-xs-6 col-sm-6">
               <i class="fa fa-mobile-alt"></i>
               <div class="contact-number">
-                <strong>Cell:</strong><span name="contact-cell"></span>
+                <strong class="hidden-xs">Cell:</strong><span name="contact-cell"></span>
               </div>
             </div>
 
             <div class="col-xs-6 col-sm-6">
               <i class="fa fa-at"></i>
               <div class="contact-number">
-                <strong>Email:</strong><a href="javascript:void(0);" name="contact-email">Write a letter</a>
+                <strong class="hidden-xs">Email:</strong><a href="javascript:void(0);" name="contact-email">Write a letter</a>
               </div>
             </div>
 
@@ -1467,28 +1541,28 @@ Strongly believe that making useful services with usable and friendly interfaces
 
   <!--/  Javascript files
   ========================================================================= /-->
-  <script defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;key={{keys.google.maps}}&amp;libraries=visualization"></script>
 
   <script src="assets/js/lib/jquery.js"></script>
   <script src="assets/js/lib/bootstrap.js"></script>
-  <script src="assets/js/lib/jquery.noty.packaged.js"></script>
   <script src="assets/js/lib/jquery.waypoints.js"></script>
   <script src="assets/js/lib/inview.js"></script>
   <script src="assets/js/lib/jquery.stellar.js"></script>
   <script src="assets/js/lib/jquery.sticky.js"></script>
-  <script src="assets/js/lib/smoothscroll.js"></script>
   <script src="assets/js/lib/wow.js"></script>
 
-  <script src="assets/js/lib/jquery.countTo.js"></script>
   <script src="assets/js/lib/jquery.inview.js"></script>
+  <script src="assets/js/lib/jquery.countTo.js"></script>
   <script src="assets/js/lib/jquery.easypiechart.js"></script>
 
   <!-- <script src="assets/js/plugins/modernizr.custom.js"></script> -->
   <script src="assets/js/lib/shuffle.js"></script>
   <script src="assets/js/lib/jquery.magnific-popup.js"></script>
+  <script async src="assets/js/lib/smoothscroll.js"></script>
+  <script async src="assets/js/lib/jquery.noty.packaged.js"></script>
 
-  <script src="assets/js/front/theme.js"></script>
-  <script src="assets/js/front/index.js"></script>
+  <script defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;key={{keys.google.maps}}&amp;libraries=visualization"></script>
+  <script defer src="assets/js/front/theme.js"></script>
+  <script defer src="assets/js/front/index.js"></script>
 
   <!-- <script>
     document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')

@@ -8,7 +8,7 @@
 
 'use strict';
 
-window.jQuery(($) => {
+window.jQuery(function ($) {
 
   let defOpts = Object.assign({}, {
     selector: 'div'
@@ -20,33 +20,33 @@ window.jQuery(($) => {
   // Waypoints
   // ---------------------------------------------------------------------------
 
-  let wShow = (o) => {
+  let wShow = function (o) {
     let opts = Object.assign({}, defOpts || {}, o || {});
 
-    new window.Waypoint.Inview({
+    return new window.Waypoint.Inview({
       element: $(opts.selector)
       , enter: function (dir) {
-          // console.log('Enter fired for', this.element , dir);
+          // console.log('[Enter] for', this.element , 'with direction', dir);
           this.element.removeClass(opts.outclass).addClass(opts.inclass);
         }
       , entered: function (dir) {
-          // noty({text: 'Entered fired with direction ' + dir, type: 'information'});
+          // console.log('[Entered] for', this.element, 'with direction', dir);
         }
       , exit: function (dir) {
-          // noty({text: 'Exit fired with direction ' + dir, type: 'notification'});
-          // console.log('exit() for ', this.element , dir);
+          // console.log('[Exit] for ', this.element , 'with direction', dir);
         }
       , exited: function (dir) {
-          // console.log('Exited fired for ', this.element , dir);
+          // console.log('[Exited] for ', this.element , 'with direction', dir);
           this.element.removeClass(opts.inclass).addClass(opts.outclass);
         }
-      , offset: opts.offset || '-50%'
-    });
+      , offset: function () {
 
-    // , offset: function () {
-    //     // console.info('this.element.clientHeight = ', this.element.clientHeight);
-    //     return 70 + this.element.clientHeight;
-    //   }
+          // console.log('this.element.clientHeight = ', this.element.clientHeight);
+          return 70 + this.element.clientHeight;
+        }
+
+      // , offset: opts.offset || '-50%'
+    });
 
   };
 
@@ -103,7 +103,7 @@ window.jQuery(($) => {
       return Promise.resolve(loAnimations).then(function (lo) {
         return new Promise(function (resolve, reject) {
 
-          $.each(lo, (i, o) => {
+          $.each(lo, function (i, o) {
             // Assign Waypoint animation handler
             wShow(o);
           });
@@ -116,11 +116,16 @@ window.jQuery(($) => {
     })
     .catch(function (e) {
       console.warn('Failed to Enable Animations: [', e, ']');
-      return Promise.resolve();
+      return Promise.reject(e);
     });
 
     AnimationsEnabled.then(function () {
       console.info('ANIMATIONS ENABLED');
+      return Promise.resolve(true);
+    })
+    .catch(function (e) {
+      console.warn('Failed to Enable Animations: [', e, ']');
+      return Promise.reject(e);
     });
 
   })();

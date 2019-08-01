@@ -87,6 +87,11 @@
     , "outclass": "fadeOutRightBig"
     }
   , {
+      "selector": "#scope-09"
+    , "inclass":  "bounceInLeft"
+    , "outclass": "bounceOutLeft"
+    }
+  , {
       "selector": "#selfie h3"
     , "inclass":  "fadeInRight"
     , "outclass": "fadeOutRight"
@@ -203,6 +208,11 @@
     }
   , {
       "selector": "#car-05"
+    , "inclass":  "flipInY"
+    , "outclass": "flipOutY"
+    }
+  , {
+      "selector": "#car-06"
     , "inclass":  "flipInY"
     , "outclass": "flipOutY"
     }

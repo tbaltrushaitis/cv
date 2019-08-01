@@ -12,7 +12,6 @@
 //  ------------------------------------------------------------------------  //
 
 const fs   = require('fs');
-const del  = require('del');
 const path = require('path');
 const utin = require('util').inspect;
 

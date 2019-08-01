@@ -4,6 +4,7 @@
 /* ---------------------------------------------- */
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, 'sans-serif';
+  position: relative;
 }
 
 .h4 {
@@ -167,4 +168,16 @@ ul.list-check li i {
 
 form {
   margin-bottom: 15px;
+}
+
+#current {
+  color: #f35626;
+}
+
+.hue {
+  background-image: linear-gradient(92deg, #f35626 0%,#feab3a 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: hue 10s infinite linear;
 }

@@ -5,25 +5,10 @@
 
 /*  FOUC workaround */
 html {
-  display: block;
-  height: 100%;
-  opacity: 1;
+  display:    block;
+  height:     100%;
+  opacity:    1;
   visibility: visible;
-}
-
-/* ---------------------------------------------- /*
- * Clearfix hack by Nicolas Gallagher:
- * http://nicolasgallagher.com/micro-clearfix-hack/
-/* ---------------------------------------------- */
-
-.clearfix:before,
-.clearfix:after {
-  content: " ";
-  display: table;
-}
-
-.clearfix:after {
-  clear: both;
 }
 
 .clearfix {
