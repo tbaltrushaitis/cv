@@ -23,13 +23,19 @@ APP_LOGO := ./assets/BANNER
 APP_REPO := $(shell git ls-remote --get-url)
 
 CODE_VERSION := $(shell cat ./VERSION)
-GIT_COMMIT := $(shell git rev-list --remove-empty --remotes --max-count=1 --date-order --reverse)
+GIT_BRANCH := $(shell git rev-list --remove-empty --max-count=1 --reverse --branches)
+GIT_COMMIT := $(shell git rev-list --remove-empty --max-count=1 --reverse --remotes --date-order)
+
 WD := $(shell pwd -P)
 DT = $(shell date +'%Y-%m-%dT%H:%M:%S%:z')
+TS = $(shell date +'%T')
 
+# $(shell [ -f .env ] && source .env || echo test)
+
+APP_ENV := $(strip $(shell [ -f .env ] && cat .env || (touch .env && echo "TOUCHED FILE: [.env]")))
 APP_ENV := $(strip $(shell [ -f NODE_ENV ] && cat NODE_ENV || cat config/.NODE_ENV))
 ifeq ($(APP_ENV),)
-$(info [$(White)$(DT)$(NC)] APP_ENV is NOT DETECTED!)
+$(info [$(White)$(TS)$(NC)] APP_ENV is NOT DETECTED!)
 endif
 
 BUILD_FILE = BUILD-$(CODE_VERSION)
@@ -52,7 +58,7 @@ include bin/Colors
 ##  BUILDs counter
 ##  ------------------------------------------------------------------------  ##
 $(file > $(BUILD_FILE),$(BUILD_CNTR))
-$(info [$(White)$(DT)$(NC)] Created file [$(Yellow)$(BUILD_FILE)$(NC):$(BPurple)$(BUILD_CNTR)$(NC)])
+$(info [$(White)$(TS)$(NC)] Created file [$(Yellow)$(BUILD_FILE)$(NC):$(Purple)$(BUILD_CNTR)$(NC)])
 
 ##  ------------------------------------------------------------------------  ##
 ##  BUILD information
@@ -68,13 +74,13 @@ BUILD_CONTENT := $(subst GIT_COMMIT,$(GIT_COMMIT),$(BUILD_CONTENT))
 BUILD_CONTENT := $(subst CODE_VERSION,$(CODE_VERSION),$(BUILD_CONTENT))
 
 $(file > config/build.json,$(BUILD_CONTENT))
-$(info [$(White)$(DT)$(NC)] Created file [$(Yellow)BUILD_CONTENT$(NC):$(BPurple)$(WD)/config/build.json$(NC)])
+$(info [$(White)$(TS)$(NC)] Created file [$(Yellow)BUILD_CONTENT$(NC):$(Purple)$(WD)/config/build.json$(NC)])
 
 ##  ------------------------------------------------------------------------  ##
 ##  COMMIT information
 ##  ------------------------------------------------------------------------  ##
 $(file > COMMIT,$(GIT_COMMIT));
-$(info [$(White)$(DT)$(NC)] Created file [$(BYellow)COMMIT$(NC):$(BPurple)$(GIT_COMMIT)$(NC)]);
+$(info [$(White)$(TS)$(NC)] Created file [$(BYellow)COMMIT$(NC):$(BPurple)$(GIT_COMMIT)$(NC)]);
 
 ##  ------------------------------------------------------------------------  ##
 ##                               DIRECTORIES                                  ##
@@ -103,8 +109,8 @@ DIR_WEB := $(WD)/$(WEB)
 ifeq ($(.DEFAULT_GOAL),)
 .DEFAULT_GOAL := default
 endif
-$(info [$(White)$(DT)$(NC)] $(BYellow)Goal$(NC) [$(Yellow)DEFAULT$(NC):$(BPurple)$(.DEFAULT_GOAL)$(NC)]);
-$(info [$(White)$(DT)$(NC)] $(BYellow)Goal$(NC) [$(Yellow)CURRENT$(NC):$(BPurple)$(MAKECMDGOALS)$(NC)]);
+$(info [$(White)$(TS)$(NC)] Goal [$(Yellow)DEFAULT$(NC):$(Cyan)$(.DEFAULT_GOAL)$(NC)]);
+$(info [$(White)$(TS)$(NC)] Goal [$(Yellow)CURRENT$(NC):$(Cyan)$(MAKECMDGOALS)$(NC)]);
 
 ##  ------------------------------------------------------------------------  ##
 ##                                  INCLUDES                                  ##
@@ -122,14 +128,14 @@ default: run ;
 
 .PHONY: test config tasklist tasktree
 
-test: state help banner ;
+test: banner state help ;
 	@ export NODE_ENV="${APP_ENV}"; npm run test
 
 config:
 	@ export NODE_ENV="${APP_ENV}"; npm run config
 
-critical:
-	@ export NODE_ENV="${APP_ENV}"; npm run crit
+# critical:
+# 	@ export NODE_ENV="${APP_ENV}"; npm run crit
 
 tasklist:
 	@ gulp --tasks --depth 1 --color
@@ -155,7 +161,7 @@ build:
 
 dist:
 	@ export NODE_ENV="production"; npm run build
-	@ export NODE_ENV="${APP_ENV}"; npm run dist
+	@ export NODE_ENV="production"; npm run dist
 	@ tar -c "${DST}" | gzip -9 > "${ARC}/${APP_NAME}-v${CODE_VERSION}-b${BUILD_CNTR}.tar.gz"
 
 deploy:
@@ -173,8 +179,8 @@ update: pre-update setup ;
 rebuild: build ;
 redeploy: rebuild deploy banner ;
 
-rb: rebuild;
-rd: redeploy;
+rb: rebuild ;
+rd: redeploy ;
 
 ##  ------------------------------------------------------------------------  ##
 
@@ -189,7 +195,10 @@ full: clean-all all banner ;
 cycle: setup build deploy ;
 cycle-dev: build deploy ;
 
-dev: clean-build cycle-dev banner ;
+dev: clean banner cycle-dev ;
+	@ export NODE_ENV="${APP_ENV}"; npm run dev ;
+
+dev-setup: clean-deps setup banner cycle-dev ;
 	@ export NODE_ENV="${APP_ENV}"; npm run dev ;
 
 run: banner help cycle dist banner ;

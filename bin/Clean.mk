@@ -2,20 +2,26 @@
 ##                                 Clean Environment                          ##
 ##  ------------------------------------------------------------------------  ##
 
+THIS_FILE = $(lastword $(MAKEFILE_LIST))
+$(info [THIS_FILE:$(THIS_FILE)])
+
 include bin/.bash_colors
 
 .PHONY: clean clean-all clean-full
 .PHONY: clean-build clean-dist clean-files clean-deps
 
 clean: clean-build clean-files
-	@ echo [${BYellow}${On_Blue}COMPLETED${NC}] Clean;
+	@ echo -n "Clean \t ... ";
+	@ echo [${White}OK${NC}];
 
 clean-all: clean clean-dist
-	@ echo [${BYellow}${On_Blue}COMPLETED${NC}] Clean ALL;
+	@ echo -n "Clean: all \t ... ";
+	@ echo [${White}OK${NC}];
 
 clean-full: clean-all clean-deps
-	@ rm -rf BUILD-* ;
-	@ echo [${BYellow}${On_Blue}COMPLETED${NC}] Clean FULL;
+	@ echo -n "Clean: full \t ... ";
+	@ rm -rf build-* ;
+	@ echo [${White}OK${NC}];
 
 clean-build:
 	@ echo -n "Clean: build \t ... ";
@@ -48,6 +54,10 @@ clean-files:
 		yarn.lock \
 		*.md \
 		*.log ;
+	@ echo [${White}OK${NC}];
+
+clean-dev: clean-deps clean-files clean-build clean-dist
+	@ echo -n "Clean: dev \t ... ";
 	@ echo [${White}OK${NC}];
 
 ##  ------------------------------------------------------------------------  ##
