@@ -50,6 +50,7 @@ const build2web = function (gulp) {
 
   let wFiles = gulp.src([
         path.join(ME.BUILD, '.*')
+      , path.join(ME.BUILD, '*.json')
       , path.join(ME.BUILD, '*.txt')
     ])
     .pipe(gulp.dest(ME.WEB));

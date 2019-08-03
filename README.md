@@ -17,7 +17,8 @@
 
 <!-- # Best-in-Class modern CV, Resume and Portfolio # -->
 
-:mortar_board: Best-in-Class modern CV, Resume and Portfolio website template. All-in-One-Page site with fully customizable builder.
+:mortar_board: Best in Class modern CV, Resume and Portfolio website template.
+All-in-One-Page site with simple and fully customizable builder.
 
 `modern` `cv` `resume` `portfolio` `template` `portfolio-website` `cv-template` `IT` `cv-summary` `resume-template` `resume-website` `cv-website` `animated` `template-project`
 
@@ -83,7 +84,7 @@ For example: [Modern CV](http://bit.ly/tomascv)
  Name | Version | Scope | Description |
 :-----|:-------:|:-----:|:------------|
  [animate.css](http://daneden.github.io/animate.css/) | 3.7.2 | Front | A cross-browser library of CSS animations
- [FontAwesome](https://fontawesome.com/) | 5.9.0 | Front | The iconic Font and CSS toolkit
+ [FontAwesome](https://fontawesome.com/) | 5.10.1 | Front | The iconic Font and CSS toolkit
  [Bootstrap](http://getbootstrap.com) | 3.3.7 | Front | Front-end framework for developing responsive, mobile first projects on the web
  [jQuery](http://jquery.com/) | 3.4.1 | Front | JavaScript Library
  [noty](http://ned.im/noty) | 2.4.1 | Front | Notification library

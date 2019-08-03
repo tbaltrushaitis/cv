@@ -1,6 +1,6 @@
 {
   "name":     "cv"
-, "version":  "0.2.3"
+, "version":  "0.2.4"
 , "title":    "Modern CV, Resume and Portfolio website"
 , "description": "Best-in-Class website template for modern CV, Resume and Portfolio. Easy customizable All-in-One-Page static website with simple and smart builder."
 , "homepage": "https://github.com/tbaltrushaitis/cv"
@@ -22,7 +22,7 @@
     "node": ">=8.0.0"
   }
 , "os": ["linux", "win32"]
-, "main": ""
+, "main": "echo [CALLED MAIN SCRIPT VIA package.json]"
 , "scripts": {
     "preinstall":    "echo [PRE-INSTALL] --- "
   , "install":       "echo [INSTALL] --- "
@@ -32,7 +32,7 @@
   , "postuninstall": "echo [POST-UNINSTALL] --- "
   , "start":         "echo [START] --- "
   , "prepublish":    "echo [PRE-PUBLISH] --- "
-  , "pretest":       "echo [PRE-TEST] --- "
+  , "pretest":       "set echo off; echo [PRE-TEST] --- "
   , "test":          "echo [TEST]; DEBUG=* gulp test --color"
   , "posttest":      "echo [POST-TEST] --- "
   , "\n# BUILDING SCRIPTS:": ""
@@ -59,13 +59,13 @@
   , "usage":         "echo [USAGE]; gulp usage --color"
   , "\n# DEVELOPMENT SCRIPTS:": ""
   , "dev":           "echo [DEV]; DEBUG=* gulp dev --color"
-  , "crit":          "echo [CRITICAL]; DEBUG=* gulp critical --color"
   , "live":          "echo [LIVE]; livereload ./webroot --port 35729 -d -w 1000"
   , "watch":         "echo [WATCH]; DEBUG=* gulp watch --color"
   , "\n# END": ""
   }
 , "scripts-disabled": {
-    "preinstall": "[ -f ./NODE_ENV ] || cp -prv config/.NODE_ENV ./NODE_ENV ; [ -f ./.bowerrc ] || cp -prv config/.bowerrc ./ ;"
+    "crit":       "echo [CRITICAL]; DEBUG=* gulp critical --color"
+  , "preinstall": "[ -f ./NODE_ENV ] || cp -prv config/.NODE_ENV ./NODE_ENV ; [ -f ./.bowerrc ] || cp -prv config/.bowerrc ./ ;"
   }
 , "directories": {
     "test": "test"

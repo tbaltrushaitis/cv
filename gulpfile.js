@@ -81,7 +81,7 @@ ME.Config = config;
 let C = ME.Config.colors;
 ME.L = `\n${C.W}${(new Array(80).join('-'))}${C.N}\n`;
 ME.d = function () {
-  return `[${C.Gray}${new Date().toISOString()}${C.N}][${C.C}${ME.pkg.name}${C.N}:${C.BC}${ME.VERSION}${C.N}]`;
+  return `[${C.Gray}${dateFormat(Date.now(), 'HH:MM:ss')}${C.N}][${C.Blue}${ME.pkg.name}${C.N}:${C.BC}${ME.VERSION}${C.N}]`;
 };
 
 ME.DIR    = {};
@@ -523,7 +523,8 @@ gulp.task('show:config', function (cb) {
   console.log(`${ME.L}`);
 
   if ('function' === typeof cb) {
-    cb();
+    // cb();         //  SYNCH
+    return cb();  //  ASYNC
   }
 });
 

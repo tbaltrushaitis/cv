@@ -51,6 +51,7 @@ const build2dist = function (gulp) {
   let wFiles = gulp.src([
         path.join(SRC, '.*')
       , path.join(SRC, '*.txt')
+      , path.join(SRC, '*.json')
     ])
     .pipe(gulp.dest(DEST));
 
