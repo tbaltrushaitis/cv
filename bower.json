@@ -52,9 +52,10 @@
     "jquery.shuffle": "#9cf47a1590"
   , "lato-font":      "^3.0.0"
   , "normalize-css":  "^8.0.1"
-  , "segoe-fonts":    "^1.0.1"
   }
-, "resolutions": {}
+, "resolutions-DISABLED": {
+    "font-awesome": "5.10.1"
+  }
 , "overrides": {
     "bootstrap": {
       "main": [
@@ -64,7 +65,7 @@
       , "!**/*.min.js"
       , "!*-theme.*"
       ]
-      , "main-4": [
+    , "main-4": [
         "dist/js/bootstrap.js"
       , "dist/css/bootstrap.css"
       , "dist/fonts/*.*"
