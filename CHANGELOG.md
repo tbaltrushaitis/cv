@@ -50,6 +50,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - [x] Improved Clean operations in Make
 - [x] Timestamp format to just time instead of .toLocaleTimeString() for console messages
 
+### Fixed ###
+- [x] lodash.template [CVE-2019-10744](https://github.com/lodash/lodash/pull/4336) vulnerability
+
 ---
 
 ## [v0.2.3](https://github.com/tbaltrushaitis/cv/tree/v0.2.3) - 2019-08-02 ##
