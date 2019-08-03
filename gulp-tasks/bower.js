@@ -66,18 +66,18 @@ const bowerFiles = function (gulp) {
   let IMG  = path.join('img');
   let WEBFONT = path.join('webfonts');
   let CONF = {
+    // , format: 'keep-breaks'
     debug: false
-  // , format: 'keep-breaks'
   , rebase: false
   , level: {
       1: {
-        all: false
-      , removeEmpty: true
-      , specialComments: 'all'
+          all: false
+        , removeEmpty: true
+        , specialComments: 'all'
       }
     , 2: {
-        all: false
-      , removeEmpty: true
+          all: false
+        , removeEmpty: true
       }
     }
   };

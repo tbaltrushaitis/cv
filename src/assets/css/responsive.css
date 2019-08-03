@@ -154,7 +154,34 @@
     margin-right: 0;
   }
 
+  /* .timeline-heading */
+  .timeline-heading h3.panel-title {
+    font-size: 14px;
+    line-height: normal;
+  }
+
+  .timeline-heading span {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 12px;
+  }
+
+  .timeline-heading span a.h4 {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .timeline>li .posted-date .month {
+    font-size: 14px;
+    line-height: 1.1;
+  }
+
+  .thumbnail {
+    margin-bottom: 5px;
+  }
+
 }
+
 
 /* Landscape Mobile */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
@@ -355,7 +382,6 @@
     text-align: left;
   }
 
-
   .portfolio-item {
     min-height: 162px;
   }
@@ -401,10 +427,12 @@
 
 }
 
+
 /* Large devices (large desktops, 1280px and up) */
 @media screen and (min-width: 1280px) and (max-width: 1599px) {
 
 }
+
 
 /* Extra Large devices (large desktops, 1600px and up) */
 @media screen and (min-width: 1600px) and (max-width: 1920px) {

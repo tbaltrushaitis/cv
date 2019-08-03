@@ -32,8 +32,10 @@
   <meta name="revisit-after" content="15 days" />
   <meta name="robots"        content="index, nofollow, noarchive" />
   <meta name="title"         content="{{person.name.full}} - Personal Resume and Portfolio" />
+  <meta name="theme-color"   content="#000000" />
 
   <link rel="canonical" href="http://cv.gsm-center.com.ua/" />
+  <link rel="manifest" href="/manifest.json" />
 
   <!--/  Metas for Crawlers
   ========================================================================= /-->
@@ -50,7 +52,6 @@
   <meta property="og:url"          content="http://cv.gsm-center.com.ua/" />
   <meta property="og:updated_time" content="{{built.full}}" />
   <meta property="og:see_also"     content="{{author.url}}" />
-
 
   <!--/  Fonts
   ========================================================================= /-->
@@ -187,32 +188,32 @@
             </div>
             <ul class="list-check">
               <li class="row">
-                <div class="col-xs-2 col-sm-6 col-md-6">
+                <div class="col-xs-2 col-sm-6 col-md-2 col-lg-6">
                   <i class="fa fa-fw fa-id-badge"></i>
-                  <strong class="hidden-xs">Name:</strong>
+                  <strong class="hidden-xs hidden-md">Name:</strong>
                 </div>
-                <div class="col-xs-10 col-sm-6 col-md-6"><span>{{person.name.full}}</span></div>
+                <div class="col-xs-10 col-sm-6 col-md-10 col-lg-6"><span>{{person.name.full}}</span></div>
               </li>
               <li class="row">
-                <div class="col-xs-2 col-sm-6 col-md-6">
+                <div class="col-xs-2 col-sm-6 col-md-2 col-lg-6">
                   <i class="fa fa-fw fa-calendar"></i>
-                  <strong class="hidden-xs">Birth:</strong>
+                  <strong class="hidden-xs hidden-md">Birth:</strong>
                 </div>
-                <div class="col-xs-10 col-sm-6 col-md-6">{{person.bio.birth}}</div>
+                <div class="col-xs-10 col-sm-6 col-md-10 col-lg-6">{{person.bio.birth}}</div>
               </li>
               <li class="row">
-                <div class="col-xs-2 col-sm-6 col-md-6">
+                <div class="col-xs-2 col-sm-6 col-md-2 col-lg-6">
                   <i class="fa fa-fw fa-home"></i>
-                  <strong class="hidden-xs">Location:</strong>
+                  <strong class="hidden-xs hidden-md">Location:</strong>
                 </div>
-                <div class="col-xs-10 col-sm-6 col-md-6">{{person.bio.location.full}}</div>
+                <div class="col-xs-10 col-sm-6 col-md-10 col-lg-6">{{person.bio.location.full}}</div>
               </li>
               <li class="row">
-                <div class="col-xs-2 col-sm-6 col-md-6">
+                <div class="col-xs-2 col-sm-6 col-md-2 col-lg-6">
                   <i class="fa fa-fw fa-globe"></i>
-                  <strong class="hidden-xs">Citizenship:</strong>
+                  <strong class="hidden-xs hidden-md">Citizenship:</strong>
                 </div>
-                <div class="col-xs-10 col-sm-6 col-md-6">{{person.bio.citizenship}}</div>
+                <div class="col-xs-10 col-sm-6 col-md-10 col-lg-6">{{person.bio.citizenship}}</div>
               </li>
             </ul>
           </div>
@@ -393,7 +394,8 @@ Strongly believe that making useful services with usable and friendly interfaces
 
               <li class="">
                 <div class="posted-date">
-                  <span class="month hue">current</span><i class="fas fa-1x fa-heart hue"></i>
+                  <span class="month hue">&nbsp;Current&nbsp;</span>
+                  <span class="month hue"><i class="fas fa-1x fa-heart hue"></i></span>
                 </div>
 
                 <div id="car-06" class="panel panel-success timeline-panel wow" data-wow-duration="1.5s">
@@ -412,6 +414,9 @@ Strongly believe that making useful services with usable and friendly interfaces
                           <a href="http://bit.ly/dna325-off" class="h4 text-success" target="_blank" rel="noopener">DNA325</a>
                           <br />Ukraine
                         </span>
+                        <!-- <span>
+                          Ukraine
+                        </span> -->
                       </div>
 
                     </div>
@@ -520,9 +525,9 @@ Strongly believe that making useful services with usable and friendly interfaces
                   <div class="timeline-content">
                     <div class="panel-heading timeline-heading row">
 
-                      <div class="col-md-3 col-xs-3 pull-right text-right">
+                      <div class="col-md-3 col-xs-3 pull-right text-center">
                         <i class="fab fa-3x fa-fw fa-magento" title="Magento Commerce"></i>
-                        <i class="fab fa-2x fa-fw fa-ebay hidden-xs" title="eBay Enterprise"></i>
+                        <i class="fab fa-3x fa-fw fa-ebay hidden-xs-0" title="eBay Enterprise"></i>
                       </div>
 
                       <div class="col-md-9 col-xs-9 pull-left">
@@ -679,7 +684,7 @@ Strongly believe that making useful services with usable and friendly interfaces
                       <div class="col-md-12 col-xs-12 pull-left">
                         <h3 class="panel-title">Programs and Operations Manager</h3>
                         <span>
-                          <strong class="h4 text-success">StanArt LLC</strong>
+                          <a href="javascript:void(0);" class="h4 text-success" target="_blank" rel="noopener">StanArt LLC</a>
                           <br />Kremenchuk, Ukraine
                         </span>
                       </div>

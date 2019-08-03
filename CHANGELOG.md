@@ -34,7 +34,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ---
 
-## [Unreleased] - Current ##
+<!-- ## [Unreleased] - Current ## -->
+
+---
+
+## [v0.2.4](Unreleased) - Current ##
+
+### Added ###
+- [x] manifest.json
+
+### Changed ###
+- [x] bower i --save-dev font-awesome@5.10.1
+- [x] Small improvements in biography section
+- [x] Small improvemnts in employment history cards when rendering in mobile
+- [x] Improved Clean operations in Make
+- [x] Timestamp format to just time instead of .toLocaleTimeString() for console messages
 
 ---
 
