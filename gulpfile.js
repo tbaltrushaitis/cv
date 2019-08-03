@@ -15,16 +15,11 @@ require('dotenv').config();
 //  ------------------------------------------------------------------------  //
 
 const fs   = require('fs');
-<<<<<<< HEAD
-// const del  = require('del');
-=======
->>>>>>> dev-0.2.3
 const path = require('path');
 const utin = require('util').inspect;
 
 const _          = require('lodash');
 const argv       = require('yargs').argv;
-// const critical   = require('critical');
 const dateFormat = require('dateformat');
 const readConfig = require('read-config');
 const vPaths     = require('vinyl-paths');
