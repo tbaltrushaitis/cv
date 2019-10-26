@@ -2,7 +2,6 @@
   <a href="https://github.com/tbaltrushaitis/cv/releases"><img src="https://img.shields.io/github/release/tbaltrushaitis/cv.svg?style=flat" alt="GitHub release"></a>
   <a href="https://github.com/tbaltrushaitis/cv/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat" alt="License"></a>
   <img src="https://img.shields.io/david/tbaltrushaitis/cv.svg" alt="Dependencies">
-  <img src="https://img.shields.io/david/dev/tbaltrushaitis/cv.svg" alt="Dev Dependencies">
 </p>
 
 <p align="center">
@@ -20,24 +19,12 @@
 :mortar_board: Best in Class modern CV, Resume and Portfolio website template.
 All-in-One-Page site with simple and fully customizable builder.
 
-`modern` `cv` `resume` `portfolio` `template` `portfolio-website` `cv-template` `IT` `cv-summary` `resume-template` `resume-website` `cv-website` `animated` `template-project`
+`modern` `cv` `resume` `portfolio` `template` `portfolio-website` `cv-template` `IT` `resume-template` `resume-website` `cv-website` `animated` `template-project`
 
 ---
 
 ## :computer: Live Demo ##
 See it in action at :point_right: [Modern CV](http://bit.ly/tomascv?ref_domain=github.com&ref_section=docs&ref_file=readme) :point_left:
-
----
-
-## What Is a Curriculum Vitae? ##
-
-`Curriculum vitae` (CV) provides a summary of one’s experience and skills.
-
-CVs include information on one’s academic background, including teaching experience, degrees, research, awards, publications, presentations, and other achievements. CVs are thus much longer than resumes, and include more information, particularly related to academic background.
-
-A curriculum vitae summary is a one-to-two-page, condensed version of a full curriculum vitae. A CV summary is a way to quickly and concisely convey one’s skills and qualifications. Sometimes large organizations will ask for a `one-page CV` summary when they expect a large pool of applicants.
-
-Full article about what is [Curriculum vitae](http://bit.ly/2QfaIBD)
 
 ---
 
@@ -92,6 +79,8 @@ For example: [Modern CV](http://bit.ly/tomascv)
  [wow.js](https://wowjs.uk/) | 1.3.0 | Front | Reveal CSS animation as you scroll down a page
  [iamx](https://trendytheme.net/items/i-am-x-html-resume-template/) | 1.2.0 | Front | Trendy Theme
 
+---
+
 ## :wrench: Dev Tools ##
 
  Name | Description |
@@ -116,6 +105,18 @@ See [CHANGELOG][Changelog] for the history of changes and improvements.
 ---
 
 Read [LICENSE][License] for copyright information
+
+---
+
+## What Is a Curriculum Vitae? ##
+
+`Curriculum vitae` (CV) provides a summary of one’s experience and skills.
+
+CVs include information on one’s academic background, including teaching experience, degrees, research, awards, publications, presentations, and other achievements. CVs are thus much longer than resumes, and include more information, particularly related to academic background.
+
+A curriculum vitae summary is a one-to-two-page, condensed version of a full curriculum vitae. A CV summary is a way to quickly and concisely convey one’s skills and qualifications. Sometimes large organizations will ask for a `one-page CV` summary when they expect a large pool of applicants.
+
+Full article about what is [Curriculum vitae](http://bit.ly/2QfaIBD)
 
 ---
 
