@@ -49,6 +49,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - [x] Small improvemnts in employment history cards when rendering in mobile
 - [x] Improved Clean operations in Make
 - [x] Timestamp format to just time instead of .toLocaleTimeString() for console messages
+- [x] npm i --save-dev dotenv@8.1.0 gulp-directory-sync@1.2.4 gulp-livereload@4.0.2 jimp@0.8.4 main-bower-files@2.13.3
+- [x] npm i --save-dev del@5.1.0 yargs@14.2.0
 
 ### Fixed ###
 - [x] lodash.template [CVE-2019-10744](https://github.com/lodash/lodash/pull/4336) vulnerability
