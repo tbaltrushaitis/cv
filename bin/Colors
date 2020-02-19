@@ -4,13 +4,14 @@
 
 ##  Normal Colors  ##
 Black=[0;1;30m
+Blue=[0;1;34m
+Cyan=[0;1;36m
 Red=[0;1;31m
 Green=[0;1;32m
 Yellow=[0;1;33m
-Blue=[0;1;34m
 Purple=[0;1;35m
-Cyan=[0;1;36m
 White=[0;1;37m
+Gray=[0;1;90m
 Orange=[38;5;178m
 
 ##  Bold  ##
@@ -22,6 +23,7 @@ BGreen=[1;1;32m
 BYellow=[1;1;33m
 BPurple=[1;1;35m
 BWhite=[1;1;37m
+BGray=[1;1;90m
 
 ##  Background  ##
 On_Black=[40m
@@ -32,6 +34,7 @@ On_Blue=[44m
 On_Purple=[45m
 On_Cyan=[46m
 On_White=[47m
+On_Gray=[90m
 
 ##  Color Reset  ##
 NC=[m
