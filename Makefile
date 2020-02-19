@@ -76,6 +76,7 @@ BUILD_CONTENT := $(subst CODE_VERSION,$(CODE_VERSION),$(BUILD_CONTENT))
 $(file > config/build.json,$(BUILD_CONTENT))
 $(info [$(White)$(TS)$(NC)] Created file [$(Yellow)BUILD_CONTENT$(NC):$(Purple)$(WD)/config/build.json$(NC)])
 
+
 ##  ------------------------------------------------------------------------  ##
 ##  COMMIT information
 ##  ------------------------------------------------------------------------  ##
@@ -104,7 +105,7 @@ DIR_DIST := $(WD)/$(DST)
 DIR_WEB := $(WD)/$(WEB)
 
 ##  ------------------------------------------------------------------------  ##
-##  Query default goal.
+##  Query default goal
 ##  ------------------------------------------------------------------------  ##
 ifeq ($(.DEFAULT_GOAL),)
 .DEFAULT_GOAL := default
