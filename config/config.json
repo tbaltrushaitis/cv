@@ -2,13 +2,15 @@
   "__parent": "./build.json"
 , "app": {
     "name": "%{APP_NAME|cv}"
-  , "version": "0.2.2"
+  , "version-0": "0.2.2"
+  , "version": "%{CODE_VERSION|0.2.4}"
   , "url": "http://@{./name}.%{NODE_ENV|test}"
   , "env": "%{NODE_ENV|production}"
   }
 , "app_url": "http://cv.%{NODE_ENV|test}"
 , "engine": {
     "name":    "cv-template"
-  , "version": "0.2.2"
+  , "version-0": "0.2.2"
+  , "version": "%{CODE_VERSION|0.2.4}"
   }
 }

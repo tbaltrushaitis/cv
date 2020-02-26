@@ -42,7 +42,7 @@ let C = ME.Config.colors;
 //  ------------------------------------------------------------------------  //
 
 const buildJs = function (gulp) {
-  console.log(`${ME.L}${ME.d()}[${C.Y}${modPath}/${modName}${C.N}] with [${modConfigFile}]`);
+  console.log(`${ME.L}${ME.d}[${C.Y}${C.OnBlue}${modPath}/${modName}${C.N}] with [${C.P}${modConfigFile}${C.N}]`);
 
   let FROM = path.join(ME.BUILD, 'resources/assets');
   let DEST = path.join(ME.BUILD, 'assets');
@@ -52,7 +52,7 @@ const buildJs = function (gulp) {
       path.join(FROM, JS, '**/*.js')
     ])
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d()}[${C.W}FRONT${C.N}] ${C.Y}JS${C.N}: [${p}]`);
+      console.log(`${ME.d}[${C.W}FRONT${C.N}] Bundle ${C.O}JS${C.N}: [${C.C}${p}${C.N}]`);
       return Promise.resolve(p);
     }))
     .pipe(gulpif('production' === ME.NODE_ENV, terser(ME.pkg.options.terser)))
@@ -68,8 +68,12 @@ const buildJs = function (gulp) {
 
 
 /**
- * EXPOSE
- * @public
+ * @_EXPOSE
  */
+exports = buildJs;
 
-module.exports = exports = buildJs;
+
+/**
+ * @_EXPORTS
+ */
+module.exports = exports;

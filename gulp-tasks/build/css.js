@@ -43,7 +43,7 @@ let C = ME.Config.colors;
 //  ------------------------------------------------------------------------  //
 
 const buildCss = function (gulp) {
-  console.log(`${ME.L}${ME.d()}[${C.Y}${modPath}/${modName}${C.N}] with [${modConfigFile}]`);
+  console.log(`${ME.L}${ME.d}[${C.Y}${modPath}/${modName}${C.N}] with [${C.P}${modConfigFile}${C.N}]`);
 
   //
   //  PROCESS CSS files
@@ -79,12 +79,12 @@ const buildCss = function (gulp) {
 
   let frontCSS = gulp.src(STYLES_SRC)
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d()}[${C.W}FRONT${C.N}] Bundling ${C.Y}CSS${C.N}: [${p}]`);
+      console.log(`${ME.d}[${C.W}FRONT${C.N}] Bundle ${C.Y}CSS${C.N}: [${p}]`);
       return Promise.resolve(p);
     }))
     .pipe(concatCSS('frontend-bundle.css', {rebaseUrls: true}))
     .pipe(gulpif('production' === ME.NODE_ENV, new cleanCSS(CONF, function (d) {
-      console.log(`${ME.d()}[${C.W}FRONT${C.N}] Compress ${C.P}CSS${C.N}: [${d.path}]: [${utin(d.stats.originalSize)} -> ${utin(d.stats.minifiedSize)}] [${utin(parseFloat((100 * d.stats.efficiency).toFixed(2)))}%] in [${utin(d.stats.timeSpent)}ms]`);
+      console.log(`${ME.d}[${C.W}FRONT${C.N}] Compress ${C.P}CSS${C.N}: [${d.path}]: [${utin(d.stats.originalSize)} -> ${utin(d.stats.minifiedSize)}] [${utin(parseFloat((100 * d.stats.efficiency).toFixed(2)))}%] in [${utin(d.stats.timeSpent)}ms]`);
     }), false))
     //  Write banners
     // .pipe(headfoot.header(ME.Banner.header))
@@ -98,8 +98,12 @@ const buildCss = function (gulp) {
 
 
 /**
- * EXPOSE
- * @public
+ * @_EXPOSE
  */
+exports = buildCss;
 
-module.exports = exports = buildCss;
+
+/**
+ * @_EXPORTS
+ */
+module.exports = exports;

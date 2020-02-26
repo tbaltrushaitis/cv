@@ -1,0 +1,55 @@
+##
+## VHost configuration for CV
+##
+
+server {
+
+  server_name   cv.gsm-center.com.ua;
+
+  root          /var/www/html/cv.git/webroot;
+  index         index.html;
+
+  access_log    /var/log/nginx/cv_access.log main;
+  error_log     /var/log/nginx/cv_error.log  warn;
+
+  location / {
+    include     /etc/nginx/proxy_params;
+    try_files   $uri $uri/ =404;
+  }
+
+  location ~* \.(jpg|jpeg|png|gif|ico|css|js)$ {
+    expires 15d;
+  }
+
+  ##
+  ## SSL configuration
+  ## managed by Certbot
+  ##
+  listen    443 ssl;
+  listen    [::]:443 ssl ipv6only=on;
+
+  ssl_certificate     /etc/letsencrypt/live/cv.gsm-center.com.ua/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/cv.gsm-center.com.ua/privkey.pem;
+  ssl_dhparam         /etc/letsencrypt/ssl-dhparams.pem;
+  include             /etc/letsencrypt/options-ssl-nginx.conf;
+
+}
+
+
+server {
+
+  server_name   cv.gsm-center.com.ua;
+
+  listen 80;
+  listen [::]:80;
+
+  ##
+  ## Redirect HTTP to HTTPS
+  ## managed by Certbot
+  ##
+  if ($host = cv.gsm-center.com.ua) {
+    return 301 https://$host$request_uri;
+  }
+  return 404;
+
+}

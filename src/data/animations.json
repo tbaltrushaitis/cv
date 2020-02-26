@@ -73,8 +73,8 @@
     }
   , {
       "selector": "#scope-06"
-    , "inclass":  "fadeInUpBig"
-    , "outclass": "fadeOutUpBig"
+    , "inclass":  "bounceInLeft"
+    , "outclass": "bounceOutLeft"
     }
   , {
       "selector": "#scope-07"
@@ -88,8 +88,13 @@
     }
   , {
       "selector": "#scope-09"
-    , "inclass":  "bounceInLeft"
-    , "outclass": "bounceOutLeft"
+    , "inclass":  "fadeInUpBig"
+    , "outclass": "fadeOutUpBig"
+    }
+  , {
+      "selector": "#scope-10"
+    , "inclass":  "rotateIn"
+    , "outclass": "rotateOut"
     }
   , {
       "selector": "#selfie h3"
@@ -143,13 +148,13 @@
     }
   , {
       "selector": "#whatido-07"
-    , "inclass":  "fadeInUpBig"
+    , "inclass":  "fadeInRightBig"
     , "outclass": "fadeOutLeftBig"
     }
   , {
       "selector": "#whatido-08"
-    , "inclass":  "fadeInRightBig"
-    , "outclass": "fadeOutRightBig"
+    , "inclass":  "fadeInUpBig"
+    , "outclass": "fadeOutDownBig"
     }
   , {
       "selector": "#whatido-09"

@@ -1,6 +1,6 @@
 /*!
  * Project:     cv
- * File:        ./gulp-tasks/sync/build2dist.js
+ * File:        ./gulp-tasks/sync/dist2web.js
  * Copyright(c) 2016-nowdays Baltrushaitis Tomas <tbaltrushaitis@gmail.com>
  * License:     MIT
  */
@@ -40,12 +40,12 @@ let C = ME.Config.colors;
 //  ------------------------------  FUNCTIONS  -----------------------------  //
 //  ------------------------------------------------------------------------  //
 
-const build2dist = function (gulp) {
-  console.log(`${ME.L}${ME.d}[${C.O}${modPath}/${modName}${C.N}] with [${C.Blue}${modConfigFile}${C.N}]`);
+const dist2web = function (gulp) {
+  console.log(`${ME.L}${ME.d}[${C.Y}${modPath}/${modName}${C.N}] with [${C.P}${modConfigFile}${C.N}]`);
 
   let CONF = Object.assign({}, ME.Config);
-  let SRC  = path.join(ME.BUILD);
-  let DEST = path.join(ME.DIST);
+  let SRC  = path.join(ME.DIST);
+  let DEST = path.join(ME.WEB);
 
 
   let wFiles = gulp.src([
@@ -87,7 +87,7 @@ const build2dist = function (gulp) {
 /**
  * @_EXPOSE
  */
-exports = build2dist;
+exports = dist2web;
 
 
 /**

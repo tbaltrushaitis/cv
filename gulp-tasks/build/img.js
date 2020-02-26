@@ -42,7 +42,7 @@ let C = ME.Config.colors;
 //  ------------------------------------------------------------------------  //
 
 const buildImg = function (gulp) {
-  console.log(`${ME.L}${ME.d()}[${C.Y}${modPath}/${modName}${C.N}] with [${modConfigFile}]`);
+  console.log(`${ME.L}${ME.d}[${C.Y}${modPath}/${modName}${C.N}] with [${C.P}${modConfigFile}${C.N}]`);
 
   //
   //  JIMP - responsible for image processing
@@ -55,12 +55,12 @@ const buildImg = function (gulp) {
 
   let defs = Object.assign({}, {
       autocrop: {
-          tolerance: 0.0002
+          tolerance:      0.0002
         , cropOnlyFrames: false
       }
     , resize: {
-          width: 270
-        , height: 180
+          height: 180
+        , width:  270
       }
     , type: 'png'
   });
@@ -71,7 +71,7 @@ const buildImg = function (gulp) {
       '**/*.png'
     ]))
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d()}[${C.W}JIMP${C.N}] Crop PNG: [${p}]`);
+      console.log(`${ME.d}[${C.W}JIMP${C.N}] Crop ${C.Y}PNG${C.N}: [${C.W}${p}${C.N}]`);
       return Promise.resolve(p);
     }))
     .pipe(jimp({
@@ -86,7 +86,7 @@ const buildImg = function (gulp) {
       , '**/*.jpeg'
     ]))
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d()}[${C.W}JIMP${C.N}] Crop JPEG: [${p}]`);
+      console.log(`${ME.d}[${C.W}JIMP${C.N}] Crop ${C.Y}JPEG${C.N}: [${C.W}${p}${C.N}]`);
       return Promise.resolve(p);
     }))
     .pipe(jimp({
@@ -104,8 +104,12 @@ const buildImg = function (gulp) {
 
 
 /**
- * EXPOSE
- * @public
+ * @_EXPOSE
  */
+exports = buildImg;
 
-module.exports = exports = buildImg;
+
+/**
+ * @_EXPORTS
+ */
+module.exports = exports;

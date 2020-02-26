@@ -48,7 +48,7 @@ let C = ME.Config.colors;
 //  ------------------------------------------------------------------------  //
 
 const bowerFiles = function (gulp) {
-  console.log(`${ME.L}${ME.d()}[${C.Y}${modPath}/${modName}${C.N}] with [${modConfigFile}]`);
+  console.log(`${ME.L}${ME.d}[${C.Y}${modPath}/${modName}${C.N}] with [${modConfigFile}]`);
 
   //
   //  BOWER - responsible for FrontEnd assets
@@ -70,15 +70,15 @@ const bowerFiles = function (gulp) {
     debug: false
   , rebase: false
   , level: {
-      1: {
-          all: false
-        , removeEmpty: true
-        , specialComments: 'all'
-      }
-    , 2: {
-          all: false
-        , removeEmpty: true
-      }
+        1: {
+            all:              false
+          , removeEmpty:      true
+          , specialComments:  'all'
+        }
+      , 2: {
+            all:          false
+          , removeEmpty:  true
+        }
     }
   };
 
@@ -90,7 +90,7 @@ const bowerFiles = function (gulp) {
       , '!**/npm.js'
     ]))
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d()}[${C.W}BOWER${C.N}] Compress ${C.Y}JS${C.N}: [${p}]`);
+      console.log(`${ME.d}[${C.W}BOWER${C.N}] Compress ${C.Y}JS${C.N}: [${p}]`);
       return Promise.resolve(p);
     }))
     .pipe(gulpif('production' === ME.NODE_ENV, terser(ME.pkg.options.terser)))
@@ -109,12 +109,12 @@ const bowerFiles = function (gulp) {
       , "!**/*.min.css.map"
     ]))
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d()}[${C.W}BOWER${C.N}] Bundling ${C.Y}CSS${C.N}: [${p}]`);
+      console.log(`${ME.d}[${C.W}BOWER${C.N}] Bundling ${C.Y}CSS${C.N}: [${p}]`);
       return Promise.resolve(p);
     }))
     .pipe(concatCSS('bower-bundle.css', {rebaseUrls: false, commonBase: path.join(DEST)}))
     .pipe(gulpif('production' === ME.NODE_ENV, new cleanCSS(CONF, function (d) {
-      console.log(`${ME.d()}[${C.W}BOWER${C.N}] Compress ${C.Y}CSS${C.N} [${d.path}]: [${utin(d.stats.originalSize)} -> ${utin(d.stats.minifiedSize)}] [${utin(parseFloat((100 * d.stats.efficiency).toFixed(2)))}%] in [${utin(d.stats.timeSpent)}ms]`);
+      console.log(`${ME.d}[${C.W}BOWER${C.N}] Compress ${C.Y}CSS${C.N} [${d.path}]: [${utin(d.stats.originalSize)} -> ${utin(d.stats.minifiedSize)}] [${utin(parseFloat((100 * d.stats.efficiency).toFixed(2)))}%] in [${utin(d.stats.timeSpent)}ms]`);
     }), false))
     //  Write banners
     // .pipe(headfoot.header(ME.Banner.header))
@@ -125,7 +125,7 @@ const bowerFiles = function (gulp) {
   let bowerFonts = gulp.src(mBower)
     .pipe(filter(['**/fonts/**/*.*']))
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d()}[${C.W}BOWER${C.N}] Copying ${C.Y}FONT${C.N}: [${p}]`);
+      console.log(`${ME.d}[${C.W}BOWER${C.N}] Copying ${C.Y}FONT${C.N}: [${p}]`);
       return Promise.resolve(p);
     }))
     .pipe(gulp.dest(path.resolve(DEST, FONT)));
@@ -134,7 +134,7 @@ const bowerFiles = function (gulp) {
   let webFonts = gulp.src(mBower)
     .pipe(filter(['**/webfonts/*.*']))
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d()}[${C.W}BOWER${C.N}] Copying ${C.Y}WEBFONT${C.N}: [${p}]`);
+      console.log(`${ME.d}[${C.W}BOWER${C.N}] Copying ${C.Y}WEBFONT${C.N}: [${p}]`);
       return Promise.resolve(p);
     }))
     .pipe(gulp.dest(path.resolve(DEST, WEBFONT)));
@@ -152,7 +152,7 @@ const bowerFiles = function (gulp) {
       , '**/*.ico'
     ]))
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d()}[${C.W}BOWER${C.N}] Copying ${C.Y}IMG${C.N}: [${p}]`);
+      console.log(`${ME.d}[${C.W}BOWER${C.N}] Copying ${C.Y}IMG${C.N}: [${p}]`);
       return Promise.resolve(p);
     }))
     .pipe(gulp.dest(path.join(DEST, IMG)));
