@@ -1,5 +1,13 @@
 /*! - - - - - - - - - -    Fontawesome Colors Tweaks   - - - - - -  - - - - - */
 
+.fa-bootstrap {
+  color: #602c50;
+}
+
+.fa-foxpro {
+  color: #ff9500;
+}
+
 .fa-css3-alt {
   color: #0099e5;
 }
@@ -143,4 +151,8 @@
 
 .fa-graphql {
   color: #ed008c;
+}
+
+.fa-jira {
+  color: #003366;
 }
