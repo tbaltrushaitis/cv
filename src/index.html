@@ -6,9 +6,9 @@
 <head>
   <!--/ FOUC workaround
   ========================================================================= /-->
-  <!-- <style>
+  <style>
     html {visibility: hidden; opacity: 0; display: none;}
-  </style> -->
+  </style>
 
   <!--/  Basic Page Needs
   ========================================================================= /-->
@@ -63,30 +63,19 @@
   ========================================================================= /-->
 
   <!--/  Bower Bundle  /-->
-  <link type="text/css" rel="stylesheet" media="screen" href="assets/css/bower-bundle.css" id="css-bower-bundle" />
+  <link rel="preload" href="assets/css/bower-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'" id="css-bower-bundle" />
+  <noscript><link rel="stylesheet" href="assets/css/bower-bundle.css" id="css-bower-bundle-noscript" /></noscript>
 
   <!--/  Frontend Bundle  /-->
-  <link type="text/css" rel="stylesheet" media="screen" href="assets/css/frontend-bundle.css" id="css-frontend-bundle" />
+  <link rel="preload" href="assets/css/frontend-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'" id="css-frontend-bundle" />
+  <noscript><link rel="stylesheet" href="assets/css/frontend-bundle.css" id="css-frontend-bundle-noscript" /></noscript>
 
   <!--/  Theme  /-->
   <!-- <link type="text/css" rel="stylesheet" media="screen" href="assets/css/theme.css" id="css-theme" /> -->
 
-  <!--/  Magnific  /-->
-  <!-- <link type="text/css" rel="stylesheet" media="screen" href="assets/css/magnific-popup.css" id="css-magnific-popup" /> -->
-
-  <!--/  Grid  /-->
-  <!-- <link type="text/css" rel="stylesheet" media="screen" href="assets/css/og-grid.css" id="css-og-grid" /> -->
-
-  <!--/  Custom  /-->
-  <!-- <link type="text/css" rel="stylesheet" media="screen" href="assets/css/custom.css" id="css-custom" /> -->
-  <!-- <link type="text/css" rel="stylesheet" media="screen" href="assets/css/fa-colors.css" id="css-fa-colors" /> -->
-
   <!--/ HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries /-->
-  <!--/ WARNING: Respond.js doesn't work if you view the page via file:// /-->
-  <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-  <![endif]-->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <![endif]-->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!--/  Mobile
   ========================================================================= /-->
@@ -223,7 +212,9 @@
 
           <div class="short-info" id="objective">
             <h3 class="wow">Objective</h3>
-            <p class="wow">Full-stack developer (JavaScript, Node.js, PHP, etc.) + DevOps with practical experience in several IT areas.
+            <p class="wow">
+              Full-stack developer (JavaScript, Node.js, PHP, etc.)
+              + DevOps with practical experience in several IT areas.
             </p>
           </div>
 
@@ -235,10 +226,11 @@
               <li class="col-xs-12 col-md-6 wow" id="scope-03"><i class="fas fa-fw fa-check"></i>Software&nbsp;Development</li>
               <li class="col-xs-12 col-md-6 wow" id="scope-04"><i class="fas fa-fw fa-check"></i>Web&nbsp;Development</li>
               <li class="col-xs-12 col-md-6 wow" id="scope-05"><i class="fas fa-fw fa-check"></i>Systems&nbsp;Administration</li>
-              <li class="col-xs-12 col-md-6 wow" id="scope-06"><i class="fas fa-fw fa-check"></i>Networking</li>
+              <li class="col-xs-12 col-md-6 wow" id="scope-06"><i class="fas fa-fw fa-check"></i>IT&nbsp;Consulting</li>
               <li class="col-xs-12 col-md-6 wow" id="scope-07"><i class="fas fa-fw fa-check"></i>Machine&nbsp;Learning</li>
-              <li class="col-xs-12 col-md-6 wow" id="scope-08"><i class="fas fa-fw fa-check"></i>DB&nbsp;Administration</li>
-              <li class="col-xs-12 col-md-6 wow" id="scope-09"><i class="fas fa-fw fa-check"></i>Artificial Intelligence</li>
+              <li class="col-xs-12 col-md-6 wow" id="scope-08"><i class="fas fa-fw fa-check"></i>Policies&nbsp;Implementation</li>
+              <li class="col-xs-12 col-md-6 wow" id="scope-09"><i class="fas fa-fw fa-check"></i>Artificial&nbsp;Intelligence</li>
+              <li class="col-xs-12 col-md-6 wow" id="scope-10"><i class="fas fa-fw fa-check"></i>Infrastructure&nbsp;Engineering</li>
             </ul>
           </div>
 
@@ -249,7 +241,7 @@ and was involved in a continuous code development/improvement/upgrade
 of city-wide client-server system used for collecting, sorting/grouping, processing and reporting of the utilities payments data.
 There were many technologies used but the key roles were played by (in order of being in development):
 FoxPro, dBase, SQL, HTML, ASP, JavaScript.
-Also most parts of the system infrastructure components were sagnificantly improved and upgraded
+Also most parts of the system infrastructure components were significantly improved and upgraded
 to run as the Visual FoxPro desktop applications with modern windows-styled interfaces built from set of visual components.
 </p>
 
@@ -262,29 +254,42 @@ Websites creation, OpenSource projects deployments, applications development, bu
 
           <div class="short-info" id="whatido">
             <h3 class="wow">What I Do</h3>
-            <p class="wow">During last few years I have been working mostly
-as a back-end and in few projects - as a front-end developer also.
-I am passionate about clean and elegant code.
-Have a lots of experience in production of high-loaded modern web systems.
-Strongly believe that making useful services with usable and friendly interfaces is awesome!
+            <p class="wow">During last few years I've been working as a
+"full-stack" specialist providing gathering and transformation of customer's
+business requirements into well-documented technical requirements of product
+functionality which tech-staff can easy read, understand and implement.
+<br />
+Excellent analitical and research skills, ability to explain complex concepts in
+easy-to-understand language, allow me to communicate actively with all company
+departments involved in process and identify most effective architecture
+solutions which provide maximum performance in a minimal costs.
+<br />
+I am passionate about clean and elegant code and believe that laconic
+documentation in conjuction with detailed descriptions of workflows and rules
+- saves not only time but money.
+<br />
+Years of on-hands experience with various kinds of high-loaded systems, built
+on top of modern web-technologies makes me strongly believe that development
+of smart, qualitative and useful software with friendly user-interfaces - is
+the best profession!
 </p>
 
-            <ul class="row list-check" >
-              <li class="col-xs-12 col-md-6 wow" id="whatido-01"><i class="fas fa-fw fa-database"></i>Databases&nbsp;Design</li>
-              <li class="col-xs-12 col-md-6 wow" id="whatido-02"><i class="fab fa-fw fa-react"></i>Modern&nbsp;Websites</li>
-              <li class="col-xs-12 col-md-6 wow" id="whatido-03"><i class="fas fa-fw fa-percentage"></i>Accounting&nbsp;Apps</li>
+            <ul class="row list-check">
+              <li class="col-xs-12 col-md-6 wow" id="whatido-01"><i class="fas fa-fw fa-globe"></i>Modern&nbsp;Websites</li>
+              <li class="col-xs-12 col-md-6 wow" id="whatido-02"><i class="fas fa-fw fa-database"></i>Capacity&nbsp;Planning</li>
+              <li class="col-xs-12 col-md-6 wow" id="whatido-03"><i class="fas fa-fw fa-calculator"></i>Accounting&nbsp;Apps</li>
               <li class="col-xs-12 col-md-6 wow" id="whatido-04"><i class="fas fa-fw fa-project-diagram"></i>Data&nbsp;Visualization</li>
               <li class="col-xs-12 col-md-6 wow" id="whatido-05"><i class="fas fa-fw fa-mobile-alt"></i>API&nbsp;for&nbsp;Mobile&nbsp;Apps</li>
               <li class="col-xs-12 col-md-6 wow" id="whatido-06"><i class="fas fa-fw fa-chart-pie"></i>Data&nbsp;Analysis</li>
-              <li class="col-xs-12 col-md-6 wow" id="whatido-07"><i class="fas fa-fw fa-coins"></i>Scalable&nbsp;Infrastructure</li>
+              <li class="col-xs-12 col-md-6 wow" id="whatido-07"><i class="fas fa-fw fa-broadcast-tower"></i>GSM&nbsp;Gateways</li>
               <li class="col-xs-12 col-md-6 wow" id="whatido-08"><i class="fas fa-fw fa-heartbeat"></i>Real-time&nbsp;Data&nbsp;Processing</li>
-              <li class="col-xs-12 col-md-6 wow" id="whatido-09"><i class="fas fa-fw fa-robot"></i>Bots</li>
-              <li class="col-xs-12 col-md-6 wow" id="whatido-10"><i class="far fa-fw fa-smile"></i>Tryouts&nbsp;to&nbsp;Live&nbsp;Positive&nbsp;:)</li>
+              <li class="col-xs-12 col-md-6 wow" id="whatido-09"><i class="fas fa-fw fa-robot"></i>Bots,&nbsp;Informers</li>
+              <li class="col-xs-12 col-md-6 wow" id="whatido-10"><i class="fas fa-fw fa-search-dollar"></i>Market&nbsp;Research</li>
             </ul>
           </div>
 
           <!-- <div class="my-signature hidden">
-            <img src="assets/img/sign.png" alt="Signature example" />
+            <img src="assets/img/sign-white.png" max-width="119px" max-height="67px" width="119px" height="67px" alt="Signature example" />
           </div> -->
 
           <!-- <div class="download-button hidden">
@@ -356,7 +361,7 @@ Strongly believe that making useful services with usable and friendly interfaces
 
                     <div class="panel-heading timeline-heading row">
                       <div class="col-md-10 col-xs-9 pull-left">
-                        <h3 class="panel-title">Bachelor's degree</h3>
+                        <h3 class="panel-title pane">Bachelor's degree</h3>
                         <span class="text-primary"> - graduate diploma</span>
                       </div>
 
@@ -434,22 +439,23 @@ Strongly believe that making useful services with usable and friendly interfaces
                     <div class="btn-toolbar" role="toolbar" aria-label="technologies">
 
                       <div class="btn-group" role="group">
-                        <i class="fab fa-1x fa-fw fa-node" title="Node.js"></i>
-                        <i class="fab fa-1x fa-fw fa-js-square" title="JavaScript"></i>
-                        <i class="fab fa-1x fa-fw fa-html5" title="HTML5"></i>
-                        <i class="fas fa-1x fa-fw fa-database fa-mongodb" title="MongoDB"></i>
-                        <i class="fas fa-1x fa-fw fa-dice-d20 fa-graphql" title="GraphQL"></i>
-                        <i class="fab fa-1x fa-fw fa-node-js" title="Express.js"></i>
+                        <i class="fab fa-2x fa-fw fa-node" title="Node.js"></i>
+                        <i class="fab fa-2x fa-fw fa-js-square" title="JavaScript"></i>
+                        <i class="fab fa-2x fa-fw fa-html5" title="HTML5"></i>
+                        <i class="fab fa-2x fa-fw fa-mdb fa-mongodb" title="MongoDB"></i>
+                        <i class="fas fa-2x fa-fw fa-dice-d20 fa-graphql" title="GraphQL"></i>
+                        <i class="fab fa-2x fa-fw fa-node-js" title="Express.js"></i>
                       </div>
                       <div class="btn-group" role="group">
-                        <i class="fab fa-1x fa-fw fa-digital-ocean" title="Digital Ocean"></i>
-                        <i class="fab fa-1x fa-fw fa-linux" title="Linux"></i>
-                        <i class="fab fa-1x fa-fw fa-bitbucket" title="BitBucket"></i>
+                        <i class="fab fa-2x fa-fw fa-digital-ocean" title="Digital Ocean"></i>
+                        <i class="fab fa-2x fa-fw fa-linux" title="Linux"></i>
+                        <i class="fab fa-2x fa-fw fa-bitbucket" title="BitBucket"></i>
+                        <i class="fab fa-2x fa-fw fa-jira" title="JIRA"></i>
                       </div>
                       <div class="btn-group" role="group">
-                        <i class="fab fa-1x fa-fw fa-npm" title="Node Package Manager"></i>
-                        <i class="fab fa-1x fa-fw fa-gulp" title="Gulp"></i>
-                        <i class="fab fa-1x fa-fw fa-docker" title="Docker containers"></i>
+                        <i class="fab fa-2x fa-fw fa-npm" title="Node Package Manager"></i>
+                        <i class="fab fa-2x fa-fw fa-gulp" title="Gulp"></i>
+                        <i class="fab fa-2x fa-fw fa-docker" title="Docker"></i>
                       </div>
 
                     </div>
@@ -485,7 +491,7 @@ Strongly believe that making useful services with usable and friendly interfaces
 
                     <div class="panel-body timeline-body">
                       <p>eCommerce platforms (Shopify, Magento, WooCommerce, PrestaShop) <strong class="text-primary">Visitors Tracker</strong> with cross-site customer identification and behaviour prediction. Used to boost conversion rate and on-site revenue by sharing data and communicating with Machine Learning Engine through API interface.</p>
-                      <p>Later it was used as a core module for rapid creation of a new project called <strong><a href="javascript:void(0)" target="_blank" rel="noopener" class="text-primary">Visitors Guru</a></strong> - simple tool to find out what companies are visiting website.</p>
+                      <p>Later it was used as a core module for creation of enterprise-level software named <strong><a href="javascript:void(0);" target="_self" rel="noopener" class="text-primary">Visitors Guru</a></strong> - simple tool to find out what companies are visiting website.</p>
                     </div>
 
                   </div>
@@ -494,22 +500,23 @@ Strongly believe that making useful services with usable and friendly interfaces
                     <div class="btn-toolbar" role="toolbar" aria-label="technologies">
 
                       <div class="btn-group" role="group">
-                        <i class="fab fa-1x fa-fw fa-aws" title="Amazon Web Services"></i>
-                        <i class="fab fa-1x fa-fw fa-bitbucket" title="BitBucket"></i>
-                        <i class="fab fa-1x fa-fw fa-docker" title="Docker containers"></i>
-                        <i class="fab fa-1x fa-fw fa-git-square" title="GitHub"></i>
+                        <i class="fab fa-2x fa-fw fa-aws" title="Amazon Web Services"></i>
+                        <i class="fab fa-2x fa-fw fa-bitbucket" title="BitBucket"></i>
+                        <i class="fab fa-2x fa-fw fa-docker" title="Docker"></i>
+                        <i class="fab fa-2x fa-fw fa-git-square" title="Git"></i>
                       </div>
                       <div class="btn-group" role="group">
-                        <i class="fab fa-1x fa-fw fa-facebook" title="Facebook API"></i>
-                        <i class="fab fa-1x fa-fw fa-js-square" title="JavaScript"></i>
-                        <i class="fab fa-1x fa-fw fa-html5" title="HTML5"></i>
-                        <i class="fab fa-1x fa-fw fa-facebook-messenger" title="Facebook Messenger Platform"></i>
-                        <i class="fas fa-1x fa-fw fa-database fa-mongodb" title="MongoDB"></i>
+                        <i class="fab fa-2x fa-fw fa-shopify" title="Shopify API"></i>
+                        <i class="fab fa-2x fa-fw fa-facebook" title="Facebook API"></i>
+                        <i class="fab fa-2x fa-fw fa-js-square" title="JavaScript"></i>
+                        <i class="fab fa-2x fa-fw fa-html5" title="HTML5"></i>
+                        <i class="fab fa-2x fa-fw fa-facebook-messenger" title="Facebook Messenger Platform"></i>
+                        <i class="fab fa-2x fa-fw fa-mdb fa-mongodb" title="MongoDB"></i>
                       </div>
                       <div class="btn-group" role="group">
-                        <i class="fab fa-1x fa-fw fa-gulp" title="Gulp"></i>
-                        <i class="fab fa-1x fa-fw fa-node" title="Node.js"></i>
-                        <i class="fab fa-1x fa-fw fa-npm" title="Node Package Manager"></i>
+                        <i class="fab fa-2x fa-fw fa-gulp" title="Gulp"></i>
+                        <i class="fab fa-2x fa-fw fa-node" title="Node.js"></i>
+                        <i class="fab fa-2x fa-fw fa-npm" title="Node Package Manager"></i>
                       </div>
 
                     </div>
@@ -520,7 +527,7 @@ Strongly believe that making useful services with usable and friendly interfaces
 
               <li class="">
                 <div class="posted-date">
-                  <span class="month">2011 - 2015</span>
+                  <span class="month">2010 - 2015</span>
                 </div>
 
                 <div id="car-04" class="panel panel-success timeline-panel wow" data-wow-duration="1.5s">
@@ -528,8 +535,8 @@ Strongly believe that making useful services with usable and friendly interfaces
                     <div class="panel-heading timeline-heading row">
 
                       <div class="col-md-3 col-xs-3 pull-right text-center">
-                        <i class="fab fa-3x fa-fw fa-magento" title="Magento Commerce"></i>
-                        <i class="fab fa-3x fa-fw fa-ebay hidden-xs-0" title="eBay Enterprise"></i>
+                        <i class="fab fa-5x fa-fw fa-magento" title="Magento Commerce"></i>
+                        <!-- <i class="fab fa-3x fa-fw fa-ebay hidden-xs-0" title="eBay Enterprise"></i> -->
                       </div>
 
                       <div class="col-md-9 col-xs-9 pull-left">
@@ -543,15 +550,20 @@ Strongly believe that making useful services with usable and friendly interfaces
                     </div>
 
                     <div class="panel-body timeline-body">
-                      <p>Providing operations services for high-loaded production systems<br />
-                        Deployment and configuration automation<br />
-                        24/7 monitoring and support<br />
-                        Operating Systems: CentOS, Ubuntu<br />
-                        Cloud platforms: public and private OpenStack<br />
-                        LAMP, Docker, Git, MySQL, MongoDB, Solr, Nginx, Apache, Zabbix<br />
-                        Web: PHP, Bootstrap, AJAX, JSON, HTML, CSS, jQuery<br />
-                        API: JIRA, OpenStack
-                      </p>
+                      <strong>
+                        Lead of team providing operations services for supporting of high-loaded web-systems<br />
+                      </strong>
+
+                      <ul>
+                        <li>Deployment and configuration automation</li>
+                        <li>24/7 monitoring and support</li>
+                        <li>Operating Systems: CentOS, Ubuntu</li>
+                        <li>Cloud platforms: public and private OpenStack</li>
+                        <li>Infrastructure: LAMP, Docker, Git, MySQL, MongoDB, Solr, Nginx, Apache, Zabbix</li>
+                        <li>Web: PHP, Bootstrap, AJAX, JSON, HTML, CSS, jQuery</li>
+                        <li>API: JIRA, OpenStack</li>
+                      </ul>
+
                     </div>
                   </div>
 
@@ -559,16 +571,28 @@ Strongly believe that making useful services with usable and friendly interfaces
                     <div class="btn-toolbar" role="toolbar" aria-label="technologies">
 
                       <div class="btn-group" role="group">
-                        <i class="fab fa-1x fa-fw fa-linux" title="Linux"></i>
-                        <i class="fab fa-1x fa-fw fa-jenkins" title="Jenkins"></i>
-                        <i class="fab fa-1x fa-fw fa-docker" title="Docker containers"></i>
-                        <i class="fab fa-1x fa-fw fa-github" title="GitHub"></i>
+                        <i class="fab fa-2x fa-fw fa-linux" title="Linux"></i>
+                        <i class="fab fa-2x fa-fw fa-jenkins" title="Jenkins"></i>
+                        <i class="fab fa-2x fa-fw fa-docker" title="Docker"></i>
+                        <i class="fab fa-2x fa-fw fa-github" title="GitHub"></i>
                       </div>
+
                       <div class="btn-group" role="group">
-                        <i class="fab fa-1x fa-fw fa-js-square" title="JavaScript"></i>
-                        <i class="fab fa-1x fa-fw fa-php" title="PHP"></i>
-                        <i class="fas fa-1x fa-fw fa-database fa-mongodb" title="MongoDB"></i>
-                        <i class="fab fa-1x fa-fw fa-cc-paypal" title="PayPal"></i>
+                        <i class="fab fa-2x fa-fw fa-html5" title="HTML"></i>
+                        <i class="fab fa-2x fa-fw fa-css3-alt" title="CSS"></i>
+                        <i class="fab fa-2x fa-fw fa-bootstrap" title="BootStrap"></i>
+                      </div>
+
+                      <div class="btn-group" role="group">
+                        <i class="fas fa-2x fa-fw fa-database fa-mysql" title="MySQL"></i>
+                        <i class="fab fa-2x fa-fw fa-php" title="PHP"></i>
+                        <i class="fab fa-2x fa-fw fa-js-square" title="JavaScript"></i>
+                        <i class="fab fa-2x fa-fw fa-mdb fa-mongodb" title="MongoDB"></i>
+                      </div>
+
+                      <div class="btn-group" role="group">
+                        <i class="fab fa-2x fa-fw fa-cc-paypal" title="PayPal"></i>
+                        <i class="fab fa-2x fa-fw fa-jira" title="JIRA"></i>
                       </div>
 
                     </div>
@@ -610,12 +634,13 @@ Strongly believe that making useful services with usable and friendly interfaces
                     <div class="btn-toolbar" role="toolbar" aria-label="technologies">
 
                       <div class="btn-group" role="group">
-                        <i class="fab fa-1x fa-fw fa-linux" title="Linux"></i>
-                        <i class="fab fa-1x fa-fw fa-windows" title="Windows Server"></i>
+                        <i class="fab fa-2x fa-fw fa-jira" title="JIRA"></i>
+                        <i class="fab fa-2x fa-fw fa-linux" title="Linux"></i>
                       </div>
                       <div class="btn-group" role="group">
-                        <i class="fab fa-1x fa-fw fa-php" title="PHP"></i>
-                        <i class="fab fa-1x fa-fw fa-java" title="Apache Tomcat"></i>
+                        <i class="fas fa-2x fa-fw fa-database fa-mysql" title="MySQL"></i>
+                        <i class="fab fa-2x fa-fw fa-php" title="PHP"></i>
+                        <i class="fab fa-2x fa-fw fa-java" title="Apache Tomcat"></i>
                       </div>
 
                     </div>
@@ -659,13 +684,14 @@ Strongly believe that making useful services with usable and friendly interfaces
                     <div class="btn-toolbar" role="toolbar" aria-label="technologies">
 
                       <div class="btn-group" role="group">
-                        <i class="fab fa-1x fa-fw fa-linux" title="Linux"></i>
-                        <i class="fab fa-1x fa-fw fa-windows" title="Microsoft Windows"></i>
-                        <i class="fab fa-1x fa-fw fa-apple" title="Apple Macintosh"></i>
+                        <i class="fab fa-2x fa-fw fa-linux" title="Linux"></i>
+                        <i class="fab fa-2x fa-fw fa-windows" title="Microsoft Windows Server"></i>
+                        <i class="fab fa-2x fa-fw fa-apple" title="Apple Macintosh"></i>
                       </div>
                       <div class="btn-group" role="group">
-                        <i class="fab fa-1x fa-fw fa-php" title="PHP"></i>
-                        <i class="fas fa-1x fa-fw fa-database fa-mysql" title="SQL"></i>
+                        <i class="fab fa-2x fa-fw fa-php" title="PHP"></i>
+                        <i class="fas fa-2x fa-fw fa-database fa-mysql" title="MySQL"></i>
+                        <i class="fas fa-2x fa-fw fa-code fa-perl" title="Perl"></i>
                       </div>
 
                     </div>
@@ -702,8 +728,9 @@ Strongly believe that making useful services with usable and friendly interfaces
                     <div class="btn-toolbar" role="toolbar" aria-label="technologies">
 
                       <div class="btn-group" role="group">
-                        <i class="fas fa-1x fa-fw fa-database fa-mysql" title="SQL"></i>
-                        <i class="fab fa-1x fa-fw fa-windows" title="Microsoft Windows"></i>
+                        <i class="fas fa-2x fa-fw fa-database fa-mysql" title="SQL"></i>
+                        <i class="fab fa-2x fa-fw fa-windows" title="Microsoft Windows"></i>
+                        <i class="fas fa-2x fa-fw fa-code fa-foxpro" title="Visual FoxPro"></i>
                       </div>
 
                     </div>
@@ -808,7 +835,7 @@ Strongly believe that making useful services with usable and friendly interfaces
 
           <div class="skill-progress">
             <div class="skill-title">
-              <i class="fas fa-2x fa-fw fa-check fa-shopify"></i>
+              <i class="fab fa-2x fa-fw fa-check fa-shopify"></i>
               <span>Shopify API</span>
             </div>
             <div class="progress">
@@ -884,7 +911,7 @@ Strongly believe that making useful services with usable and friendly interfaces
 
           <div class="skill-progress">
             <div class="skill-title">
-              <i class="fa fa-2x fa-fw fa-database fa-mongodb"></i>
+              <i class="fab fa-2x fa-fw fa-mdb fa-mongodb"></i>
               <span>MongoDB</span>
             </div>
             <div class="progress">
@@ -1149,7 +1176,7 @@ Strongly believe that making useful services with usable and friendly interfaces
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
-                  <a target="_blank" rel="noopener" href="http://bit.ly/cmdb-rtm"><i class="fas fa-external-link-alt"></i></a>
+                  <a target="_blank" rel="noopener" href="http://bit.ly/cmdb-rtm-live"><i class="fas fa-external-link-alt"></i></a>
                   <a class="image-link" href="assets/img/works/cmdb-rtm-poc.gif"><i class="fa fa-search-plus"></i></a>
                 </div>
                 <img src="assets/img/works/cmdb-rtm-poc.gif" alt="Real-time Data Visualization" />
@@ -1583,9 +1610,9 @@ Strongly believe that making useful services with usable and friendly interfaces
   <script defer src="assets/js/front/theme.js"></script>
   <script defer src="assets/js/front/index.js"></script>
 
-  <!-- <script>
-    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
-  </script> -->
+  <script>
+    // document.write('<script src="' + location.protocol + '//' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+  </script>
 
   <!--/ JavaScripts
   ========================================================================= /-->

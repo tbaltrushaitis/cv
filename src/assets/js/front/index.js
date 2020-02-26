@@ -164,7 +164,7 @@ window.jQuery(function ($) {
           , onCloseClick: function () {}
         }
     };
-  }());
+  })();
 
   // ---------------------------------------------------------------------------
   //  Transformations
