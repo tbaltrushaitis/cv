@@ -1,14 +1,14 @@
 {
   "author": {
-    "name": {
-      "first": "Tomas"
-    , "last": "Baltrushaitis"
-    , "full": "@{./last} @{./first}"
-    }
-  , "nick": "Tom&acute;AS"
-  , "abbr": "tbaltrushaitis"
-  , "email": "@{./abbr}@gmail.com"
-  , "url":   "https://github.com/@{./abbr}"
+      "name": {
+          "first": "Tomas"
+        , "last": "Baltrushaitis"
+        , "full": "@{./last} @{./first}"
+      }
+    , "nick": "Tom&acute;AS"
+    , "abbr": "tbaltrushaitis"
+    , "email": "@{./abbr}@gmail.com"
+    , "url":   "https://github.com/@{./abbr}"
   }
 , "project": {
     "license": "MIT"

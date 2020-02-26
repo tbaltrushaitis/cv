@@ -3,35 +3,32 @@
 ##  ------------------------------------------------------------------------  ##
 
 THIS_FILE = $(lastword $(MAKEFILE_LIST))
-$(info [THIS_FILE:$(THIS_FILE)])
-
-include bin/.bash_colors
+# $(info [THIS_FILE:$(THIS_FILE)])
 
 .PHONY: clean clean-all clean-full
 .PHONY: clean-build clean-dist clean-files clean-deps
 
-clean: clean-build clean-files
-	@ echo -n "Clean \t ... ";
-	@ echo [${White}OK${NC}];
+clean: clean-build clean-files ;
+	@ echo "$(DAT) $(FINE): $(TARG)" ;
 
-clean-all: clean clean-dist
-	@ echo -n "Clean: all \t ... ";
-	@ echo [${White}OK${NC}];
+clean-all: clean clean-dist ;
+	@ echo "$(DAT) $(FINE): $(TARG)" ;
 
-clean-full: clean-all clean-deps
-	@ echo -n "Clean: full \t ... ";
+clean-full: clean-all clean-build clean-deps ;
 	@ rm -rf build-* ;
-	@ echo [${White}OK${NC}];
+	@ echo "$(DAT) $(FINE): $(TARG)" ;
 
 clean-build:
 	@ echo -n "Clean: build \t ... ";
 	@ rm -rf ${DIR_BUILD} ;
-	@ echo [${White}OK${NC}];
+	@ rm -f build ;
+	@ echo "$(OKAY)" ;
 
 clean-dist:
 	@ echo -n "Clean: dist \t ... ";
 	@ rm -rf ${DIR_DIST} ;
-	@ echo [${White}OK${NC}];
+	@ rm -f dist ;
+	@ echo "$(OKAY)" ;
 
 clean-deps:
 	@ echo -n "Clean: deps \t ... ";
@@ -41,11 +38,12 @@ clean-deps:
 		package-lock.json \
 		setup-deps \
 		setup ;
-	@ echo [${White}OK${NC}];
+	@ echo "$(OKAY)" ;
 
 clean-files:
 	@ echo -n "Clean: files \t ... ";
 	@ rm -rf COMMIT \
+		.env \
 		.bowerrc \
 		.npmrc \
 		bitbucket-pipelines.yml \
@@ -53,11 +51,12 @@ clean-files:
 		_config.yml \
 		yarn.lock \
 		*.md \
-		*.log ;
-	@ echo [${White}OK${NC}];
+		*.log \
+		deploy ;
+	@ echo "$(OKAY)" ;
 
-clean-dev: clean-deps clean-files clean-build clean-dist
-	@ echo -n "Clean: dev \t ... ";
-	@ echo [${White}OK${NC}];
+# clean-dev: clean-deps clean-files clean-build clean-dist ;
+clean-dev: clean-files clean-build clean-dist ;
+	@ echo "$(DAT) $(FINE): $(TARG)" ;
 
 ##  ------------------------------------------------------------------------  ##
