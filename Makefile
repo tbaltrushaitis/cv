@@ -207,7 +207,6 @@ build: setup ;
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
 dist: build ;
-	# @ export NODE_ENV="production"; npm run build
 	@ export NODE_ENV="production"; npm run dist
 	# @ cp -pr ${BLD}/* ${DST}/
 	@ rm -rf ${DST}/resources
