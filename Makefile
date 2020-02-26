@@ -42,19 +42,6 @@ DZ = $(shell date +'%Y%m%dT%H%M%S%:z')
 WD := $(shell pwd -P)
 BD := $(WD)/bin
 
-# SRC := $(WD)/src
-# DST := /usr/etc/.$(APP_PREF)
-# BST := $(realpath $(HOME))
-
-
-# $(shell [ -f .env ] && source .env || echo test)
-
-# APP_ENV := $(strip $(shell [ -f .env ] && cat .env || (touch .env && echo "TOUCHED FILE: [.env]")))
-# # APP_ENV := $(strip $(shell [ -f NODE_ENV ] && cat NODE_ENV || cat config/.NODE_ENV))
-# ifeq ($(APP_ENV),)
-# $(info [$(Gray)$(TS)$(NC)] APP_ENV is NOT DETECTED!)
-# endif
-
 BUILD_FILE = BUILD-$(CODE_VERSION)
 BUILD_CNTR = $(strip $(shell [ -f "$(BUILD_FILE)" ] && cat $(BUILD_FILE) || echo 0))
 BUILD_CNTR := $(shell echo $$(( $(BUILD_CNTR) + 1 )))
@@ -221,8 +208,8 @@ build: setup ;
 
 dist: build ;
 	# @ export NODE_ENV="production"; npm run build
-	# @ export NODE_ENV="production"; npm run dist
-	@ cp -pr ${BLD}/* ${DST}/
+	@ export NODE_ENV="production"; npm run dist
+	# @ cp -pr ${BLD}/* ${DST}/
 	@ rm -rf ${DST}/resources
 	@ tar -c "${DST}" | gzip -9 > "${ARC}/${APP_NAME}-v${CODE_VERSION}-b${BUILD_CNTR}.tar.gz"
 	@ touch ./dist
