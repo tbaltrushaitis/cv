@@ -39,7 +39,7 @@ let C = ME.Config.colors;
 //  ------------------------------------------------------------------------  //
 
 const src2build = function (gulp) {
-  console.log(`${ME.L}${ME.d()}[${C.Y}${modPath}/${modName}${C.N}] with [${modConfigFile}]`);
+  console.log(`${ME.L}${ME.d}[${C.O}${modPath}/${modName}${C.N}] with [${C.Blue}${modConfigFile}${C.N}]`);
 
   let IMG  = 'assets/img';
   let DATA = 'data';
@@ -62,10 +62,13 @@ const src2build = function (gulp) {
           .on('error', console.error.bind(console));
 };
 
+/**
+ * @_EXPOSE
+ */
+exports = src2build;
+
 
 /**
- * EXPOSE
- * @public
+ * @_EXPORTS
  */
-
-module.exports = exports = src2build;
+module.exports = exports;

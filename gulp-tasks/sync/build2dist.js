@@ -41,7 +41,7 @@ let C = ME.Config.colors;
 //  ------------------------------------------------------------------------  //
 
 const build2dist = function (gulp) {
-  console.log(`${ME.L}${ME.d()}[${C.Y}${modPath}/${modName}${C.N}] with [${modConfigFile}]`);
+  console.log(`${ME.L}${ME.d}[${C.O}${modPath}/${modName}${C.N}] with [${C.Blue}${modConfigFile}${C.N}]`);
 
   let CONF = Object.assign({}, ME.Config);
   let SRC  = path.join(ME.BUILD);
@@ -85,8 +85,12 @@ const build2dist = function (gulp) {
 
 
 /**
- * EXPOSE
- * @public
+ * @_EXPOSE
  */
+exports = build2dist;
 
-module.exports = exports = build2dist;
+
+/**
+ * @_EXPORTS
+ */
+module.exports = exports;

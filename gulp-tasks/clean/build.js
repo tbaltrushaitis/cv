@@ -38,7 +38,7 @@ let C = ME.Config.colors;
 //  ------------------------------------------------------------------------  //
 
 const cleanBuild = function (gulp) {
-  console.log(`${ME.L}${ME.d()}[${C.Y}${modPath}/${modName}${C.N}]`);
+  console.log(`${ME.L}${ME.d}[${C.Y}${modPath}/${modName}${C.N}]`);
 
   return gulp.src([ME.BUILD])
           .pipe(vPaths(del));
@@ -46,8 +46,12 @@ const cleanBuild = function (gulp) {
 
 
 /**
- * EXPOSE
- * @public
+ * @_EXPOSE
  */
+exports = cleanBuild;
 
-module.exports = exports = cleanBuild;
+
+/**
+ * @_EXPORTS
+ */
+module.exports = exports;
