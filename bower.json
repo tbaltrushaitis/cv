@@ -28,7 +28,7 @@
     "animate.css":    "^3.7.2"
   , "bootstrap":      "~3.3.7"
   , "bower-jquery-easyPieChart": "^0.0.1"
-  , "font-awesome":   "#5.10.1"
+  , "font-awesome":   "#5.12.1"
   , "fitvids":        "jquery.fitvids#^1.2.0"
   , "html5shiv":      "~3.7.3"
   , "jquery":         "~3.4.1"
