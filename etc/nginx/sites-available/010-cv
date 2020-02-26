@@ -9,12 +9,16 @@ server {
   root          /var/www/html/cv.git/webroot;
   index         index.html;
 
-  access_log    /var/log/nginx/cv.gsm-center.com.ua-access.log main;
-  error_log     /var/log/nginx/cv.gsm-center.com.ua-error.log  warn;
+  access_log    /var/log/nginx/cv_access.log main;
+  error_log     /var/log/nginx/cv_error.log  warn;
 
   location / {
     include     /etc/nginx/proxy_params;
     try_files   $uri $uri/ =404;
+  }
+
+  location ~* \.(jpg|jpeg|png|gif|ico|css|js)$ {
+    expires 15d;
   }
 
   ##
