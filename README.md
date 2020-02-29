@@ -19,12 +19,13 @@
 :mortar_board: Best in Class modern CV, Resume and Portfolio website template.
 All-in-One-Page site with simple and fully customizable builder.
 
-`modern` `cv` `resume` `portfolio` `template` `portfolio-website` `cv-template` `IT` `resume-template` `resume-website` `cv-website` `animated` `template-project`
+`modern` `CV` `resume` `portfolio` `template` `live CV` `portfolio-website` `CV-template` `IT` `resume-template` `resume-website` `cv-website` `animated` `template-project`
 
 ---
 
 ## :computer: Live Demo ##
-See it in action at :point_right: [Modern CV](http://bit.ly/tomascv?ref_domain=github.com&ref_section=docs&ref_file=readme) :point_left:
+<!-- See it in action at :point_right: [Modern CV](http://bit.ly/tomascv?ref_domain=github.com&ref_section=docs&ref_file=readme) :point_left: -->
+See how it in action at :point_right: [CV][CV] :point_left:
 
 ---
 
@@ -71,7 +72,7 @@ For example: [Modern CV](http://bit.ly/tomascv)
  Name | Version | Scope | Description |
 :-----|:-------:|:-----:|:------------|
  [animate.css](http://daneden.github.io/animate.css/) | 3.7.2 | Front | A cross-browser library of CSS animations
- [FontAwesome](https://fontawesome.com/) | 5.10.1 | Front | The iconic Font and CSS toolkit
+ [FontAwesome](https://fontawesome.com/) | 5.12.1 | Front | The iconic Font and CSS toolkit
  [Bootstrap](http://getbootstrap.com) | 3.3.7 | Front | Front-end framework for developing responsive, mobile first projects on the web
  [jQuery](http://jquery.com/) | 3.4.1 | Front | JavaScript Library
  [noty](http://ned.im/noty) | 2.4.1 | Front | Notification library
@@ -135,3 +136,4 @@ Full article about what is [Curriculum vitae](http://bit.ly/2QfaIBD)
 
 [Changelog]: CHANGELOG.md
 [License]: LICENSE.md
+[CV]: http://bit.ly/tomascv?ref_domain=github.com&ref_section=docs&ref_file=readme
