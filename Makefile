@@ -18,8 +18,8 @@ TO_NULL = 2>&1 >/dev/null
 
 ##  ------------------------------------------------------------------------  ##
 # $(shell [ -f NODE_ENV ] || cp -prfu config/.NODE_ENV ./NODE_ENV);
-$(shell [ -f .bowerrc ] || cp -prfu config/.bowerrc ./);
-$(shell [ -f .npmrc ] || cp -prfu config/.npmrc ./);
+$(shell [ -f ./.bowerrc ] || cp -prfu config/.bowerrc ./);
+$(shell [ -f ./.npmrc ] || cp -prfu config/.npmrc ./);
 ##  ------------------------------------------------------------------------  ##
 
 APP_NAME := cv
@@ -148,14 +148,14 @@ include $(BD)/*.mk
 
 ##  ------------------------------------------------------------------------  ##
 
-.PHONY: default
+PHONY := _default
 
-default: run ;
+_default: run ;
 	@ echo "$(DAT) $(FINE): $(TARG)" ;
 
 ##  ------------------------------------------------------------------------  ##
 
-.PHONY: test config
+PHONY += test config
 
 test: banner state help ;
 	@ export NODE_ENV="${APP_ENV}"; npm run test
@@ -167,7 +167,7 @@ config:
 
 ##  ------------------------------------------------------------------------  ##
 
-.PHONY: tasklist tasktree critical
+PHONY += tasklist tasktree critical
 
 tasklist:
 	@ gulp --tasks --depth 1 --color
@@ -183,8 +183,7 @@ tasktree:
 
 ##  ------------------------------------------------------------------------  ##
 
-# .PHONY: build dist deploy pre-update update
-.PHONY: pre-update update
+PHONY += pre-update update
 
 setup-deps: banner ;
 	@ npm i -g bower
@@ -209,7 +208,7 @@ build: setup ;
 dist: build ;
 	@ export NODE_ENV="production"; npm run dist
 	# @ cp -pr ${BLD}/* ${DST}/
-	@ rm -rf ${DST}/resources
+	@ rm -vrf ${DST}/resources
 	@ tar -c "${DST}" | gzip -9 > "${ARC}/${APP_NAME}-v${CODE_VERSION}-b${BUILD_CNTR}.tar.gz"
 	@ touch ./dist
 	@ echo "$(DAT) $(FINE): $(TARG)"
@@ -235,7 +234,7 @@ update: pre-update setup ;
 
 ##  ------------------------------------------------------------------------  ##
 
-.PHONY: rebuild redeploy rb rd
+PHONY += rebuild redeploy rb rd
 
 rebuild: pre-build build ;
 	@ echo "$(DAT) $(FINE): $(TARG)"
@@ -252,11 +251,11 @@ rd: redeploy ;
 
 ##  ------------------------------------------------------------------------  ##
 
-.PHONY: all full cycle cycle-dev dev dev-setup run watch
+PHONY += _all full cycle cycle-dev dev dev-setup run watch
 #* means the word "all" doesn't represent a file name in this Makefile;
 #* means the Makefile has nothing to do with a file called "all" in the same directory.
 
-all: clean cycle banner ;
+_all: clean cycle banner ;
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
 full: clean-all all banner ;
@@ -282,5 +281,10 @@ run: banner help cycle dist banner ;
 watch:
 	@ export NODE_ENV="${APP_ENV}"; npm run watch
 	@ echo "$(DAT) $(FINE): $(TARG)"
+
+##  ------------------------------------------------------------------------  ##
+##  Declare the contents of the .PHONY variable as phony. We keep that
+##  information in a variable so we can use it in if_changed and friends.
+.PHONY: $(PHONY)
 
 ##  ------------------------------------------------------------------------  ##
