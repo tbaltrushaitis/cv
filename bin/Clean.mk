@@ -43,9 +43,6 @@ clean-deps:
 clean-files:
 	@ echo -n "Clean: files \t ... ";
 	@ rm -rf COMMIT \
-		.env \
-		.bowerrc \
-		.npmrc \
 		bitbucket-pipelines.yml \
 		codeclimate-config.patch \
 		_config.yml \
@@ -55,7 +52,6 @@ clean-files:
 		deploy ;
 	@ echo "$(OKAY)" ;
 
-# clean-dev: clean-deps clean-files clean-build clean-dist ;
 clean-dev: clean-files clean-build clean-dist ;
 	@ echo "$(DAT) $(FINE): $(TARG)" ;
 
