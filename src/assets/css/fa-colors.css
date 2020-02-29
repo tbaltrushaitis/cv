@@ -110,7 +110,7 @@
 }
 
 .fa-prestashop {
-  color: #df0067;
+  color: #fbbb22;
 }
 
 .fa-steam {
@@ -119,6 +119,14 @@
 
 .fa-themeco {
   color: #0b7bc2;
+}
+
+.fa-centos {
+  color: #951c7a;
+}
+
+.fa-redhat {
+  color: #cc0000;
 }
 
 .fa-ubuntu {
@@ -151,6 +159,10 @@
 
 .fa-graphql {
   color: #ed008c;
+}
+
+.fa-confluence {
+  color: #0052cc;
 }
 
 .fa-jira {
