@@ -1,6 +1,6 @@
 {
   "name": "cv"
-, "version": "0.2.3"
+, "version": "0.2.5"
 , "title": "Modern CV, Resume and Portfolio website"
 , "description": "Best-in-Class website template for modern CV, Resume and Portfolio. Easy customizable static website with simple smart easy-to-use builder."
 , "homepage": "https://github.com/tbaltrushaitis/cv"
@@ -28,7 +28,7 @@
     "animate.css":    "^3.7.2"
   , "bootstrap":      "~3.3.7"
   , "bower-jquery-easyPieChart": "^0.0.1"
-  , "font-awesome":   "#5.9.0"
+  , "font-awesome":   "#5.12.1"
   , "fitvids":        "jquery.fitvids#^1.2.0"
   , "html5shiv":      "~3.7.3"
   , "jquery":         "~3.4.1"
@@ -59,22 +59,22 @@
 , "overrides": {
     "bootstrap": {
       "main": [
-        "dist/**/*.*"
-      , "!**/*.less"
-      , "!**/npm.js"
-      , "!**/*.min.js"
-      , "!*-theme.*"
+          "dist/**/*.*"
+        , "!**/*.less"
+        , "!**/npm.js"
+        , "!**/*.min.js"
+        , "!*-theme.*"
       ]
     , "main-4": [
-        "dist/js/bootstrap.js"
-      , "dist/css/bootstrap.css"
-      , "dist/fonts/*.*"
+          "dist/js/bootstrap.js"
+        , "dist/css/bootstrap.css"
+        , "dist/fonts/*.*"
       ]
     }
   , "font-awesome": {
       "main": [
-        "webfonts/*.*"
-      , "css/all.css"
+          "webfonts/*.*"
+        , "css/all.css"
       ]
     }
   , "smoothscroll": {
@@ -89,8 +89,8 @@
     }
   , "waypoints": {
       "main": [
-        "lib/jquery.waypoints.js"
-      , "lib/shortcuts/inview.js"
+          "lib/jquery.waypoints.js"
+        , "lib/shortcuts/inview.js"
       ]
     }
   }
@@ -99,47 +99,47 @@
       "font-awesome"
     ]
   , "libs": [
-      "jquery"
-    , "bootstrap"
-    , "requirejs"
+        "jquery"
+      , "bootstrap"
+      , "requirejs"
     ]
   , "plugins": [
-      "bower-jquery-easyPieChart"
-    , "magnific-popup"
-    , "fitvids"
-    , "jquery-countTo"
-    , "jquery.inview"
-    , "jquery.stellar"
-    , "jquery-sticky"
-    , "jquery-throttle-debounce"
-    , "shufflejs"
-    , "noty"
+        "bower-jquery-easyPieChart"
+      , "magnific-popup"
+      , "fitvids"
+      , "jquery-countTo"
+      , "jquery.inview"
+      , "jquery.stellar"
+      , "jquery-sticky"
+      , "jquery-throttle-debounce"
+      , "shufflejs"
+      , "noty"
     ]
   , "ui": [
-      "animate.css"
-    , "smoothscroll"
-    , "shufflejs"
-    , "waypoints"
-    , "wow"
+        "animate.css"
+      , "smoothscroll"
+      , "shufflejs"
+      , "waypoints"
+      , "wow"
     ]
   , "front": [
-      "fonts"
-    , "libs"
-    , "plugins"
-    , "ui"
+        "fonts"
+      , "libs"
+      , "plugins"
+      , "ui"
     ]
   }
 , "keywords": [
-    "bio"
-  , "cv"
-  , "cv-template"
-  , "portfolio"
-  , "portfolio-website"
-  , "portfolio-template"
-  , "resume"
-  , "skills"
-  , "skill-demo"
-  , "Technical"
-  , "Full-Stack"
+      "bio"
+    , "cv"
+    , "cv-template"
+    , "portfolio"
+    , "portfolio-website"
+    , "portfolio-template"
+    , "resume"
+    , "skills"
+    , "skill-demo"
+    , "Technical"
+    , "Full-Stack"
   ]
 }

@@ -42,7 +42,7 @@ let C = ME.Config.colors;
 //  ------------------------------------------------------------------------  //
 
 const buildImg = function (gulp) {
-  console.log(`${ME.L}${ME.d}[${C.Y}${modPath}/${modName}${C.N}] with [${C.P}${modConfigFile}${C.N}]`);
+  console.log(`${ME.L}${ME.d}[${C.O}${modPath}/${modName}${C.N}] with [${C.Blue}${modConfigFile}${C.N}]`);
 
   //
   //  JIMP - responsible for image processing

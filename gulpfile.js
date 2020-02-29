@@ -131,7 +131,6 @@ console.log(`${ME.d} ${C.BY}NPM_LIFECYCLE_EVENT${C.N} = [${C.BR}${process.env.np
 console.log(`${ME.d} ${C.BY}NODE_ENV${C.N} = [${C.BR}${ME.NODE_ENV}${C.N}]`);
 console.log(`${ME.L}`);
 
-
 //  ------------------------------------------------------------------------  //
 //  -------------------------------  TASKS  --------------------------------  //
 //  ------------------------------------------------------------------------  //
@@ -381,7 +380,11 @@ gulp.task('deploy', [
 
 gulp.task('watch', [], (cb) => {
 
-  livereload.listen(ME.pkg.options.livereload);
+  livereload.listen({
+      ...ME.pkg.options.livereload
+    , basePath:   'webroot'
+    , reloadPage: 'index.html'
+  });
 
   gulp.start('watch:src');
   console.log(`${ME.d}[${C.Y}WATCH${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
@@ -391,16 +394,18 @@ gulp.task('watch', [], (cb) => {
 });
 
 gulp.task('watch:src', [
-    'watch:src:default'
-  , 'watch:src:configs'
-  , 'watch:src:css'
-  , 'watch:src:js'
-  ], (cb) => {
-  console.log(`${ME.d}[${C.Y}WATCH:SRC${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
-  if ('function' === typeof cb) {
-    cb();
-  }
-});
+        'watch:src:default'
+      , 'watch:src:configs'
+      , 'watch:src:css'
+      , 'watch:src:js'
+    ]
+  , (cb) => {
+      console.log(`${ME.d}[${C.Y}WATCH:SRC${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
+      if ('function' === typeof cb) {
+        cb();
+      }
+    }
+);
 
 gulp.task('watch:src:default', function () {
   let wSRC = gulp.watch([
@@ -409,7 +414,7 @@ gulp.task('watch:src:default', function () {
     ]
   , ME.pkg.options.watch
   , function () {
-    gulpSequence('populate', 'sync:src2build', 'build:fast', 'deploy')((err) => {
+    gulpSequence('populate', 'sync:src2build', 'build:fast', 'sync:build2dist', 'deploy')((err) => {
       if (err) {
         console.log(`${ME.d}[${C.Y}WATCH:SRC:DEFAULT${C.N}] ${C.BR}ERROR${C.N}: [${utin(err)}]`);
         return Promise.reject(1);

@@ -1,2 +1,13 @@
-module.exports = require('./build');
-module.exports = require('./dist');
+/**
+ * @_EXPOSE
+ */
+exports = {
+    ...require('./build')
+  , ...require('./dist')
+};
+
+
+/**
+ * @_EXPORTS
+ */
+module.exports = exports;

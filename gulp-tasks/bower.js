@@ -48,7 +48,7 @@ let C = ME.Config.colors;
 //  ------------------------------------------------------------------------  //
 
 const bowerFiles = function (gulp) {
-  console.log(`${ME.L}${ME.d}[${C.Y}${modPath}/${modName}${C.N}] with [${modConfigFile}]`);
+  console.log(`${ME.L}${ME.d}[${C.O}${modPath}/${modName}${C.N}] with [${C.Blue}${modConfigFile}${C.N}]`);
 
   //
   //  BOWER - responsible for FrontEnd assets

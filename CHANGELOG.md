@@ -34,7 +34,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 <!-- --- -->
 
 <!-- ## [Unreleased] - Current ## -->
-<!-- ## [v0.2.5](Unreleased) - Current ## -->
+
+---
+
+## [v0.2.5](Unreleased) - Current ##
+### Added ###
+- [x] `Ubuntu`, `Red Hat`, `CentOS` and `Confluence` brand colors for Fontawesome icons
+- [x] Blocks for description of roles and responsibilities
+- [x] New items in portfolio
+
+### Fixed ###
+- [x] Several small bugs in deployment scripts
 
 ---
 

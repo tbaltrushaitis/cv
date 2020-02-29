@@ -1,4 +1,15 @@
-module.exports = require('./build2dist');
-module.exports = require('./build2web');
-module.exports = require('./dist2web');
-module.exports = require('./src2build');
+/**
+ * @_EXPOSE
+ */
+exports = {
+    ...require('./build2dist')
+  , ...require('./build2web')
+  , ...require('./dist2web')
+  , ...require('./src2build')
+};
+
+
+/**
+ * @_EXPORTS
+ */
+module.exports = exports;
