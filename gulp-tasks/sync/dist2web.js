@@ -18,6 +18,7 @@ const dirSync    = require('gulp-directory-sync');
 const gulpif     = require('gulp-if');
 const htmlmin    = require('gulp-htmlmin');
 const merge      = require('merge-stream');
+const livereload = require('gulp-livereload');
 const readConfig = require('read-config');
 
 //  ------------------------------------------------------------------------  //
@@ -41,7 +42,7 @@ let C = ME.Config.colors;
 //  ------------------------------------------------------------------------  //
 
 const dist2web = function (gulp) {
-  console.log(`${ME.L}${ME.d}[${C.Y}${modPath}/${modName}${C.N}] with [${C.P}${modConfigFile}${C.N}]`);
+  console.log(`${ME.L}${ME.d}[${C.O}${modPath}/${modName}${C.N}] with [${C.Blue}${modConfigFile}${C.N}]`);
 
   let CONF = Object.assign({}, ME.Config);
   let SRC  = path.join(ME.DIST);
@@ -79,6 +80,7 @@ const dist2web = function (gulp) {
     ));
 
   return merge(wHtml, wAssets, wData, wFiles)
+          .pipe(gulpif('dev' === ME.NODE_ENV || 'dev' === process.env.npm_lifecycle_event, livereload()))
           .on('error', console.error.bind(console));
 
 };

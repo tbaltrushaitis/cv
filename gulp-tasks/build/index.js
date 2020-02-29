@@ -1,3 +1,14 @@
-module.exports = require('./css');
-module.exports = require('./img');
-module.exports = require('./js');
+/**
+ * @_EXPOSE
+ */
+exports = {
+    ...require('./css')
+  , ...require('./img')
+  , ...require('./js')
+};
+
+
+/**
+ * @_EXPORTS
+ */
+module.exports = exports;

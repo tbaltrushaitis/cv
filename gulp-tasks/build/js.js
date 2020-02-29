@@ -42,7 +42,7 @@ let C = ME.Config.colors;
 //  ------------------------------------------------------------------------  //
 
 const buildJs = function (gulp) {
-  console.log(`${ME.L}${ME.d}[${C.Y}${C.OnBlue}${modPath}/${modName}${C.N}] with [${C.P}${modConfigFile}${C.N}]`);
+  console.log(`${ME.L}${ME.d}[${C.O}${modPath}/${modName}${C.N}] with [${C.Blue}${modConfigFile}${C.N}]`);
 
   let FROM = path.join(ME.BUILD, 'resources/assets');
   let DEST = path.join(ME.BUILD, 'assets');

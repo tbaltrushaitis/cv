@@ -36,7 +36,7 @@ let C = ME.Config.colors;
 //  ------------------------------------------------------------------------  //
 
 const usage = function (gulp) {
-  console.log(`${ME.L}${ME.d}[${C.Y}${modPath}/${modName}${C.N}] with [${modConfigFile}]`);
+  console.log(`${ME.L}${ME.d}[${C.O}${modPath}/${modName}${C.N}] with [${C.Blue}${modConfigFile}${C.N}]`);
 
   console.log(`
 ${ME.L}
@@ -60,11 +60,13 @@ ${ME.L}
   return Promise.resolve();
 };
 
+/**
+ * @_EXPOSE
+ */
 exports = usage;
 
 
 /**
- * @_EXPOSE
- * @public
+ * @_EXPORTS
  */
 module.exports = exports;

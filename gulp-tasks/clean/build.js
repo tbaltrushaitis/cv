@@ -38,7 +38,7 @@ let C = ME.Config.colors;
 //  ------------------------------------------------------------------------  //
 
 const cleanBuild = function (gulp) {
-  console.log(`${ME.L}${ME.d}[${C.Y}${modPath}/${modName}${C.N}]`);
+  console.log(`${ME.L}${ME.d}[${C.O}${modPath}/${modName}${C.N}] with [${C.Blue}${modConfigFile}${C.N}]`);
 
   return gulp.src([ME.BUILD])
           .pipe(vPaths(del));

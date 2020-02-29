@@ -42,7 +42,7 @@ let C = ME.Config.colors;
 //  ------------------------------------------------------------------------  //
 
 const build2web = function (gulp) {
-  console.log(`${ME.L}${ME.d}[${C.Y}${modPath}/${modName}${C.N}] with [${C.P}${modConfigFile}${C.N}]`);
+  console.log(`${ME.L}${ME.d}[${C.O}${modPath}/${modName}${C.N}] with [${C.Blue}${modConfigFile}${C.N}]`);
 
   if ('dev' === ME.NODE_ENV || 'dev' === process.env.npm_lifecycle_event) {
     // livereload.listen(ME.pkg.options.livereload);
