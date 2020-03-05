@@ -15,11 +15,19 @@ const fs   = require('fs');
 const path = require('path');
 const utin = require('util').inspect;
 
+
+const extReplace = require('gulp-ext-replace');
 const filter     = require('gulp-filter');
 const jimp       = require('gulp-jimp');
 const merge      = require('merge-stream');
 const vPaths     = require('vinyl-paths');
 const readConfig = require('read-config');
+
+const imagemin = require('gulp-imagemin');
+const giflossy = require('imagemin-giflossy');
+const mozjpeg  = require('imagemin-mozjpeg');
+const pngquant = require('imagemin-pngquant');
+const webp     = require('imagemin-webp');
 
 //  ------------------------------------------------------------------------  //
 //  ----------------------------  CONFIGURATION  ---------------------------  //
@@ -41,19 +49,19 @@ let C = ME.Config.colors;
 //  ------------------------------  FUNCTIONS  -----------------------------  //
 //  ------------------------------------------------------------------------  //
 
-const buildImg = function (gulp) {
+const buildImg = async function (gulp) {
   console.log(`${ME.L}${ME.d}[${C.O}${modPath}/${modName}${C.N}] with [${C.Blue}${modConfigFile}${C.N}]`);
 
-  //
-  //  JIMP - responsible for image processing
-  //
+  /**
+   * JIMP - responsible for image processing
+   */
   let FROM = path.join(ME.BUILD, 'assets');
   let DEST = path.join(ME.BUILD, 'assets');
   let IMG  = path.join('img');
   let TUMB = path.join('thumbs');
   let SRC  = path.join(FROM, IMG, 'works', '**/*.*');
 
-  let defs = Object.assign({}, {
+  let jimpOpts = Object.assign({}, {
       autocrop: {
           tolerance:      0.0002
         , cropOnlyFrames: false
@@ -65,41 +73,84 @@ const buildImg = function (gulp) {
     , type: 'png'
   });
 
+  let gifOpts   = giflossy(ME.pkg.options.giflossy);
+  let pngOpts   = pngquant(ME.pkg.options.pngquant);
+  let jpegOpts  = mozjpeg(ME.pkg.options.mozjpeg);
+  let webpOpts  = webp(ME.pkg.options.webp);
+  let imageminOpts = [
+      pngOpts
+    , jpegOpts
+  ];
 
-  let PNGS = gulp.src([SRC])
+
+  let PNGS = await gulp.src(path.join(FROM, IMG, 'works', '**/*.*'))
     .pipe(filter([
       '**/*.png'
     ]))
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d}[${C.W}JIMP${C.N}] Crop ${C.Y}PNG${C.N}: [${C.W}${p}${C.N}]`);
+      console.log(`${ME.d}[${C.O}JIMP${C.N}] Resize ${C.Y}PNG${C.N}: [${C.G}${p}${C.N}]`);
       return Promise.resolve(p);
     }))
     .pipe(jimp({
-      '': defs
+      '': jimpOpts
     }))
     .pipe(gulp.dest(path.join(DEST, IMG, TUMB, 'works')));
 
 
-  let JPGS = gulp.src(SRC)
+  let JPGS = await gulp.src(path.join(FROM, IMG, 'works', '**/*.*'))
     .pipe(filter([
         '**/*.jpg'
       , '**/*.jpeg'
     ]))
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d}[${C.W}JIMP${C.N}] Crop ${C.Y}JPEG${C.N}: [${C.W}${p}${C.N}]`);
+      console.log(`${ME.d}[${C.O}JIMP${C.N}] Resize ${C.Y}JPG${C.N}: [${C.G}${p}${C.N}]`);
       return Promise.resolve(p);
     }))
     .pipe(jimp({
-      '': Object.assign({}, defs, {
-            type: 'jpg'
-          })
+      '': {
+              ...jimpOpts
+            , ...{type: 'jpg'}
+          }
     }))
     .pipe(gulp.dest(path.join(DEST, IMG, TUMB, 'works')));
 
 
-  return merge(PNGS, JPGS)
-          .on('error', console.error.bind(console));
+  let WEBP = await gulp.src(path.join(FROM, IMG, '**/*.*'))
+    .pipe(filter([
+        '**/*.jpg'
+      , '**/*.jpeg'
+      , '**/*.png'
+    ]))
+    .pipe(vPaths(function (p) {
+      console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] ${C.W}WEBP${C.N}: [${C.G}${p}${C.N}]`);
+      return Promise.resolve(p);
+    }))
+    .pipe(imagemin([
+      webpOpts
+    ]))
+    .pipe(extReplace('.webp'))
+    .pipe(gulp.dest(path.join(DEST, IMG)));
 
+
+  let GIFS = await gulp.src(path.join(FROM, IMG, 'works', '**/*.*'))
+    .pipe(filter([
+      '**/*.gif'
+    ]))
+    .pipe(vPaths(function (p) {
+      console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] ${C.W}Giflossy${C.N} ${C.Y}GIF${C.N}: [${C.G}${p}${C.N}]`);
+      return Promise.resolve(p);
+    }))
+    .pipe(imagemin({
+        ...gifOpts
+      , ...{resize: '270x180'}
+    }))
+    .pipe(gulp.dest(path.join(DEST, IMG, TUMB, 'works')));
+
+
+  // return merge(PNGS, JPGS, WEBP, GIFS)
+  //         .on('error', console.error.bind(console));
+
+  console.log(`${ME.L}${ME.d}[${C.O}${modPath}/${modName}${C.N}] FINISHED`);
 };
 
 
