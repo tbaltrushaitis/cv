@@ -56,13 +56,13 @@ const buildCss = function (gulp) {
   , rebase: false
   , level: {
       1: {
-        all: false
-      , removeEmpty: true
-      , specialComments: 0
+        all:              false
+      , removeEmpty:      true
+      , specialComments:  0
       }
     , 2: {
-        all: false
-      , removeEmpty: true
+        all:          false
+      , removeEmpty:  true
       }
     }
   };

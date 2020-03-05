@@ -6,23 +6,19 @@
   , "homepage":     "https://github.com/tbaltrushaitis/cv"
   , "bugs":         "https://github.com/tbaltrushaitis/cv/issues"
   , "license":      "MIT"
-  , "author": {
-        "name":  "Baltrushaitis Tomas"
-      , "email": "tbaltrushaitis@gmail.com"
-      , "url":   "https://github.com/tbaltrushaitis"
-    }
-  , "private": false
-  , "repository": {
+  , "author":       "Baltrushaitis Tomas <tbaltrushaitis@gmail.com>"
+  , "private":      false
+  , "repository":   {
         "type": "git"
       , "url":  "git+https://github.com/tbaltrushaitis/cv.git"
     }
-  , "website":  "http://bit.ly/tomascv"
+  , "website":        "http://bit.ly/tomascv"
   , "readmeFilename": "README.md"
   , "engines": {
       "node": ">=8.0.0"
     }
-  , "os": ["linux", "win32", "darwin"]
-  , "main": "echo [CALLED MAIN SCRIPT VIA package.json]"
+  , "os":     ["linux", "win32", "darwin"]
+  , "main":   "echo [CALLED MAIN SCRIPT VIA package.json]"
   , "scripts": {
         "preinstall":    "echo [PRE-INSTALL] --- "
       , "install":       "echo [INSTALL] --- "
@@ -81,10 +77,12 @@
       , "gulp-clean-css":      "^3.10.0"
       , "gulp-concat-css":     "^3.1.0"
       , "gulp-directory-sync": "^1.2.4"
+      , "gulp-ext-replace":    "^0.3.0"
       , "gulp-filter":         "^6.0.0"
       , "gulp-headerfooter":   "^1.0.3"
       , "gulp-htmlmin":        "^5.0.1"
       , "gulp-if":             "^2.0.1"
+      , "gulp-imagemin":       "^7.1.0"
       , "gulp-jimp":           "^1.2.9"
       , "gulp-jscs":           "^4.1.0"
       , "gulp-jshint":         "^2.1.0"
@@ -95,6 +93,10 @@
       , "gulp-terser":         "^1.1.5"
       , "gulp-token-replace":  "^1.1.2"
       , "gulp-watch":          "^5.0.1"
+      , "imagemin-giflossy":   "^5.1.10"
+      , "imagemin-mozjpeg":    "^8.0.0"
+      , "imagemin-pngquant":   "^8.0.0"
+      , "imagemin-webp":       "^5.1.0"
       , "jimp":                "^0.9.3"
       , "jshint":              "^2.10.1"
       , "jshint-stylish":      "^2.2.1"
@@ -226,6 +228,10 @@
           "keep_fnames": true
         , "mangle":      true
       }
+      , "giflossy": {"lossy": 80}
+      , "mozjpeg":  {"quality": 50}
+      , "pngquant": {"quality": [0.5, 0.5]}
+      , "webp":     {"quality": 50}
     }
   , "jshintConfig": {}
   , "keywords": [

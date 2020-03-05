@@ -175,7 +175,7 @@ window.jQuery(function ($) {
     $(window).on('load', function () {
       $('[name="contact-cell"]').html(atob('{{person.contacts.cell}}'));
       $('[name="contact-email"]').prop('href', atob('{{person.contacts.email}}'));
-      console.log('CONTACTS SET');
+      console.log(atob('Q09OVEFDVFMgU0VU'));
     });
 
   })();

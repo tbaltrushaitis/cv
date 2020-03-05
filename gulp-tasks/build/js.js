@@ -57,8 +57,8 @@ const buildJs = function (gulp) {
     }))
     .pipe(gulpif('production' === ME.NODE_ENV, terser(ME.pkg.options.terser)))
     //  Write banners
-    .pipe(headfoot.header(ME.Banner.header))
-    .pipe(headfoot.footer(ME.Banner.footer))
+    // .pipe(headfoot.header(ME.Banner.header))
+    // .pipe(headfoot.footer(ME.Banner.footer))
     .pipe(gulp.dest(path.resolve(DEST, JS)));
 
   return merge(JSfront)

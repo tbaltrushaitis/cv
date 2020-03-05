@@ -2,8 +2,8 @@
 @media (max-width: 766px) {
 
   .intro h1 {
-    font-size: 40px;
-    line-height: 40px;
+    font-size:    40px;
+    line-height:  40px;
   }
 
   .social-icons ul {
@@ -34,8 +34,8 @@
 
   /* about me section */
   .biography {
-    margin-top: 20px;
-    margin-bottom: 45px;
+    margin-top:     20px;
+    margin-bottom:  45px;
   }
 
   ul.list-check li {
@@ -63,14 +63,14 @@
   }
 
   .count-wrap h3 {
-    font-size: 30px;
-    line-height: 16px;
+    font-size:    30px;
+    line-height:  16px;
   }
 
   .count-wrap p {
-    font-size: 10px;
-    font-weight: 400;
-    line-height: 18px;
+    font-size:    10px;
+    font-weight:  400;
+    line-height:  18px;
   }
 
   .count-wrap > div {
@@ -126,22 +126,22 @@
 
   .personal-info {
     text-align: center;
-    padding: 0 15px;
+    padding:    0 15px;
   }
 
   .personal-info h1 {
-    font-size: 40px;
-    line-height: 50px;
+    font-size:    40px;
+    line-height:  50px;
   }
 
   .personal-info .intro-sub {
-    font-size: 18px;
-    line-height: 20px;
+    font-size:    18px;
+    line-height:  20px;
   }
 
   .personal-info p {
-    line-height: 20px;
-    margin-bottom: 20px;
+    line-height:    20px;
+    margin-bottom:  20px;
   }
 
   .personal-info .my-signature {
@@ -149,31 +149,31 @@
   }
 
   .personal-info .download-button a {
-    padding: 5px 10px;
-    font-size: 15px;
+    padding:      5px 10px;
+    font-size:    15px;
     margin-right: 0;
   }
 
   /* .timeline-heading */
   .timeline-heading h3.panel-title {
-    font-size: 14px;
-    line-height: normal;
+    font-size:    14px;
+    line-height:  normal;
   }
 
   .timeline-heading span {
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 12px;
+    font-size:    12px;
+    font-weight:  600;
+    line-height:  12px;
   }
 
   .timeline-heading span a.h4 {
-    font-size: 14px;
-    line-height: 20px;
+    font-size:    14px;
+    line-height:  20px;
   }
 
   .timeline>li .posted-date .month {
-    font-size: 14px;
-    line-height: 1.1;
+    font-size:    14px;
+    line-height:  1.1;
   }
 
   .thumbnail {
@@ -187,8 +187,8 @@
 @media only screen and (min-width: 480px) and (max-width: 767px) {
 
   .intro h1 {
-    font-size: 60px;
-    line-height: 80px;
+    font-size:    60px;
+    line-height:  80px;
   }
 
   .social-icons ul {
@@ -219,12 +219,13 @@
 
   /* about me section */
   .biography {
-    margin-top: 20px;
-    margin-bottom: 45px;
+    margin-top:     20px;
+    margin-bottom:  45px;
   }
 
   ul.list-check li {
-    width: 50%;
+    /* width: 50%; */
+    width: 100%;
   }
 
 
@@ -245,14 +246,14 @@
   }
 
   .count-wrap h3 {
-    font-size: 50px;
-    line-height: 28px;
+    font-size:    50px;
+    line-height:  28px;
   }
 
   .count-wrap p {
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 28px;
+    font-size:    18px;
+    font-weight:  700;
+    line-height:  28px;
   }
 
   .count-wrap > div {
@@ -298,32 +299,32 @@
 
   .personal-info {
     text-align: center;
-    padding:0 15px;
+    padding:    0 15px;
   }
 
   .personal-info h1 {
-    font-size: 60px;
-    line-height: 80px;
+    font-size:    60px;
+    line-height:  80px;
   }
 
   .personal-info .intro-sub {
-    font-size: 24px;
-    line-height: 32px;
+    font-size:    24px;
+    line-height:  32px;
   }
 
   .personal-info p {
-    font-size: 14px;
-    line-height: 28px;
+    font-size:    14px;
+    line-height:  28px;
   }
 
   .personal-info .my-signature {
-    margin-bottom: 45px;
-    display: block;
+    margin-bottom:  45px;
+    display:        block;
   }
 
   .personal-info .download-button a {
-    padding: 14px 20px;
-    font-size: 14px;
+    padding:      14px 20px;
+    font-size:    14px;
     margin-right: 20px;
   }
 
@@ -339,14 +340,14 @@
 
   .navbar-custom .navbar-nav > li > a,
   .navbar-custom .navbar-nav .dropdown-menu > li > a {
-    font-size: 12px;
-    padding: 15px;
+    font-size:  12px;
+    padding:    15px;
   }
 
   /* about me section */
   .biography {
-    margin-top: 20px;
-    margin-bottom: 45px;
+    margin-top:     20px;
+    margin-bottom:  45px;
   }
 
   /* resume */
@@ -403,7 +404,7 @@
 
   .personal-info {
     text-align: center;
-    padding: 0 15px;
+    padding:    0 15px;
   }
 
 }
