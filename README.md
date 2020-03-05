@@ -19,13 +19,13 @@
 :mortar_board: Best in Class modern CV, Resume and Portfolio website template.
 All-in-One-Page site with simple and fully customizable builder.
 
-`modern` `CV` `resume` `portfolio` `template` `live CV` `portfolio-website` `CV-template` `IT` `resume-template` `resume-website` `cv-website` `animated` `template-project`
+`modern` `CV` `resume` `portfolio` `template` `live CV` `Career CV` `portfolio-website` `CV-template` `IT` `resume-template` `resume-website` `cv-website` `animated` `template-project`
 
 ---
 
 ## :computer: Live Demo ##
 <!-- See it in action at :point_right: [Modern CV](http://bit.ly/tomascv?ref_domain=github.com&ref_section=docs&ref_file=readme) :point_left: -->
-See how it in action at :point_right: [CV][CV] :point_left:
+See how it look & feel at :point_right: [CV][CV] :point_left:
 
 ---
 
@@ -106,6 +106,47 @@ See [CHANGELOG][Changelog] for the history of changes and improvements.
 ---
 
 Read [LICENSE][License] for copyright information
+
+---
+
+## FAQ ##
+
+### What is a CV? ###
+- CV stands for "**Curriculum Vitae**"
+- Curriculum vitae is Latin for "**Life Story**"
+- A CV is a formatted version of **one's master experience document**
+
+### What to Include in a CV ###
+A CV should at least include the following:
+- Personal information
+- Work experience
+- Skills
+- Education
+- Personal profile and interests
+- References
+
+#### Personal Information ####
+Personal information should include name, address, telephone, and email. I will suggest you put this information at the top of your CV and make it look like a letterhead.
+
+#### Work Experience ####
+List what you have done - most recent work experience first.
+Include a short job description and your responsibilities.
+Make sure your work experience is on the first page of your CV. This outlines your skills and selling points.
+
+#### Skills ####
+Skills are best described with a list.
+List your skills - most important and relevant first.
+
+#### Education ####
+Education is best described with a list.
+List what you have studied - most recent education first.
+> Don't forget subject options, special project, courses, or diplomas.
+
+#### References ####
+List only a few names - like a teacher from your place of study, and a superior from a work situation - and make sure they can easily be reached and are willing to give you a good reference.
+
+#### Personal Profile ####
+Personal profile should include additional information about your age, status, interests and other relevant information that can produce a positive picture of your character. Put this in the last paragraph of your CV.
 
 ---
 

@@ -16,6 +16,7 @@ clean-all: clean clean-dist ;
 
 clean-full: clean-all clean-build clean-deps ;
 	@ rm -rf build-* ;
+	@ rm -rf web-* ;
 	@ echo "$(DAT) $(FINE): $(TARG)" ;
 
 clean-build:

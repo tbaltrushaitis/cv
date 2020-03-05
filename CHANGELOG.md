@@ -38,7 +38,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ---
 
-## [v0.2.5](https://github.com/tbaltrushaitis/cv/releases/tag/v0.2.5) - 2020-02-29 ##
+## [v0.2.6](Unreleased) - Current ##
+### Added ###
+- [x] `gulp-imagemin` plugins added: `giflossy`, `mozjpeg`, `pngquant`, `webp`
+- [x] Change format of images to `webp` and/or `webm`
+- [x] Added CV fulfillment recommendations checklist
+
+### Removed ###
+- [x] `mb-grill` portfolio item
+
+---
+
+## [Leap-Year-Date-20200229 - v0.2.5](https://github.com/tbaltrushaitis/cv/releases/tag/v0.2.5) - 2020-02-29 ##
 ### Added ###
 - [x] `Ubuntu`, `Red Hat`, `CentOS` and `Confluence` brand colors for Fontawesome icons
 - [x] Blocks for description of roles and responsibilities

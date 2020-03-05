@@ -17,7 +17,6 @@ TO_NULL = 2>&1 >/dev/null
 ##  ------------------------------------------------------------------------  ##
 
 ##  ------------------------------------------------------------------------  ##
-# $(shell [ -f NODE_ENV ] || cp -prfu config/.NODE_ENV ./NODE_ENV);
 $(shell [ -f ./.bowerrc ] || cp -prfu config/.bowerrc ./);
 $(shell [ -f ./.npmrc ] || cp -prfu config/.npmrc ./);
 ##  ------------------------------------------------------------------------  ##
@@ -55,10 +54,10 @@ BUILD_HASH := $(shell echo "$(BUILD_FULL)" | md5sum | cut -b -4)
 ##  ------------------------------------------------------------------------  ##
 ##  Colors definition
 ##  ------------------------------------------------------------------------  ##
-
 include $(BD)/Colors
-
 ##  ------------------------------------------------------------------------  ##
+
+FMP := ffmpeg -hide_banner -y -loglevel "error" -stats
 
 DAT = [$(Gray)$(DT)$(NC)]
 BEGIN = $(Yellow)$(On_Blue)BEGIN TARGET$(NC)
@@ -89,7 +88,6 @@ BUILD_CONTENT := $(subst CODE_VERSION,$(CODE_VERSION),$(BUILD_CONTENT))
 
 $(file > config/build.json,$(BUILD_CONTENT))
 $(info $(DAT) Created file [$(Yellow)BUILD_CONTENT$(NC):$(White)$(WD)/config/build.json$(NC)])
-
 
 ##  ------------------------------------------------------------------------  ##
 ##  COMMIT information
@@ -148,9 +146,9 @@ include $(BD)/*.mk
 
 ##  ------------------------------------------------------------------------  ##
 
-PHONY := _default
+PHONY := default
 
-_default: run ;
+default: run ;
 	@ echo "$(DAT) $(FINE): $(TARG)" ;
 
 ##  ------------------------------------------------------------------------  ##
@@ -182,6 +180,33 @@ tasktree:
 	# @ echo "$(DAT) $(FINE): $(TARG)"
 
 ##  ------------------------------------------------------------------------  ##
+##  Create videos from *.gif files
+##  ------------------------------------------------------------------------  ##
+PHONY += print-names video
+
+DIR_IMGS := $(DIR_DIST)/assets/img/works
+GIF_FILES := $(notdir $(wildcard $(DIR_IMGS)/*.gif))
+BASE_NAMES := $(basename $(GIF_FILES))
+MPEG_FILES := $(patsubst %.gif,%.mp4,$(GIF_FILES))
+WEBM_FILES := $(patsubst %.gif,%.webm,$(GIF_FILES))
+
+print-names:;
+	@ echo "DIR_IMGS = $(DIR_IMGS)"
+	@ echo "GIF_FILES = $(GIF_FILES)"
+	@ echo "BASE_NAMES = $(BASE_NAMES)"
+	# @ echo "MPEG_FILES = $(MPEG_FILES)"
+	# @ echo "WEBM_FILES = $(WEBM_FILES)"
+	@ echo "$(DAT) $(DONE): $(TARG)" ;
+
+video: ;
+	@ $(foreach fbase, $(BASE_NAMES), $(FMP) -i "$(DIR_IMGS)/$(fbase).gif" -b:v 0 -crf 25 -f mp4 -vcodec libx264 -pix_fmt yuv420p "$(DIR_IMGS)/$(fbase).mp4" ;)
+	@ $(foreach fbase, $(BASE_NAMES), $(FMP) -i "$(DIR_IMGS)/$(fbase).gif" -c libvpx-vp9 -b:v 0 -crf 41 "$(DIR_IMGS)/$(fbase).webm" ;)
+	@ echo "RESULTS:"
+	@ ls -als $(DIR_IMGS)/*.mp4
+	@ ls -als $(DIR_IMGS)/*.webm
+	@ echo "$(DAT) $(DONE): $(TARG)" ;
+
+##  ------------------------------------------------------------------------  ##
 
 PHONY += pre-update update
 
@@ -205,7 +230,7 @@ build: setup ;
 	@ touch ./build
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
-dist: build ;
+dist: build video ;
 	@ export NODE_ENV="production"; npm run dist
 	# @ cp -pr ${BLD}/* ${DST}/
 	@ rm -vrf ${DST}/resources
@@ -213,11 +238,11 @@ dist: build ;
 	@ touch ./dist
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
-pre-deploy: banner ;
+pre-deploy: banner banner ;
 	@ rm -vf deploy
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
-deploy: dist ;
+deploy: dist banner ;
 	# @ export NODE_ENV="${APP_ENV}"; npm run deploy
 	@ cp -pr ${DST}/* ${WEB}/
 	@ cd ${WD} && rm -vf webroot
@@ -229,7 +254,7 @@ pre-update: banner ;
 	@ rm -vf setup setup-deps ;
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
-update: pre-update setup ;
+update: pre-update setup banner ;
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
 ##  ------------------------------------------------------------------------  ##

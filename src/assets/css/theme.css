@@ -25,7 +25,7 @@ html, body {
 body {
   background-color: #fff;
   color:        #282828;
-  font-family:  'Roboto', sans-serif;
+  font-family:  'Roboto', 'sans-serif';
   font-size:    14px;
   font-weight:  300;
   line-height:  28px;
@@ -292,7 +292,7 @@ ul.list-check li::before {
 }
 
 .section-title::after {
-  background: url("../img/section-divider.png") no-repeat 0 0;
+  background: url("../img/section-divider.webp") no-repeat 0 0;
   bottom:   -40px;
   content:  "";
   height:   15px;
@@ -313,7 +313,7 @@ ul.list-check li::before {
 }
 
 #home {
-  background: url("../img/home2.jpg") no-repeat center center;
+  background: url("../img/home2.webp") no-repeat center center;
   background-color: #222;
   background-size: cover;
   -webkit-background-attachment: fixed;
@@ -600,7 +600,7 @@ ul.list-check li::before {
 
 .myphoto {
   position: relative;
-  background: url("../img/photo-frame.png") bottom center no-repeat;
+  background: url("../img/photo-frame.webp") bottom center no-repeat;
   background-size: contain;
 }
 .myphoto img {
@@ -1048,6 +1048,11 @@ ul.list-check li::before {
   min-height: 180px;
   height: 180px;
 }
+.portfolio-bg video {
+  max-height: 180px;
+  min-height: 180px;
+  height: 180px;
+}
 .portfolio {
   position: relative;
   overflow: hidden;
@@ -1192,7 +1197,7 @@ ul.list-check li::before {
  *  Facts Section
 /* ---------------------------------------------- */
 .facts-section {
-  background: url("../img/video-bg.jpg") no-repeat center center;
+  background: url("../img/video-bg.webp") no-repeat center center;
   background-attachment: fixed;
   background-size: cover;
   color: #fff;
