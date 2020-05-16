@@ -199,7 +199,8 @@ print-names:;
 	@ echo "$(DAT) $(DONE): $(TARG)" ;
 
 video: ;
-	@ $(foreach fbase, $(BASE_NAMES), $(FMP) -i "$(DIR_IMGS)/$(fbase).gif" -b:v 0 -crf 25 -f mp4 -vcodec libx264 -pix_fmt yuv420p "$(DIR_IMGS)/$(fbase).mp4" ;)
+	# @ $(foreach fbase, $(BASE_NAMES), $(FMP) -i "$(DIR_IMGS)/$(fbase).gif" -b:v 0 -crf 25 -f mp4 -vcodec libx264 -pix_fmt yuv420p -y "$(DIR_IMGS)/$(fbase).mp4" -vf "pad=ceil(iw/2)*2:ceil(ih/2)*2" ;)
+	@ $(foreach fbase, $(BASE_NAMES), $(FMP) -i "$(DIR_IMGS)/$(fbase).gif" -b:v 0 -crf 25 -f mp4 -vcodec libx264 -y "$(DIR_IMGS)/$(fbase).mp4" -vf "pad=ceil(iw/2)*2:ceil(ih/2)*2" ;)
 	@ $(foreach fbase, $(BASE_NAMES), $(FMP) -i "$(DIR_IMGS)/$(fbase).gif" -c libvpx-vp9 -b:v 0 -crf 41 "$(DIR_IMGS)/$(fbase).webm" ;)
 	@ echo "RESULTS:"
 	@ ls -als $(DIR_IMGS)/*.mp4
@@ -215,44 +216,52 @@ setup-deps: banner ;
 	@ npm i
 	@ bower i --production
 	@ touch ./setup-deps
-	@ echo "$(DAT) $(FINE): $(TARG)"
+	@ echo "$(DAT) $(DONE): $(TARG)"
 
 setup: setup-deps ;
+	@ echo "$(DAT) $(BEGIN): $(TARG)"
 	@ touch ./setup
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
 pre-build: banner ;
+	@ echo "$(DAT) $(BEGIN): $(TARG)"
 	@ rm -vf build
-	@ echo "$(DAT) $(FINE): $(TARG)"
+	@ echo "$(DAT) $(DONE): $(TARG)"
 
 build: setup ;
+	@ echo "$(DAT) $(BEGIN): $(TARG)"
 	@ export NODE_ENV="${APP_ENV}"; npm run build
 	@ touch ./build
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
 dist: build video ;
-	@ export NODE_ENV="production"; npm run dist
+	@ echo "$(DAT) $(BEGIN): $(TARG)"
+	# @ export NODE_ENV="production"; npm run dist
+	@ export NODE_ENV="${APP_ENV}"; npm run dist
 	# @ cp -pr ${BLD}/* ${DST}/
 	@ rm -vrf ${DST}/resources
 	@ tar -c "${DST}" | gzip -9 > "${ARC}/${APP_NAME}-v${CODE_VERSION}-b${BUILD_CNTR}.tar.gz"
 	@ touch ./dist
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
-pre-deploy: banner banner ;
+pre-deploy: banner ;
+	@ echo "$(DAT) $(BEGIN): $(TARG)"
 	@ rm -vf deploy
-	@ echo "$(DAT) $(FINE): $(TARG)"
+	@ echo "$(DAT) $(DONE): $(TARG)"
 
 deploy: dist banner ;
+	@ echo "$(DAT) $(BEGIN): $(TARG)"
 	# @ export NODE_ENV="${APP_ENV}"; npm run deploy
-	@ cp -pr ${DST}/* ${WEB}/
-	@ cd ${WD} && rm -vf webroot
-	@ ln -s ${WEB} webroot
-	@ touch ./deploy
+	@ cd ${WD} && cp -pr ${DST}/* ${WEB}/
+	@ cd ${WD} && rm -vf webroot 2>&1 >/dev/null
+	@ cd ${WD} && ln -sf ${WEB} webroot
+	@ cd ${WD} && touch ./deploy
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
 pre-update: banner ;
+	@ echo "$(DAT) $(BEGIN): $(TARG)"
 	@ rm -vf setup setup-deps ;
-	@ echo "$(DAT) $(FINE): $(TARG)"
+	@ echo "$(DAT) $(DONE): $(TARG)"
 
 update: pre-update setup banner ;
 	@ echo "$(DAT) $(FINE): $(TARG)"
@@ -261,11 +270,11 @@ update: pre-update setup banner ;
 
 PHONY += rebuild redeploy rb rd
 
-rebuild: pre-build build ;
-	@ echo "$(DAT) $(FINE): $(TARG)"
+rebuild: pre-build build dist ;
+	@ echo "$(DAT) $(DONE): $(TARG)"
 
 redeploy: pre-deploy rebuild deploy ;
-	@ echo "$(DAT) $(FINE): $(TARG)"
+	@ echo "$(DAT) $(DONE): $(TARG)"
 
 rb: rebuild ;
 	@ echo "$(DAT) $(FINE): $(TARG)"
@@ -283,14 +292,14 @@ PHONY += _all full cycle cycle-dev dev dev-setup run watch
 _all: clean cycle banner ;
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
-full: clean-all all banner ;
+full: clean-all _all banner ;
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
-cycle: setup build deploy ;
+cycle: build dist ;
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
 cycle-dev: rd ;
-	@ echo "$(DAT) $(FINE): $(TARG)"
+	@ echo "$(DAT) $(DONE): $(TARG)"
 
 dev: clean-dev banner cycle-dev ;
 	@ export NODE_ENV="${APP_ENV}"; npm run dev
@@ -298,9 +307,9 @@ dev: clean-dev banner cycle-dev ;
 
 dev-setup: clean-deps setup banner cycle-dev ;
 	@ export NODE_ENV="${APP_ENV}"; npm run dev
-	@ echo "$(DAT) $(FINE): $(TARG)"
+	@ echo "$(DAT) $(DONE): $(TARG)"
 
-run: banner help cycle dist banner ;
+run: banner cycle deploy help ;
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
 watch:
