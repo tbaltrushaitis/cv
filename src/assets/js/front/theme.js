@@ -1,10 +1,10 @@
-/* jshint unused:false */
 /*!
  * Project:     cv
  * File:        ./assets/js/front/theme.js
  * Copyright(c) 2016-present Baltrushaitis Tomas <tbaltrushaitis@gmail.com>
  * License:     MIT
  */
+/* jshint unused:false */
 /*!
  * Theme Name:  IAMX
  * Author:      Trendy Theme
