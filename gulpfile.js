@@ -279,8 +279,9 @@ gulp.task('prod', [
 
 
 gulp.task('build:dev', [
-    'bower'
-  ], (cb) => {
+      'bower'
+    ]
+  , (cb) => {
       gulpSequence('sync:src2build', 'build:assets', 'deploy')((err) => {
         if (err) {
           console.log(`${ME.d}[${C.Y}BUILD:DEV${C.N}] ${C.BR}ERROR${C.N}: [${utin(err)}]`);
@@ -299,7 +300,7 @@ gulp.task('build', [
       'bower'
     ]
   , (cb) => {
-      gulpSequence('sync:src2build', 'build:assets', 'deploy')((err) => {
+      gulpSequence(['sync:src2build', 'build:assets', 'deploy'])((err) => {
         if (err) {
           console.log(`${ME.d}[${C.Y}BUILD${C.N}] ${C.BR}ERROR${C.N}: [${utin(err)}]`);
           return Promise.reject(1);
@@ -353,6 +354,7 @@ gulp.task('deploy', [
     ]
   , (cb) => {
       gulpSequence('sync:dist2web')((err) => {
+      // gulpSequence(['sync:build2web'])((err) => {
         if (err) {
           console.log(`${ME.d}[${C.Y}DEPLOY${C.N}] ${C.BR}ERROR${C.N}: [${utin(err)}]`);
           return Promise.reject(1);
