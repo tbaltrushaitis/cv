@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="ie8"> <![endif]-->
-<!--[if IE 9]> <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="ie9"> <![endif]-->
-<!--[if IE 10]> <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="ie10"> <![endif]-->
-<!--[if !IE]><!--> <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="noie"> <!--<![endif]-->
+<!--[if IE 8]><html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="ie8"><![endif]-->
+<!--[if IE 9]><html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="ie9"><![endif]-->
+<!--[if IE 10]><html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="ie10"><![endif]-->
+<!--[if !IE]><!--><html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="noie"><!--<![endif]-->
 <head>
   <!--/ FOUC workaround
   ========================================================================= /-->
@@ -16,7 +16,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
   <meta http-equiv="Content-Type"    content="text/html; charset=utf-8" />
 
-  <title>{{person.name.full}} :: Personal CV, Resume and Portfolio</title>
+  <title>{{person.name.full}} - CV, Resume and Portfolio :: Homepage</title>
 
   <!--/  Mobile Specific Metas
   ========================================================================= /-->
@@ -31,7 +31,7 @@
   <meta name="language"      content="en" />
   <meta name="revisit-after" content="15 days" />
   <meta name="robots"        content="index, nofollow, noarchive" />
-  <meta name="title"         content="{{person.name.full}} - Personal Resume and Portfolio" />
+  <meta name="title"         content="{{person.name.full}} - Resume, CV and Portfolio" />
   <meta name="theme-color"   content="#000000" />
 
   <link rel="canonical" href="http://cv.gsm-center.com.ua/" />
@@ -41,14 +41,14 @@
   ========================================================================= /-->
   <meta property="og:locale"       content="en_US" />
   <meta property="og:type"         content="website" />
-  <meta property="og:title"        content="{{person.name.full}} - Resume and Portfolio" />
-  <meta property="og:description"  content="Personal resume of {{person.name.full}}" />
+  <meta property="og:title"        content="{{person.name.full}} - Modern CV, Resume and Portfolio" />
+  <meta property="og:description"  content="CV of {{person.name.full}}" />
   <meta property="og:image"        content="assets/img/Avatar-rhomb-md.png" />
   <meta property="og:image:type"   content="image/png" />
   <meta property="og:image:alt"    content="Photo of {{person.name.full}}" />
   <meta property="og:image:height" content="358" />
   <meta property="og:image:width"  content="358" />
-  <meta property="og:site_name"    content="Modern CV, Resume and Portfolio - {{person.name.full}}" />
+  <meta property="og:site_name"    content="CV, Resume and Portfolio - {{person.name.full}}" />
   <meta property="og:url"          content="http://cv.gsm-center.com.ua/" />
   <meta property="og:updated_time" content="{{built.full}}" />
   <meta property="og:see_also"     content="{{author.url}}" />
@@ -83,10 +83,6 @@
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/img/ico/apple-touch-icon-114-precomposed.webp" />
   <link rel="apple-touch-icon-precomposed" sizes="72x72"   href="assets/img/ico/apple-touch-icon-72-precomposed.webp" />
   <link rel="apple-touch-icon-precomposed" sizes=""        href="assets/img/ico/apple-touch-icon-57-precomposed.webp" />
-  <!-- <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/img/ico/apple-touch-icon-144-precomposed.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/img/ico/apple-touch-icon-114-precomposed.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="72x72"   href="assets/img/ico/apple-touch-icon-72-precomposed.png" />
-  <link rel="apple-touch-icon-precomposed" sizes=""        href="assets/img/ico/apple-touch-icon-57-precomposed.png" /> -->
 
   <!--/  Favicon
   ========================================================================= /-->
@@ -148,7 +144,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand hidden" href="index.html">
-            <img class="hidden" src="assets/img/logo.webp" max-width="200px" max-height="46px" width="200px" height="46px" alt="{{author.nick}}" />
+            <!-- <img class="hidden" src="assets/img/logo.png" max-width="200px" max-height="46px" width="200px" height="46px" alt="{{author.nick}}" /> -->
           </a>
         </div>
 
@@ -403,8 +399,9 @@ the best profession!
 
               <li class="">
                 <div class="posted-date">
-                  <span class="month hue">&nbsp;Current&nbsp;</span>
-                  <span class="month hue"><i class="fas fa-1x fa-heart hue"></i></span>
+                  <span class="month">2019 - 2020</span>
+                  <!-- <span class="month hue">&nbsp;Current&nbsp;</span> -->
+                  <span class="month hue"><i class="fas fa-1x fa-fw fa-heart hue"></i></span>
                 </div>
 
                 <div id="car-06" class="panel panel-success timeline-panel wow" data-wow-duration="1.5s">
@@ -1150,7 +1147,8 @@ the best profession!
                   <!-- <a target="_blank" rel="noopener" href="http://bit.ly/lvs-vis"><i class="fas fa-external-link-alt"></i></a> -->
                   <!-- <a class="image-link" href="assets/img/works/openstack-virtual-hosts-diagram-002.png"><i class="fa fa-search-plus"></i></a> -->
                 </div><!--/ /.links /-->
-                <img src="assets/img/thumbs/works/openstack-virtual-hosts-diagram-002.webp" alt="Visualization of VMs distribution on physical servers in OpenStack Cloud" />
+                <!-- <img src="assets/img/thumbs/works/openstack-virtual-hosts-diagram-002.webp" alt="Visualization of VMs distribution on physical servers in OpenStack Cloud" /> -->
+                <img src="assets/img/thumbs/works/openstack-virtual-hosts-diagram-002.png" alt="Visualization of VMs distribution on physical servers in OpenStack Cloud" />
                 <div class="portfolio-info">
                   <h3>OpenStack Visual Diagram</h3>
                 </div><!--/ /.portfolio-info /-->
@@ -1194,16 +1192,18 @@ the best profession!
             <div class="portfolio-bg">
               <div class="portfolio">
                 <div class="tt-overlay"></div>
+
                 <div class="links">
-                  <a target="_blank" rel="noopener" href="http://bit.ly/cmdb-rtm-live"><i class="fas fa-play-circle"></i></a>
+                  <a target="blank" rel="noopener" href="http://bit.ly/cmdb-rtm-live"><i class="fas fa-play-circle"></i></a>
                   <!-- <a class="image-link" href="assets/img/works/cmdb-rtm-progress.gif"><i class="fa fa-search-plus"></i></a> -->
                 </div>
 
-                <!-- <img src="assets/img/works/cmdb-rtm-poc.gif" alt="Real-time Data Visualization" /> -->
                 <video autoplay loop muted playsinline>
                   <source src="assets/img/works/cmdb-rtm-poc.webm" type="video/webm" />
                   <source src="assets/img/works/cmdb-rtm-poc.mp4"  type="video/mp4" />
                 </video>
+
+                <!-- <img src="assets/img/works/cmdb-rtm-poc.gif" alt="Real-time Data Visualization" /> -->
 
                 <div class="portfolio-info">
                   <h3>Real-time Data View</h3>
@@ -1673,6 +1673,11 @@ the best profession!
   <script async src="assets/js/lib/smoothscroll.js"></script>
   <script defer src="assets/js/lib/jquery.noty.packaged.js"></script>
   <script defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;key={{keys.google.maps}}&amp;libraries=visualization"></script>
+
+  <!-- Load React -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js" -->
+  <!-- <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script> -->
+  <!-- <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script> -->
 
   <script defer src="assets/js/front/theme.js"></script>
   <script defer src="assets/js/front/index.js"></script>
