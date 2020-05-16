@@ -60,7 +60,8 @@ const dist2web = function (gulp) {
   let wHtml = gulp.src([
       path.join(SRC, '*.html')
     ])
-    .pipe(htmlmin(ME.pkg.options.htmlmin))
+    // .pipe(htmlmin(ME.pkg.options.htmlmin))
+    .pipe(gulpif('dev' === ME.NODE_ENV || 'dev' === process.env.npm_lifecycle_event, htmlmin(ME.pkg.options.htmlmin)))
     .pipe(gulp.dest(DEST));
 
 
