@@ -63,7 +63,7 @@ const populate = function (gulp) {
   //--------------//
   let srcVoid = gulp.src(Void)
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d}[${C.W}${modName.toUpperCase()}${C.N}] STATIC: \t [${p}]`);
+      console.log(`${ME.d}[${C.O}${modName.toUpperCase()}${C.N}] ${C.Y}STATIC${C.N}: \t [${p}]`);
       return Promise.resolve(p);
     }))
     .pipe(replace({global: CONF, preserveUnknownTokens: true}))
@@ -77,7 +77,7 @@ const populate = function (gulp) {
       path.join(SRC, JS, '**/*.js')
     ])
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d}[${C.W}${modName.toUpperCase()}${C.N}] JS: \t [${p}]`);
+      console.log(`${ME.d}[${C.O}${modName.toUpperCase()}${C.N}] ${C.Y}JS${C.N}: \t [${p}]`);
       return Promise.resolve(p);
     }))
     .pipe(replace({global: CONF, preserveUnknownTokens: true}))
@@ -91,7 +91,7 @@ const populate = function (gulp) {
       path.join(SRC, DATA, '**/*.*')
     ])
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d}[${C.W}${modName.toUpperCase()}${C.N}] DATA: \t [${p}]`);
+      console.log(`${ME.d}[${C.O}${modName.toUpperCase()}${C.N}] ${C.Y}DATA${C.N}: \t [${p}]`);
       return Promise.resolve(p);
     }))
     .pipe(gulp.dest(path.resolve(DEST, DATA)));
@@ -103,8 +103,12 @@ const populate = function (gulp) {
 
 
 /**
- * EXPOSE
- * @public
+ * @_EXPOSE
  */
+exports = populate;
 
-module.exports = exports = populate;
+
+/**
+ * @_EXPORTS
+ */
+module.exports = exports;

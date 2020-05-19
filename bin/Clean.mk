@@ -19,41 +19,41 @@ clean-full: clean-all clean-build clean-deps ;
 	@ rm -rf web-* ;
 	@ echo "$(DAT) $(FINE): $(TARG)" ;
 
-clean-build:
+clean-build: ;
 	@ echo -n "Clean: build \t ... ";
 	@ rm -rf ${DIR_BUILD} ;
 	@ rm -f build ;
 	@ echo "$(OKAY)" ;
 
-clean-dist:
+clean-dist: ;
 	@ echo -n "Clean: dist \t ... ";
 	@ rm -rf ${DIR_DIST} ;
 	@ rm -f dist ;
 	@ echo "$(OKAY)" ;
 
-clean-deps:
+clean-deps: ;
 	@ echo -n "Clean: deps \t ... ";
-	@ rm -rf \
-		bower_modules/ \
-		node_modules/ \
+	@ rm -rf 						\
+		bower_modules/ 		\
+		node_modules/ 		\
 		package-lock.json \
-		setup-deps \
+		setup-deps				\
 		setup ;
 	@ echo "$(OKAY)" ;
 
-clean-files:
+clean-files: ;
 	@ echo -n "Clean: files \t ... ";
-	@ rm -rf COMMIT \
-		bitbucket-pipelines.yml \
-		codeclimate-config.patch \
-		_config.yml \
-		yarn.lock \
-		*.md \
-		*.log \
+	@ rm -rf COMMIT							\
+		bitbucket-pipelines.yml		\
+		codeclimate-config.patch	\
+		_config.yml								\
+		yarn.lock									\
+		*.md											\
+		*.log											\
 		deploy ;
 	@ echo "$(OKAY)" ;
 
 clean-dev: clean-files clean-build clean-dist ;
-	@ echo "$(DAT) $(FINE): $(TARG)" ;
+	@ echo "$(DAT) $(DONE): $(TARG)" ;
 
 ##  ------------------------------------------------------------------------  ##
