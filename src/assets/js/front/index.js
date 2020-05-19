@@ -115,7 +115,7 @@ window.jQuery(function ($) {
 
     })
     .catch(function (e) {
-      console.warn('Failed to Enable Animations: [', e, ']');
+      console.warn('Failed to Enable ANIMATIONS: [', e, ']');
       return Promise.reject(e);
     });
 
@@ -124,7 +124,7 @@ window.jQuery(function ($) {
       return Promise.resolve(true);
     })
     .catch(function (e) {
-      console.warn('Failed to Enable Animations: [', e, ']');
+      console.warn('Failed to Enable ANIMATIONS: [', e, ']');
       return Promise.reject(e);
     });
 

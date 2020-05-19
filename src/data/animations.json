@@ -3,238 +3,238 @@
     {}
   , {
       "selector": "#about .section-title"
-    , "inclass":  "fadeInDown"
-    , "outclass": "fadeOutDown"
+    , "inclass":  "animate__fadeInDown"
+    , "outclass": "animate__fadeOutDown"
     }
   , {
       "selector": ".intro-sub"
-    , "inclass":  "zoomInUp"
-    , "outclass": "zoomOutDown"
+    , "inclass":  "animate__zoomInUp"
+    , "outclass": "animate__zoomOutDown"
     }
   , {
       "selector": ".intro h1"
-    , "inclass":  "zoomIn"
-    , "outclass": "zoomOut"
+    , "inclass":  "animate__zoomIn"
+    , "outclass": "animate__zoomOut"
     }
   , {
       "selector": ".intro p"
-    , "inclass":  "rotateIn"
-    , "outclass": "rotateOut"
+    , "inclass":  "animate__rotateIn"
+    , "outclass": "animate__rotateOut"
     }
   , {
       "selector": "#social-icons ul.list-inline > li"
-    , "inclass":  "rollIn"
-    , "outclass": "rollOut"
+    , "inclass":  "animate__rollIn"
+    , "outclass": "animate__rollOut"
     }
   , {
       "selector": "#avatar"
-    , "inclass":  "flip"
-    , "outclass": "rubberBand"
+    , "inclass":  "animate__flip"
+    , "outclass": "animate__rubberBand"
     }
   , {
       "selector": "#objective h3"
-    , "inclass":  "lightSpeedIn"
-    , "outclass": "lightSpeedOut"
+    , "inclass":  "animate__lightSpeedIn"
+    , "outclass": "animate__lightSpeedOut"
     }
   , {
       "selector": "#objective p"
-    , "inclass":  "fadeInLeft"
-    , "outclass": "fadeOutLeft"
+    , "inclass":  "animate__fadeInLeft"
+    , "outclass": "animate__fadeOutLeft"
     }
   , {
       "selector": "#scopes h3"
-    , "inclass":  "lightSpeedIn"
-    , "outclass": "lightSpeedOut"
+    , "inclass":  "animate__lightSpeedIn"
+    , "outclass": "animate__lightSpeedOut"
     }
   , {
       "selector": "#scope-01"
-    , "inclass":  "bounceInLeft"
-    , "outclass": "bounceOutLeft"
+    , "inclass":  "animate__bounceInLeft"
+    , "outclass": "animate__bounceOutLeft"
     }
   , {
       "selector": "#scope-02"
-    , "inclass":  "bounceInLeft"
-    , "outclass": "bounceOutLeft"
+    , "inclass":  "animate__bounceInLeft"
+    , "outclass": "animate__bounceOutLeft"
     }
   , {
       "selector": "#scope-03"
-    , "inclass":  "bounceInLeft"
-    , "outclass": "bounceOutLeft"
+    , "inclass":  "animate__bounceInLeft"
+    , "outclass": "animate__bounceOutLeft"
     }
   , {
       "selector": "#scope-04"
-    , "inclass":  "rotateInDownRight"
-    , "outclass": "rotateOutDownRight"
+    , "inclass":  "animate__rotateInDownRight"
+    , "outclass": "animate__rotateOutDownRight"
     }
   , {
       "selector": "#scope-05"
-    , "inclass":  "fadeInRightBig"
-    , "outclass": "fadeOutRightBig"
+    , "inclass":  "animate__fadeInRightBig"
+    , "outclass": "animate__fadeOutRightBig"
     }
   , {
       "selector": "#scope-06"
-    , "inclass":  "bounceInLeft"
-    , "outclass": "bounceOutLeft"
+    , "inclass":  "animate__bounceInLeft"
+    , "outclass": "animate__bounceOutLeft"
     }
   , {
       "selector": "#scope-07"
-    , "inclass":  "fadeInUpBig"
-    , "outclass": "fadeOutUpBig"
+    , "inclass":  "animate__fadeInUpBig"
+    , "outclass": "animate__fadeOutUpBig"
     }
   , {
       "selector": "#scope-08"
-    , "inclass":  "fadeInRightBig"
-    , "outclass": "fadeOutRightBig"
+    , "inclass":  "animate__fadeInRightBig"
+    , "outclass": "animate__fadeOutRightBig"
     }
   , {
       "selector": "#scope-09"
-    , "inclass":  "fadeInUpBig"
-    , "outclass": "fadeOutUpBig"
+    , "inclass":  "animate__fadeInUpBig"
+    , "outclass": "animate__fadeOutUpBig"
     }
   , {
       "selector": "#scope-10"
-    , "inclass":  "rotateIn"
-    , "outclass": "rotateOut"
+    , "inclass":  "animate__rotateIn"
+    , "outclass": "animate__rotateOut"
     }
   , {
       "selector": "#selfie h3"
-    , "inclass":  "fadeInRight"
-    , "outclass": "fadeOutRight"
+    , "inclass":  "animate__fadeInRight"
+    , "outclass": "animate__fadeOutRight"
     }
   , {
       "selector": "#selfie p"
-    , "inclass":  "fadeInLeft"
-    , "outclass": "fadeOutLeft"
+    , "inclass":  "animate__fadeInLeft"
+    , "outclass": "animate__fadeOutLeft"
     }
   , {
       "selector": "#whatido h3"
-    , "inclass":  "fadeInRight"
-    , "outclass": "fadeOutRight"
+    , "inclass":  "animate__fadeInRight"
+    , "outclass": "animate__fadeOutRight"
     }
   , {
       "selector": "#whatido p"
-    , "inclass":  "fadeInLeft"
-    , "outclass": "fadeOutLeft"
+    , "inclass":  "animate__fadeInLeft"
+    , "outclass": "animate__fadeOutLeft"
     }
   , {
       "selector": "#whatido-01"
-    , "inclass":  "bounceInLeft"
-    , "outclass": "bounceOutLeft"
+    , "inclass":  "animate__bounceInLeft"
+    , "outclass": "animate__bounceOutLeft"
     }
   , {
       "selector": "#whatido-02"
-    , "inclass":  "bounceInLeft"
-    , "outclass": "bounceOutLeft"
+    , "inclass":  "animate__bounceInLeft"
+    , "outclass": "animate__bounceOutLeft"
     }
   , {
       "selector": "#whatido-03"
-    , "inclass":  "bounceInLeft"
-    , "outclass": "bounceOutLeft"
+    , "inclass":  "animate__bounceInLeft"
+    , "outclass": "animate__bounceOutLeft"
     }
   , {
       "selector": "#whatido-04"
-    , "inclass":  "rotateInDownRight"
-    , "outclass": "rotateOutDownRight"
+    , "inclass":  "animate__rotateInDownRight"
+    , "outclass": "animate__rotateOutDownRight"
     }
   , {
       "selector": "#whatido-05"
-    , "inclass":  "fadeInRightBig"
-    , "outclass": "fadeOutRightBig"
+    , "inclass":  "animate__fadeInRightBig"
+    , "outclass": "animate__fadeOutRightBig"
     }
   , {
       "selector": "#whatido-06"
-    , "inclass":  "fadeInUpBig"
-    , "outclass": "fadeOutUpBig"
+    , "inclass":  "animate__fadeInUpBig"
+    , "outclass": "animate__fadeOutUpBig"
     }
   , {
       "selector": "#whatido-07"
-    , "inclass":  "fadeInRightBig"
-    , "outclass": "fadeOutLeftBig"
+    , "inclass":  "animate__fadeInRightBig"
+    , "outclass": "animate__fadeOutLeftBig"
     }
   , {
       "selector": "#whatido-08"
-    , "inclass":  "fadeInUpBig"
-    , "outclass": "fadeOutDownBig"
+    , "inclass":  "animate__fadeInUpBig"
+    , "outclass": "animate__fadeOutDownBig"
     }
   , {
       "selector": "#whatido-09"
-    , "inclass":  "bounceInLeft"
-    , "outclass": "bounceOutLeft"
+    , "inclass":  "animate__bounceInLeft"
+    , "outclass": "animate__bounceOutLeft"
     }
   , {
       "selector": "#whatido-10"
-    , "inclass":  "rotateInUpRight"
-    , "outclass": "rotateOutUpRight"
+    , "inclass":  "animate__rotateInUpRight"
+    , "outclass": "animate__rotateOutUpRight"
     }
   , {
       "selector": "#resume .section-title"
-    , "inclass":  "fadeInDown"
-    , "outclass": "fadeOutDown"
+    , "inclass":  "animate__fadeInDown"
+    , "outclass": "animate__fadeOutDown"
     }
   , {
       "selector": "#edu"
-    , "inclass":  "fadeInUp"
-    , "outclass": "fadeOutUp"
+    , "inclass":  "animate__fadeInUp"
+    , "outclass": "animate__fadeOutUp"
     }
   , {
       "selector": "#career"
-    , "inclass":  "fadeInUp"
-    , "outclass": "fadeOutUp"
+    , "inclass":  "animate__fadeInUp"
+    , "outclass": "animate__fadeOutUp"
     }
   , {
       "selector": "#edu-01"
-    , "inclass":  "flipInY"
-    , "outclass": "flipOutY"
+    , "inclass":  "animate__flipInY"
+    , "outclass": "animate__flipOutY"
     }
   , {
       "selector": "#edu-02"
-    , "inclass":  "flipInY"
-    , "outclass": "flipOutY"
+    , "inclass":  "animate__flipInY"
+    , "outclass": "animate__flipOutY"
     }
   , {
       "selector": "#car-01"
-    , "inclass":  "flipInY"
-    , "outclass": "flipOutY"
+    , "inclass":  "animate__flipInY"
+    , "outclass": "animate__flipOutY"
     }
   , {
       "selector": "#car-02"
-    , "inclass":  "flipInY"
-    , "outclass": "flipOutY"
+    , "inclass":  "animate__flipInY"
+    , "outclass": "animate__flipOutY"
     }
   , {
       "selector": "#car-03"
-    , "inclass":  "flipInY"
-    , "outclass": "flipOutY"
+    , "inclass":  "animate__flipInY"
+    , "outclass": "animate__flipOutY"
     }
   , {
       "selector": "#car-04"
-    , "inclass":  "flipInY"
-    , "outclass": "flipOutY"
+    , "inclass":  "animate__flipInY"
+    , "outclass": "animate__flipOutY"
     }
   , {
       "selector": "#car-05"
-    , "inclass":  "flipInY"
-    , "outclass": "flipOutY"
+    , "inclass":  "animate__flipInY"
+    , "outclass": "animate__flipOutY"
     }
   , {
       "selector": "#car-06"
-    , "inclass":  "flipInY"
-    , "outclass": "flipOutY"
+    , "inclass":  "animate__flipInY"
+    , "outclass": "animate__flipOutY"
     }
   , {
       "selector": "#skills .section-title"
-    , "inclass":  "fadeInDown"
-    , "outclass": "fadeOutDown"
+    , "inclass":  "animate__fadeInDown"
+    , "outclass": "animate__fadeOutDown"
     }
   , {
       "selector": "#portfolio .section-title"
-    , "inclass":  "fadeInDown"
-    , "outclass": "fadeOutDown"
+    , "inclass":  "animate__fadeInDown"
+    , "outclass": "animate__fadeOutDown"
     }
   , {
       "selector": "#contact .section-title"
-    , "inclass":  "fadeInDown"
-    , "outclass": "fadeOutDown"
+    , "inclass":  "animate__fadeInDown"
+    , "outclass": "animate__fadeOutDown"
     }
   ]
 }

@@ -25,7 +25,7 @@
   , "webroot"
   ]
 , "dependencies": {
-    "animate.css":    "^3.7.2"
+    "animate.css":    "^4.1.0"
   , "bootstrap":      "~3.3.7"
   , "bower-jquery-easyPieChart": "^0.0.1"
   , "font-awesome":   "#5.13.0"

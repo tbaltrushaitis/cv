@@ -34,11 +34,14 @@ jQuery(function ($) {
   // Preloader
   // ---------------------------------------------------------------------------
 
+  // (function () {
   $(window).on('load', function () {
     // $(document).ready(function () {
     $('#pre-status').fadeOut();
     $('#tt-preloader').delay(150).fadeOut('slow');
+    console.log('PRELOADER__REMOVED');
   });
+  // }());
 
   // ---------------------------------------------------------------------------
   //  Animated scrolling / Scroll Up
@@ -212,7 +215,7 @@ jQuery(function ($) {
 
     new window.WOW({
       boxClass:          'wow'       //  animated element css class (default is wow)
-      , animateClass:    'animated'  //  animation css class (default is animated)
+      , animateClass:    'animate__animated'  //  animation css class (default is animated)
       , offset:          0           //  distance to the element when triggering the animation (default is 0)
       , mobile:          true        //  trigger animations on mobile devices (default is true)
       , live:            true        //  act on asynchronously loaded content (default is true)
