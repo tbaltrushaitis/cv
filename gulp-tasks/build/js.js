@@ -51,8 +51,8 @@ const buildJs = function (gulp) {
   let JSfront = gulp.src([
       path.join(FROM, JS, '**/*.js')
     ])
-    .pipe(vPaths(function (p) {
-      console.log(`${ME.d}[${C.W}FRONT${C.N}] Bundle ${C.O}JS${C.N}: [${C.C}${p}${C.N}]`);
+    .pipe(vPaths((p) => {
+      console.log(`${ME.d}[${C.O}FRONT${C.N}] ${C.W}Bundle${C.N} ${C.Y}JS${C.N}: [${p}]`);
       return Promise.resolve(p);
     }))
     .pipe(gulpif('production' === ME.NODE_ENV, terser(ME.pkg.options.terser)))
