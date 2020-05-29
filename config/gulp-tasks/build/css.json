@@ -1,5 +1,20 @@
 {
-  "buildCss": {
-    "title": "Build CSS"
-  }
+    "buildCss": {
+      "title": "Build CSS"
+    }
+  , "cleanCSS": {
+        "debug": false
+      , "rebase": false
+      , "level": {
+          "1": {
+              "all":             false
+            , "removeEmpty":     true
+            , "specialComments": 0
+          }
+        , "2": {
+              "all":         false
+            , "removeEmpty": true
+          }
+        }
+    }
 }
