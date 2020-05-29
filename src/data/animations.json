@@ -9,7 +9,9 @@
   , {
       "selector": ".intro-sub"
     , "inclass":  "animate__zoomInUp"
-    , "outclass": "animate__zoomOutDown"
+    , "outclass": "animate__zoomOutUp"
+    , "--animate-duration": "3.0s"
+    , "--animate-delay":  "0.0s"
     }
   , {
       "selector": ".intro h1"
@@ -29,12 +31,12 @@
   , {
       "selector": "#avatar"
     , "inclass":  "animate__flip"
-    , "outclass": "animate__rubberBand"
+    , "outclass": "animate__fadeOut"
     }
   , {
       "selector": "#objective h3"
-    , "inclass":  "animate__lightSpeedIn"
-    , "outclass": "animate__lightSpeedOut"
+    , "inclass":  "animate__lightSpeedInRight"
+    , "outclass": "animate__lightSpeedOutRight"
     }
   , {
       "selector": "#objective p"
@@ -43,8 +45,8 @@
     }
   , {
       "selector": "#scopes h3"
-    , "inclass":  "animate__lightSpeedIn"
-    , "outclass": "animate__lightSpeedOut"
+    , "inclass":  "animate__lightSpeedInLeft"
+    , "outclass": "animate__lightSpeedOutLeft"
     }
   , {
       "selector": "#scope-01"
