@@ -24,9 +24,7 @@
   =   Google Map
  */
 
-var jQuery = jQuery || window.jQuery || window.$;
-
-jQuery(function ($) {
+window.jQuery(function ($) {
 
   'use strict';
 
@@ -34,14 +32,14 @@ jQuery(function ($) {
   // Preloader
   // ---------------------------------------------------------------------------
 
-  // (function () {
-  $(window).on('load', function () {
+  (function () {
     // $(document).ready(function () {
-    $('#pre-status').fadeOut();
-    $('#tt-preloader').delay(150).fadeOut('slow');
-    console.log('PRELOADER__REMOVED');
-  });
-  // }());
+    $(window).on('load', function () {
+      $('#pre-status').fadeOut();
+      $('#tt-preloader').delay(150).fadeOut('slow');
+      console.log('PRELOADER__REMOVED');
+    });
+  }());
 
   // ---------------------------------------------------------------------------
   //  Animated scrolling / Scroll Up
@@ -80,8 +78,7 @@ jQuery(function ($) {
     });
 
     $('body').scrollspy({
-      // target: '.navbar-custom'
-      target: '#navbar-custom'
+        target: '#navbar-custom'
       , offset: 70
     });
 
@@ -110,7 +107,7 @@ jQuery(function ($) {
       var $this = $(this);
       if (visible) {
         $({Counter: 0}).animate({Counter: $this.data('original-text')}, {
-          duration: 2000
+            duration: 2000
           , easing: 'swing'
           , step: function () {
               $this.text(Math.ceil(this.Counter));
@@ -146,18 +143,18 @@ jQuery(function ($) {
       $('.chart').easyPieChart({
         easing:       'easeOut'
         , barColor:   '#68c3a3'
-        , delay:      2500
+        , delay:      1500
         , lineWidth:  8
         , rotate:     0
         , scaleColor: false
         , size:       140
         , trackColor: '#3a4149'
         , animate: {
-            duration:  2500
-            , enabled: true
+              duration: 2500
+            , enabled:  true
           }
         , onStep: function (from, to, percent) {
-            this.el.children[0].innerHTML = Math.round(percent);
+            this.el.children[0].innerHTML = Math.round(percent, 1);
           }
       });
     }
