@@ -14,11 +14,11 @@
 const path = require('path');
 const utin = require('util').inspect;
 
-const gulpif     = require('gulp-if');
 const headfoot   = require('gulp-headerfooter');
+const gulpif     = require('gulp-if');
+const replace    = require('gulp-token-replace');
 const merge      = require('merge-stream');
 const readConfig = require('read-config');
-const replace    = require('gulp-token-replace');
 const vPaths     = require('vinyl-paths');
 
 
@@ -42,14 +42,14 @@ let C = ME.Config.colors;
 //  ------------------------------------------------------------------------  //
 
 const populate = function (gulp) {
-  console.log(`${ME.L}${ME.d}[${C.O}${modPath}/${modName}${C.N}] with [${C.Blue}${modConfigFile}${C.N}]`);
+  console.log(`${ME.L}${ME.d}[${C.O}${modPath}/${modName}${C.N}] with [${C.Blue}${C.OnW}${modConfigFile}${C.N}]`);
 
   let CONF = Object.assign({}, ME.Config);
   let SRC  = path.join(ME.SRC);
   let DEST = path.join(ME.BUILD);
   let RESO = path.join('resources');
 
-  let Void = [
+  let VOID = [
       path.join(SRC, '*.*')
     , path.join(SRC, '.*')
   ];
@@ -61,7 +61,7 @@ const populate = function (gulp) {
   //--------------//
   // STATIC FILES //
   //--------------//
-  let srcVoid = gulp.src(Void)
+  let Static = gulp.src(VOID)
     .pipe(vPaths(function (p) {
       console.log(`${ME.d}[${C.O}${modName.toUpperCase()}${C.N}] ${C.Y}STATIC${C.N}: \t [${p}]`);
       return Promise.resolve(p);
@@ -73,7 +73,7 @@ const populate = function (gulp) {
   //--------------//
   // JAVASCRIPTS //
   //--------------//
-  let srcJS = gulp.src([
+  let JStask = gulp.src([
       path.join(SRC, JS, '**/*.js')
     ])
     .pipe(vPaths(function (p) {
@@ -87,7 +87,7 @@ const populate = function (gulp) {
   //--------------//
   //    DATA      //
   //--------------//
-  let srcData = gulp.src([
+  let Data = gulp.src([
       path.join(SRC, DATA, '**/*.*')
     ])
     .pipe(vPaths(function (p) {
@@ -96,8 +96,20 @@ const populate = function (gulp) {
     }))
     .pipe(gulp.dest(path.resolve(DEST, DATA)));
 
-  return merge(srcVoid, srcJS, srcData)
-          .on('error', console.error.bind(console));
+  return Promise.all([
+      Static
+    , JStask
+    , Data
+  ])
+  .then((arrRes) => {
+    return Promise.resolve(arrRes);
+  })
+  .catch((e) => {
+    return Promise.reject(e);
+  });
+
+  // return merge(Static, JS, Data)
+  //         .on('error', console.error.bind(console));
 
 };
 
