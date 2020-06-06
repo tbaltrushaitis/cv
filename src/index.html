@@ -43,8 +43,8 @@
   <meta property="og:type"         content="website" />
   <meta property="og:title"        content="{{person.name.full}} - Modern CV, Resume and Portfolio" />
   <meta property="og:description"  content="CV of {{person.name.full}}" />
-  <meta property="og:image"        content="assets/img/Avatar-rhomb-md.png" />
-  <meta property="og:image:type"   content="image/png" />
+  <meta property="og:image"        content="assets/img/Avatar-rhomb-md.webp" />
+  <meta property="og:image:type"   content="image/webp" />
   <meta property="og:image:alt"    content="Photo of {{person.name.full}}" />
   <meta property="og:image:height" content="358" />
   <meta property="og:image:width"  content="358" />
@@ -61,7 +61,6 @@
 
   <!--/  Styles
   ========================================================================= /-->
-
   <!--/  Bower Bundle  /-->
   <link rel="preload" href="assets/css/bower-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'" id="css-bower-bundle" />
   <noscript><link rel="stylesheet" href="assets/css/bower-bundle.css" id="css-bower-bundle-noscript" /></noscript>
@@ -86,8 +85,8 @@
 
   <!--/  Favicon
   ========================================================================= /-->
-  <link type="image/x-icon" href="assets/img/ico/favicon.png" rel="icon" />
-  <link type="image/x-icon" href="assets/img/ico/favicon.png" rel="shortcut icon" />
+  <link type="image/x-icon" href="assets/img/ico/favicon.webp" rel="icon" />
+  <link type="image/x-icon" href="assets/img/ico/favicon.webp" rel="shortcut icon" />
 
 </head>
 
@@ -109,7 +108,7 @@
       </h1>
       <p class="wow" data-wow-duration="2.5s" data-wow-delay="0.5s">{{person.home.pos-tags}}</p>
 
-      <div class="social-icons" id="social-icons">
+      <div id="social-icons" class="social-icons">
         <ul class="list-inline">
           <li class="wow" data-wow-duration="1.4s" data-wow-delay="1.6s">
             <a target="_blank" rel="noopener" href="{{person.socials.li.url}}"><i class="{{person.socials.li.icon}}" title="{{person.socials.li.title}}"></i></a>
@@ -174,7 +173,11 @@
         <div class="col-md-4 col-md-push-8">
           <div class="biography">
             <div class="myphoto wow" id="avatar" data-wow-duration="1.0s">
-              <img src="assets/img/Avatar-rhomb-md.webp" max-width="358px" max-height="358px" alt="{{person.name.full}}" />
+              <picture>
+                <source srcset="assets/img/Avatar-rhomb-md.webp" type="image/webp">
+                <source srcset="assets/img/Avatar-rhomb-md.png" type="image/png">
+                <img src="assets/img/Avatar-rhomb-md.png" max-width="358px" max-height="358px" alt="{{person.name.full}}" />
+              </picture>
             </div>
             <ul class="list-check">
               <li class="row">
@@ -247,7 +250,7 @@ to run as the Visual FoxPro desktop applications with modern windows-styled inte
 </p>
 
             <p class="wow">At present I have advanced knowledge of 5+ programming languages (JavaScript, Node.js, PHP, Perl, ASP, Visual FoxPro)
-and related fields (OS Linux, Bash scripting, HTML, CSS, MySQL, MongoDB, Docker, Redis, GraphQL, RabbitMQ, Git, Nginx, Apache, etc.).
+and related fields (Linux, Bash scripting, HTML, CSS, MySQL, MongoDB, Docker, Redis, GraphQL, RabbitMQ, Git, Nginx, Apache, etc.).
 Websites creation, OpenSource projects deployments, applications development, building, testing and improvement
 - these are the number of skills every day I'm work with and in what I'm improving my abilities constantly.
 </p>
@@ -260,8 +263,8 @@ Websites creation, OpenSource projects deployments, applications development, bu
 business requirements into well-documented technical requirements of product
 functionality which tech-staff can easy read, understand and implement.
 <br />
-Excellent analitical and research skills, ability to explain complex concepts in
-easy-to-understand language, allow me to communicate actively with all company
+Excellent analytical and research skills, ability to explain complex concepts in
+easy-to-understand language - allow me to communicate actively with all company
 departments involved in process and identify most effective architecture
 solutions which provide maximum performance in a minimal costs.
 <br />
@@ -409,21 +412,23 @@ the best profession!
                   <div class="timeline-content">
                     <div class="panel-heading timeline-heading row">
 
-                      <div class="col-md-3 col-xs-3 pull-right">
+                      <div class="col-md-3 col-xs-4 pull-right">
                         <a href="http://bit.ly/dna325-off" class="thumbnail" target="_blank" rel="noopener">
-                          <img class="media-object" src="assets/img/logos/logo-dna325-sm.webp" max-width="90px" max-height="90px" width="90px" height="90px" alt="DNA325" />
+                          <picture>
+                            <source srcset="assets/img/logos/logo-dna325-sm.webp" type="image/webp">
+                            <source srcset="assets/img/logos/logo-dna325-sm.png" type="image/png">
+                            <img src="assets/img/logos/logo-dna325-sm.png" class="media-object" max-width="100%" height="auto" alt="DNA325" />
+                          </picture>
                         </a>
                       </div>
 
-                      <div class="col-md-9 col-xs-9 pull-left">
+                      <div class="col-md-9 col-xs-8 pull-left">
                         <h3 class="panel-title">Software Architect</h3>
                         <span>
                           <a href="http://bit.ly/dna325-off" class="h4 text-success" target="_blank" rel="noopener">DNA325</a>
                           <br />Ukraine
                         </span>
-                        <!-- <span>
-                          Ukraine
-                        </span> -->
+                        <!-- <span>Ukraine</span> -->
                       </div>
 
                     </div>
@@ -487,13 +492,17 @@ the best profession!
                   <div class="timeline-content">
                     <div class="panel-heading timeline-heading row">
 
-                      <div class="col-md-3 col-xs-3 pull-right">
+                      <div class="col-md-3 col-xs-4 pull-right">
                         <a href="http://bit.ly/cg-off" class="thumbnail" target="_blank" rel="noopener">
-                          <img class="media-object" src="assets/img/logos/logo-cg-sm.webp" max-width="96px" max-height="96px" width="96px" height="96px" alt="Carts Guru" />
+                          <picture>
+                            <source srcset="assets/img/logos/logo-cg-sm.webp" type="image/webp">
+                            <source srcset="assets/img/logos/logo-cg-sm.png" type="image/png">
+                            <img src="assets/img/logos/logo-cg-sm.png" class="media-object" max-width="100%" height="auto" alt="Carts Guru" />
+                          </picture>
                         </a>
                       </div>
 
-                      <div class="col-md-9 col-xs-9 pull-left">
+                      <div class="col-md-9 col-xs-8 pull-left">
                         <h3 class="panel-title">Senior Node.js Developer</h3>
                         <span>
                           <a href="http://bit.ly/cg-off" class="h4 text-success" target="_blank" rel="noopener">Carts Guru LLC</a>
@@ -544,12 +553,12 @@ the best profession!
                   <div class="timeline-content">
                     <div class="panel-heading timeline-heading row">
 
-                      <div class="col-md-3 col-xs-3 pull-right text-left">
+                      <div class="col-md-3 col-xs-4 pull-right text-left">
                         <i class="fab fa-5x fa-fw fa-magento" title="Magento Commerce"></i>
                         <!-- <i class="fab fa-3x fa-fw fa-ebay hidden-xs-0" title="eBay Enterprise"></i> -->
                       </div>
 
-                      <div class="col-md-9 col-xs-9 pull-left">
+                      <div class="col-md-9 col-xs-8 pull-left">
                         <h3 class="panel-title">Operations Team Lead</h3>
                         <span>
                           <a href="http://bit.ly/mage-off" class="h4 text-success" target="_blank" rel="noopener">Magento Inc</a>
@@ -587,23 +596,17 @@ the best profession!
                         <i class="fab fa-2x fa-fw fa-centos" title="CentOS"></i>
                         <i class="fab fa-2x fa-fw fa-docker" title="Docker"></i>
                         <i class="fab fa-2x fa-fw fa-github" title="GitHub"></i>
-                      </div>
 
-                      <div class="btn-group" role="group">
                         <i class="fab fa-2x fa-fw fa-html5" title="HTML"></i>
                         <i class="fab fa-2x fa-fw fa-bootstrap" title="BootStrap"></i>
                         <i class="fab fa-2x fa-fw fa-redhat" title="Red Hat"></i>
-                      </div>
 
-                      <div class="btn-group" role="group">
                         <i class="fab fa-2x fa-fw fa-css3-alt" title="CSS"></i>
                         <i class="fas fa-2x fa-fw fa-database fa-mysql" title="MySQL"></i>
                         <i class="fab fa-2x fa-fw fa-php" title="PHP"></i>
                         <i class="fab fa-2x fa-fw fa-js-square" title="JavaScript"></i>
                         <i class="fab fa-2x fa-fw fa-mdb fa-mongodb" title="MongoDB"></i>
-                      </div>
 
-                      <div class="btn-group" role="group">
                         <i class="fab fa-2x fa-fw fa-cc-paypal" title="PayPal"></i>
                         <i class="fab fa-2x fa-fw fa-jira" title="JIRA"></i>
                         <i class="fab fa-2x fa-fw fa-confluence" title="Confluence"></i>
@@ -626,7 +629,11 @@ the best profession!
 
                       <div class="col-md-5 col-xs-5 pull-right">
                         <a href="http://bit.ly/rc-off" class="thumbnail" target="_blank" rel="noopener">
-                          <img class="media-object" src="assets/img/logos/logo-rc-md.webp" max-width="220px" max-height="43px" width="220px" height="43px" alt="Running Code LLC" />
+                          <picture>
+                            <source srcset="assets/img/logos/logo-rc-md.webp" type="image/webp">
+                            <source srcset="assets/img/logos/logo-rc-md.png" type="image/png">
+                            <img src="assets/img/logos/logo-rc-md.png" class="media-object" max-width="220px" max-height="43px" width="220px" height="auto" alt="Running Code LLC" />
+                          </picture>
                         </a>
                       </div>
 
@@ -677,7 +684,11 @@ the best profession!
 
                       <div class="col-md-3 col-xs-3 pull-right">
                         <a href="http://bit.ly/m1-off" class="thumbnail" target="_blank" rel="noopener">
-                          <img class="media-object" src="assets/img/logos/logo-m1-sm.webp" max-width="95px" max-height="95px" width="95px" height="95px" alt="M1 Television Music Channel" />
+                          <picture>
+                            <source srcset="assets/img/logos/logo-m1-sm.webp" type="image/webp">
+                            <source srcset="assets/img/logos/logo-m1-sm.png" type="image/png">
+                            <img src="assets/img/logos/logo-m1-sm.png" class="media-object" max-width="95px" max-height="95px" width="95px" height="auto" alt="M1 Television Music Channel" />
+                          </picture>
                         </a>
                       </div>
 
@@ -1148,8 +1159,11 @@ the best profession!
                   <!-- <a target="_blank" rel="noopener" href="http://bit.ly/lvs-vis"><i class="fas fa-external-link-alt"></i></a> -->
                   <!-- <a class="image-link" href="assets/img/works/openstack-virtual-hosts-diagram-002.png"><i class="fa fa-search-plus"></i></a> -->
                 </div><!--/ /.links /-->
-                <!-- <img src="assets/img/thumbs/works/openstack-virtual-hosts-diagram-002.webp" alt="Visualization of VMs distribution on physical servers in OpenStack Cloud" /> -->
-                <img src="assets/img/thumbs/works/openstack-virtual-hosts-diagram-002.png" alt="Visualization of VMs distribution on physical servers in OpenStack Cloud" />
+                <picture>
+                  <source srcset="assets/img/thumbs/works/openstack-virtual-hosts-diagram-002.webp" type="image/webp">
+                  <source srcset="assets/img/thumbs/works/openstack-virtual-hosts-diagram-002.png" type="image/png">
+                  <img src="assets/img/thumbs/works/openstack-virtual-hosts-diagram-002.png" alt="Visualization of VMs distribution on physical servers in OpenStack Cloud" />
+                </picture>
                 <div class="portfolio-info">
                   <h3>OpenStack Visual Diagram</h3>
                 </div><!--/ /.portfolio-info /-->
@@ -1165,7 +1179,13 @@ the best profession!
                   <a target="_blank" rel="noopener" href="http://bit.ly/cmdb-demo"><i class="fas fa-play-circle"></i></a>
                   <!-- <a class="image-link" href="assets/img/works/network-diagram-003.jpg"><i class="fa fa-search-plus"></i></a> -->
                 </div>
-                <img src="assets/img/thumbs/works/network-diagram-003.webp" alt="Visual Assets and Configuration Management Database with Real-Time Data Representations" />
+
+                <picture>
+                  <source srcset="assets/img/thumbs/works/network-diagram-003.webp" type="image/webp">
+                  <source srcset="assets/img/thumbs/works/network-diagram-003.jpg" type="image/jpeg">
+                  <img src="assets/img/thumbs/works/network-diagram-003.jpg" alt="Visual Assets and Configuration Management Database with Real-Time Data Representations" />
+                </picture>
+
                 <div class="portfolio-info">
                   <h3>CMDB Visual</h3>
                 </div>
@@ -1181,7 +1201,13 @@ the best profession!
                   <a target="_blank" rel="noopener" href="http://bit.ly/mp3web"><i class="fas fa-play-circle"></i></a>
                   <!-- <a class="image-link" href="assets/img/works/mp3web-front-003.png"><i class="fa fa-search-plus"></i></a> -->
                 </div>
-                <img src="assets/img/thumbs/works/mp3web-front-003.webp" alt="Web MP3 Player" />
+
+                <picture>
+                  <source srcset="assets/img/thumbs/works/mp3web-front-003.webp" type="image/webp">
+                  <source srcset="assets/img/thumbs/works/mp3web-front-003.png" type="image/png">
+                  <img src="assets/img/thumbs/works/mp3web-front-003.png" alt="Web MP3 Player and Media Library Manager" />
+                </picture>
+
                 <div class="portfolio-info">
                   <h3>Web MP3 Player</h3>
                 </div>
@@ -1198,13 +1224,17 @@ the best profession!
                   <a target="blank" rel="noopener" href="http://bit.ly/cmdb-rtm-live"><i class="fas fa-play-circle"></i></a>
                   <!-- <a class="image-link" href="assets/img/works/cmdb-rtm-progress.gif"><i class="fa fa-search-plus"></i></a> -->
                 </div>
-
+                <!--
                 <video autoplay loop muted playsinline>
                   <source src="assets/img/works/cmdb-rtm-poc.webm" type="video/webm" />
                   <source src="assets/img/works/cmdb-rtm-poc.mp4"  type="video/mp4" />
-                </video>
+                </video> -->
 
-                <!-- <img src="assets/img/works/cmdb-rtm-poc.gif" alt="Real-time Data Visualization" /> -->
+                <picture>
+                  <source srcset="assets/img/works/cmdb-rtm-poc.webm" type="video/webm">
+                  <source srcset="assets/img/works/cmdb-rtm-poc.mp4" type="video/mp4">
+                  <img src="assets/img/works/cmdb-rtm-poc.gif" alt="Real-time Data Visualization" />
+                </picture>
 
                 <div class="portfolio-info">
                   <h3>Real-time Data View</h3>
@@ -1222,7 +1252,13 @@ the best profession!
                   <a target="_blank" rel="noopener" href="http://bit.ly/maps-demo"><i class="fas fa-play-circle"></i></a>
                   <!-- <a class="image-link" href="assets/img/works/infograph-004.jpg"><i class="fa fa-search-plus"></i></a> -->
                 </div>
-                <img src="assets/img/thumbs/works/infograph-004.webp" alt="Maps Infographics" />
+
+                <picture>
+                  <source srcset="assets/img/thumbs/works/infograph-004.webp" type="image/webp">
+                  <source srcset="assets/img/thumbs/works/infograph-004.jpg" type="image/jpeg">
+                  <img src="assets/img/thumbs/works/infograph-004.jpg" alt="Maps Infographics" />
+                </picture>
+
                 <div class="portfolio-info">
                   <h3>Maps Infographics</h3>
                 </div>
@@ -1238,7 +1274,13 @@ the best profession!
                   <a target="_blank" rel="noopener" href="http://bit.ly/wcl-com"><i class="fas fa-play-circle"></i></a>
                   <!-- <a class="image-link" href="assets/img/works/wcl.jpg"><i class="fa fa-search-plus"></i></a> -->
                 </div>
-                <img src="assets/img/thumbs/works/wcl.webp" alt="World Cossackers League" />
+
+                <picture>
+                  <source srcset="assets/img/thumbs/works/wcl.webp" type="image/webp">
+                  <source srcset="assets/img/thumbs/works/wcl.jpg" type="image/jpeg">
+                  <img src="assets/img/thumbs/works/wcl.jpg" alt="World Cossackers League" />
+                </picture>
+
                 <div class="portfolio-info">
                   <h3>World Cossackers League</h3>
                 </div>
@@ -1253,7 +1295,13 @@ the best profession!
                 <div class="links">
                   <a target="_blank" rel="noopener" href="http://bit.ly/tracker-git"><i class="fab fa-github"></i></a>
                 </div>
-                <img src="assets/img/thumbs/works/tracker-network-009.webp" alt="Visitors Tracker" />
+
+                <picture>
+                  <source srcset="assets/img/thumbs/works/tracker-network-009.webp" type="image/webp">
+                  <source srcset="assets/img/thumbs/works/tracker-network-009.png" type="image/png">
+                  <img src="assets/img/thumbs/works/tracker-network-009.png" alt="Visitors Tracker" />
+                </picture>
+
                 <div class="portfolio-info">
                   <h3>Visitors Tracker</h3>
                 </div>
@@ -1269,7 +1317,13 @@ the best profession!
                   <a target="_blank" rel="noopener" href="http://bit.ly/kyiv-cake"><i class="fas fa-play-circle"></i></a>
                   <!-- <a class="image-link" href="assets/img/works/cheesecake.jpg"><i class="fa fa-search-plus"></i></a> -->
                 </div>
-                <img src="assets/img/thumbs/works/cheesecake.webp" alt="Cheesecake Online Store" />
+
+                <picture>
+                  <source srcset="assets/img/thumbs/works/cheesecake.webp" type="image/webp">
+                  <source srcset="assets/img/thumbs/works/cheesecake.jpg" type="image/jpeg">
+                  <img src="assets/img/thumbs/works/cheesecake.jpg" alt="Cheesecake Online Store" />
+                </picture>
+
                 <div class="portfolio-info">
                   <h3>Cheesecake Store</h3>
                 </div>
@@ -1285,7 +1339,13 @@ the best profession!
                   <a target="_blank" rel="noopener" href="http://bit.ly/knifes-demo"><i class="fas fa-play-circle"></i></a>
                   <!-- <a class="image-link" href="assets/img/works/knifes-front-view-001.jpg"><i class="fa fa-search-plus"></i></a> -->
                 </div>
-                <img src="assets/img/thumbs/works/knifes-front-view-001.webp" alt="Online CS:GO Skins Lottery" />
+
+                <picture>
+                  <source srcset="assets/img/thumbs/works/knifes-front-view-001.webp" type="image/webp">
+                  <source srcset="assets/img/thumbs/works/knifes-front-view-001.jpg" type="image/jpeg">
+                  <img src="assets/img/thumbs/works/knifes-front-view-001.jpg" alt="Online CS:GO Skins Lottery" />
+                </picture>
+
                 <div class="portfolio-info">
                   <h3>Online CS:GO Lottery</h3>
                 </div>
@@ -1303,10 +1363,15 @@ the best profession!
                   <!-- <a class="image-link" href="assets/img/works/http-404-animated-with-socials-001.gif"><i class="fa fa-search-plus"></i></a> -->
                 </div>
 
-                <!-- <img src="assets/img/works/http-404-animated-with-socials-001.gif" alt="HTTP Error 404" /> -->
-                <video autoplay loop muted playsinline>
+                <!-- <video autoplay loop muted playsinline>
                   <source src="assets/img/works/http-404-animated-with-socials-001.webm" type="video/webm">
-                </video>
+                </video> -->
+
+                <picture>
+                  <source srcset="assets/img/works/http-404-animated-with-socials-001.webm" type="video/webm">
+                  <source srcset="assets/img/works/http-404-animated-with-socials-001.mp4" type="video/mp4">
+                  <img src="assets/img/works/http-404-animated-with-socials-001.gif" alt="HTTP Error 404 Page with animations" />
+                </picture>
 
                 <div class="portfolio-info">
                   <h3>ERROR 404 Page</h3>
@@ -1324,7 +1389,13 @@ the best profession!
                   <a target="_blank" rel="noopener" href="http://bit.ly/roulette-predictor-git"><i class="fab fa-github"></i></a>
                   <!-- <a class="image-link" href="assets/img/works/roulette.png"><i class="fa fa-search-plus"></i></a> -->
                 </div>
-                <img src="assets/img/thumbs/works/roulette.webp" alt="Online Casino Roulette Predictor" />
+
+                <picture>
+                  <source srcset="assets/img/thumbs/works/roulette-gameplay-1928-won.webp" type="image/webp">
+                  <source srcset="assets/img/thumbs/works/roulette-gameplay-1928-won.png" type="image/png">
+                  <img src="assets/img/thumbs/works/roulette-gameplay-1928-won.png" alt="Online Casino Roulette Predictor" />
+                </picture>
+
                 <div class="portfolio-info">
                   <h3>Casino Roulette Predictor</h3>
                 </div>
@@ -1340,7 +1411,13 @@ the best profession!
                   <a target="_blank" rel="noopener" href="http://bit.ly/fp-git"><i class="fab fa-github"></i></a>
                   <!-- <a class="image-link" href="assets/img/works/fp-001.jpg"><i class="fa fa-search-plus"></i></a> -->
                 </div>
-                <img src="assets/img/thumbs/works/fp-001.webp" alt="Financial Planning" />
+
+                <picture>
+                  <source srcset="assets/img/thumbs/works/fp-001.webp" type="image/webp">
+                  <source srcset="assets/img/thumbs/works/fp-001.jpg" type="image/jpeg">
+                  <img src="assets/img/thumbs/works/fp-001.jpg" alt="Financial Planning" />
+                </picture>
+
                 <div class="portfolio-info">
                   <h3>Financial Planning</h3>
                 </div>
@@ -1356,7 +1433,13 @@ the best profession!
                   <a target="_blank" rel="noopener" href="http://bit.ly/kassa-git"><i class="fab fa-github"></i></a>
                   <!-- <a class="image-link" href="assets/img/works/kassa-001.jpg"><i class="fa fa-search-plus"></i></a> -->
                 </div>
-                <img src="assets/img/thumbs/works/kassa-001.webp" alt="Kassa" />
+
+                <picture>
+                  <source srcset="assets/img/thumbs/works/kassa-001.webp" type="image/webp">
+                  <source srcset="assets/img/thumbs/works/kassa-001.jpg" type="image/jpeg">
+                  <img src="assets/img/thumbs/works/kassa-001.jpg" alt="Communal Payments Kassa" />
+                </picture>
+
                 <div class="portfolio-info">
                   <h3>Communal Payments</h3>
                 </div>
@@ -1372,7 +1455,13 @@ the best profession!
                   <a target="_blank" rel="noopener" href="http://bit.ly/sklad-git"><i class="fab fa-github"></i></a>
                   <!-- <a class="image-link" href="assets/img/works/sklad-001.jpg"><i class="fa fa-search-plus"></i></a> -->
                 </div>
-                <img src="assets/img/thumbs/works/sklad-001.webp" alt="Sklad" />
+
+                <picture>
+                  <source srcset="assets/img/thumbs/works/sklad-001.webp" type="image/webp">
+                  <source srcset="assets/img/thumbs/works/sklad-001.jpg" type="image/jpeg">
+                  <img src="assets/img/thumbs/works/sklad-001.jpg" alt="Sklad" />
+                </picture>
+
                 <div class="portfolio-info">
                   <h3>Factory Accounting</h3>
                 </div>
@@ -1388,7 +1477,13 @@ the best profession!
                   <a target="_blank" rel="noopener" href="http://bit.ly/aqua-git"><i class="fab fa-github"></i></a>
                   <!-- <a class="image-link" href="assets/img/works/voda-001.jpg"><i class="fa fa-search-plus"></i></a> -->
                 </div>
-                <img src="assets/img/thumbs/works/voda-001.webp" alt="Water delivery service" />
+
+                <picture>
+                  <source srcset="assets/img/thumbs/works/voda-001.webp" type="image/webp">
+                  <source srcset="assets/img/thumbs/works/voda-001.jpg" type="image/jpeg">
+                  <img src="assets/img/thumbs/works/voda-001.jpg" alt="Water Delivery Service" />
+                </picture>
+
                 <div class="portfolio-info">
                   <h3>Water Delivery Service</h3>
                 </div>
@@ -1404,7 +1499,13 @@ the best profession!
                   <a target="_blank" rel="noopener" href="http://bit.ly/domslugba-git"><i class="fab fa-github"></i></a>
                   <!-- <a class="image-link" href="assets/img/works/domSlugba-001.jpg"><i class="fa fa-search-plus"></i></a> -->
                 </div>
-                <img src="assets/img/thumbs/works/domSlugba-001.webp" alt="Home services" />
+
+                <picture>
+                  <source srcset="assets/img/thumbs/works/domSlugba-001.webp" type="image/webp">
+                  <source srcset="assets/img/thumbs/works/domSlugba-001.jpg" type="image/jpeg">
+                  <img src="assets/img/thumbs/works/domSlugba-001.jpg" alt="Home Services" />
+                </picture>
+
                 <div class="portfolio-info">
                   <h3>Home Services</h3>
                 </div>
@@ -1412,7 +1513,7 @@ the best profession!
             </div>
           </div>
 
-          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "web"]'>
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "web", "utilities"]'>
             <div class="portfolio-bg">
               <div class="portfolio">
                 <div class="tt-overlay"></div>
@@ -1422,10 +1523,15 @@ the best profession!
                   <!-- <a class="image-link" href="assets/img/works/wailing-wall.gif"><i class="fa fa-search-plus"></i></a> -->
                 </div>
 
-                <!-- <img src="assets/img/works/wailing-wall.gif" alt="Wailing Wall" /> -->
-                <video autoplay loop muted playsinline>
+                <!-- <video autoplay loop muted playsinline>
                   <source src="assets/img/works/wailing-wall.webm" type="video/webm">
-                </video>
+                </video> -->
+
+                <picture>
+                  <source srcset="assets/img/thumbs/works/trump-wall.webp" type="image/webp">
+                  <source srcset="assets/img/thumbs/works/trump-wall.jpg" type="image/jpeg">
+                  <img src="assets/img/thumbs/works/trump-wall.jpg" alt="Wailing Wall" />
+                </picture>
 
                 <div class="portfolio-info">
                   <h3>Wailing Wall</h3>
@@ -1443,7 +1549,13 @@ the best profession!
                   <a target="_blank" rel="noopener" href="http://bit.ly/gh-emoji"><i class="fab fa-github"></i></a>
                   <!-- <a class="image-link" href="assets/img/works/git-emoji-cheat-sheet.jpg"><i class="fa fa-search-plus"></i></a> -->
                 </div>
-                <img src="assets/img/thumbs/works/git-emoji-cheat-sheet.webp" alt="Git Emoji Cheat Sheet" />
+
+                <picture>
+                  <source srcset="assets/img/thumbs/works/git-emoji-cheat-sheet.webp" type="image/webp">
+                  <source srcset="assets/img/thumbs/works/git-emoji-cheat-sheet.jpg" type="image/jpeg">
+                  <img src="assets/img/thumbs/works/git-emoji-cheat-sheet.jpg" alt="Git Emoji Cheat Sheet" />
+                </picture>
+
                 <div class="portfolio-info">
                   <h3>Emoji Cheat Sheet</h3>
                 </div>
@@ -1459,7 +1571,13 @@ the best profession!
                   <a target="_blank" rel="noopener" href="http://bit.ly/scratch-git"><i class="fab fa-github"></i></a>
                   <!-- <a class="image-link" href="assets/img/works/scratch-001.jpg"><i class="fa fa-search-plus"></i></a> -->
                 </div>
-                <img src="assets/img/thumbs/works/scratch-001.webp" alt="Scratch - Accounting system of electronic payment vouchers for services of mobile operators" />
+
+                <picture>
+                  <source srcset="assets/img/thumbs/works/scratch-001.webp" type="image/webp">
+                  <source srcset="assets/img/thumbs/works/scratch-001.jpg" type="image/jpeg">
+                  <img src="assets/img/thumbs/works/scratch-001.jpg" alt="Scratch - Accounting system of electronic payment vouchers for services of mobile operators" />
+                </picture>
+
                 <div class="portfolio-info">
                   <h3>Mobile Scratch Cards</h3>
                 </div>
@@ -1475,7 +1593,13 @@ the best profession!
                   <a target="_blank" rel="noopener" href="http://bit.ly/woh-git"><i class="fab fa-github"></i></a>
                   <!-- <a class="image-link" href="assets/img/works/woh-001-user-tree-module.jpg"><i class="fa fa-search-plus"></i></a> -->
                 </div>
-                <img src="assets/img/thumbs/works/woh-001-user-tree-module.webp" alt="WayOfHelp - User's relations tree visualization module" />
+
+                <picture>
+                  <source srcset="assets/img/thumbs/works/woh-001-user-tree-module.webp" type="image/webp">
+                  <source srcset="assets/img/thumbs/works/woh-001-user-tree-module.jpg" type="image/jpeg">
+                  <img src="assets/img/thumbs/works/woh-001-user-tree-module.jpg" alt="WayOfHelp - User's relations tree visualization module" />
+                </picture>
+
                 <div class="portfolio-info">
                   <h3>Relations Tree</h3>
                 </div>
@@ -1491,7 +1615,13 @@ the best profession!
                   <a target="_blank" rel="noopener" href="http://bit.ly/sms-diary-git"><i class="fab fa-github"></i></a>
                   <!-- <a class="image-link" href="assets/img/works/sms-diary-001-marks-gournal.jpg"><i class="fa fa-search-plus"></i></a> -->
                 </div>
-                <img src="assets/img/thumbs/works/sms-diary-001-marks-gournal.webp" alt="SMS-Diary - Service of notifying parents about the studying progress of their children in school" />
+
+                <picture>
+                  <source srcset="assets/img/thumbs/works/sms-diary-001-marks-gournal.webp" type="image/webp">
+                  <source srcset="assets/img/thumbs/works/sms-diary-001-marks-gournal.jpg" type="image/jpeg">
+                  <img src="assets/img/thumbs/works/sms-diary-001-marks-gournal.jpg" alt="SMS-Diary - Service of notifying parents about the studying progress of their children in school" />
+                </picture>
+
                 <div class="portfolio-info">
                   <h3>SMS-Diary</h3>
                 </div>
@@ -1630,7 +1760,7 @@ the best profession!
         </div>
         <div class="col-xs-10 col-sm-4 col-md-4">
           <div class="copyright text-center">
-            {{built.year}} &copy; {{person.name.full}}
+            2016-{{built.year}} &copy; {{person.name.full}}
           </div>
         </div>
         <div class="col-xs-2 col-sm-4 col-md-4">
@@ -1680,8 +1810,8 @@ the best profession!
   <!-- <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script> -->
   <!-- <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script> -->
 
-  <script defer src="assets/js/front/theme.js"></script>
   <script defer src="assets/js/front/index.js"></script>
+  <script defer src="assets/js/front/theme.js"></script>
 
   <!-- <script>
     document.write('<script src="' + location.protocol + '//' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
