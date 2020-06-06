@@ -71,10 +71,10 @@ For example: [Modern CV](http://bit.ly/tomascv)
 
  Name | Version | Scope | Description |
 :-----|:-------:|:-----:|:------------|
- [animate.css](http://daneden.github.io/animate.css/) | 3.7.2 | Front | A cross-browser library of CSS animations
- [FontAwesome](https://fontawesome.com/) | 5.12.1 | Front | The iconic Font and CSS toolkit
+ [animate.css](http://daneden.github.io/animate.css/) | 4.1.0 | Front | A cross-browser library of CSS animations
+ [FontAwesome](https://fontawesome.com/) | 5.13.0 | Front | The iconic Font and CSS toolkit
  [Bootstrap](http://getbootstrap.com) | 3.3.7 | Front | Front-end framework for developing responsive, mobile first projects on the web
- [jQuery](http://jquery.com/) | 3.4.1 | Front | JavaScript Library
+ [jQuery](http://jquery.com/) | 3.5.1 | Front | JavaScript Library
  [noty](http://ned.im/noty) | 2.4.1 | Front | Notification library
  [waypoints](https://github.com/imakewebthings/waypoints) | 4.0.1 | Front | Easily execute a function when you scroll to an element
  [wow.js](https://wowjs.uk/) | 1.3.0 | Front | Reveal CSS animation as you scroll down a page
