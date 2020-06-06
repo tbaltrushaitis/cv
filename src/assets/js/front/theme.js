@@ -33,8 +33,8 @@ window.jQuery(function ($) {
   // ---------------------------------------------------------------------------
 
   (function () {
-    // $(document).ready(function () {
-    $(window).on('load', function () {
+    $(document).ready(function () {
+      // $(window).on('load', function () {
       $('#pre-status').fadeOut();
       $('#tt-preloader').delay(150).fadeOut('slow');
       console.log('PRELOADER__REMOVED');
@@ -78,7 +78,7 @@ window.jQuery(function ($) {
     });
 
     $('body').scrollspy({
-        target: '#navbar-custom'
+      target: '#navbar-custom'
       , offset: 70
     });
 
@@ -107,7 +107,7 @@ window.jQuery(function ($) {
       var $this = $(this);
       if (visible) {
         $({Counter: 0}).animate({Counter: $this.data('original-text')}, {
-            duration: 2000
+          duration: 2000
           , easing: 'swing'
           , step: function () {
               $this.text(Math.ceil(this.Counter));
@@ -150,7 +150,7 @@ window.jQuery(function ($) {
         , size:       140
         , trackColor: '#3a4149'
         , animate: {
-              duration: 2500
+            duration: 2500
             , enabled:  true
           }
         , onStep: function (from, to, percent) {
