@@ -61,7 +61,8 @@ const dist2web = function (gulp) {
       path.join(SRC, '*.html')
     ])
     // .pipe(htmlmin(ME.pkg.options.htmlmin))
-    .pipe(gulpif('dev' === ME.NODE_ENV || 'dev' === process.env.npm_lifecycle_event, htmlmin(ME.pkg.options.htmlmin)))
+    // .pipe(gulpif('dev' !== ME.NODE_ENV && 'dev' === process.env.npm_lifecycle_event, htmlmin(ME.pkg.options.htmlmin)))
+    .pipe(gulpif('production' === ME.NODE_ENV || 'prod' === process.env.npm_lifecycle_event, htmlmin(ME.pkg.options.htmlmin)))
     .pipe(gulp.dest(DEST));
 
 
