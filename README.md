@@ -66,7 +66,7 @@ Post a link to your CV on sites where you need your personal profile page should
 For example: [Modern CV](http://bit.ly/tomascv)
 
 ---
-Ь
+
 ## :label: Components ##
 
  Name | Version | Scope | Description |
