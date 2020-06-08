@@ -31,28 +31,28 @@ See how it look & feel at :point_right: [CV][CV] :point_left:
 
 ## :runner: Usage ##
 
-### 1. Clone the repository and enter its directory ###
+### :1: Clone the repository and enter its directory ###
 ```shell
 $ APP_NAME=cv \
 && git clone https://github.com/tbaltrushaitis/${APP_NAME}.git \
 && cd ${APP_NAME}
 ```
 
-### 2. Install the dependencies ###
+### :2: Install the dependencies ###
 ```shell
 $ make setup
 ```
 
-### 3. Configure ###
+### :3: Configure ###
 
 Replace values in `config/person.json` with your personal information
 
-### 4. Build ###
+### :4: Build ###
 ```shell
 $ make build
 ```
 
-### 5. Deploy ###
+### :5: Deploy ###
 ```shell
 $ make deploy
 ```
@@ -60,7 +60,7 @@ $ make deploy
 This will create/update `webroot` directory inside the project root.
 Use this directory as DocumentRoot in VirtualHost configuration of your web server.
 
-### 6. Enjoy  ###
+### :6: Enjoy  ###
 
 Post a link to your CV on sites where you need your personal profile page should be discovered by other users and that provide a lots of information about your professional skills and experience.
 For example: [Modern CV](http://bit.ly/tomascv)
