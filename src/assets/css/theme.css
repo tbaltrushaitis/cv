@@ -1130,15 +1130,21 @@ ul.list-check li::before {
       -ms-transform: translate(0,-50px);
        -o-transform: translate(0,-50px);
           transform: translate(0,-50px);
+  z-index: 80;
 }
 
-.links a i{
+.links a {
+  z-index: 100;
+}
+
+.links a i {
   position: relative;
   color: #68c3a3;
   font-size: 16px;
   margin: 0 13px;
-  z-index: 100;
+  z-index: 90;
 }
+
 .links a:hover i {
   color:  #fff;
 }
@@ -1197,7 +1203,7 @@ ul.list-check li::before {
  *  Facts Section
 /* ---------------------------------------------- */
 .facts-section {
-  background: url("../img/video-bg.webp") no-repeat center center;
+  background: url("../img/video-bg.jpg") no-repeat center center;
   background-attachment: fixed;
   background-size: cover;
   color: #fff;

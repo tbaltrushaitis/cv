@@ -198,7 +198,9 @@ gulp.task('lint', [
   , (cb) => {
       console.log(`${ME.d}[${C.Y}LINT${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
       if ('function' === typeof cb) {
-        cb();
+        return cb();
+      }else{
+        return Promise.resolve();
       }
     }
 );
@@ -220,28 +222,18 @@ gulp.task('test', [
 );
 
 
-gulp.task('clean', [
-      'clean:build'
-    , 'clean:dist'
-  ], (cb) => {
-      console.log(`${ME.d}[${C.Y}CLEAN${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
-      if ('function' === typeof cb) {
-        cb();
-      }
-    }
-);
-
-
 gulp.task('build:assets', [
       'build:css'
     , 'build:js'
     , 'build:img'
   ], (cb) => {
-      console.log(`${ME.d}[${C.Y}BUILD:ASSETS${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
-      if ('function' === typeof cb) {
-        cb();
-      }
+    console.log(`${ME.d}[${C.O}BUILD${C.N}:${C.W}ASSETS${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
+    if ('function' === typeof cb) {
+      return cb();
+    }else{
+      return Promise.resolve();
     }
+  }
 );
 
 
@@ -249,121 +241,111 @@ gulp.task('build:assets:fast', [
       'build:css'
     , 'build:js'
   ], (cb) => {
-  console.log(`${ME.d}[${C.Y}BUILD:ASSETS:FAST${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
-  if ('function' === typeof cb) {
-    cb();
+    console.log(`${ME.d}[${C.Y}BUILD:ASSETS:FAST${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
+    if ('function' === typeof cb) {
+      return cb();
+    }else{
+      return Promise.resolve();
+    }
   }
-});
+);
 
 
 gulp.task('dev', [
     'build:dev'
   ], (cb) => {
-  gulp.start('watch');
-  console.log(`${ME.d}[${C.Y}DEV${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
-  if ('function' === typeof cb) {
-    cb();
+    gulp.start('watch');
+    console.log(`${ME.d}[${C.Y}DEV${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
+    if ('function' === typeof cb) {
+      return cb();
+    }else{
+      return Promise.resolve();
+    }
   }
-});
+);
 
 
 gulp.task('prod', [
     'build'
   ], (cb) => {
-  gulp.start('deploy');
-  console.log(`${ME.d}[${C.Y}PROD${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
-  if ('function' === typeof cb) {
-    cb();
+    gulp.start('deploy');
+    console.log(`${ME.d}[${C.Y}PROD${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
+    if ('function' === typeof cb) {
+      return cb();
+    }else{
+      return Promise.resolve();
+    }
   }
-});
+);
 
 
 gulp.task('build:dev', [
-    'bower'
-  ], (cb) => {
-      gulpSequence('sync:src2build', 'build:assets', 'deploy')((err) => {
-        if (err) {
-          console.log(`${ME.d}[${C.Y}BUILD:DEV${C.N}] ${C.BR}ERROR${C.N}: [${utin(err)}]`);
-          return Promise.reject(1);
-        }
-        console.log(`${ME.d}[${C.Y}BUILD:DEV${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
-      });
-      if ('function' === typeof cb) {
-        cb();
+      'bower'
+    , 'sync:src2build'
+  ]
+  , (cb) => {
+    // gulpSequence(['build:assets', 'deploy'])((err) => {
+    gulpSequence('build:assets')((err) => {
+      if (err) {
+        console.log(`${ME.d}[${C.Y}BUILD:DEV${C.N}] ${C.BR}ERROR${C.N}: [${utin(err)}]`);
+        return Promise.reject(1);
       }
+      console.log(`${ME.d}[${C.Y}BUILD:DEV${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
+    });
+    if ('function' === typeof cb) {
+      return cb();
+    }else{
+      return Promise.resolve();
     }
+  }
 );
 
 
 gulp.task('build', [
-      'bower'
+//    'bower'
+//  , 'sync:src2build'
+      'build:assets'
     ]
   , (cb) => {
-      gulpSequence('sync:src2build', 'build:assets', 'deploy')((err) => {
-        if (err) {
-          console.log(`${ME.d}[${C.Y}BUILD${C.N}] ${C.BR}ERROR${C.N}: [${utin(err)}]`);
-          return Promise.reject(1);
-        }
-        console.log(`${ME.d}[${C.Y}BUILD${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
-      });
-      if ('function' === typeof cb) {
-        cb();
-      }
+    console.log(`${ME.d}[${C.O}BUILD${C.N}] ${C.Y}${C.OnG}FINISHED${C.N}`);
+    if ('function' === typeof cb) {
+      return cb();
+    }else{
+      return Promise.resolve();
     }
+  }
 );
 
 
 gulp.task('build:fast', [
-      'sync:src2build'
-    ]
+    // 'sync:src2build'
+    'build:assets:fast'
+  ]
   , (cb) => {
-      gulpSequence('build:assets:fast', 'deploy')((err) => {
-        if (err) {
-          console.log(`${ME.d}[${C.Y}BUILD:FAST${C.N}] ${C.BR}ERROR${C.N}: [${utin(err)}]`);
-          return Promise.reject(1);
-        }
-        console.log(`${ME.d}[${C.Y}BUILD:FAST${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
-      });
-      if ('function' === typeof cb) {
-        cb();
-      }
+    console.log(`${ME.d}[${C.Y}BUILD:FAST${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
+    if ('function' === typeof cb) {
+      return cb();
+    }else{
+      return Promise.resolve();
     }
+  }
 );
 
 
-gulp.task('dist', [
-      // 'build'
-    ]
-  , (cb) => {
-    gulpSequence('sync:build2dist')((err) => {
-      if (err) {
-        console.log(`${ME.d}[${C.Y}DIST${C.N}] ${C.BR}ERROR${C.N}: [${utin(err)}]`);
-        return Promise.reject(1);
-      }
-      console.log(`${ME.d}[${C.Y}DIST${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
-    });
-    if ('function' === typeof cb) {
-      cb();
-    }
-});
-
-
 gulp.task('deploy', [
-      // 'dist'
-    ]
+    // 'dist'
+    'sync:dist2web'
+  ]
   , (cb) => {
-      gulpSequence('sync:dist2web')((err) => {
-        if (err) {
-          console.log(`${ME.d}[${C.Y}DEPLOY${C.N}] ${C.BR}ERROR${C.N}: [${utin(err)}]`);
-          return Promise.reject(1);
-        }
-        console.log(`${ME.d}[${C.Y}DEPLOY${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
-      });
+    console.log(`${ME.d}[${C.Y}DEPLOY${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
 
-      if ('function' === typeof cb) {
-        cb();
-      }
-});
+    if ('function' === typeof cb) {
+      return cb();
+    }else{
+      return Promise.resolve();
+    }
+  }
+);
 
 
 // gulp.task('critical', ['build'], (cb) => {
@@ -398,22 +380,26 @@ gulp.task('watch', [], (cb) => {
   gulp.start('watch:src');
   console.log(`${ME.d}[${C.Y}WATCH${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
   if ('function' === typeof cb) {
-    cb();
+    return cb();
+  }else{
+    return Promise.resolve();
   }
 });
 
 gulp.task('watch:src', [
-        'watch:src:default'
-      , 'watch:src:configs'
-      , 'watch:src:css'
-      , 'watch:src:js'
-    ]
+      'watch:src:default'
+    , 'watch:src:configs'
+    , 'watch:src:css'
+    , 'watch:src:js'
+  ]
   , (cb) => {
-      console.log(`${ME.d}[${C.Y}WATCH:SRC${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
-      if ('function' === typeof cb) {
-        cb();
-      }
+    console.log(`${ME.d}[${C.Y}WATCH:SRC${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
+    if ('function' === typeof cb) {
+      return cb();
+    }else{
+      return Promise.resolve();
     }
+  }
 );
 
 gulp.task('watch:src:default', function () {
@@ -464,14 +450,14 @@ gulp.task('watch:src:css', function () {
       ]
     , ME.pkg.options.watch
     , function () {
-        gulpSequence('sync:src2build', 'build:css', 'deploy')((err) => {
-          if (err) {
-            console.log(`${ME.d}[${C.Y}WATCH:SRC:CSS${C.N}] ${C.BR}ERROR${C.N}: [${utin(err)}]`);
-            return Promise.reject(1);
-          }
-          console.log(`${ME.d}[${C.Y}WATCH:SRC:CSS${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
-        });
-      }
+      gulpSequence('sync:src2build', 'build:css', 'deploy')((err) => {
+        if (err) {
+          console.log(`${ME.d}[${C.Y}WATCH:SRC:CSS${C.N}] ${C.BR}ERROR${C.N}: [${utin(err)}]`);
+          return Promise.reject(1);
+        }
+        console.log(`${ME.d}[${C.Y}WATCH:SRC:CSS${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
+      });
+    }
   );
 
   wCSS.on('change', function (e) {
@@ -556,7 +542,7 @@ gulp.task('show:config', function (cb) {
   console.log(`${ME.L}`);
 
   if ('function' === typeof cb) {
-    // cb();         //  SYNCH
+    // cb();      //  SYNCH
     return cb();  //  ASYNC
   }
 });
@@ -571,7 +557,9 @@ gulp.task('show:env', function (cb) {
   console.log(`${ME.L}`);
 
   if ('function' === typeof cb) {
-    cb();
+    return cb();
+  }else{
+    return Promise.resolve();
   }
 });
 

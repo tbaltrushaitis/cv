@@ -38,11 +38,34 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ---
 
-## [v0.2.6](Unreleased) - Current ##
+## [v0.3.0](Unreleased) - Current ##
 ### Added ###
-- [x] `gulp-imagemin` plugins added: `giflossy`, `mozjpeg`, `pngquant`, `webp`
-- [x] Change format of images to `webp` and/or `webm`
+- [x] `gulp-imagemin` plugins: `giflossy`, `mozjpeg`, `pngquant`, `webp`
+- [x] Change format of `jpg/png` images to `webp` and/or `webm`
 - [x] Added CV fulfillment recommendations checklist
+- [x] npm i --save figlet@1.4.0
+- [x] npm i --save figlet-cli@0.1.1
+- [x] npm i --save-dev websocket-extensions@0.1.4
+
+### Changed ###
+- [x] bower i --save animate.css@4.1.0
+- [x] bower i --save font-awesome@5.13.0
+- [x] bower i --save jquery@3.5.1
+- [x] npm i --save-dev jimp@0.13.0
+- [x] npm i --save-dev yargs@15.3.1
+- [x] npm i --save-dev livereload@0.9.1
+- [x] npm i --save-dev minimist@1.2.3
+- [x] npm i --save-dev gulp-if@3.0.0
+- [x] npm i --save-dev gulp-require-tasks@1.3.0
+- [x] npm i --save-dev imagemin-webp@6.0.0
+- [x] npm i --save-dev imagemin-pngquant@9.0.0
+- [x] npm i --save-dev imagemin-mozjpeg@9.0.0
+- [x] npm i --save-dev merge-stream@2.0.0
+- [x] npm i --save-dev vinyl-paths@3.0.1
+
+### Fixed ###
+- [x] [CVE-2020-7598](https://github.com/advisories/GHSA-vh95-rmgr-6w4m)
+- [x] [CVE-2020-7662](https://github.com/advisories/GHSA-g78m-2chm-r7qv)
 
 ### Removed ###
 - [x] `mb-grill` portfolio item

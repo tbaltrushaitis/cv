@@ -51,6 +51,19 @@ window.jQuery(function ($) {
   };
 
   // ---------------------------------------------------------------------------
+  // Preloader
+  // ---------------------------------------------------------------------------
+
+  // (function () {
+  //   $(document).ready(function () {
+  //   // $(window).on('load', function () {
+  //     $('#pre-status').fadeOut();
+  //     $('#tt-preloader').delay(150).fadeOut('slow');
+  //     console.log('PRELOADER__REMOVED');
+  //   });
+  // }());
+
+  // ---------------------------------------------------------------------------
   //  Animations
   // ---------------------------------------------------------------------------
 
@@ -115,7 +128,7 @@ window.jQuery(function ($) {
 
     })
     .catch(function (e) {
-      console.warn('Failed to Enable Animations: [', e, ']');
+      console.warn('Failed to Enable ANIMATIONS: [', e, ']');
       return Promise.reject(e);
     });
 
@@ -124,7 +137,7 @@ window.jQuery(function ($) {
       return Promise.resolve(true);
     })
     .catch(function (e) {
-      console.warn('Failed to Enable Animations: [', e, ']');
+      console.warn('Failed to Enable ANIMATIONS: [', e, ']');
       return Promise.reject(e);
     });
 

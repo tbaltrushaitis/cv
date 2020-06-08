@@ -31,28 +31,28 @@ See how it look & feel at :point_right: [CV][CV] :point_left:
 
 ## :runner: Usage ##
 
-### 1. Clone the repository and enter its directory ###
+### :one: Clone the repository and enter its directory ###
 ```shell
 $ APP_NAME=cv \
 && git clone https://github.com/tbaltrushaitis/${APP_NAME}.git \
 && cd ${APP_NAME}
 ```
 
-### 2. Install the dependencies ###
+### :two: Install the dependencies ###
 ```shell
 $ make setup
 ```
 
-### 3. Configure ###
+### :three: Configure ###
 
 Replace values in `config/person.json` with your personal information
 
-### 4. Build ###
+### :four: Build ###
 ```shell
 $ make build
 ```
 
-### 5. Deploy ###
+### :five: Deploy ###
 ```shell
 $ make deploy
 ```
@@ -60,7 +60,7 @@ $ make deploy
 This will create/update `webroot` directory inside the project root.
 Use this directory as DocumentRoot in VirtualHost configuration of your web server.
 
-### 6. Enjoy  ###
+### :six: Enjoy  ###
 
 Post a link to your CV on sites where you need your personal profile page should be discovered by other users and that provide a lots of information about your professional skills and experience.
 For example: [Modern CV](http://bit.ly/tomascv)
@@ -71,10 +71,10 @@ For example: [Modern CV](http://bit.ly/tomascv)
 
  Name | Version | Scope | Description |
 :-----|:-------:|:-----:|:------------|
- [animate.css](http://daneden.github.io/animate.css/) | 3.7.2 | Front | A cross-browser library of CSS animations
- [FontAwesome](https://fontawesome.com/) | 5.12.1 | Front | The iconic Font and CSS toolkit
+ [animate.css](http://daneden.github.io/animate.css/) | 4.1.0 | Front | A cross-browser library of CSS animations
+ [FontAwesome](https://fontawesome.com/) | 5.13.0 | Front | The iconic Font and CSS toolkit
  [Bootstrap](http://getbootstrap.com) | 3.3.7 | Front | Front-end framework for developing responsive, mobile first projects on the web
- [jQuery](http://jquery.com/) | 3.4.1 | Front | JavaScript Library
+ [jQuery](http://jquery.com/) | 3.5.1 | Front | JavaScript Library
  [noty](http://ned.im/noty) | 2.4.1 | Front | Notification library
  [waypoints](https://github.com/imakewebthings/waypoints) | 4.0.1 | Front | Easily execute a function when you scroll to an element
  [wow.js](https://wowjs.uk/) | 1.3.0 | Front | Reveal CSS animation as you scroll down a page

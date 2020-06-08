@@ -58,12 +58,16 @@ include $(BD)/Colors
 ##  ------------------------------------------------------------------------  ##
 
 FMP := ffmpeg -hide_banner -y -loglevel "error" -stats
+# FIGLET := figlet -t -f standard -f border -f gay -S
+FIGLET := figlet-toilet -t -k -f standard -F border -F gay
 
 DAT = [$(Gray)$(DT)$(NC)]
-BEGIN = $(Yellow)$(On_Blue)BEGIN TARGET$(NC)
-DONE = $(Yellow)$(On_Blue)DONE TARGET$(NC)
+BEGIN = $(Yellow)$(On_Blue)BEGIN$(NC) TARGET
+RESULT = $(White)$(On_Purple)RESULT$(NC)
+DONE = $(Yellow)$(On_Green)DONE$(NC) TARGET
 FINE = $(Yellow)$(On_Green)FINISHED GOAL$(NC)
 TARG = [$(Orange) $@ $(NC)]
+STG  = $(shell echo '$@' | tr [:lower:] [:upper:])
 THIS = [$(Red) $(THIS_FILE) $(NC)]
 OKAY = [$(White) OK $(NC)]
 
@@ -101,9 +105,9 @@ $(info $(DAT) Created file [$(BYellow)COMMIT$(NC):$(White)$(GIT_COMMIT)$(NC)]);
 
 ARC := arch
 SRC := src
-BLD := build-${CODE_VERSION}
-DST := dist-${CODE_VERSION}
-WEB := web-${CODE_VERSION}-${BUILD_CNTR}
+BLD := build-$(CODE_VERSION)
+DST := dist-$(CODE_VERSION)
+WEB := web-$(CODE_VERSION)-$(BUILD_CNTR)
 
 $(shell [ -d $(ARC) ] || mkdir $(ARC))
 
@@ -159,20 +163,23 @@ test: banner state help ;
 	@ export NODE_ENV="${APP_ENV}"; npm run test
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
-config:
-	@ export NODE_ENV="${APP_ENV}"; npm run config
+config: ;
+	@ echo "$(DAT) $(BEGIN): $(TARG)"
+	export NODE_ENV="${APP_ENV}"; npm run config
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
 ##  ------------------------------------------------------------------------  ##
 
 PHONY += tasklist tasktree critical
 
-tasklist:
-	@ gulp --tasks --depth 1 --color
+tasklist: ;
+	@ echo "$(DAT) $(BEGIN): $(TARG)"
+	gulp --tasks --depth 1 --color
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
-tasktree:
-	@ gulp --tasks --depth 2 --color
+tasktree: ;
+	@ echo "$(DAT) $(BEGIN): $(TARG)"
+	gulp --tasks --depth 2 --color
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
 # critical:
@@ -184,93 +191,126 @@ tasktree:
 ##  ------------------------------------------------------------------------  ##
 PHONY += print-names video
 
-DIR_IMGS := $(DIR_DIST)/assets/img/works
-GIF_FILES := $(notdir $(wildcard $(DIR_IMGS)/*.gif))
+# DIR_IMGS := $(DIR_SRC)/assets/img/works
+DIR_IMGS := assets/img/works
+GIF_FILES := $(notdir $(wildcard $(DIR_SRC)/$(DIR_IMGS)/*.gif))
 BASE_NAMES := $(basename $(GIF_FILES))
-MPEG_FILES := $(patsubst %.gif,%.mp4,$(GIF_FILES))
-WEBM_FILES := $(patsubst %.gif,%.webm,$(GIF_FILES))
+MPEG_FILES := $(patsubst %.gif,%.mp4,$(DIR_BUILD)/$(GIF_FILES))
+WEBM_FILES := $(patsubst %.gif,%.webm,$(DIR_BUILD)/$(GIF_FILES))
 
-print-names:;
-	@ echo "DIR_IMGS = $(DIR_IMGS)"
-	@ echo "GIF_FILES = $(GIF_FILES)"
-	@ echo "BASE_NAMES = $(BASE_NAMES)"
-	# @ echo "MPEG_FILES = $(MPEG_FILES)"
-	# @ echo "WEBM_FILES = $(WEBM_FILES)"
-	@ echo "$(DAT) $(DONE): $(TARG)" ;
+print-names: ;
+	@ echo "$(DAT) $(BEGIN): $(TARG)"
+	@ echo "$(DAT) DIR_IMGS = $(DIR_IMGS)"
+	@ echo "$(DAT) GIF_FILES = $(GIF_FILES)"
+	@ echo "$(DAT) BASE_NAMES = $(BASE_NAMES)"
+	@ echo "$(DAT) MPEG_FILES = $(MPEG_FILES)"
+	@ echo "$(DAT) WEBM_FILES = $(WEBM_FILES)"
+	@ echo "$(DAT) $(DONE): $(TARG)"
 
-video: ;
-	@ $(foreach fbase, $(BASE_NAMES), $(FMP) -i "$(DIR_IMGS)/$(fbase).gif" -b:v 0 -crf 25 -f mp4 -vcodec libx264 -pix_fmt yuv420p "$(DIR_IMGS)/$(fbase).mp4" ;)
-	@ $(foreach fbase, $(BASE_NAMES), $(FMP) -i "$(DIR_IMGS)/$(fbase).gif" -c libvpx-vp9 -b:v 0 -crf 41 "$(DIR_IMGS)/$(fbase).webm" ;)
-	@ echo "RESULTS:"
-	@ ls -als $(DIR_IMGS)/*.mp4
-	@ ls -als $(DIR_IMGS)/*.webm
-	@ echo "$(DAT) $(DONE): $(TARG)" ;
+video: print-names ;
+	$(FIGLET) "$(STG)"
+	@ echo "$(DAT) $(BEGIN): $(TARG)" ;
+	# @ $(foreach fbase, $(BASE_NAMES), $(FMP) -i "$(DIR_IMGS)/$(fbase).gif" -b:v 0 -crf 25 -f mp4 -vcodec libx264 -pix_fmt yuv420p -y "$(DIR_IMGS)/$(fbase).mp4" -vf "pad=ceil(iw/2)*2:ceil(ih/2)*2" ;)
+	$(foreach fbase, $(BASE_NAMES), $(FMP) -i "$(DIR_SRC)/$(DIR_IMGS)/$(fbase).gif" -b:v 0 -crf 25 -f mp4 -vcodec libx264 -y "$(DIR_BUILD)/$(DIR_IMGS)/$(fbase).mp4" -vf "pad=ceil(iw/2)*2:ceil(ih/2)*2" ;)
+	@ echo "$(DAT) [$(RESULT)] $(Purple)MPEG$(NC) files:"
+	ls -ls $(DIR_BUILD)/$(DIR_IMGS)/*.mp4 | grep mp4
+	$(foreach fbase, $(BASE_NAMES), $(FMP) -i "$(DIR_SRC)/$(DIR_IMGS)/$(fbase).gif" -c libvpx-vp9 -b:v 0 -crf 41 -y "$(DIR_BUILD)/$(DIR_IMGS)/$(fbase).webm" ;)
+	@ echo "$(DAT) [$(RESULT)] $(Purple)WEBM$(NC) files:"
+	ls -ls $(DIR_BUILD)/$(DIR_IMGS)/*.webm | grep webm
+	@ echo "$(DAT) $(FINE): $(TARG)" ;
 
 ##  ------------------------------------------------------------------------  ##
 
 PHONY += pre-update update
 
-setup-deps: banner ;
-	@ npm i -g bower
-	@ npm i
-	@ bower i --production
-	@ touch ./setup-deps
-	@ echo "$(DAT) $(FINE): $(TARG)"
+setup-deps: ;
+	$(FIGLET) "$(STG)"
+	@ echo "$(DAT) $(BEGIN): $(TARG)"
+	npm i
+	bower i --allow-root --production
+	touch ./setup-deps
+	@ echo "$(DAT) $(DONE): $(TARG)"
 
 setup: setup-deps ;
-	@ touch ./setup
+	$(FIGLET) "$(STG)"
+	@ echo "$(DAT) $(BEGIN): $(TARG)"
+	touch ./setup
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
-pre-build: banner ;
-	@ rm -vf build
-	@ echo "$(DAT) $(FINE): $(TARG)"
+pre-build: ;
+	@ echo "$(DAT) $(BEGIN): $(TARG)"
+	rm -vf build
+	@ echo "$(DAT) $(DONE): $(TARG)"
 
 build: setup ;
-	@ export NODE_ENV="${APP_ENV}"; npm run build
-	@ touch ./build
+	$(FIGLET) "$(STG)"
+	@ echo "$(DAT) $(BEGIN): $(TARG)"
+	export NODE_ENV="${APP_ENV}"; npm run bower
+	cd ${WD} && cp -prf ${DIR_SRC}/* ${DIR_BUILD}/
+	export NODE_ENV="${APP_ENV}"; npm run build
+	touch ./build
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
-dist: build video ;
-	@ export NODE_ENV="production"; npm run dist
-	# @ cp -pr ${BLD}/* ${DST}/
-	@ rm -vrf ${DST}/resources
-	@ tar -c "${DST}" | gzip -9 > "${ARC}/${APP_NAME}-v${CODE_VERSION}-b${BUILD_CNTR}.tar.gz"
-	@ touch ./dist
+pre-dist: ;
+	@ echo "$(DAT) $(BEGIN): $(TARG)"
+	cd ${WD} && rm -vf dist
+	@ echo "$(DAT) $(DONE): $(TARG)"
+
+dist: build ;
+	$(FIGLET) "$(STG)"
+	# @ echo "$(DAT) $(BEGIN): $(TARG)"
+	# @ export NODE_ENV="production"; npm run dist
+	# @ export NODE_ENV="${APP_ENV}"; npm run dist
+	cd ${WD} && mkdir -p ${DST}
+	cd ${WD} && cp -prf ${BLD}/* ${DST}/
+	cd ${WD} && rm -vrf ${DST}/resources
+	cd ${WD} && tar -c "${DST}" | gzip -9 > "${ARC}/${APP_NAME}-v${CODE_VERSION}-b${BUILD_CNTR}.tar.gz"
+	cd ${WD} && touch ./dist
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
-pre-deploy: banner banner ;
-	@ rm -vf deploy
+pre-deploy: ;
+	# $(FIGLET) "$(STG)"
+	@ echo "$(DAT) $(BEGIN): $(TARG)"
+	rm -vf deploy
+	@ echo "$(DAT) $(DONE): $(TARG)"
+
+deploy: dist video ;
+	$(FIGLET) "$(STG)"
+	# @ echo "$(DAT) $(BEGIN): $(TARG)"
+	export NODE_ENV="${APP_ENV}"; npm run deploy
+	# cd ${WD} && cp -prv ${DST}/* ${WEB}/
+	cd ${WD} && rm -vf webroot 2>&1 >/dev/null
+	cd ${WD} && ln -sf ${WEB} webroot
+	cd ${WD} && touch ./deploy
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
-deploy: dist banner ;
-	# @ export NODE_ENV="${APP_ENV}"; npm run deploy
-	@ cp -pr ${DST}/* ${WEB}/
-	@ cd ${WD} && rm -vf webroot
-	@ ln -s ${WEB} webroot
-	@ touch ./deploy
-	@ echo "$(DAT) $(FINE): $(TARG)"
+pre-update: ;
+	@ echo "$(DAT) $(BEGIN): $(TARG)"
+	cd ${WD} && rm -vf setup setup-deps
+	@ echo "$(DAT) $(DONE): $(TARG)"
 
-pre-update: banner ;
-	@ rm -vf setup setup-deps ;
-	@ echo "$(DAT) $(FINE): $(TARG)"
-
-update: pre-update setup banner ;
+update: pre-update setup ;
+	$(FIGLET) "$(STG)"
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
 ##  ------------------------------------------------------------------------  ##
 
 PHONY += rebuild redeploy rb rd
 
-rebuild: pre-build build ;
-	@ echo "$(DAT) $(FINE): $(TARG)"
+rebuild: pre-build build pre-dist dist ;
+	$(FIGLET) "$(STG)"
+	@ echo "$(DAT) $(DONE): $(TARG)"
 
 redeploy: pre-deploy rebuild deploy ;
-	@ echo "$(DAT) $(FINE): $(TARG)"
+	$(FIGLET) "$(STG)"
+	@ echo "$(DAT) $(DONE): $(TARG)"
 
 rb: rebuild ;
+	# $(FIGLET) "$(STG)"
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
 rd: redeploy ;
+	# $(FIGLET) "$(STG)"
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
 
@@ -283,28 +323,31 @@ PHONY += _all full cycle cycle-dev dev dev-setup run watch
 _all: clean cycle banner ;
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
-full: clean-all all banner ;
+full: clean-all _all banner ;
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
-cycle: setup build deploy ;
+cycle: dist ;
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
 cycle-dev: rd ;
-	@ echo "$(DAT) $(FINE): $(TARG)"
+	@ echo "$(DAT) $(DONE): $(TARG)"
 
 dev: clean-dev banner cycle-dev ;
-	@ export NODE_ENV="${APP_ENV}"; npm run dev
+	export NODE_ENV="${APP_ENV}"; npm run dev
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
 dev-setup: clean-deps setup banner cycle-dev ;
 	@ export NODE_ENV="${APP_ENV}"; npm run dev
-	@ echo "$(DAT) $(FINE): $(TARG)"
+	@ echo "$(DAT) $(DONE): $(TARG)"
 
-run: banner help cycle dist banner ;
+# run: pre-build pre-dist pre-deploy cycle deploy help banner ;
+	@ echo "$(DAT) $(FINE): $(TARG)"
+run: pre-build pre-dist pre-deploy build dist deploy banner ;
+	$(FIGLET) "$(STG)"
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
 watch:
-	@ export NODE_ENV="${APP_ENV}"; npm run watch
+	export NODE_ENV="${APP_ENV}"; npm run watch
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
 ##  ------------------------------------------------------------------------  ##

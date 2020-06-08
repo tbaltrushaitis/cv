@@ -1,10 +1,10 @@
-/* jshint unused:false */
 /*!
  * Project:     cv
  * File:        ./assets/js/front/theme.js
  * Copyright(c) 2016-present Baltrushaitis Tomas <tbaltrushaitis@gmail.com>
  * License:     MIT
  */
+/* jshint unused:false */
 /*!
  * Theme Name:  IAMX
  * Author:      Trendy Theme
@@ -24,9 +24,7 @@
   =   Google Map
  */
 
-var jQuery = jQuery || window.jQuery || window.$;
-
-jQuery(function ($) {
+window.jQuery(function ($) {
 
   'use strict';
 
@@ -34,11 +32,14 @@ jQuery(function ($) {
   // Preloader
   // ---------------------------------------------------------------------------
 
-  $(window).on('load', function () {
-    // $(document).ready(function () {
-    $('#pre-status').fadeOut();
-    $('#tt-preloader').delay(150).fadeOut('slow');
-  });
+  (function () {
+    $(document).ready(function () {
+      // $(window).on('load', function () {
+      $('#pre-status').fadeOut();
+      $('#tt-preloader').delay(150).fadeOut('slow');
+      console.log('PRELOADER__REMOVED');
+    });
+  }());
 
   // ---------------------------------------------------------------------------
   //  Animated scrolling / Scroll Up
@@ -77,7 +78,6 @@ jQuery(function ($) {
     });
 
     $('body').scrollspy({
-      // target: '.navbar-custom'
       target: '#navbar-custom'
       , offset: 70
     });
@@ -143,18 +143,18 @@ jQuery(function ($) {
       $('.chart').easyPieChart({
         easing:       'easeOut'
         , barColor:   '#68c3a3'
-        , delay:      2500
+        , delay:      1500
         , lineWidth:  8
         , rotate:     0
         , scaleColor: false
         , size:       140
         , trackColor: '#3a4149'
         , animate: {
-            duration:  2500
-            , enabled: true
+            duration: 2500
+            , enabled:  true
           }
         , onStep: function (from, to, percent) {
-            this.el.children[0].innerHTML = Math.round(percent);
+            this.el.children[0].innerHTML = Math.round(percent, 1);
           }
       });
     }
@@ -212,7 +212,7 @@ jQuery(function ($) {
 
     new window.WOW({
       boxClass:          'wow'       //  animated element css class (default is wow)
-      , animateClass:    'animated'  //  animation css class (default is animated)
+      , animateClass:    'animate__animated'  //  animation css class (default is animated)
       , offset:          0           //  distance to the element when triggering the animation (default is 0)
       , mobile:          true        //  trigger animations on mobile devices (default is true)
       , live:            true        //  act on asynchronously loaded content (default is true)
