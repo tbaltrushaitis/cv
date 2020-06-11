@@ -258,9 +258,7 @@ pre-dist: ;
 
 dist: build ;
 	$(FIGLET) "$(STG)"
-	# @ echo "$(DAT) $(BEGIN): $(TARG)"
 	# @ export NODE_ENV="production"; npm run dist
-	# @ export NODE_ENV="${APP_ENV}"; npm run dist
 	cd ${WD} && mkdir -p ${DST}
 	cd ${WD} && cp -prf ${BLD}/* ${DST}/
 	cd ${WD} && rm -vrf ${DST}/resources
