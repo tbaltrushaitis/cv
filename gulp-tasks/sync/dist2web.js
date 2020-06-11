@@ -81,7 +81,8 @@ const dist2web = function (gulp) {
       , ME.pkg.options.sync
     ));
 
-  return merge(wHtml, wAssets, wData, wFiles)
+  // return merge(wHtml, wAssets, wData, wFiles)
+  return merge(wHtml)
           .pipe(gulpif('dev' === ME.NODE_ENV || 'dev' === process.env.npm_lifecycle_event, livereload()))
           .on('error', console.error.bind(console));
 

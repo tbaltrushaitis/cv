@@ -258,9 +258,7 @@ pre-dist: ;
 
 dist: build ;
 	$(FIGLET) "$(STG)"
-	# @ echo "$(DAT) $(BEGIN): $(TARG)"
 	# @ export NODE_ENV="production"; npm run dist
-	# @ export NODE_ENV="${APP_ENV}"; npm run dist
 	cd ${WD} && mkdir -p ${DST}
 	cd ${WD} && cp -prf ${BLD}/* ${DST}/
 	cd ${WD} && rm -vrf ${DST}/resources
@@ -277,8 +275,8 @@ pre-deploy: ;
 deploy: dist video ;
 	$(FIGLET) "$(STG)"
 	# @ echo "$(DAT) $(BEGIN): $(TARG)"
+	cd ${WD} && cp -prv ${DST}/* ${WEB}/
 	export NODE_ENV="${APP_ENV}"; npm run deploy
-	# cd ${WD} && cp -prv ${DST}/* ${WEB}/
 	cd ${WD} && rm -vf webroot 2>&1 >/dev/null
 	cd ${WD} && ln -sf ${WEB} webroot
 	cd ${WD} && touch ./deploy
