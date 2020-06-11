@@ -1,8 +1,8 @@
 {
     "name":         "cv"
-  , "version":      "0.2.6"
+  , "version":      "0.3.0"
   , "title":        "Modern CV, Resume and Portfolio website"
-  , "description":  "Best-in-Class website template for modern CV, Resume and Portfolio. Easy customizable All-in-One-Page static website with simple and smart builder."
+  , "description":  "Best-in-Class website template for modern CV, Resume and Portfolio. Easy customizable All-in-One-Page static website with builder."
   , "homepage":     "https://github.com/tbaltrushaitis/cv"
   , "bugs":         "https://github.com/tbaltrushaitis/cv/issues"
   , "license":      "MIT"

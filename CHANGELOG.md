@@ -38,7 +38,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ---
 
-## [v0.3.0](Unreleased) - Current ##
+## [Bokach](https://github.com/tbaltrushaitis/cv/releases/tag/v0.3.0) - 2020-06-08 ##
+
+## [Released] ##
+- [x] Include all latest updates and fixes from **v0.3.0**
+
+---
+
+## [v0.3.0](https://github.com/tbaltrushaitis/cv/tree/v0.3.0) - 2020-06-08 ##
 ### Added ###
 - [x] `gulp-imagemin` plugins: `giflossy`, `mozjpeg`, `pngquant`, `webp`
 - [x] Change format of `jpg/png` images to `webp` and/or `webm`
