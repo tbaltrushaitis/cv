@@ -277,8 +277,8 @@ pre-deploy: ;
 deploy: dist video ;
 	$(FIGLET) "$(STG)"
 	# @ echo "$(DAT) $(BEGIN): $(TARG)"
+	cd ${WD} && cp -prv ${DST}/* ${WEB}/
 	export NODE_ENV="${APP_ENV}"; npm run deploy
-	# cd ${WD} && cp -prv ${DST}/* ${WEB}/
 	cd ${WD} && rm -vf webroot 2>&1 >/dev/null
 	cd ${WD} && ln -sf ${WEB} webroot
 	cd ${WD} && touch ./deploy
