@@ -235,7 +235,7 @@
           "keep_fnames": true
         , "mangle":      true
       }
-      , "giflossy": {"lossy": 80}
+      , "giflossy": {"lossy": 70}
       , "mozjpeg":  {"quality": 50}
       , "pngquant": {"quality": [0.5, 0.5]}
       , "webp":     {"quality": 50}

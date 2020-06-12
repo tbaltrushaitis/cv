@@ -244,7 +244,7 @@ pre-build: ;
 
 build: setup ;
 	$(FIGLET) "$(STG)"
-	@ echo "$(DAT) $(BEGIN): $(TARG)"
+	# @ echo "$(DAT) $(BEGIN): $(TARG)"
 	export NODE_ENV="${APP_ENV}"; npm run bower
 	cd ${WD} && cp -prf ${DIR_SRC}/* ${DIR_BUILD}/
 	export NODE_ENV="${APP_ENV}"; npm run build
@@ -258,7 +258,7 @@ pre-dist: ;
 
 dist: build ;
 	$(FIGLET) "$(STG)"
-	# @ export NODE_ENV="production"; npm run dist
+	# export NODE_ENV="production"; npm run dist
 	cd ${WD} && mkdir -p ${DST}
 	cd ${WD} && cp -prf ${BLD}/* ${DST}/
 	cd ${WD} && rm -vrf ${DST}/resources
@@ -275,7 +275,7 @@ pre-deploy: ;
 deploy: dist video ;
 	$(FIGLET) "$(STG)"
 	# @ echo "$(DAT) $(BEGIN): $(TARG)"
-	cd ${WD} && cp -prv ${DST}/* ${WEB}/
+	cd ${WD} && cp -prf ${DST}/* ${WEB}/
 	export NODE_ENV="${APP_ENV}"; npm run deploy
 	cd ${WD} && rm -vf webroot 2>&1 >/dev/null
 	cd ${WD} && ln -sf ${WEB} webroot
