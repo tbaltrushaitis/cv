@@ -137,7 +137,7 @@ const buildImg = async function (gulp) {
       '**/*.gif'
     ]))
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] ${C.W}Giflossy${C.N} ${C.Y}GIF${C.N}: [${p}]`);
+      console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] ${C.W}Giflossy${C.N} ${C.Y}GIF${C.N}: [${C.P}${p}${C.N}]`);
       return Promise.resolve(p);
     }))
     .pipe(imagemin({
