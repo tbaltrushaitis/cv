@@ -34,7 +34,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 <!-- --- -->
 
 <!-- ## [Unreleased] - Current ## -->
-<!-- ## [v0.2.5](Unreleased) - Current ## -->
+<!-- ## [v0.3.1](Unreleased) - Current ## -->
+
+---
+
+## [v0.3.1](Unreleased) - Current ##
+
+##### Fixed: #####
+- [x] Implemented fix for vulnerability [GHSA-p6mc-m468-83gw](https://github.com/advisories/GHSA-p6mc-m468-83gw)
+
+##### Changed: #####
+- [x] npm i --save-dev yargs@15.4.1
+- [x] npm i --save-dev jimp@0.14.0
 
 ---
 
