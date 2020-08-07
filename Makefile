@@ -200,11 +200,11 @@ WEBM_FILES := $(patsubst %.gif,%.webm,$(DIR_BUILD)/$(GIF_FILES))
 
 print-names: ;
 	@ echo "$(DAT) $(BEGIN): $(TARG)"
-	@ echo "$(DAT) DIR_IMGS = $(DIR_IMGS)"
-	@ echo "$(DAT) GIF_FILES = $(GIF_FILES)"
-	@ echo "$(DAT) BASE_NAMES = $(BASE_NAMES)"
-	@ echo "$(DAT) MPEG_FILES = $(MPEG_FILES)"
-	@ echo "$(DAT) WEBM_FILES = $(WEBM_FILES)"
+	@ echo "$(DAT) DIR_IMGS = [$(White)$(DIR_IMGS)$(NC)]"
+	@ echo "$(DAT) GIF_FILES = [$(White)$(GIF_FILES)$(NC)]"
+	@ echo "$(DAT) BASE_NAMES = [$(White)$(BASE_NAMES)$(NC)]"
+	@ echo "$(DAT) MPEG_FILES = [$(White)$(MPEG_FILES)$(NC)]"
+	@ echo "$(DAT) WEBM_FILES = [$(White)$(WEBM_FILES)$(NC)]"
 	@ echo "$(DAT) $(DONE): $(TARG)"
 
 video: print-names ;

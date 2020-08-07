@@ -20,7 +20,7 @@
   , "os":     ["linux", "win32", "darwin"]
   , "main":   "echo [CALLED MAIN SCRIPT VIA package.json]"
   , "scripts": {
-        "preinstall":    "set echo off; figlet-toilet -t -f small -F border 'NPM:PRE-INSTALL'"
+        "preinstall":    "set echo off; figlet-toilet -t -f small -F border 'NPM: PRE-INSTALL'"
       , "install":       "figlet-toilet -t -f small -F border 'NPM: INSTALL'"
       , "postinstall":   "figlet-toilet -t -f small -F border 'NPM: POST-INSTALL'"
       , "preuninstall":  "figlet-toilet -t -f small -F border 'NPM: PRE-UNINSTALL'"
@@ -32,7 +32,7 @@
       , "test":          "figlet-toilet -t -f small -F border 'NPM: TEST'; DEBUG=* gulp test --color"
       , "posttest":      "figlet-toilet -t -f small -F border 'NPM: POST-TEST'"
       , "\n\n####\t\t\t BUILD:": ""
-      , "setup":         "echo [SETUP] --- "
+      , "setup":         "echo [SETUP];"
       , "prepare":       "figlet-toilet -t -f small -F border 'NPM: PREPARE'"
       , "populate":      "figlet-toilet -t -f small -F border 'NPM: POPULATE' ; gulp populate --color"
       , "prebuild":      "figlet-toilet -t -f small -F border 'NPM: PRE-BUILD' ; gulp populate --color"
