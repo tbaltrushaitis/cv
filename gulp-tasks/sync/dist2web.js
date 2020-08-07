@@ -48,6 +48,8 @@ const dist2web = function (gulp) {
   let SRC  = path.join(ME.DIST);
   let DEST = path.join(ME.WEB);
 
+  console.log(`${ME.d}[${C.O}${modPath}/${modName}${C.N}] SRC = [${C.White}${SRC}${C.N}]`);
+  console.log(`${ME.d}[${C.O}${modPath}/${modName}${C.N}] DEST = [${C.White}${DEST}${C.N}]`);
 
   let wFiles = gulp.src([
         path.join(SRC, '.*')

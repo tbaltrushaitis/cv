@@ -21,43 +21,43 @@
   , "main":   "echo [CALLED MAIN SCRIPT VIA package.json]"
   , "scripts": {
         "preinstall":    "set echo off; figlet-toilet -t -f small -F border 'NPM:PRE-INSTALL'"
-      , "install":       "figlet-toilet -t -f small -F border 'NPM:INSTALL'"
-      , "postinstall":   "figlet-toilet -t -f small -F border 'NPM:POST-INSTALL'"
-      , "preuninstall":  "figlet-toilet -t -f small -F border 'NPM:PRE-UNINSTALL'"
-      , "uninstall":     "figlet-toilet -t -f small -F border 'NPM:UNINSTALL'"
-      , "postuninstall": "figlet-toilet -t -f small -F border 'NPM:POST-UNINSTALL'"
-      , "start":         "figlet-toilet -t -f small -F border 'NPM:START'"
-      , "prepublish":    "figlet-toilet -t -f small -F border 'NPM:PRE-PUBLISH'"
+      , "install":       "figlet-toilet -t -f small -F border 'NPM: INSTALL'"
+      , "postinstall":   "figlet-toilet -t -f small -F border 'NPM: POST-INSTALL'"
+      , "preuninstall":  "figlet-toilet -t -f small -F border 'NPM: PRE-UNINSTALL'"
+      , "uninstall":     "figlet-toilet -t -f small -F border 'NPM: UNINSTALL'"
+      , "postuninstall": "figlet-toilet -t -f small -F border 'NPM: POST-UNINSTALL'"
+      , "start":         "figlet-toilet -t -f small -F border 'NPM: START'"
+      , "prepublish":    "figlet-toilet -t -f small -F border 'NPM: PRE-PUBLISH'"
       , "pretest":       "set echo off; echo [PRE-TEST] --- "
-      , "test":          "figlet-toilet -t -f small -F border 'NPM:TEST'; DEBUG=* gulp test --color"
-      , "posttest":      "figlet-toilet -t -f small -F border 'NPM:POST-TEST'"
+      , "test":          "figlet-toilet -t -f small -F border 'NPM: TEST'; DEBUG=* gulp test --color"
+      , "posttest":      "figlet-toilet -t -f small -F border 'NPM: POST-TEST'"
       , "\n\n####\t\t\t BUILD:": ""
       , "setup":         "echo [SETUP] --- "
-      , "prepare":       "figlet-toilet -t -f small -F border 'NPM:PREPARE'"
-      , "populate":      "figlet-toilet -t -f small -F border 'NPM:POPULATE' ; gulp populate --color"
-      , "prebuild":      "figlet-toilet -t -f small -F border 'NPM:PRE-BUILD' ; gulp populate --color"
-      , "build":         "figlet-toilet -t -f small -F border 'NPM:BUILD' ; gulp build --color"
-      , "postbuild":     "figlet-toilet -t -f small -F border 'NPM:POST-BUILD'"
-      , "rebuild":       "figlet-toilet -t -f small -F border 'NPM:RE-BUILD'"
-      , "prepack":       "figlet-toilet -t -f small -F border 'NPM:PRE-PACK'"
-      , "deploy":        "figlet-toilet -t -f small -F border 'NPM:DEPLOY'; gulp deploy --color"
-      , "dist":          "figlet-toilet -t -f small -F border 'NPM:DIST'; gulp dist --color"
-      , "bower":         "figlet-toilet -t -f small -F border 'NPM:BOWER'; gulp bower --color"
+      , "prepare":       "figlet-toilet -t -f small -F border 'NPM: PREPARE'"
+      , "populate":      "figlet-toilet -t -f small -F border 'NPM: POPULATE' ; gulp populate --color"
+      , "prebuild":      "figlet-toilet -t -f small -F border 'NPM: PRE-BUILD' ; gulp populate --color"
+      , "build":         "figlet-toilet -t -f small -F border 'NPM: BUILD' ; gulp build --color"
+      , "postbuild":     "figlet-toilet -t -f small -F border 'NPM: POST-BUILD'"
+      , "rebuild":       "figlet-toilet -t -f small -F border 'NPM: RE-BUILD'"
+      , "prepack":       "figlet-toilet -t -f small -F border 'NPM: PRE-PACK'"
+      , "deploy":        "figlet-toilet -t -f small -F border 'NPM: DEPLOY'; gulp deploy --color"
+      , "dist":          "figlet-toilet -t -f small -F border 'NPM: DIST'; gulp dist --color"
+      , "bower":         "figlet-toilet -t -f small -F border 'NPM: BOWER'; gulp bower --color"
       , "\n\n####\t\t\t BATCH COMMANDS:": ""
       , "default":       "echo [DEFAULT]; DEBUG=* gulp default --color"
       , "all":           "echo [ALL]; DEBUG=* gulp --color"
       , "prod":          "echo [PROD]; gulp --env=production --color"
       , "\n\n####\t\t\t TEST:": ""
-      , "check":         "figlet-toilet -t -f small -F border 'NPM:CHECK'; DEBUG=* gulp lint --color"
+      , "check":         "figlet-toilet -t -f small -F border 'NPM: CHECK'; DEBUG=* gulp lint --color"
       , "\n\n####\t\t\t INFORMATION:": ""
-      , "config":        "figlet-toilet -t -f small -F border 'NPM:SHOW:CONFIG'; gulp show:config --color"
-      , "changed":       "figlet-toilet -t -f small -F border 'NPM:CHANGED'; gulp show:src --color"
-      , "list":          "figlet-toilet -t -f small -F border 'NPM:LIST'; gulp --tasks --depth 1 --color"
-      , "usage":         "figlet-toilet -t -f small -F border 'NPM:USAGE'; gulp usage --color"
+      , "config":        "figlet-toilet -t -f small -F border 'NPM: SHOW:CONFIG'; gulp show:config --color"
+      , "changed":       "figlet-toilet -t -f small -F border 'NPM: CHANGED'; gulp show:src --color"
+      , "list":          "figlet-toilet -t -f small -F border 'NPM: LIST'; gulp --tasks --depth 1 --color"
+      , "usage":         "figlet-toilet -t -f small -F border 'NPM: USAGE'; gulp usage --color"
       , "\n\n####\t\t\t DEVELOPMENT:": ""
-      , "dev":           "figlet-toilet -t -f small -F border 'NPM:DEV'; DEBUG=* gulp dev --color"
-      , "live":          "figlet-toilet -t -f small -F border 'NPM:LIVE'; livereload ./webroot --port 35729 -d -w 1000"
-      , "watch":         "figlet-toilet -t -f small -F border 'NPM:WATCH'; DEBUG=* gulp watch --color"
+      , "dev":           "figlet-toilet -t -f small -F border 'NPM: DEV'; DEBUG=* gulp dev --color"
+      , "live":          "figlet-toilet -t -f small -F border 'NPM: LIVE'; livereload ./webroot --port 35729 -d -w 1000"
+      , "watch":         "figlet-toilet -t -f small -F border 'NPM: WATCH'; DEBUG=* gulp watch --color"
       , "\n# END": ""
     }
   , "scripts-disabled": {
@@ -104,6 +104,7 @@
       , "imagemin-pngquant":    "^9.0.0"
       , "imagemin-webp":        "^6.0.0"
       , "jimp":                 "^0.14.0"
+      , "jpeg-js":              "^0.4.0"
       , "jshint":               "^2.10.1"
       , "jshint-stylish":       "^2.2.1"
       , "js-yaml":              ">=3.13.1"
@@ -235,6 +236,17 @@
           "keep_fnames": true
         , "mangle":      true
       }
+      , "jimp": {
+            "autocrop": {
+                "cropOnlyFrames": false
+              , "tolerance":      0.0002
+            }
+          , "resize": {
+                "height": 180
+              , "width":  270
+            }
+          , "type": "png"
+        }
       , "giflossy": {"lossy": 70}
       , "mozjpeg":  {"quality": 50}
       , "pngquant": {"quality": [0.5, 0.5]}

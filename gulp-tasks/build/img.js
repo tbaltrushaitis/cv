@@ -61,18 +61,7 @@ const buildImg = async function (gulp) {
   let TUMB = path.join('thumbs');
   let SRC  = path.join(FROM, IMG, 'works', '**/*.*');
 
-  let jimpOpts = Object.assign({}, {
-      autocrop: {
-          tolerance:      0.0002
-        , cropOnlyFrames: false
-      }
-    , resize: {
-          height: 180
-        , width:  270
-      }
-    , type: 'png'
-  });
-
+  let jimpOpts  = ME.pkg.options.jimp;
   let gifOpts   = giflossy(ME.pkg.options.giflossy);
   let pngOpts   = pngquant(ME.pkg.options.pngquant);
   let jpegOpts  = mozjpeg(ME.pkg.options.mozjpeg);
