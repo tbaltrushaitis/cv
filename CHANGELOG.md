@@ -42,10 +42,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ##### Fixed: #####
 - [x] Implemented fix for vulnerability [GHSA-p6mc-m468-83gw](https://github.com/advisories/GHSA-p6mc-m468-83gw)
+- [x] Implemented fix for [CVE-2020-8175](https://github.com/advisories/GHSA-w7q9-p3jq-fmhm): Upgrade `jpeg-js` to version **0.4.0**
 
 ##### Changed: #####
 - [x] npm i --save-dev yargs@15.4.1
 - [x] npm i --save-dev jimp@0.14.0
+- [x] npm i --save-dev gulp-terser@1.3.2 jshint@2.12.0
 
 ---
 
