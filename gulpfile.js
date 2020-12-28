@@ -198,9 +198,9 @@ gulp.task('lint', [
   , (cb) => {
       console.log(`${ME.d}[${C.Y}LINT${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
       if ('function' === typeof cb) {
-        return cb();
-      }else{
-        return Promise.resolve();
+        cb();
+      // }else{
+        // return Promise.resolve();
       }
     }
 );
@@ -214,7 +214,8 @@ gulp.task('test', [
   , (cb) => {
     console.log(`${ME.d}[${C.Y}TEST${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
     if ('function' === typeof cb) {
-      return cb();
+      // return cb();
+      cb();
     }else{
       return Promise.resolve();
     }
@@ -229,9 +230,10 @@ gulp.task('build:assets', [
   ], (cb) => {
     console.log(`${ME.d}[${C.O}BUILD${C.N}:${C.W}ASSETS${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
     if ('function' === typeof cb) {
-      return cb();
-    }else{
-      return Promise.resolve();
+      // return cb();
+      cb();
+    // }else{
+      // return Promise.resolve();
     }
   }
 );
@@ -243,7 +245,8 @@ gulp.task('build:assets:fast', [
   ], (cb) => {
     console.log(`${ME.d}[${C.Y}BUILD:ASSETS:FAST${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
     if ('function' === typeof cb) {
-      return cb();
+      // return cb();
+      cb();
     }else{
       return Promise.resolve();
     }
@@ -257,9 +260,10 @@ gulp.task('dev', [
     gulp.start('watch');
     console.log(`${ME.d}[${C.Y}DEV${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
     if ('function' === typeof cb) {
-      return cb();
-    }else{
-      return Promise.resolve();
+      // return cb();
+      cb();
+    // }else{
+      // return Promise.resolve();
     }
   }
 );
@@ -271,7 +275,8 @@ gulp.task('prod', [
     gulp.start('deploy');
     console.log(`${ME.d}[${C.Y}PROD${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
     if ('function' === typeof cb) {
-      return cb();
+      // return cb();
+      cb();
     }else{
       return Promise.resolve();
     }
@@ -293,7 +298,8 @@ gulp.task('build:dev', [
       console.log(`${ME.d}[${C.Y}BUILD:DEV${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
     });
     if ('function' === typeof cb) {
-      return cb();
+      // return cb();
+      cb();
     }else{
       return Promise.resolve();
     }
@@ -309,9 +315,10 @@ gulp.task('build', [
   , (cb) => {
     console.log(`${ME.d}[${C.O}BUILD${C.N}] ${C.Y}${C.OnG}FINISHED${C.N}`);
     if ('function' === typeof cb) {
-      return cb();
-    }else{
-      return Promise.resolve();
+      // return cb();
+      cb();
+    // }else{
+      // return Promise.resolve();
     }
   }
 );
@@ -324,7 +331,8 @@ gulp.task('build:fast', [
   , (cb) => {
     console.log(`${ME.d}[${C.Y}BUILD:FAST${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
     if ('function' === typeof cb) {
-      return cb();
+      // return cb();
+      cb();
     }else{
       return Promise.resolve();
     }
@@ -340,7 +348,8 @@ gulp.task('deploy', [
     console.log(`${ME.d}[${C.Y}DEPLOY${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
 
     if ('function' === typeof cb) {
-      return cb();
+      // return cb();
+      cb();
     }else{
       return Promise.resolve();
     }
@@ -380,7 +389,8 @@ gulp.task('watch', [], (cb) => {
   gulp.start('watch:src');
   console.log(`${ME.d}[${C.Y}WATCH${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
   if ('function' === typeof cb) {
-    return cb();
+    // return cb();
+    cb();
   }else{
     return Promise.resolve();
   }
@@ -395,7 +405,8 @@ gulp.task('watch:src', [
   , (cb) => {
     console.log(`${ME.d}[${C.Y}WATCH:SRC${C.N}] ${C.BW}${C.OnBlue}FINISHED${C.N}`);
     if ('function' === typeof cb) {
-      return cb();
+      // return cb();
+      cb();
     }else{
       return Promise.resolve();
     }
@@ -557,7 +568,8 @@ gulp.task('show:env', function (cb) {
   console.log(`${ME.L}`);
 
   if ('function' === typeof cb) {
-    return cb();
+    // return cb();
+    cb();
   }else{
     return Promise.resolve();
   }
@@ -574,6 +586,5 @@ exports = defaultTask;
  * @_EXPORTS
  */
 module.exports = exports;
-// exports.default = defaultTask;
 
 /*  EOF: ROOT/gulpfile.js  */
