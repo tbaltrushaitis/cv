@@ -34,11 +34,31 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 <!-- --- -->
 
 <!-- ## [Unreleased] - Current ## -->
-<!-- ## [v0.2.5](Unreleased) - Current ## -->
+<!-- ## [v0.3.1](Unreleased) - Current ## -->
 
 ---
 
-## [v0.3.0](Unreleased) - Current ##
+## [v0.3.1](Unreleased) - Current ##
+
+##### Fixed: #####
+- [x] Implemented fix for vulnerability [GHSA-p6mc-m468-83gw](https://github.com/advisories/GHSA-p6mc-m468-83gw)
+- [x] Implemented fix for [CVE-2020-8175](https://github.com/advisories/GHSA-w7q9-p3jq-fmhm): Upgrade `jpeg-js` to version **0.4.0**
+
+##### Changed: #####
+- [x] npm i --save-dev yargs@15.4.1
+- [x] npm i --save-dev jimp@0.14.0
+- [x] npm i --save-dev gulp-terser@1.3.2 jshint@2.12.0
+
+---
+
+## [Bokach](https://github.com/tbaltrushaitis/cv/releases/tag/v0.3.0) - 2020-06-08 ##
+
+## [Released] ##
+- [x] Include all latest updates and fixes from **v0.3.0**
+
+---
+
+## [v0.3.0](https://github.com/tbaltrushaitis/cv/tree/v0.3.0) - 2020-06-08 ##
 ### Added ###
 - [x] `gulp-imagemin` plugins: `giflossy`, `mozjpeg`, `pngquant`, `webp`
 - [x] Change format of `jpg/png` images to `webp` and/or `webm`

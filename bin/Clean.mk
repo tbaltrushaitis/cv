@@ -3,7 +3,7 @@
 ##  ------------------------------------------------------------------------  ##
 
 THIS_FILE = $(lastword $(MAKEFILE_LIST))
-$(info $(DAT) [THIS_FILE:$(THIS_FILE)])
+# $(info $(DAT) [THIS_FILE:$(THIS_FILE)])
 
 .PHONY: clean clean-all clean-full
 .PHONY: clean-build clean-dist clean-files clean-deps

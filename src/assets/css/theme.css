@@ -1,5 +1,5 @@
-/*! - - - - - - - - - - - - - - -   Theme   - - - - - - - - - - - - - - - - - */
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+/*! - - - - - - - - - - - - - -  Theme Styles - - - - - - - - - - - - - - - - */
+/* - - - - - - - - - - - - - - - Components - - - - - - - - - - - - - - - - - -
   1. General
   2. Typography
   3. Home
@@ -16,7 +16,7 @@
   14. Contact
   15. Footer
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-*/
+ */
 
 html, body {
   overflow-x: hidden;
@@ -34,8 +34,9 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-/* Link style
----------------------------------------------------------*/
+/* ---------------------------------------------- */
+/* Link style */
+/* ---------------------------------------------- */
 a {
   color: #68c3a3;
 }
@@ -55,8 +56,9 @@ a {
 }
 
 
-/* Transition elements
------------------------------------------------------------------------------ */
+/* ---------------------------------------------- */
+/* Transition elements */
+/* ---------------------------------------------- */
   .navbar a
 , .form-control {
   -webkit-transition: all 0.4s ease-in-out 0s;
@@ -75,8 +77,10 @@ a {
           transition: all 0.125s ease-in-out 0s;
 }
 
-/* Reset box-shadow
-/* -------------------------------------------------------------------------- */
+
+/* ---------------------------------------------- */
+/* Reset box-shadow */
+/* ---------------------------------------------- */
 
   .btn
 , .form-control
@@ -88,8 +92,9 @@ a {
 }
 
 
-/* Typography
-/* -------------------------------------------------------------------------- */
+/* ---------------------------------------------- */
+/* Typography */
+/* ---------------------------------------------- */
 
 h1, h2, h3, h4, h5, h6 {
   font-weight:    700;
@@ -120,8 +125,9 @@ h6 {
 }
 
 
-/* FORM STYLES
-------------------------------------------------------------------------------*/
+/* ---------------------------------------------- */
+/* FORM STYLES */
+/* ---------------------------------------------- */
 .form-control {
   background-color: #f7f7f7;
   border:           1px solid #e8e8e8;
@@ -137,8 +143,9 @@ h6 {
 }
 
 
-/* Alert Style
-------------------------------------------------------------------------------*/
+/* ---------------------------------------------- */
+/* Alert Style */
+/* ---------------------------------------------- */
 /* .alert {
   padding:          10px 15px;
   margin-top:       20px;
@@ -152,8 +159,9 @@ h6 {
 } */
 
 
-/* BUTTON STYLES
-------------------------------------------------------------------------------*/
+/* ---------------------------------------------- */
+/* BUTTON STYLES */
+/* ---------------------------------------------- */
 
 /* common-btn */
 .btn {
@@ -229,8 +237,9 @@ button:focus {
 }
 
 
-/* IMAGES
-------------------------------------------------------------------------------*/
+/* ---------------------------------------------- */
+/* IMAGES */
+/* ---------------------------------------------- */
 img {
   width: 100%;
 }
@@ -245,8 +254,9 @@ hr {
 }
 
 
-/* LIST STYLE
-------------------------------------------------------------------------------*/
+/* ---------------------------------------------- */
+/* LIST STYLE */
+/* ---------------------------------------------- */
 ul, ol {
   margin:       0;
   padding:      0;
@@ -280,8 +290,9 @@ ul.list-check li::before {
 }
 
 
-/* SECTION TITLE
-------------------------------------------------------------------------------*/
+/* ---------------------------------------------- */
+/* SECTION TITLE */
+/* ---------------------------------------------- */
 .section-title {
   color:        #2c3e50;
   font-size:    50px;
@@ -304,8 +315,9 @@ ul.list-check li::before {
 }
 
 
-/* HOME
-------------------------------------------------------------------------------*/
+/* ---------------------------------------------- */
+/* HOME */
+/* ---------------------------------------------- */
 @media (max-width : 640px) {
   .tt-fullHeight{
     height: 560px !important;
@@ -372,8 +384,9 @@ ul.list-check li::before {
   margin-bottom:    20px;
 }
 
-/* SOCIAL ICONS
-------------------------------------------------------------------------------*/
+/* ---------------------------------------------- */
+/* SOCIAL ICONS */
+/* ---------------------------------------------- */
 .social-icons {
   margin-top: 20px;
 }
@@ -420,8 +433,9 @@ ul.list-check li::before {
 }
 
 
-/* NAVIGATION
-------------------------------------------------------------------------------*/
+/* ---------------------------------------------- */
+/* NAVIGATION */
+/* ---------------------------------------------- */
 .header {
   border-bottom: 1px solid #eee;
   position: relative;
@@ -535,8 +549,9 @@ ul.list-check li::before {
 }
 
 
-/* About Section
-------------------------------------------------------------------------------*/
+/* ---------------------------------------------- */
+/* About Section */
+/* ---------------------------------------------- */
 .short-info {
   margin-bottom: 40px;
 }
@@ -560,7 +575,6 @@ ul.list-check li::before {
 .my-signature img {
   width: inherit;
 }
-
 
 /* download-button */
 .download-button a {
@@ -610,7 +624,7 @@ ul.list-check li::before {
 
 
 /* ---------------------------------------------- /*
- *  Resume Section
+ *  Resume Section */
 /* ---------------------------------------------- */
 
 /* === Resume Timeline === */
@@ -906,7 +920,7 @@ ul.list-check li::before {
 
 
 /* ---------------------------------------------- /*
- *  Skill Section
+ *  Skill Section */
 /* ---------------------------------------------- */
 .skills-section {
   background-color: #1a1e23;
@@ -932,7 +946,7 @@ ul.list-check li::before {
 
 
 /* ---------------------------------------------- /*
- *  progress-bar
+ *  progress-bar */
 /* ---------------------------------------------- */
 .skill-progress {
   position: relative;
@@ -980,7 +994,7 @@ ul.list-check li::before {
 
 
 /* ---------------------------------------------- /*
- *  Chart CSS
+ *  Chart CSS */
 /* ---------------------------------------------- */
 .chart {
   position: relative;
@@ -1017,14 +1031,18 @@ ul.list-check li::before {
   margin-top: 20px;
 }
 
-.percent:after {content: '%';margin-left: 0.1em;font-size: .8em;}
+.percent:after {
+  content:      '%';
+  font-size:    .8em;
+  margin-left:  0.1em;
+}
 /* .angular {margin-top:100px;} */
 /* .angular .chart {margin-top:0;} */
 /* .chart .chart-text h3{font-size:22px;} */
 
 
-/* ---------------------------------------------- /*
- *  Portfolio Section
+/* ---------------------------------------------- */
+/* Portfolio Section                              */
 /* ---------------------------------------------- */
 .portfolio-section {
   background-color: #f7f7f7;
@@ -1059,8 +1077,8 @@ ul.list-check li::before {
 }
 
 
-/* ---------------------------------------------- /*
- *  Shuffle Filter
+/* ---------------------------------------------- */
+/* Shuffle Filter                                 */
 /* ---------------------------------------------- */
 #filter {
   margin: 0 0 35px;
@@ -1075,6 +1093,7 @@ ul.list-check li::before {
   border-radius: 4px;
   transition: inherit;
 }
+
 #filter li a.active,
 #filter li a:hover {
   position: relative;
@@ -1084,7 +1103,7 @@ ul.list-check li::before {
 }
 
 #filter li a.active::after,
-#filter li a:hover::after{
+#filter li a:hover::after {
   position: absolute;
   content: "";
   width: 0;
@@ -1148,7 +1167,7 @@ ul.list-check li::before {
 .links a:hover i {
   color:  #fff;
 }
-.links a i::after{
+.links a i::after {
   position: absolute;
   content: "";
   left: -7px;
@@ -1192,15 +1211,15 @@ ul.list-check li::before {
   bottom: 0;
 }
 .portfolio-info h3 {
-  font-size: 14px;
-  line-height: 45px;
-  font-weight: 700;
-  margin: 0;
+  font-size:    14px;
+  font-weight:  700;
+  line-height:  45px;
+  margin:       0;
 }
 
 
-/* ---------------------------------------------- /*
- *  Facts Section
+/* ---------------------------------------------- */
+/* Facts Section */
 /* ---------------------------------------------- */
 .facts-section {
   background: url("../img/video-bg.jpg") no-repeat center center;
@@ -1219,9 +1238,9 @@ ul.list-check li::before {
   margin-bottom: 25px;
 }
 .count-wrap h3 {
-  font-size: 50px;
-  line-height: 28px;
-  margin-bottom: 20px;
+  font-size:      50px;
+  line-height:    28px;
+  margin-bottom:  20px;
 }
 .count-wrap p {
   font-size: 18px;
@@ -1230,14 +1249,13 @@ ul.list-check li::before {
 }
 
 
-/* ---------------------------------------------- /*
- *  Contact Section
 /* ---------------------------------------------- */
-.contact-section {
-}
+/* Contact Section */
+/* ---------------------------------------------- */
+/* .contact-section {} */
 
 .contact-section strong {
-  display: block;
+  display:        block;
   text-transform: uppercase;
 }
 .contact-form strong {
@@ -1253,21 +1271,22 @@ ul.list-check li::before {
 }
 
 .contact-section div > i {
-  float: left;
-  font-size: 45px;
+  float:        left;
+  font-size:    45px;
   margin-right: 20px;
 }
+
 .contact-section address,
 .contact-section .contact-number {
-  overflow: hidden;
-  line-height: 30px;
   font-weight: 400;
+  line-height: 30px;
   margin-bottom: 45px
+  overflow: hidden;
 }
 
 
 /* ---------------------------------------------- /*
- *  MAP
+ *  MAP */
 /* ---------------------------------------------- */
 .location-map {
   padding: 4px;
@@ -1280,7 +1299,7 @@ ul.list-check li::before {
 
 
 /* ---------------------------------------------- /*
- *  Footer Wrapper
+ *  Footer Wrapper */
 /* ---------------------------------------------- */
 .footer-wrapper {
   background: #1a1e23;
@@ -1293,7 +1312,7 @@ ul.list-check li::before {
 
 
 /* ---------------------------------------------- /*
- *  Scroll to top
+ *  Scroll to top */
 /* ---------------------------------------------- */
 .scroll-up {
   position: fixed;
@@ -1322,7 +1341,7 @@ ul.list-check li::before {
 
 
 /* ---------------------------------------------- /*
- *  Mouse animate icon
+ *  Mouse animate icon */
 /* ---------------------------------------------- */
 .mouse-icon {
   position: absolute;
@@ -1377,7 +1396,7 @@ ul.list-check li::before {
 
 
 /* ---------------------------------------------- /*
- *  Preloader
+ *  Preloader */
 /* ---------------------------------------------- */
 #tt-preloader {
   background: #fff;
@@ -1411,8 +1430,8 @@ ul.list-check li::before {
 }
 
 
-/* ---------------------------------------------- /*
- *  About Section
+/* ---------------------------------------------- */
+/* About Section */
 /* ---------------------------------------------- */
 .short-info {
   margin-bottom: 40px;

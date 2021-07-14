@@ -200,11 +200,11 @@ WEBM_FILES := $(patsubst %.gif,%.webm,$(DIR_BUILD)/$(GIF_FILES))
 
 print-names: ;
 	@ echo "$(DAT) $(BEGIN): $(TARG)"
-	@ echo "$(DAT) DIR_IMGS = $(DIR_IMGS)"
-	@ echo "$(DAT) GIF_FILES = $(GIF_FILES)"
-	@ echo "$(DAT) BASE_NAMES = $(BASE_NAMES)"
-	@ echo "$(DAT) MPEG_FILES = $(MPEG_FILES)"
-	@ echo "$(DAT) WEBM_FILES = $(WEBM_FILES)"
+	@ echo "$(DAT) DIR_IMGS = [$(White)$(DIR_IMGS)$(NC)]"
+	@ echo "$(DAT) GIF_FILES = [$(White)$(GIF_FILES)$(NC)]"
+	@ echo "$(DAT) BASE_NAMES = [$(White)$(BASE_NAMES)$(NC)]"
+	@ echo "$(DAT) MPEG_FILES = [$(White)$(MPEG_FILES)$(NC)]"
+	@ echo "$(DAT) WEBM_FILES = [$(White)$(WEBM_FILES)$(NC)]"
 	@ echo "$(DAT) $(DONE): $(TARG)"
 
 video: print-names ;
@@ -244,7 +244,7 @@ pre-build: ;
 
 build: setup ;
 	$(FIGLET) "$(STG)"
-	@ echo "$(DAT) $(BEGIN): $(TARG)"
+	# @ echo "$(DAT) $(BEGIN): $(TARG)"
 	export NODE_ENV="${APP_ENV}"; npm run bower
 	cd ${WD} && cp -prf ${DIR_SRC}/* ${DIR_BUILD}/
 	export NODE_ENV="${APP_ENV}"; npm run build
@@ -258,9 +258,7 @@ pre-dist: ;
 
 dist: build ;
 	$(FIGLET) "$(STG)"
-	# @ echo "$(DAT) $(BEGIN): $(TARG)"
-	# @ export NODE_ENV="production"; npm run dist
-	# @ export NODE_ENV="${APP_ENV}"; npm run dist
+	# export NODE_ENV="production"; npm run dist
 	cd ${WD} && mkdir -p ${DST}
 	cd ${WD} && cp -prf ${BLD}/* ${DST}/
 	cd ${WD} && rm -vrf ${DST}/resources
@@ -277,8 +275,8 @@ pre-deploy: ;
 deploy: dist video ;
 	$(FIGLET) "$(STG)"
 	# @ echo "$(DAT) $(BEGIN): $(TARG)"
+	cd ${WD} && cp -prf ${DST}/* ${WEB}/
 	export NODE_ENV="${APP_ENV}"; npm run deploy
-	# cd ${WD} && cp -prv ${DST}/* ${WEB}/
 	cd ${WD} && rm -vf webroot 2>&1 >/dev/null
 	cd ${WD} && ln -sf ${WEB} webroot
 	cd ${WD} && touch ./deploy
