@@ -109,7 +109,7 @@
       , "jshint-stylish":       "^2.2.1"
       , "js-yaml":              ">=3.13.1"
       , "livereload":           "^0.9.1"
-      , "lodash":               "^4.17.19"
+      , "lodash":               "^4.17.21"
       , "lodash.template":      "^4.5.0"
       , "main-bower-files":     "^2.13.3"
       , "merge-stream":         "^2.0.0"
