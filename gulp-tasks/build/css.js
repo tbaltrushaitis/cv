@@ -50,22 +50,7 @@ const buildCss = function (gulp) {
   //
   let FROM = path.join(ME.SRC, 'assets/css');
   let DEST = path.join(ME.BUILD, 'assets/css');
-  let CONF = {
-    debug: false
-  // , format: 'keep-breaks'
-  , rebase: false
-  , level: {
-      1: {
-        all:              false
-      , removeEmpty:      true
-      , specialComments:  0
-      }
-    , 2: {
-        all:          false
-      , removeEmpty:  true
-      }
-    }
-  };
+  let CONF = ME.Config.cleanCSS;
   let STYLES_SRC = [
       path.join(FROM, 'default.css')
     , path.join(FROM, 'theme.css')
@@ -79,13 +64,17 @@ const buildCss = function (gulp) {
 
   let frontCSS = gulp.src(STYLES_SRC)
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d}[${C.W}FRONT${C.N}] Bundle ${C.Y}CSS${C.N}: [${p}]`);
+      console.log(`${ME.d}[${C.O}FRONT${C.N}] ${C.W}Bundle${C.N} ${C.Y}CSS${C.N}: [${p}]`);
       return Promise.resolve(p);
     }))
     .pipe(concatCSS('frontend-bundle.css', {rebaseUrls: true}))
+    .pipe(vPaths(function (p) {
+      console.log(`${ME.d}[${C.O}FRONT${C.N}] ${C.W}Bundled${C.N} ${C.Y}CSS${C.N}: [${p}]`);
+      return Promise.resolve(p);
+    }))
     .pipe(gulpif('production' === ME.NODE_ENV, new cleanCSS(CONF, function (d) {
-      console.log(`${ME.d}[${C.W}FRONT${C.N}] Compress ${C.P}CSS${C.N}: [${d.path}]: [${utin(d.stats.originalSize)} -> ${utin(d.stats.minifiedSize)}] [${utin(parseFloat((100 * d.stats.efficiency).toFixed(2)))}%] in [${utin(d.stats.timeSpent)}ms]`);
-    }), false))
+      console.log(`${ME.d}[${C.O}FRONT${C.N}] ${C.W}Compress${C.N} ${C.P}CSS${C.N}: [${d.path}]: [${utin(d.stats.originalSize)} -> ${utin(d.stats.minifiedSize)}] [${utin(parseFloat((100 * d.stats.efficiency).toFixed(2)))}%] in [${utin(d.stats.timeSpent)}ms]`);
+    })))
     //  Write banners
     // .pipe(headfoot.header(ME.Banner.header))
     // .pipe(headfoot.footer(ME.Banner.footer))

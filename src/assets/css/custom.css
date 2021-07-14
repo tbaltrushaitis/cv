@@ -50,7 +50,6 @@ body {
 /* ---------------------------------------------- */
 
 /* === Resume Timeline === */
-
 .timeline-content {
   padding: 0;
 }
@@ -77,7 +76,6 @@ body {
 /* ---------------------------------------------- /*
  *               Skill Section
 /* ---------------------------------------------- */
-
 .skill-icon {
   width: 15%;
 }
@@ -142,10 +140,21 @@ body {
 }
 
 
+/* ---------------------------------------------- */
+/* Shuffle Filter                                 */
+/* ---------------------------------------------- */
+#filter li a.active {
+  border-radius: 25px;
+}
+
+#filter li a:hover {
+  border-radius: 50%;
+}
+
+
 /* ---------------------------------------------- /*
  *               Cusomizations
 /* ---------------------------------------------- */
-
 .navbar-brand {
   transform: translate3d(0px, 0px, 0px);
   transition: transform 0.5s ease 0s, -webkit-transform 0.5s ease 0s;
@@ -156,10 +165,10 @@ body {
   .grow:hover { transform: scale(1.2); }
 }
 
-ul.list-check li {
-  /* font-family: "Helvetica"; */
-  /* font-weight: 100; */
-}
+/* ul.list-check li {
+  font-family: "Helvetica";
+  font-weight: 100;
+} */
 
 ul.list-check li i {
   color: #68c3a3;
@@ -185,4 +194,12 @@ form {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: hue 10s infinite linear;
+}
+
+.ellipse {
+  border-radius: 50%;
+}
+
+.pill {
+  border-radius: 9999px;
 }

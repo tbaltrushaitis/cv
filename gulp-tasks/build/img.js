@@ -61,18 +61,7 @@ const buildImg = async function (gulp) {
   let TUMB = path.join('thumbs');
   let SRC  = path.join(FROM, IMG, 'works', '**/*.*');
 
-  let jimpOpts = Object.assign({}, {
-      autocrop: {
-          tolerance:      0.0002
-        , cropOnlyFrames: false
-      }
-    , resize: {
-          height: 180
-        , width:  270
-      }
-    , type: 'png'
-  });
-
+  let jimpOpts  = ME.pkg.options.jimp;
   let gifOpts   = giflossy(ME.pkg.options.giflossy);
   let pngOpts   = pngquant(ME.pkg.options.pngquant);
   let jpegOpts  = mozjpeg(ME.pkg.options.mozjpeg);
@@ -88,7 +77,7 @@ const buildImg = async function (gulp) {
       '**/*.png'
     ]))
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d}[${C.O}JIMP${C.N}] Resize ${C.Y}PNG${C.N}: [${C.G}${p}${C.N}]`);
+      console.log(`${ME.d}[${C.O}JIMP${C.N}] ${C.W}Resize${C.N} ${C.Y}PNG${C.N}: [${p}]`);
       return Promise.resolve(p);
     }))
     .pipe(jimp({
@@ -103,7 +92,7 @@ const buildImg = async function (gulp) {
       , '**/*.jpeg'
     ]))
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d}[${C.O}JIMP${C.N}] Resize ${C.Y}JPG${C.N}: [${C.G}${p}${C.N}]`);
+      console.log(`${ME.d}[${C.O}JIMP${C.N}] ${C.W}Resize${C.N} ${C.Y}JPG${C.N}: [${p}]`);
       return Promise.resolve(p);
     }))
     .pipe(jimp({
@@ -122,7 +111,7 @@ const buildImg = async function (gulp) {
       , '**/*.png'
     ]))
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] ${C.W}WEBP${C.N}: [${C.G}${p}${C.N}]`);
+      console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] ${C.W}Create${C.N} ${C.Y}WEBP${C.N}: [${p}]`);
       return Promise.resolve(p);
     }))
     .pipe(imagemin([
@@ -137,7 +126,7 @@ const buildImg = async function (gulp) {
       '**/*.gif'
     ]))
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] ${C.W}Giflossy${C.N} ${C.Y}GIF${C.N}: [${C.G}${p}${C.N}]`);
+      console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] ${C.W}Giflossy${C.N} ${C.Y}GIF${C.N}: [${C.P}${p}${C.N}]`);
       return Promise.resolve(p);
     }))
     .pipe(imagemin({

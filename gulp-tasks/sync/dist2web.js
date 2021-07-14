@@ -48,6 +48,8 @@ const dist2web = function (gulp) {
   let SRC  = path.join(ME.DIST);
   let DEST = path.join(ME.WEB);
 
+  console.log(`${ME.d}[${C.O}${modPath}/${modName}${C.N}] SRC = [${C.White}${SRC}${C.N}]`);
+  console.log(`${ME.d}[${C.O}${modPath}/${modName}${C.N}] DEST = [${C.White}${DEST}${C.N}]`);
 
   let wFiles = gulp.src([
         path.join(SRC, '.*')
@@ -60,7 +62,9 @@ const dist2web = function (gulp) {
   let wHtml = gulp.src([
       path.join(SRC, '*.html')
     ])
-    .pipe(htmlmin(ME.pkg.options.htmlmin))
+    // .pipe(htmlmin(ME.pkg.options.htmlmin))
+    // .pipe(gulpif('dev' !== ME.NODE_ENV && 'dev' === process.env.npm_lifecycle_event, htmlmin(ME.pkg.options.htmlmin)))
+    .pipe(gulpif('production' === ME.NODE_ENV || 'prod' === process.env.npm_lifecycle_event, htmlmin(ME.pkg.options.htmlmin)))
     .pipe(gulp.dest(DEST));
 
 
@@ -79,7 +83,8 @@ const dist2web = function (gulp) {
       , ME.pkg.options.sync
     ));
 
-  return merge(wHtml, wAssets, wData, wFiles)
+  // return merge(wHtml, wAssets, wData, wFiles)
+  return merge(wHtml)
           .pipe(gulpif('dev' === ME.NODE_ENV || 'dev' === process.env.npm_lifecycle_event, livereload()))
           .on('error', console.error.bind(console));
 
