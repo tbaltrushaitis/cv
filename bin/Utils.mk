@@ -32,6 +32,7 @@ state: banner ;
 	@ echo "$(H3) APP_SLOG \t = [$(Purple)$(APP_SLOG)$(NC)]" ;
 	@ echo "$(H3) APP_ENV \t = [$(Red)$(APP_ENV)$(NC)]" ;
 	@ echo "$(H3) APP_LOGO \t = [$(White)$(APP_LOGO)$(NC)]" ;
+	@ echo "$(H3) APP_UID \t = [$(Blue)$(APP_UID)$(NC)]" ;
 	@ echo "$(H3) APP_DEBUG \t = [$(APP_DEBUG)]" ;
 	@ echo "$(H2) REPOSITORY $(NC)" ;
 	@ echo "$(H3) APP_REPO \t = [$(White)$(APP_REPO)$(NC)]" ;

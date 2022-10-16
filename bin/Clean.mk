@@ -53,7 +53,8 @@ clean-files: ;
 	@ echo "$(OKAY)" ;
 
 clean-dev: clean-files clean-build clean-dist ;
-	@ echo -n "Clean: dev \t ... " ;
+	# @ echo -n "Clean: dev \t ... " ;
+	# @ echo "$(OKAY)" ;
 	@ echo "$(DAT) $(DONE): $(TARG)" ;
 
 ##  ------------------------------------------------------------------------  ##
