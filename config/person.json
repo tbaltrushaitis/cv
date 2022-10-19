@@ -19,6 +19,10 @@
             , "full":     "@{./country}, @{./city}"
             , "lat":      50.436336
             , "lng":      30.488619
+            , "geo": {
+                  "lat":  "@{./lat}"
+                , "lng":  "@{./lng}"
+              }
           }
       }
     , "home": {
@@ -27,33 +31,37 @@
         , "pos-tags":   "#high #skilled #experienced #guru"
       }
     , "socials": {
-        "li": {
+        "linkedin": {
             "name":   "linkedin"
-          , "title":  "Linkedin profile"
+          , "label":  "LinkedIn"
+          , "title":  "LinkedIn profile"
           , "icon":   "fab fa-linkedin"
           , "url":    "http://bit.ly/tomas-in"
         }
-      , "git": {
-            "name":   "git"
+      , "github": {
+            "name":   "github"
+          , "label":  "Github"
           , "title":  "Github account"
           , "icon":   "fab fa-github"
           , "url":    "http://bit.ly/tomas-git"
         }
-      , "bb": {
+      , "bitbucket": {
             "name":   "bitbucket"
+          , "label":  "BitBucket"
           , "title":  "BitBucket repos"
           , "icon":   "fab fa-bitbucket"
           , "url":    "http://bit.ly/tomas-bb"
         }
-      , "docker": {
+      , "dockerhub": {
             "name":   "dockerhub"
+          , "label":  "Docker"
           , "title":  "Docker Hub"
           , "icon":   "fab fa-docker"
           , "url":    "http://bit.ly/tomas-hub"
         }
       }
     , "contacts": {
-          "cell":   "KzM4MCg2NykgNzgtemVyby0zMS0xOA=="
+          "cell":   "KzM4MCg2Myk1NDUtMjMtb25lLTM="
         , "email":  "bWFpbHRvOnRiYWx0cnVzaGFpdGlzQGdtYWlsLmNvbQ=="
       }
   }

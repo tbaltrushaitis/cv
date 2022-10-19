@@ -2,11 +2,11 @@
   "author": {
       "name": {
           "first": "Tomas"
-        , "last": "Baltrushaitis"
-        , "full": "@{./last} @{./first}"
+        , "last":  "Baltrushaitis"
+        , "full":  "@{./last} @{./first}"
       }
-    , "nick": "Tom&acute;AS"
-    , "abbr": "tbaltrushaitis"
+    , "nick":  "Tom&acute;AS"
+    , "abbr":  "tbaltrushaitis"
     , "email": "@{./abbr}@gmail.com"
     , "url":   "https://github.com/@{./abbr}"
   }

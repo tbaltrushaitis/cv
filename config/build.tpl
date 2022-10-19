@@ -1,13 +1,15 @@
 {
-  "__parent": "./colors.json"
-, "built": {
-    "cntr": BUILD_CNTR
-  , "full": "BUILD_FULL"
-  , "date": "BUILD_DATE"
-  , "time": "BUILD_TIME"
-  , "year": "BUILD_YEAR"
-  , "hash": "BUILD_HASH"
-  }
-, "version": "CODE_VERSION"
-, "commit": "GIT_COMMIT"
+    "__parent": "./colors.json"
+  , "env":      "APP_ENV"
+  , "version":  "CODE_VERSION"
+  , "cntr":     BUILD_CNTR
+  , "branch":   "GIT_BRANCH"
+  , "commit":   "GIT_COMMIT"
+  , "built": {
+        "hash": "BUILD_HASH"
+      , "date": "BUILD_DATE"
+      , "time": "BUILD_TIME"
+      , "year": "BUILD_YEAR"
+      , "full": "BUILD_FULL"
+    }
 }
