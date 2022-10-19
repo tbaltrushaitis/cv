@@ -80,8 +80,8 @@
     }
   , {
       "selector": "#scope-07"
-    , "inclass":  "animate__fadeInUpBig"
-    , "outclass": "animate__fadeOutUpBig"
+    , "inclass":  "animate__fadeInUp"
+    , "outclass": "animate__fadeOutUp"
     }
   , {
       "selector": "#scope-08"

@@ -28,6 +28,7 @@ body {
   font-family:  'Roboto', 'sans-serif';
   font-size:    14px;
   font-weight:  300;
+  font-display: swap;
   line-height:  28px;
   -webkit-text-size-adjust:   100%;
   -webkit-font-smoothing:     antialiased !important;
@@ -440,9 +441,9 @@ ul.list-check li::before {
   border-bottom: 1px solid #eee;
   position: relative;
   width: 100%;
-  z-index: 998 !important;
   padding-bottom: 1px;
   background: #fff;
+  z-index: 100 !important;
 }
 
 .header::after {
@@ -1061,21 +1062,42 @@ ul.list-check li::before {
   border-bottom: 3px double #eee;
   min-height: 180px;
 }
-.portfolio-bg img {
+  .portfolio-bg img
+, .portfolio-bg video {
   max-height: 180px;
   min-height: 180px;
   height: 180px;
 }
-.portfolio-bg video {
+/* .portfolio-bg picture {
   max-height: 180px;
   min-height: 180px;
   height: 180px;
+} */
+.portfolio-bg video {
+  display: block;
+  object-fit: fill;
+  object-position: 50% 50%;
+  width: 100%;
 }
 .portfolio {
   position: relative;
   overflow: hidden;
 }
-
+/* .portfolio picture { */
+  /* display: block; */
+  /* max-height: 180px; */
+  /* min-height: 180px; */
+  /* height: 180px; */
+/* } */
+/* .portfolio video { */
+  /* display: block; */
+  /* max-height: 180px; */
+  /* min-height: 180px; */
+  /* height: 180px; */
+  /* object-fit: fill; */
+  /* object-position: 50% 50%; */
+  /* width: 100%; */
+/* } */
 
 /* ---------------------------------------------- */
 /* Shuffle Filter                                 */
@@ -1222,7 +1244,8 @@ ul.list-check li::before {
 /* Facts Section */
 /* ---------------------------------------------- */
 .facts-section {
-  background: url("../img/video-bg.jpg") no-repeat center center;
+  /* background: url("../img/video-bg.jpg") no-repeat center center; */
+  background: url("../img/video-bg.webp") no-repeat center center;
   background-attachment: fixed;
   background-size: cover;
   color: #fff;
