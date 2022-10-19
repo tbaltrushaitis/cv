@@ -1,12 +1,13 @@
 <p align="center">
   <a href="https://github.com/tbaltrushaitis/cv/releases"><img src="https://img.shields.io/github/release/tbaltrushaitis/cv.svg?style=flat" alt="GitHub release"></a>
   <a href="https://github.com/tbaltrushaitis/cv/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat" alt="License"></a>
-  <!--/ <img src="https://img.shields.io/david/tbaltrushaitis/cv.svg" alt="Dependencies"> /-->
+  <a href="https://github.com/tbaltrushaitis/cv/stargazers"><img src="https://img.shields.io/github/stars/tbaltrushaitis/cv.svg?style=flat" alt="GitHub Stars"></a>
 </p>
 
 <p align="center">
-  <h1 align="center">CV, Resume and Portfolio website template</h1>
+  <h2 align="center">CV, Resume and Portfolio</h2>
 </p>
+
 
 <p align="center">
   <a href="http://bit.ly/tomascv?ref=readme">
@@ -14,12 +15,12 @@
   </a>
 </p>
 
-<!-- # Best-in-Class modern CV, Resume and Portfolio # -->
+<!-- ![](assets/img/cv-demo-01.gif) -->
 
 :mortar_board: Best in Class modern CV, Resume and Portfolio website template.
 All-in-One-Page site with simple and fully customizable builder.
 
-`modern` `CV` `resume` `portfolio` `template` `portfolio-website` `CV-template` `IT` `resume-template` `resume-website`
+`cv` `resume` `portfolio` `template` `portfolio-website` `cv-template` `IT` `resume-template` `resume-website`
 
 ---
 
@@ -71,9 +72,9 @@ For example: [Modern CV](http://bit.ly/tomascv)
 
  Name | Version | Scope | Description |
 :-----|:-------:|:-----:|:------------|
- [animate.css](http://daneden.github.io/animate.css/) | 4.1.0 | Front | A cross-browser library of CSS animations
- [FontAwesome](https://fontawesome.com/) | 5.13.0 | Front | The iconic Font and CSS toolkit
- [Bootstrap](http://getbootstrap.com) | 3.3.7 | Front | Front-end framework for developing responsive, mobile first projects on the web
+ [animate.css](http://daneden.github.io/animate.css/) | 4.1.1 | Front | A cross-browser library of CSS animations
+ [FontAwesome](https://fontawesome.com/) | 6.2.0 | Front | The iconic Font and CSS toolkit
+ [Bootstrap](http://getbootstrap.com) | 3.3.7 | Front | Front-end framework
  [jQuery](http://jquery.com/) | 3.5.1 | Front | JavaScript Library
  [noty](http://ned.im/noty) | 2.4.1 | Front | Notification library
  [waypoints](https://github.com/imakewebthings/waypoints) | 4.0.1 | Front | Easily execute a function when you scroll to an element
