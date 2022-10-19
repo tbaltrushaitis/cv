@@ -10,13 +10,14 @@
 //  ------------------------------------------------------------------------  //
 //  -----------------------------  DEPENDENCIES  ---------------------------  //
 //  ------------------------------------------------------------------------  //
+const { src, dest }  = require('gulp');
 
 const path = require('path');
 const utin = require('util').inspect;
 
 const gulpif     = require('gulp-if');
 const headfoot   = require('gulp-headerfooter');
-const merge      = require('merge-stream');
+const size       = require('gulp-size');
 const terser     = require('gulp-terser');
 const vPaths     = require('vinyl-paths');
 const readConfig = require('read-config');
@@ -24,15 +25,14 @@ const readConfig = require('read-config');
 //  ------------------------------------------------------------------------  //
 //  ----------------------------  CONFIGURATION  ---------------------------  //
 //  ------------------------------------------------------------------------  //
-
-let ME = Object.assign({}, global.ME || {});
+let ME = Object.assign({}, globalThis.ME || {});
 utin.defaultOptions = Object.assign({}, ME.pkg.options.iopts || {});
 
-const modName = path.basename(module.filename, '.js');
-const modPath = path.relative(ME.WD, path.dirname(module.filename));
-const confPath = path.join(ME.WD, 'config');
+const modName       = path.basename(module.filename, '.js');
+const modPath       = path.relative(ME.WD, path.dirname(module.filename));
+const confPath      = path.join(ME.WD, 'config');
 const modConfigFile = `${path.join(confPath, modPath, modName)}.json`;
-const modConfig = readConfig(modConfigFile, ME.pkg.options.readconf);
+const modConfig     = readConfig(modConfigFile, ME.pkg.options.readconf);
 
 ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
 let C = ME.Config.colors;
@@ -40,40 +40,56 @@ let C = ME.Config.colors;
 //  ------------------------------------------------------------------------  //
 //  ------------------------------  FUNCTIONS  -----------------------------  //
 //  ------------------------------------------------------------------------  //
+let JS   = path.join('js/lib');
+let FROM = path.join(ME.BUILD, 'resources', JS);
+let DEST = path.join(ME.BUILD, 'assets');
+let KEEP = path.join(ME.BUILD, 'resources/assets');
 
-const buildJs = function (gulp) {
-  console.log(`${ME.L}${ME.d}[${C.O}${modPath}/${modName}${C.N}] with [${C.Blue}${modConfigFile}${C.N}]`);
+let LIBS_SRC = [
+    path.join(FROM, 'jquery.js')
+  , path.join(FROM, 'bootstrap.js')
+  , path.join(FROM, 'jquery.waypoints.js')
+  , path.join(FROM, 'inview.js')
+  , path.join(FROM, 'jquery.stellar.js')
+  , path.join(FROM, 'jquery.sticky.js')
+  , path.join(FROM, 'wow.js')
 
-  let FROM = path.join(ME.BUILD, 'resources/assets');
-  let DEST = path.join(ME.BUILD, 'assets');
-  let JS   = path.join('js');
+  , path.join(FROM, 'jquery.inview.js')
+  , path.join(FROM, 'jquery.countTo.js')
+  , path.join(FROM, 'jquery.easypiechart.js')
 
-  let JSfront = gulp.src([
-      path.join(FROM, JS, '**/*.js')
-    ])
+  , path.join(FROM, 'shuffle.js')
+  , path.join(FROM, 'jquery.magnific-popup.js')
+  , path.join(FROM, 'smoothscroll.js')
+  , path.join(FROM, 'jquery.noty.packaged.js')
+];
+
+
+function frontJS () {
+  return src(LIBS_SRC)
     .pipe(vPaths((p) => {
-      console.log(`${ME.d}[${C.O}FRONT${C.N}] ${C.W}Bundle${C.N} ${C.Y}JS${C.N}: [${C.C}${p}${C.N}]`);
+      console.log(`${ME.d}[${C.O}FRONT${C.N}] Bundle ${C.Y}JS${C.N}: [${C.Gray}${p}${C.N}]`);
       return Promise.resolve(p);
     }))
-    .pipe(gulpif('production' === ME.NODE_ENV, terser(ME.pkg.options.terser)))
+    .pipe(dest(path.resolve(KEEP, JS)))
+    .pipe(gulpif(['production', ''].includes(ME.NODE_ENV), terser(ME.pkg.options.terser)))
     //  Write banners
     // .pipe(headfoot.header(ME.Banner.header))
     // .pipe(headfoot.footer(ME.Banner.footer))
-    .pipe(gulp.dest(path.resolve(DEST, JS)));
-
-  return merge(JSfront)
-          .on('error', console.error.bind(console));
-
-};
+    .pipe(size({title: 'FRONT JS', showFiles: false}))
+    .pipe(dest(path.resolve(DEST, JS)))
+  ;
+}
 
 
 /**
  * @_EXPOSE
  */
-exports = buildJs;
+exports.frontJS = frontJS;
+// exports.buildJs = frontJS;
 
 
 /**
  * @_EXPORTS
  */
-module.exports = exports;
+exports.default = frontJS;

@@ -10,64 +10,53 @@
 //  ------------------------------------------------------------------------  //
 //  -----------------------------  DEPENDENCIES  ---------------------------  //
 //  ------------------------------------------------------------------------  //
-
-const fs   = require('fs');
 const path = require('path');
 const utin = require('util').inspect;
+
+const { series, parallel, src, dest } = require('gulp');
 
 const mBowerFiles = require('main-bower-files');
 const readConfig  = require('read-config');
 
 const concatCSS = require('gulp-concat-css');
 const cleanCSS  = require('gulp-clean-css');
+const concatJS  = require('gulp-concat');
 const filter    = require('gulp-filter');
 const gulpif    = require('gulp-if');
-const headfoot  = require('gulp-headerfooter');
-const merge     = require('merge-stream');
+const size      = require('gulp-size');
 const terser    = require('gulp-terser');
 const vPaths    = require('vinyl-paths');
+// const headfoot  = require('gulp-headerfooter');
 
 
 //  ------------------------------------------------------------------------  //
 //  ----------------------------  CONFIGURATION  ---------------------------  //
 //  ------------------------------------------------------------------------  //
-
-let ME = Object.assign({}, global.ME || {});
+let ME = Object.assign({}, globalThis.ME || {});
 utin.defaultOptions = Object.assign({}, ME.pkg.options.iopts || {});
 
-const modName = path.basename(module.filename, '.js');
-const modPath = path.relative(ME.WD, path.dirname(module.filename));
+const modName       = path.basename(module.filename, '.js');
+const modPath       = path.relative(ME.WD, path.dirname(module.filename));
 const modConfigFile = `${path.join(ME.WD, 'config', modPath, modName)}.json`;
-const modConfig = readConfig(modConfigFile, Object.assign({}, ME.pkg.options.readconf));
+const modConfig     = readConfig(modConfigFile, Object.assign({}, ME.pkg.options.readconf));
 
 ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
 let C = ME.Config.colors;
 
+
 //  ------------------------------------------------------------------------  //
 //  ------------------------------  FUNCTIONS  -----------------------------  //
 //  ------------------------------------------------------------------------  //
-
-const bowerFiles = function (gulp) {
-  console.log(`${ME.L}${ME.d}[${C.O}${modPath}/${modName}${C.N}] with [${C.Blue}${C.OnW}${modConfigFile}${C.N}]`);
-
-  //
-  //  BOWER - responsible for FrontEnd assets
-  //
-  let mBower = mBowerFiles(ME.pkg.options.bower, {
-      base:  ME.BOWER
-    , group: ['front']
-  });
-
-  let DEST = path.join(ME.BUILD, 'assets');
-  let KEEP = path.join(ME.BUILD, 'resources/assets');
-  let JS   = path.join('js/lib');
-  let CSS  = path.join('css');
-  let FONT = path.join('fonts');
-  let IMG  = path.join('img');
-  let WEBFONT = path.join('webfonts');
-  let CONF = {
+let JS   = path.join('js/lib');
+let CSS  = path.join('css');
+let FONT = path.join('fonts');
+let IMG  = path.join('img');
+let WEBFONT = path.join('webfonts');
+let KEEP = path.join(ME.BUILD, 'resources');
+let DEST = path.join(ME.BUILD, 'assets');
+let CONF = {
     // , format: 'keep-breaks'
-    debug: false
+    debug: true
   , rebase: false
   , level: {
         1: {
@@ -80,27 +69,62 @@ const bowerFiles = function (gulp) {
           , removeEmpty:  true
         }
     }
-  };
+};
 
 
-  let bowerJS = gulp.src(mBower)
+//
+//  BOWER - responsible for FrontEnd assets
+//
+let mBower;
+
+
+//
+//  bowerFiles - Collect FrontEnd assets
+//
+function bowerFiles (cb) {
+  mBower = mBowerFiles(ME.pkg.options.bower, {
+      base:  `${ME.BOWER}`
+    , group: ['front']
+  });
+  // console.log(mBower);
+
+  if ('function' === typeof cb) {
+    cb();
+  }
+
+}
+
+
+function bowerJS (cb) {
+  return src(mBower)
     .pipe(filter([
         '**/*.js'
       , '!**/*.min.js'
       , '!**/npm.js'
     ]))
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d}[${C.O}BOWER${C.N}] ${C.W}Add${C.N} ${C.Y}JS${C.N}: [${p}]`);
+      console.log(`${ME.d}[${C.O}${modName.toUpperCase()}${C.N}] Add ${C.R}JS${C.N}: [${C.Gray}${p}${C.N}]`);
       return Promise.resolve(p);
     }))
-    .pipe(gulpif('production' === ME.NODE_ENV, terser(ME.pkg.options.terser)))
+    .pipe(dest(path.resolve(KEEP, JS)))
+    .pipe(gulpif(['production', ''].includes(ME.NODE_ENV), terser(ME.pkg.options.terser)))
+    .pipe(dest(path.resolve(DEST, JS)))
+    .pipe(concatJS('bower-bundle.js'))
     //  Write banners
     // .pipe(headfoot.header(ME.Banner.header))
     // .pipe(headfoot.footer(ME.Banner.footer))
-    .pipe(gulp.dest(path.resolve(DEST, JS)));
+    .pipe(size({title: 'BOWER:SCRIPTS', showFiles: true}))
+    .pipe(dest(path.resolve(DEST, JS)))
+  ;
+
+  // if ('function' === typeof cb) {
+  //   cb();
+  // }
+}
 
 
-  let bowerCSS = gulp.src(mBower)
+function bowerCSS (cb) {
+  return src(mBower)
     .pipe(filter([
         '**/*.css'
       , "!**/*.css.map"
@@ -109,42 +133,56 @@ const bowerFiles = function (gulp) {
       , "!**/*.min.css.map"
     ]))
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d}[${C.O}BOWER${C.N}] ${C.W}Add${C.N} ${C.Y}CSS${C.N}: [${p}]`);
+      console.log(`${ME.d}[${C.O}${modName.toUpperCase()}${C.N}] Add ${C.Y}CSS${C.N}: [${C.Gray}${p}${C.N}]`);
       return Promise.resolve(p);
     }))
-    .pipe(concatCSS('bower-bundle.css', {rebaseUrls: false, commonBase: path.join(DEST)}))
-    .pipe(vPaths(function (p) {
-      console.log(`${ME.d}[${C.O}BOWER${C.N}] ${C.W}Bundle${C.N} ${C.Y}CSS${C.N}: [${p}]`);
-      return Promise.resolve(p);
-    }))
-    .pipe(gulpif('production' === ME.NODE_ENV, new cleanCSS(CONF, function (d) {
-      console.log(`${ME.d}[${C.O}BOWER${C.N}] ${C.W}Compress${C.N} ${C.Y}CSS${C.N} [${d.path}]: [${utin(d.stats.originalSize)} -> ${utin(d.stats.minifiedSize)}] [${utin(parseFloat((100 * d.stats.efficiency).toFixed(2)))}%] in [${utin(d.stats.timeSpent)}ms]`);
-    }), false))
+    .pipe(concatCSS('bower-bundle.css', {rebaseUrls: false, commonBase: `${path.join(DEST)}`}))
+    .pipe(gulpif(['production', ''].includes(ME.NODE_ENV), cleanCSS(ME.pkg.options.cleanCSS)))
     //  Write banners
     // .pipe(headfoot.header(ME.Banner.header))
     // .pipe(headfoot.footer(ME.Banner.footer))
-    .pipe(gulp.dest(path.resolve(DEST, CSS)));
+    .pipe(size({title: 'BOWER:CSS', showFiles: true}))
+    .pipe(dest(path.resolve(DEST, CSS)))
+  ;
+
+  // if ('function' === typeof cb) {
+  //   cb();
+  // }
+}
 
 
-  let bowerFonts = gulp.src(mBower)
+function bowerFonts (cb) {
+  return src(mBower)
     .pipe(filter(['**/fonts/**/*.*']))
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d}[${C.O}BOWER${C.N}] ${C.W}Copy${C.N} ${C.Y}FONT${C.N}: [${C.C}${p}${C.N}]`);
+      console.log(`${ME.d}[${C.O}${modName.toUpperCase()}${C.N}] Copy ${C.W}FONT${C.N}: [${C.Gray}${p}${C.N}]`);
       return Promise.resolve(p);
     }))
-    .pipe(gulp.dest(path.resolve(DEST, FONT)));
+    .pipe(size({title: 'BOWER:FONTS', showFiles: false}))
+    .pipe(dest(path.resolve(DEST, FONT)))
+  ;
+
+  // if ('function' === typeof cb) {
+  //   cb();
+  // }
+}
 
 
-  let webFonts = gulp.src(mBower)
+function webFonts (cb) {
+  return src(mBower)
     .pipe(filter(['**/webfonts/*.*']))
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d}[${C.O}BOWER${C.N}] ${C.W}Copy${C.N} ${C.Y}WEBFONT${C.N}: [${C.C}${p}${C.N}]`);
+      console.log(`${ME.d}[${C.O}${modName.toUpperCase()}${C.N}] Copy ${C.C}WEBFONT${C.N}: [${C.Gray}${p}${C.N}]`);
       return Promise.resolve(p);
     }))
-    .pipe(gulp.dest(path.resolve(DEST, WEBFONT)));
+    .pipe(size({title: 'BOWER:WEBFONTS', showFiles: false}))
+    .pipe(dest(path.resolve(DEST, WEBFONT)))
+  ;
+}
 
 
-  let bowerImg = gulp.src(mBower)
+function bowerImg (cb) {
+  return src(mBower)
     .pipe(filter([
         '**/img/*.*'
       , '**/image/*.*'
@@ -156,25 +194,27 @@ const bowerFiles = function (gulp) {
       , '**/*.ico'
     ]))
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d}[${C.O}BOWER${C.N}] ${C.W}Copy${C.N} ${C.Y}IMG${C.N}: [${p}]`);
+      console.log(`${ME.d}[${C.O}${modName.toUpperCase()}${C.N}] Copy ${C.Blue}IMG${C.N}: [${C.Gray}${p}${C.N}]`);
       return Promise.resolve(p);
     }))
-    .pipe(gulp.dest(path.join(DEST, IMG)));
-
-
-  return merge(bowerJS, bowerCSS, bowerFonts, webFonts, bowerImg)
-          .on('error', console.error.bind(console));
-
-};
+    .pipe(size({title: 'BOWER:IMAGES', showFiles: false}))
+    .pipe(dest(path.resolve(DEST, IMG)))
+  ;
+}
 
 
 /**
  * @_EXPOSE
  */
-exports = bowerFiles;
+exports.bowerFiles  = bowerFiles
+exports.bowerFonts  = bowerFonts
+exports.webFonts    = webFonts
+exports.bowerJS     = bowerJS
+exports.bowerCSS    = bowerCSS
+exports.bowerImg    = bowerImg
 
 
 /**
  * @_EXPORTS
  */
-module.exports = exports;
+exports.default = series(bowerFiles, bowerFonts, webFonts, bowerJS, bowerCSS, bowerImg);

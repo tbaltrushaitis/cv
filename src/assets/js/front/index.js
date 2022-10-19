@@ -41,7 +41,8 @@ window.jQuery(function ($) {
       , offset: function () {
           return 70 + this.element.clientHeight;
         }
-        // , offset: opts.offset || '-50%'
+
+      // , offset: opts.offset || '-50%'
 
     });
 

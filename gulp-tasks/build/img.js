@@ -10,146 +10,271 @@
 //  ------------------------------------------------------------------------  //
 //  -----------------------------  DEPENDENCIES  ---------------------------  //
 //  ------------------------------------------------------------------------  //
+const { src, dest, series, parallel } = require('gulp');
 
-const fs   = require('fs');
 const path = require('path');
 const utin = require('util').inspect;
-
 
 const extReplace = require('gulp-ext-replace');
 const filter     = require('gulp-filter');
 const jimp       = require('gulp-jimp');
-const merge      = require('merge-stream');
 const vPaths     = require('vinyl-paths');
 const readConfig = require('read-config');
+const size       = require('gulp-size');
 
-const imagemin = require('gulp-imagemin');
+const imagemin = require('imagemin');
 const giflossy = require('imagemin-giflossy');
+const gifsicle = require('imagemin-gifsicle');
 const mozjpeg  = require('imagemin-mozjpeg');
 const pngquant = require('imagemin-pngquant');
 const webp     = require('imagemin-webp');
+// const imageminGulp  = require('gulp-imagemin');
+
 
 //  ------------------------------------------------------------------------  //
 //  ----------------------------  CONFIGURATION  ---------------------------  //
 //  ------------------------------------------------------------------------  //
-
-let ME = Object.assign({}, global.ME || {});
+let ME = Object.assign({}, globalThis.ME || {});
 utin.defaultOptions = Object.assign({}, ME.pkg.options.iopts || {});
 
-const modName = path.basename(module.filename, '.js');
-const modPath = path.relative(ME.WD, path.dirname(module.filename));
-const confPath = path.join(ME.WD, 'config');
+const modName       = path.basename(module.filename, '.js');
+const modPath       = path.relative(ME.WD, path.dirname(module.filename));
+const confPath      = path.join(ME.WD, 'config');
 const modConfigFile = `${path.join(confPath, modPath, modName)}.json`;
-const modConfig = readConfig(modConfigFile, ME.pkg.options.readconf);
+const modConfig     = readConfig(modConfigFile, ME.pkg.options.readconf);
 
 ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
 let C = ME.Config.colors;
+
 
 //  ------------------------------------------------------------------------  //
 //  ------------------------------  FUNCTIONS  -----------------------------  //
 //  ------------------------------------------------------------------------  //
 
-const buildImg = async function (gulp) {
-  console.log(`${ME.L}${ME.d}[${C.O}${modPath}/${modName}${C.N}] with [${C.Blue}${modConfigFile}${C.N}]`);
+/**
+ * JIMP - responsible for image processing
+ */
+// let FROM = path.join(ME.BUILD, 'assets');
+let FROM = path.join(ME.SRC, 'assets');
+let DEST = path.join(ME.BUILD, 'assets');
+let IMG  = path.join('img');
+let TUMB = path.join('thumbs');
+let SRC  = path.join(FROM, IMG, 'works', '**/*.*');
 
-  /**
-   * JIMP - responsible for image processing
-   */
-  let FROM = path.join(ME.BUILD, 'assets');
-  let DEST = path.join(ME.BUILD, 'assets');
-  let IMG  = path.join('img');
-  let TUMB = path.join('thumbs');
-  let SRC  = path.join(FROM, IMG, 'works', '**/*.*');
-
-  let jimpOpts  = ME.pkg.options.jimp;
-  let gifOpts   = giflossy(ME.pkg.options.giflossy);
-  let pngOpts   = pngquant(ME.pkg.options.pngquant);
-  let jpegOpts  = mozjpeg(ME.pkg.options.mozjpeg);
-  let webpOpts  = webp(ME.pkg.options.webp);
-  let imageminOpts = [
-      pngOpts
-    , jpegOpts
-  ];
+let jimpOpts  = ME.pkg.options.jimp;
+// let giflossyOpts   = giflossy(ME.pkg.options.giflossy);
+let giflossyOpts   = ME.pkg.options.giflossy;
+let gifsicleOpts   = gifsicle(ME.pkg.options.gifsicle);
+let pngOpts   = pngquant(ME.pkg.options.pngquant);
+let jpegOpts  = mozjpeg(ME.pkg.options.mozjpeg);
+let webpOpts  = webp(ME.pkg.options.webp);
+let imageminOpts = [
+    pngOpts
+  , jpegOpts
+];
 
 
-  let PNGS = await gulp.src(path.join(FROM, IMG, 'works', '**/*.*'))
+function PNGS () {
+  return src(
+      [path.join(FROM, IMG, 'works', '**/*.*')]
+    )
     .pipe(filter([
       '**/*.png'
     ]))
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d}[${C.O}JIMP${C.N}] ${C.W}Resize${C.N} ${C.Y}PNG${C.N}: [${p}]`);
+      console.log(`${ME.d}[${C.O}JIMP${C.N}] Resize ${C.C}PNG${C.N}: [${C.Gray}${p}${C.N}]`);
       return Promise.resolve(p);
     }))
     .pipe(jimp({
       '': jimpOpts
     }))
-    .pipe(gulp.dest(path.join(DEST, IMG, TUMB, 'works')));
+    .pipe(extReplace('.thumb.png'))
+    .pipe(size({title: 'PNGS', showFiles: false}))
+    .pipe(dest(path.resolve(DEST, IMG, 'works')))
+  ;
+}
 
-
-  let JPGS = await gulp.src(path.join(FROM, IMG, 'works', '**/*.*'))
+function JPGS () {
+  console.log();
+  return src([
+      path.join(FROM, IMG, 'works', '**/*.*')
+    ])
     .pipe(filter([
         '**/*.jpg'
       , '**/*.jpeg'
+      , '!*.thumb.jpg'
     ]))
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d}[${C.O}JIMP${C.N}] ${C.W}Resize${C.N} ${C.Y}JPG${C.N}: [${p}]`);
+      console.log(`${ME.d}[${C.O}JIMP${C.N}] Resize ${C.W}JPG${C.N}: [${C.Gray}${p}${C.N}]`);
       return Promise.resolve(p);
     }))
     .pipe(jimp({
-      '': {
-              ...jimpOpts
-            , ...{type: 'jpg'}
-          }
+      // '': {
+        //         ...jimpOpts
+        //       , ...{type: 'jpg'}
+        //     }
+      '': Object.assign({}, jimpOpts, {type: 'jpg'})
     }))
-    .pipe(gulp.dest(path.join(DEST, IMG, TUMB, 'works')));
+    .pipe(extReplace('.thumb.jpg'))
+    .pipe(size({title: 'JPGS', showFiles: false}))
+    .pipe(dest(path.resolve(DEST, IMG, 'works')));
+}
 
+function GIFS () {
+  let Opts = {
+      // ...giflossyOpts
+      ...ME.pkg.options.giflossy
+    , resize: '270x171'
+  };
+  // console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] giflossyOpts: [${utin(giflossyOpts)}]`);
+  console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] ${C.R}GIFS OPTS${C.N}: [${utin(Opts)}]`);
 
-  let WEBP = await gulp.src(path.join(FROM, IMG, '**/*.*'))
-    .pipe(filter([
-        '**/*.jpg'
-      , '**/*.jpeg'
-      , '**/*.png'
-    ]))
+  return src([path.join(FROM, IMG, 'works', '*.gif')])
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] ${C.W}Create${C.N} ${C.Y}WEBP${C.N}: [${p}]`);
+      console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] Gif{lossy,sicle} ${C.P}GIF${C.N}: [${C.Gray}${p}${C.N}]`);
       return Promise.resolve(p);
     }))
-    .pipe(imagemin([
-      webpOpts
-    ]))
-    .pipe(extReplace('.webp'))
-    .pipe(gulp.dest(path.join(DEST, IMG)));
+    // .pipe(imagemin({
+    //     ...giflossyOpts
+    //   , ...{resize: '270x180'}
+    // }))
+    .pipe(imagemin(Opts))
+    // .pipe(imagemin({
+    //     ...gifsicleOpts
+    //   , ...{resize: '270x180'}
+    //   // , ...{verbose: true}
+    // }))
+    .pipe(extReplace('.thumb.gif'))
+    .pipe(size({title: 'GIFS', showFiles: false}))
+    .pipe(dest(path.resolve(DEST, IMG, 'works')))
+  ;
+}
 
+async function GIFLOSSY () {
+  let Opts = {
+      // ...ME.pkg.options.giflossy
+      // ...ME.pkg.options.gifsicle
+      // ...gifsicleOpts
+      resize: '270x171'
+    , glob: true
+    , verbose: true
+    , plugins: [
+        giflossy(giflossyOpts)
+        // gifsicle(ME.pkg.options.gifsicle)
+        // gifsicle(gifsicleOpts)
+        // gifsicle(Opts)
+      ]
+  };
+  // console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] ${C.R}GIFLOSSY OPTS${C.N}: [${utin(Opts)}]`);
 
-  let GIFS = await gulp.src(path.join(FROM, IMG, 'works', '**/*.*'))
-    .pipe(filter([
-      '**/*.gif'
-    ]))
-    .pipe(vPaths(function (p) {
-      console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] ${C.W}Giflossy${C.N} ${C.Y}GIF${C.N}: [${C.P}${p}${C.N}]`);
-      return Promise.resolve(p);
-    }))
-    .pipe(imagemin({
-        ...gifOpts
-      , ...{resize: '270x180'}
-    }))
-    .pipe(gulp.dest(path.join(DEST, IMG, TUMB, 'works')));
+  // return imagemin([path.join(FROM, IMG, 'works', '**/*.gif')], path.join(DEST, IMG, 'works'), {
+  // await imagemin([`${path.join(FROM, IMG, 'works')}/*.gif`], {
+  await imagemin([path.join(FROM, IMG, 'works', '**/*.gif')]
+    , { ...Opts, destination: path.join(DEST, IMG, 'works')});
+    // , { ...Opts, destination: `${path.join(DEST, IMG, 'works')}`});
+  // console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] Plugin [${C.R}GIFLOSSY${C.N}]: [${C.Y}${C.On_Blue}Images optimized${C.N}]`);
+  console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] Plugin [${C.R}GIFSICLE${C.N}]: ${C.P}GIF images optimized${C.N} in [${C.Gr}${path.join(DEST, IMG, 'works')}${C.N}]`);
+  // console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] Created ${C.C}WEBP${C.N} in: [${C.Gr}${path.join(DEST, IMG, 'ico')}${C.N}]`);
 
+    // .then(() => {
+    //   console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] ${C.R}GIFLOSSY${C.N}: [Images optimized]`);
+    // })
 
-  // return merge(PNGS, JPGS, WEBP, GIFS)
-  //         .on('error', console.error.bind(console));
+  // return src(path.join(FROM, IMG, 'works', '**/*.gif'))
+  // // return src(path.join(FROM, IMG, '**/*.gif'))
+  //   // .pipe(filter([
+  //   //   '**/*.gif'
+  //   // ]))
+  //   // return src(path.join(FROM, IMG, 'works', '**/*.gif'))
+  //   .pipe(vPaths(function (p) {
+  //     console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] Gif{lossy,sicle} ${C.P}GIF${C.N}: [${p}]`);
+  //     return Promise.resolve(p);
+  //   }))
+  //   .pipe(giflossy(Opts))
+  //   .pipe(extReplace('.loss.gif'))
+  //   // .pipe(size({title: '.GIF'}))
+  //   // .pipe(dest(path.join(DEST, IMG, TUMB, 'works')))
+  //   .pipe(dest(path.join(DEST, IMG, 'works')))
+  // ;
+}
 
-  console.log(`${ME.L}${ME.d}[${C.O}${modPath}/${modName}${C.N}] FINISHED`);
-};
+async function GIFSICLE () {
+  let Opts = {
+      resize: '270x171'
+    , glob: true
+    , verbose: true
+    , plugins: [
+        gifsicle(gifsicleOpts)
+      ]
+  };
+
+  await imagemin([path.join(FROM, IMG, 'works', '**/*.gif')]
+    , { ...Opts, destination: path.join(DEST, IMG, 'works')});
+  console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] Plugin [${C.R}GIFSICLE${C.N}]: ${C.P}GIF images optimized${C.N} in [${C.Gr}${path.join(DEST, IMG, 'works')}${C.N}]`);
+
+}
+
+async function WEBP () {
+  // return src(path.join(FROM, IMG, '**/*.*'))
+  //   .pipe(filter([
+  //       '**/*.jpg'
+  //     , '**/*.jpeg'
+  //     , '**/*.png'
+  //   ]))
+  //   .pipe(vPaths(function (p) {
+  //     console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] Create ${C.C}WEBP${C.N}: [${p}]`);
+  //     return Promise.resolve(p);
+  //   }))
+  //   .pipe(imagemin([
+  //     webpOpts
+  //   ]))
+  //   .pipe(extReplace('.webp'))
+  //   // .pipe(size({title: '.WEBP'}))
+  //   .pipe(dest(path.join(DEST, IMG)));
+
+  let SrcExt = '*.{jpg,jpeg,png}'
+
+  let Opts = {
+      verbose: true
+    , glob: true
+    , plugins: [
+        webp(webpOpts)
+      ]
+  }
+
+  await imagemin([path.join(FROM, IMG, 'ico', SrcExt)]
+  , { ...Opts, destination: path.join(DEST, IMG, 'ico') });
+  console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] Created ${C.C}WEBP${C.N} in: [${C.Gr}${path.join(DEST, IMG, 'ico')}${C.N}]`);
+
+  await imagemin([path.join(FROM, IMG, 'logos', SrcExt)]
+  , { ...Opts, destination: path.join(DEST, IMG, 'logos') });
+  console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] Created ${C.C}WEBP${C.N} in: [${C.Gr}${path.join(DEST, IMG, 'logos')}${C.N}]`);
+
+  await imagemin([path.join(DEST, IMG, 'works', SrcExt)]
+    , { ...Opts, destination: path.join(DEST, IMG, 'works') });
+  console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] Created ${C.C}WEBP${C.N} in: [${C.Gr}${path.join(DEST, IMG, 'works')}${C.N}]`);
+
+  await imagemin([path.join(DEST, IMG, SrcExt)]
+  , { ...Opts, destination: path.join(DEST, IMG) });
+  console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] Created ${C.C}WEBP${C.N} in: [${C.Gr}${path.join(DEST, IMG)}${C.N}]`);
+
+}
+
 
 
 /**
  * @_EXPOSE
  */
-exports = buildImg;
+exports.JPGS    = JPGS;
+exports.PNGS    = PNGS;
+exports.GIFS    = GIFS;
+exports.GIFLOSSY  = GIFLOSSY;
+exports.GIFSICLE  = GIFSICLE;
+exports.WEBP    = WEBP;
 
 
 /**
  * @_EXPORTS
  */
-module.exports = exports;
+// exports.default = series(JPGS, PNGS, GIFS, GIFLOSSY, WEBP);
+exports.default = series(JPGS, PNGS, GIFLOSSY, WEBP);

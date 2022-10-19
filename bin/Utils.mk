@@ -4,9 +4,6 @@
 THIS_FILE = $(lastword $(MAKEFILE_LIST))
 # $(info [THIS_FILE:${THIS_FILE}])
 
-# include bin/Colors
-# include bin/.bash_colors
-
 
 ##  ------------------------------------------------------------------------  ##
 ##                      Report Environment Variables                          ##
