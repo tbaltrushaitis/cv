@@ -275,7 +275,9 @@ bower: ;
 	@ echo "$(HR)" ;
 	$(FIGLET) "MK: $(STG)"
 	export NODE_ENV="${APP_ENV}"; npm run bower
+	# @ touch ./$(ARGS)
 	@ echo "$(DAT) $(FINE): $(TARG)"
+	@ echo "$(HR)" ;
 
 
 ##  ------------------------------------------------------------------------  ##
@@ -284,9 +286,10 @@ bower: ;
 # PHONY += setup-deps
 
 setup-deps: ;
-	@ echo "$(DAT) $(BEGIN): $(TARG) - $(APP_ENV)"
-	sudo apt-get -qq -y install pwgen figlet toilet toilet-fonts jq 2>/dev/null
-	npm i --global --verbose gulp-cli 2>/dev/null
+	@ echo "$(DAT) $(BEGIN): $(TARG)"
+	sudo apt-get -qq -y install pwgen figlet toilet toilet-fonts jq #2>/dev/null
+	npm i --verbose --global gulp-cli #2>/dev/null
+	npm i --verbose gulp # 2>/dev/null
 	npm i --verbose
 	$(FIGLET) "BOWER: $(STG)"
 	bower i --allow-root --production --verbose
@@ -294,9 +297,9 @@ setup-deps: ;
 	@ echo "$(DAT) $(DONE): $(TARG)"
 
 setup: setup-deps ;
-	$(FIGLET) "MK: $(STG)"
+	# $(FIGLET) "MK: $(STG)"
 	@ touch ./$(ARGS)
-	@ echo "$(DAT) $(FINE): $(TARG)"
+	@ echo "$(DAT) $(DONE): $(TARG)"
 
 ##  ------------------------------------------------------------------------  ##
 PHONY += pre-update update reupdate
@@ -307,13 +310,15 @@ pre-build: clean-build ;
 	# @ export NODE_ENV="${APP_ENV}"; npm run populate
 	@ echo "$(DAT) $(DONE): $(TARG)"
 
-build: mkdirs setup ;
+# build: mkdirs setup ;
+build: mkdirs setup bower ;
 	$(FIGLET) "MK: $(STG)"
-	export NODE_ENV="${APP_ENV}"; npm run bower
+	# export NODE_ENV="${APP_ENV}"; npm run bower
 	@ cd ${WD} && cp -prf ${SRC}/* ${DIR_BUILD}/
 	export NODE_ENV="${APP_ENV}"; npm run build
 	@ touch ./$(ARGS)
-	@ echo "$(DAT) $(FINE): $(TARG) [$(Red)$(VER)$(NC)]"
+	@ echo "$(DAT) $(DONE): $(TARG) [$(Cyan)$(DIR_BUILD)$(NC)]"
+	@ echo "$(HR)" ;
 
 pre-dist: ;
 	@ cd ${WD} && $(RM) -vf ./dist
@@ -321,22 +326,26 @@ pre-dist: ;
 	@ echo "$(DAT) $(DONE): $(TARG)"
 
 dist: build video ;
-	$(TOILET) "MK: $(STG)"
+	$(FIGLET) "MK: $(STG)"
 	cd ${WD} && cp -prf ${DIR_BUILD}/* ${DIR_DIST}/
 	cd ${WD} && $(RM) -rf ${DIR_DIST}/resources
-	echo "MK: BACKUP -> ${ARC}/${APP_NAME}-${VER}-${APP_ENV}.tar.gz"
+	# echo "MK: BACKUP -> ${ARC}/${APP_NAME}-${VER}-${APP_ENV}.tar.gz"
+	$(FIGLET) "MK: BACKUP"
 	@ cd ${WD} && tar -c "${DST}-${APP_ENV}" | gzip -9 > "${ARC}/${APP_NAME}-${VER}-${APP_ENV}.tar.gz"
+	@ echo "Archived to: [${Blue}${ARC}/${APP_NAME}-${VER}-${APP_ENV}.tar.gz${NC}]"
 	@ cd ${WD} && touch ./$(ARGS)
-	@ echo "$(DAT) $(TARG): [$(Cyan)$(DIR_DIST)$(NC)]"
-	@ echo "$(DAT) $(FINE): $(TARG) [$(Red)$(VER)-$(APP_ENV)$(NC)]"
+	# @ echo "$(DAT) $(TARG): [$(Cyan)$(DIR_DIST)$(NC)]"
+	# @ echo "$(DAT) $(FINE): $(TARG) [$(Red)$(VER)-$(APP_ENV)$(NC)]"
+	@ echo "$(DAT) $(DONE): [$(Cyan)$(DIR_DIST)$(NC)]"
+	@ echo "$(HR)" ;
 
 pre-deploy: ;
 	# @ echo "$(DAT) $(BEGIN): $(TARG)"
 	$(RM) -vf ./deploy
-	@ echo "$(DAT) $(DONE): $(TARG) - $(APP_ENV)"
+	@ echo "$(DAT) $(DONE): $(TARG)"
 
 deploy: dist pre-deploy ;
-	$(TOILET) "MK: $(STG)"
+	$(FIGLET) "MK: $(STG)"
 	cd ${WD} && cp -prf ${DIR_DIST}/* ${DIR_WEB}/
 	$(RM) -vf devroot 2>&1 >/dev/null
 	$(RM) -vf webroot 2>&1 >/dev/null
@@ -344,6 +353,7 @@ deploy: dist pre-deploy ;
 	$(LN) ${DIR_WEB} webroot
 	touch ./$(ARGS)
 	@ echo "$(DAT) $(FINE): $(TARG) [$(Cyan)$(DIR_WEB)$(NC)]"
+	@ echo "$(HR)" ;
 
 pre-update: ;
 	@ cd ${WD} && $(RM) ./setup ./setup-deps
@@ -389,14 +399,14 @@ print-names: ;
 	@ echo "$(DAT) DIR_IMGS \t= [$(White)$(DIR_IMGS)$(NC)]"
 	@ echo "$(DAT) GIF_FILES \t= [$(Cyan)$(GIF_FILES)$(NC)]"
 	@ echo "$(DAT) BASE_NAMES \t= [$(Gray)$(BASE_NAMES)$(NC)]"
-	@ echo "$(DAT) MPEG_FILES \t= [$(Orange)$(MPEG_FILES)$(NC)]"
+	# @ echo "$(DAT) MPEG_FILES \t= [$(Orange)$(MPEG_FILES)$(NC)]"
 	@ echo "$(DAT) WEBM_FILES \t= [$(Purple)$(WEBM_FILES)$(NC)]"
 	@ echo "$(DAT) $(DONE): $(TARG)"
 	@ echo "$(HR)" ;
 
 video: print-names ;
 	@ echo "$(HR)" ;
-	$(TOILET) "MK: $(STG)"
+	$(FIGLET) "MK: $(STG)"
 	# @ echo "$(DAT) $(BEGIN): $(TARG)" ;
 	# $(foreach fbase, $(BASE_NAMES), $(FMP) -i "$(DIR_BUILD)/$(DIR_IMGS)/$(fbase).gif" -b:v 0 -crf 25 -f mp4 -vcodec libx264 -y "$(DIR_BUILD)/$(DIR_IMGS)/$(fbase).mp4" -vf "pad=ceil(iw/2)*2:ceil(ih/2)*2" ;)
 	# @ echo "$(DAT) [$(RESULT)] $(Purple)MPEG$(NC) files:"
