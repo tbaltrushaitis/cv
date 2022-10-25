@@ -21,7 +21,7 @@
 :mortar_board: Best in Class modern CV, Resume and Portfolio website template.
 All-in-One-Page site with simple and fully customizable builder.
 
-`CV` `resume` `portfolio` `template` `portfolio-website` `CV-template` `IT-resume` `resume-template` `resume-website`
+`CV` `resume` `portfolio` `template` `portfolio-website` `CV-template` `IT` `resume-template` `resume-website`
 
 ---
 
@@ -68,4 +68,4 @@ Personal profile should include additional information about your age, status, i
 
 :scorpius:
 
-[CV]: http://bit.ly/tomascv?ref_domain=github.com&ref_section=docs&ref_file=readme
+[CV]: http://bit.ly/tomascv?ref_domain=github.com&ref_section=docs&ref_file=FAQ
