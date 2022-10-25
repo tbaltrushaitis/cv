@@ -47,6 +47,11 @@ MAKEFLAGS += --warn-undefined-variables
 ##  ------------------------------------------------------------------------  ##
 MAKEFLAGS += --no-builtin-rules
 
+##  ========================================================================  ##
+$(shell [ -f ./.bowerrc ] || cp -prfu config/.bowerrc ./)
+$(shell [ -f ./.npmrc ] || cp -prfu config/.npmrc ./)
+$(shell [ -f ./.env ] || echo "NODE_ENV=production" >> .env)
+$(shell [ -f ./VERSION ] || echo "0.0.0" > VERSION)
 
 ##  ========================================================================  ##
 ##  Environment variables for the build
@@ -66,16 +71,11 @@ CMAKE_COMMAND = /usr/bin/cmake
 EQUALS = =
 
 ##  ========================================================================  ##
-$(shell [ -f ./.bowerrc ] || cp -prfu config/.bowerrc ./);
-$(shell [ -f ./.npmrc ] || cp -prfu config/.npmrc ./);
-##  ========================================================================  ##
 APP_NAME := cv
 APP_PREF := cv_
 APP_SLOG := "CV + PORTFOLIO"
 APP_LOGO := ./assets/BANNER
 
-$(shell [ -f ./VERSION ] || echo "0.0.0" > VERSION)
-$(shell [ -f ./.env ] || echo "NODE_ENV=production" >> .env)
 
 APP_REPO := $(shell git ls-remote --get-url)
 GIT_BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
@@ -95,8 +95,7 @@ BUILD_CNTR = $(strip $(shell [ -f "$(BUILD_FILE)" ] && cat $(BUILD_FILE) || echo
 BUILD_CNTR := $(shell echo $$(( $(BUILD_CNTR) + 1 )))
 
 BUILD_TMPL := config/build.tpl
-# BUILD_DATA := config/build.json
-BUILD_DATA := $(WD)/build.json
+BUILD_DATA := config/build.json
 BUILD_FULL := $(shell date +'%Y-%m-%dT%H:%M:%S%:z')
 BUILD_DATE := $(shell date +'%Y-%m-%d')
 BUILD_TIME := $(shell date +'%H:%M:%S')
@@ -234,13 +233,11 @@ PHONY += mkdirs
 
 mkdirs: ;
 	@ echo "$(HR)" ;
-	# $(TOILET) "MK: $(STG)"
 	@ [ -d $(DIR_ARC) ]   || mkdir -p $(DIR_ARC)
 	@ [ -d $(DIR_SRC) ]   || mkdir -p $(DIR_SRC)
 	@ [ -d $(DIR_BUILD) ] || mkdir -p $(DIR_BUILD)
 	@ [ -d $(DIR_DIST) ]  || mkdir -p $(DIR_DIST)
 	@ [ -d $(DIR_WEB) ]   || mkdir -p $(DIR_WEB)
-	# @ echo "$(DAT) ARGS=$(ARGS) in $(TARG)" ;
 	@ echo "$(DAT) $(FINE): $(TARG)" ;
 	@ echo "$(HR)" ;
 
@@ -312,25 +309,21 @@ pre-build: clean-build ;
 
 build: mkdirs setup ;
 	$(FIGLET) "MK: $(STG)"
-	# @ echo "$(DAT) $(BEGIN): $(TARG)"
 	export NODE_ENV="${APP_ENV}"; npm run bower
-	@ cd ${WD} && $(CP) ${SRC}/* ${DIR_BUILD}/
+	@ cd ${WD} && cp -prf ${SRC}/* ${DIR_BUILD}/
 	export NODE_ENV="${APP_ENV}"; npm run build
 	@ touch ./$(ARGS)
 	@ echo "$(DAT) $(FINE): $(TARG) [$(Red)$(VER)$(NC)]"
 
 pre-dist: ;
 	@ cd ${WD} && $(RM) -vf ./dist
-	@ cd ${WD} && $(RM) -rvf ${DIR_DIST}/*
+	@ cd ${WD} && $(RM) -rf ${DIR_DIST}/*
 	@ echo "$(DAT) $(DONE): $(TARG)"
 
 dist: build video ;
-	$(TOILET) "MK: $(STG) - $(APP_ENV)"
-	# export NODE_ENV="production"; npm run dist
-	# cd ${WD} && cp -prf ${DIR_BUILD}/* ${DIR_DIST}/
-	cd ${WD} && $(CP) ${DIR_BUILD}/* ${DIR_DIST}/
+	$(TOILET) "MK: $(STG)"
+	cd ${WD} && cp -prf ${DIR_BUILD}/* ${DIR_DIST}/
 	cd ${WD} && $(RM) -rf ${DIR_DIST}/resources
-	# $(TOILET) "MK: BACKUP > ${ARC}/${APP_NAME}-${VER}-${APP_ENV}.tar.gz"
 	echo "MK: BACKUP -> ${ARC}/${APP_NAME}-${VER}-${APP_ENV}.tar.gz"
 	@ cd ${WD} && tar -c "${DST}-${APP_ENV}" | gzip -9 > "${ARC}/${APP_NAME}-${VER}-${APP_ENV}.tar.gz"
 	@ cd ${WD} && touch ./$(ARGS)
@@ -338,31 +331,25 @@ dist: build video ;
 	@ echo "$(DAT) $(FINE): $(TARG) [$(Red)$(VER)-$(APP_ENV)$(NC)]"
 
 pre-deploy: ;
-	# $(FIGLET) "$(STG)"
-	@ echo "$(DAT) $(BEGIN): $(TARG)"
+	# @ echo "$(DAT) $(BEGIN): $(TARG)"
 	$(RM) -vf ./deploy
 	@ echo "$(DAT) $(DONE): $(TARG) - $(APP_ENV)"
 
-# deploy: dist video ;
 deploy: dist pre-deploy ;
 	$(TOILET) "MK: $(STG)"
-	# @ echo "$(DAT) $(BEGIN): $(TARG)"
-	cd ${WD} && $(CP) ${DIR_DIST}/* ${DIR_WEB}/
+	cd ${WD} && cp -prf ${DIR_DIST}/* ${DIR_WEB}/
 	$(RM) -vf devroot 2>&1 >/dev/null
 	$(RM) -vf webroot 2>&1 >/dev/null
 	$(LN) ${DIR_DIST} devroot
 	$(LN) ${DIR_WEB} webroot
 	touch ./$(ARGS)
-	@ echo "$(DAT) $(FINE): $(TARG)"
+	@ echo "$(DAT) $(FINE): $(TARG) [$(Cyan)$(DIR_WEB)$(NC)]"
 
 pre-update: ;
-	# @ echo "$(DAT) $(BEGIN): $(TARG) - $(APP_ENV)"
 	@ cd ${WD} && $(RM) ./setup ./setup-deps
 	@ echo "$(DAT) $(DONE): $(TARG)"
 
-# update: pre-update setup ;
 update: setup ;
-	# $(FIGLET) "MK: $(STG)"
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
 reupdate: pre-update update ;
@@ -374,7 +361,7 @@ reupdate: pre-update update ;
 DIR_IMGS := assets/img/works
 GIF_FILES := $(notdir $(wildcard $(DIR_SRC)/$(DIR_IMGS)/*.gif))
 BASE_NAMES := $(basename $(GIF_FILES))
-MPEG_FILES := $(patsubst %.gif,%.mp4,"$(DIR_BUILD)/$(DIR_IMGS)/$(GIF_FILES)")
+MPEG_FILES := $(patsubst %.gif,%.mp4,$(DIR_BUILD)/$(DIR_IMGS)/$(GIF_FILES))
 WEBM_FILES := $(patsubst %.gif,%.webm,$(DIR_BUILD)/$(DIR_IMGS)/$(GIF_FILES))
 
 
@@ -471,7 +458,7 @@ dev-setup: clean-deps setup banner cycle-dev ;
 	@ echo "$(DAT) $(DONE): $(TARG)"
 
 # run: pre-build build pre-dist dist pre-deploy deploy banner ;
-run: pre-build build pre-dist dist deploy banner ;
+run: pre-build build pre-dist dist pre-deploy deploy banner ;
 	# $(FIGLET) "MK: $(STG): [$(VER)]"
 	@ echo "$(DAT) $(DONE): $(TARG) [$(Red)$(VER)$(NC)]"
 
