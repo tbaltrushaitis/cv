@@ -50,8 +50,7 @@ let RESO = path.join('resources');
 let KEEP = path.join(ME.BUILD, RESO, 'assets');
 
 let VOID = [
-  // 'config/build.json'
-  'build.json'
+    'config/build.json'
   , `${SRC}/.*`
   , `${SRC}/*.txt`
   , `${SRC}/*.json`
@@ -75,7 +74,7 @@ function Static () {
     }))
     .pipe(replace({global: CONF, preserveUnknownTokens: true}))
     .pipe(size({title: 'STATIC', showFiles: false}))
-    .pipe(dest(path.resolve(DEST)))
+    .pipe(dest(path.join(DEST)))
   ;
 }
 
@@ -93,7 +92,11 @@ function HTMLtask () {
     // .pipe(gulpif('production' === ME.NODE_ENV || 'production' === process.env.npm_lifecycle_event, htmlmin(ME.pkg.options.htmlmin)))
     .pipe(gulpif(['production', ''].includes(ME.NODE_ENV), htmlmin(ME.pkg.options.htmlmin)))
     .pipe(size({title: 'HTML', showFiles: false}))
-    .pipe(dest(path.resolve(DEST)))
+    .pipe(dest(path.join(DEST)))
+    .pipe(vPaths(function (p) {
+      console.log(`${ME.d}[${C.O}${modName.toUpperCase()}${C.N}] ${C.W}HTML${C.N}: \t [${C.Gray}${p}${C.N}]`);
+      return Promise.resolve(p);
+    }))
   ;
 }
 
@@ -112,7 +115,7 @@ function JStask () {
     .pipe(replace({global: CONF, preserveUnknownTokens: true}))
     .pipe(gulpif(['production', ''].includes(ME.NODE_ENV), terser(ME.pkg.options.terser)))
     .pipe(size({title: 'SOURCE JS', showFiles: false}))
-    .pipe(dest(path.resolve(DEST, JS)))
+    .pipe(dest(path.join(DEST, JS)))
   ;
 }
 
@@ -129,7 +132,7 @@ function DATAtask () {
       return Promise.resolve(p);
     }))
     .pipe(size({title: 'DATA', showFiles: false}))
-    .pipe(dest(path.resolve(DEST, DATA)));
+    .pipe(dest(path.join(DEST, DATA)));
 }
 
 

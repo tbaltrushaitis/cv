@@ -50,12 +50,12 @@ let CONF = ME.Config.cleanCSS;
 
 let STYLES_SRC = [
     `${FROM}/default.css`
+  , `${FROM}/fonts.css`
   , `${FROM}/theme.css`
   , `${FROM}/responsive.css`
 // , `${FROM}/magnific-popup.css`
   , `${FROM}/og-grid.css`
   , `${FROM}/custom.css`
-  , `${FROM}/fonts.css`
   , `${FROM}/custom-animations.css`
   , `${FROM}/fa-colors.css`
 ];

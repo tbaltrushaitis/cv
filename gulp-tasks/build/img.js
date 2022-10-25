@@ -61,14 +61,13 @@ let IMG  = path.join('img');
 let TUMB = path.join('thumbs');
 let SRC  = path.join(FROM, IMG, 'works', '**/*.*');
 
-let jimpOpts  = ME.pkg.options.jimp;
-// let giflossyOpts   = giflossy(ME.pkg.options.giflossy);
-let giflossyOpts   = ME.pkg.options.giflossy;
-let gifsicleOpts   = gifsicle(ME.pkg.options.gifsicle);
-let pngOpts   = pngquant(ME.pkg.options.pngquant);
-let jpegOpts  = mozjpeg(ME.pkg.options.mozjpeg);
-let webpOpts  = webp(ME.pkg.options.webp);
-let imageminOpts = [
+let jimpOpts      = ME.pkg.options.jimp;
+let giflossyOpts  = ME.pkg.options.giflossy;
+let gifsicleOpts  = gifsicle(ME.pkg.options.gifsicle);
+let pngOpts       = pngquant(ME.pkg.options.pngquant);
+let jpegOpts      = mozjpeg(ME.pkg.options.mozjpeg);
+let webpOpts      = webp(ME.pkg.options.webp);
+let imageminOpts  = [
     pngOpts
   , jpegOpts
 ];
@@ -89,8 +88,8 @@ function PNGS () {
       '': jimpOpts
     }))
     .pipe(extReplace('.thumb.png'))
-    .pipe(size({title: 'PNGS', showFiles: false}))
-    .pipe(dest(path.resolve(DEST, IMG, 'works')))
+    .pipe(size({title: 'PNG', showFiles: false}))
+    .pipe(dest(path.join(DEST, IMG, 'works')))
   ;
 }
 
@@ -109,15 +108,11 @@ function JPGS () {
       return Promise.resolve(p);
     }))
     .pipe(jimp({
-      // '': {
-        //         ...jimpOpts
-        //       , ...{type: 'jpg'}
-        //     }
       '': Object.assign({}, jimpOpts, {type: 'jpg'})
     }))
     .pipe(extReplace('.thumb.jpg'))
-    .pipe(size({title: 'JPGS', showFiles: false}))
-    .pipe(dest(path.resolve(DEST, IMG, 'works')));
+    .pipe(size({title: 'JPEG', showFiles: false}))
+    .pipe(dest(path.join(DEST, IMG, 'works')));
 }
 
 function GIFS () {
@@ -145,57 +140,26 @@ function GIFS () {
     //   // , ...{verbose: true}
     // }))
     .pipe(extReplace('.thumb.gif'))
-    .pipe(size({title: 'GIFS', showFiles: false}))
-    .pipe(dest(path.resolve(DEST, IMG, 'works')))
+    .pipe(size({title: 'GIF', showFiles: false}))
+    .pipe(dest(path.join(DEST, IMG, 'works')))
   ;
 }
 
 async function GIFLOSSY () {
   let Opts = {
-      // ...ME.pkg.options.giflossy
-      // ...ME.pkg.options.gifsicle
-      // ...gifsicleOpts
       resize: '270x171'
     , glob: true
     , verbose: true
     , plugins: [
         giflossy(giflossyOpts)
-        // gifsicle(ME.pkg.options.gifsicle)
-        // gifsicle(gifsicleOpts)
-        // gifsicle(Opts)
       ]
   };
   // console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] ${C.R}GIFLOSSY OPTS${C.N}: [${utin(Opts)}]`);
 
-  // return imagemin([path.join(FROM, IMG, 'works', '**/*.gif')], path.join(DEST, IMG, 'works'), {
-  // await imagemin([`${path.join(FROM, IMG, 'works')}/*.gif`], {
-  await imagemin([path.join(FROM, IMG, 'works', '**/*.gif')]
+  await imagemin([path.join(FROM, IMG, 'works', '*.gif')]
     , { ...Opts, destination: path.join(DEST, IMG, 'works')});
-    // , { ...Opts, destination: `${path.join(DEST, IMG, 'works')}`});
-  // console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] Plugin [${C.R}GIFLOSSY${C.N}]: [${C.Y}${C.On_Blue}Images optimized${C.N}]`);
-  console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] Plugin [${C.R}GIFSICLE${C.N}]: ${C.P}GIF images optimized${C.N} in [${C.Gr}${path.join(DEST, IMG, 'works')}${C.N}]`);
-  // console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] Created ${C.C}WEBP${C.N} in: [${C.Gr}${path.join(DEST, IMG, 'ico')}${C.N}]`);
+  console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] Plugin [${C.R}GIFLOSSY${C.N}]: ${C.P}GIFs optimized${C.N} in [${C.C}${path.join(DEST, IMG, 'works')}${C.N}]`);
 
-    // .then(() => {
-    //   console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] ${C.R}GIFLOSSY${C.N}: [Images optimized]`);
-    // })
-
-  // return src(path.join(FROM, IMG, 'works', '**/*.gif'))
-  // // return src(path.join(FROM, IMG, '**/*.gif'))
-  //   // .pipe(filter([
-  //   //   '**/*.gif'
-  //   // ]))
-  //   // return src(path.join(FROM, IMG, 'works', '**/*.gif'))
-  //   .pipe(vPaths(function (p) {
-  //     console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] Gif{lossy,sicle} ${C.P}GIF${C.N}: [${p}]`);
-  //     return Promise.resolve(p);
-  //   }))
-  //   .pipe(giflossy(Opts))
-  //   .pipe(extReplace('.loss.gif'))
-  //   // .pipe(size({title: '.GIF'}))
-  //   // .pipe(dest(path.join(DEST, IMG, TUMB, 'works')))
-  //   .pipe(dest(path.join(DEST, IMG, 'works')))
-  // ;
 }
 
 async function GIFSICLE () {
@@ -208,9 +172,9 @@ async function GIFSICLE () {
       ]
   };
 
-  await imagemin([path.join(FROM, IMG, 'works', '**/*.gif')]
+  await imagemin([path.join(FROM, IMG, 'works', '*.gif')]
     , { ...Opts, destination: path.join(DEST, IMG, 'works')});
-  console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] Plugin [${C.R}GIFSICLE${C.N}]: ${C.P}GIF images optimized${C.N} in [${C.Gr}${path.join(DEST, IMG, 'works')}${C.N}]`);
+  console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] Plugin [${C.R}GIFSICLE${C.N}]: ${C.P}GIFs optimized${C.N} in [${C.Gr}${path.join(DEST, IMG, 'works')}${C.N}]`);
 
 }
 
@@ -276,5 +240,4 @@ exports.WEBP    = WEBP;
 /**
  * @_EXPORTS
  */
-// exports.default = series(JPGS, PNGS, GIFS, GIFLOSSY, WEBP);
-exports.default = series(JPGS, PNGS, GIFLOSSY, WEBP);
+exports.default = series(JPGS, PNGS, GIFSICLE, WEBP);
