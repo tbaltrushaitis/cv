@@ -189,7 +189,7 @@ function defaultTask (cb) {
  */
 exports.bower     = Tasks.bower;
 exports.build     = Tasks.build;
-exports.dirsync   = Tasks.dirsync;
+// exports.dirsync   = Tasks.dirsync;
 exports.help      = Tasks.help;
 exports.lint      = Tasks.lint;
 exports.test      = Tasks.test;
