@@ -221,3 +221,8 @@ form {
 .pill {
   border-radius: 9999px;
 }
+
+.media-object {
+  width: 100%;
+  height: auto;
+}
