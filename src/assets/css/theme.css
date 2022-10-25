@@ -25,10 +25,11 @@ html, body {
 body {
   background-color: #fff;
   color:        #282828;
-  font-family:  'Roboto', 'sans-serif';
+  /* font-family:  'Roboto', 'sans-serif'; */
+  font-family:  'sans-serif';
   font-size:    14px;
   font-weight:  300;
-  font-display: swap;
+  /* font-display: swap; */
   line-height:  28px;
   -webkit-text-size-adjust:   100%;
   -webkit-font-smoothing:     antialiased !important;
@@ -1303,7 +1304,7 @@ ul.list-check li::before {
 .contact-section .contact-number {
   font-weight: 400;
   line-height: 30px;
-  margin-bottom: 45px
+  margin-bottom: 45px;
   overflow: hidden;
 }
 

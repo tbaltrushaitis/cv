@@ -12,6 +12,10 @@ html {
   font-display: swap;
 }
 
+body {
+  font-display: swap;
+}
+
 .clearfix {
   *zoom: 1;
 }

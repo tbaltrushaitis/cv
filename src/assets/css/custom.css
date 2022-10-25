@@ -4,10 +4,12 @@
 /* ---------------------------------------------- */
 body {
   /* font-family: 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; */
-  font-family: 'Lato', 'Roboto', Helvetica, Arial, 'sans-serif';
+  /* font-family: 'Lato', 'Roboto', Helvetica, Arial, 'sans-serif'; */
+  font-family: 'Roboto', 'Lato', Helvetica, 'sans-serif';
   /* font-family: 'Roboto', Helvetica, Arial, 'sans-serif'; */
   /* font-family: 'Lato', Helvetica, Arial, 'sans-serif'; */
-  font-display: swap;
+  /* font-display: swap; */
+  font-weight: 400;
   position: relative;
 }
 
@@ -27,10 +29,10 @@ body {
 }
 
 .copyright {
-  font-family: 'Lato', Calibri, Tahoma, Arial, 'sans-serif';
+  font-family: 'Lato', Calibri, Tahoma, 'sans-serif';
   font-weight: 400;
   font-size: 12px;
-  font-display: swap;
+  /* font-display: swap; */
 }
 
 .copyright > span.label {
