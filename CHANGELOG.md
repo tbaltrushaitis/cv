@@ -50,32 +50,28 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ##### Changed #####
 - [x] Upgrade gulp to v4
+- npm i -D dateformat@5.0.3
 - npm i -D del@7.0.0
 - npm i -D dotenv@16.0.2
-- npm i -D gulp-imagemin@8.0.0
-- npm i -D imagemin-mozjpeg@10.0.0
-- npm i -D imagemin-webp@7.0.0
-- npm i -D vinyl-paths@5.0.0
-- npm i -D yargs@15.4.1
-- npm i -D jimp@0.14.0
-- npm i -D gulp-terser@1.3.2
-- npm i -D jshint@2.12.0
 - npm i -D bower@1.8.14
+- npm i -D gulp@4.0.2
+- npm i -D gulp-changed@4.0.3
+- npm i -D gulp-clean-css@4.3.0
+- npm i -D gulp-filter@7.0.0
+- npm i -D gulp-imagemin@8.0.0
 - npm i -D gulp-replace@1.1.3
 - npm i -D gulp-terser@2.0.1
 - npm i -D imagemin-pngquant@9.0.2
+- npm i -D imagemin-mozjpeg@10.0.0
+- npm i -D imagemin-webp@7.0.0
+- npm i -D jimp@0.16.1
 - npm i -D jpeg-js@0.4.3
 - npm i -D js-yaml@4.1.0
 - npm i -D jshint@2.13.5
 - npm i -D livereload@0.9.3
 - npm i -D lodash@4.17.21
-- npm i -D dateformat@5.0.3
-- npm i -D gulp-filter@7.0.0
-- npm i -D jimp@0.16.1
+- npm i -D vinyl-paths@5.0.0
 - npm i -D yargs@17.0.1
-- npm i -D gulp@4.0.2
-- npm i -D gulp-changed@4.0.3
-- npm i -D gulp-clean-css@4.3.0
 - bower i font-awesome@6.2.0
 
 ---

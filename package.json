@@ -1,6 +1,6 @@
 {
     "name":         "cv"
-  , "version":      "0.3.0"
+  , "version":      "0.3.1"
   , "title":        "Modern CV, Resume and Portfolio website"
   , "description":  "Best-in-Class website template for modern CV, Resume and Portfolio. Easy customizable All-in-One-Page static website with builder."
   , "homepage":     "https://github.com/tbaltrushaitis/cv"
@@ -12,79 +12,83 @@
         "type": "git"
       , "url":  "git+https://github.com/tbaltrushaitis/cv.git"
     }
-  , "website":        "http://bit.ly/tomascv"
+  , "website":        "http://bit.ly/tomascv?from=cv-package.json"
   , "readmeFilename": "README.md"
   , "engines": {
-      "node": ">=8.0.0"
+        "node": ">=12.18.4"
+      , "npm": ">=6.14.8"
     }
   , "os":     ["linux", "win32", "darwin"]
-  , "main":   "echo [CALLED MAIN SCRIPT VIA package.json]"
+  , "main":   "echo [Called MAIN script via package.json]"
   , "scripts": {
-        "preinstall":    "set echo off; figlet-toilet -t -f small -F border 'NPM: PRE-INSTALL'"
-      , "install":       "figlet-toilet -t -f small -F border 'NPM: INSTALL'"
-      , "postinstall":   "figlet-toilet -t -f small -F border 'NPM: POST-INSTALL'"
-      , "preuninstall":  "figlet-toilet -t -f small -F border 'NPM: PRE-UNINSTALL'"
-      , "uninstall":     "figlet-toilet -t -f small -F border 'NPM: UNINSTALL'"
-      , "postuninstall": "figlet-toilet -t -f small -F border 'NPM: POST-UNINSTALL'"
-      , "start":         "figlet-toilet -t -f small -F border 'NPM: START'"
-      , "prepublish":    "figlet-toilet -t -f small -F border 'NPM: PRE-PUBLISH'"
-      , "pretest":       "set echo off; echo [PRE-TEST] --- "
-      , "test":          "figlet-toilet -t -f small -F border 'NPM: TEST'; DEBUG=* gulp test --color"
-      , "posttest":      "figlet-toilet -t -f small -F border 'NPM: POST-TEST'"
+        "preinstall":    "${TOILET} 'NPM: PRE-INSTALL'"
+      , "install":       "${TOILET} 'NPM: INSTALL'"
+      , "postinstall":   "${TOILET} 'NPM: POST-INSTALL'"
+      , "preuninstall":  "${TOILET} 'NPM: PRE-UNINSTALL'"
+      , "uninstall":     "${TOILET} 'NPM: UNINSTALL'"
+      , "postuninstall": "${TOILET} 'NPM: POST-UNINSTALL'"
+      , "start":         "${TOILET} 'NPM: START'"
+      , "test":          "${TOILET} 'NPM: TEST'; DEBUG=* gulp test --color"
       , "\n\n####\t\t\t BUILD:": ""
-      , "setup":         "echo [SETUP];"
-      , "prepare":       "figlet-toilet -t -f small -F border 'NPM: PREPARE'"
-      , "populate":      "figlet-toilet -t -f small -F border 'NPM: POPULATE' ; gulp populate --color"
-      , "prebuild":      "figlet-toilet -t -f small -F border 'NPM: PRE-BUILD' ; gulp populate --color"
-      , "build":         "figlet-toilet -t -f small -F border 'NPM: BUILD' ; gulp build --color"
-      , "postbuild":     "figlet-toilet -t -f small -F border 'NPM: POST-BUILD'"
-      , "rebuild":       "figlet-toilet -t -f small -F border 'NPM: RE-BUILD'"
-      , "prepack":       "figlet-toilet -t -f small -F border 'NPM: PRE-PACK'"
-      , "deploy":        "figlet-toilet -t -f small -F border 'NPM: DEPLOY'; gulp deploy --color"
-      , "dist":          "figlet-toilet -t -f small -F border 'NPM: DIST'; gulp dist --color"
-      , "bower":         "figlet-toilet -t -f small -F border 'NPM: BOWER'; gulp bower --color"
+      , "setup-":        "echo [SETUP];"
+      , "setup":         "${TOILET} 'NPM: SETUP'"
+      , "bower":         "${TOILET} 'NPM: BOWER'; gulp bower --color"
+      , "prepare":       "${TOILET} 'NPM: PREPARE'"
+      , "prebuild":      "${TOILET} 'NPM: PRE-BUILD'; gulp populate --color"
+      , "build":         "${TOILET} 'NPM: BUILD'; gulp build --color"
+      , "postbuild":     "${TOILET} 'NPM: POST-BUILD'"
+      , "rebuild":       "${TOILET} 'NPM: RE-BUILD'"
+      , "prepack":       "${TOILET} 'NPM: PRE-PACK'"
+      , "deploy":        "${TOILET} 'NPM: DEPLOY'; gulp deploy --color"
+      , "dist":          "${TOILET} 'NPM: DIST'; gulp dist --color"
       , "\n\n####\t\t\t BATCH COMMANDS:": ""
       , "default":       "echo [DEFAULT]; DEBUG=* gulp default --color"
       , "all":           "echo [ALL]; DEBUG=* gulp --color"
       , "prod":          "echo [PROD]; gulp --env=production --color"
       , "\n\n####\t\t\t TEST:": ""
-      , "check":         "figlet-toilet -t -f small -F border 'NPM: CHECK'; DEBUG=* gulp lint --color"
+      , "check":         "${TOILET} 'NPM: CHECK'; DEBUG=* gulp lint --color"
       , "\n\n####\t\t\t INFORMATION:": ""
-      , "config":        "figlet-toilet -t -f small -F border 'NPM: SHOW:CONFIG'; gulp show:config --color"
-      , "changed":       "figlet-toilet -t -f small -F border 'NPM: CHANGED'; gulp show:src --color"
-      , "list":          "figlet-toilet -t -f small -F border 'NPM: LIST'; gulp --tasks --depth 1 --color"
-      , "usage":         "figlet-toilet -t -f small -F border 'NPM: USAGE'; gulp usage --color"
+      , "config":        "${TOILET} 'NPM: SHOW:CONFIG'; gulp show:config --color"
+      , "changed":       "${TOILET} 'NPM: CHANGED'; gulp show:src --color"
+      , "help":          "${TOILET} 'NPM: HELP'; gulp --color"
+      , "list":          "${TOILET} 'NPM: LIST'; gulp --tasks --depth 1 --color"
+      , "usage":         "${TOILET} 'NPM: USAGE'; gulp usage --color"
       , "\n\n####\t\t\t DEVELOPMENT:": ""
-      , "dev":           "figlet-toilet -t -f small -F border 'NPM: DEV'; DEBUG=* gulp dev --color"
-      , "live":          "figlet-toilet -t -f small -F border 'NPM: LIVE'; livereload ./webroot --port 35729 -d -w 1000"
-      , "watch":         "figlet-toilet -t -f small -F border 'NPM: WATCH'; DEBUG=* gulp watch --color"
+      , "dev":           "${TOILET} 'NPM: DEV'; DEBUG=* gulp dev --color"
+      , "live":          "${TOILET} 'NPM: LIVE'; livereload ./webroot --port 35729 -d -w 1000"
+      , "watch":         "${TOILET} 'NPM: WATCH'; DEBUG=* gulp watch --color"
       , "\n# END": ""
     }
   , "scripts-disabled": {
         "crit":       "echo [CRITICAL]; DEBUG=* gulp critical --color"
+      , "populate":   "${TOILET} 'NPM: POPULATE'; gulp populate --color"
       , "preinstall": "[ -f ./NODE_ENV ] || cp -prv config/.NODE_ENV ./NODE_ENV ; [ -f ./.bowerrc ] || cp -prv config/.bowerrc ./ ;"
+      , "pretest":    "${TOILET} 'NPM: PRE-TEST'"
+      , "testt":      "${TOILET} 'NPM: TEST'; DEBUG=* ${GULP} test"
+      , "posttest":   "${TOILET} 'NPM: POST-TEST'"
     }
   , "directories": {
       "test": "test"
     }
-  , "dependencies": {
-    }
+  , "dependencies": {}
   , "dependencies-disabled": {
         "figlet":     "^1.4.0"
       , "figlet-cli": "^0.1.1"
     }
   , "devDependencies": {
-        "bower":                "^1.8.8"
-      , "dateformat":           "^3.0.3"
-      , "del":                  "^5.1.0"
-      , "dotenv":               "^8.2.0"
-      , "gulp":                 "^3.9.1"
-      , "gulp-changed":         "^3.2.0"
-      , "gulp-clean-css":       "^3.10.0"
+        "bower":                "^1.8.14"
+      , "dateformat":           "4.6.3"
+      , "del":                  "6.1.1"
+      , "dotenv":               "^14.3.2"
+      , "eslint":               "^8.24.0"
+      , "gulp":                 "^4.0.2"
+      , "gulp-changed":         "^4.0.3"
+      , "gulp-clean-css":       "^4.3.0"
+      , "gulp-concat":          "^2.6.1"
       , "gulp-concat-css":      "^3.1.0"
       , "gulp-directory-sync":  "^1.2.4"
       , "gulp-ext-replace":     "^0.3.0"
-      , "gulp-filter":          "^6.0.0"
+      , "gulp-filter":          "^7.0.0"
       , "gulp-headerfooter":    "^1.0.3"
       , "gulp-htmlmin":         "^5.0.1"
       , "gulp-if":              "^3.0.0"
@@ -93,56 +97,61 @@
       , "gulp-jscs":            "^4.1.0"
       , "gulp-jshint":          "^2.1.0"
       , "gulp-livereload":      "^4.0.2"
-      , "gulp-replace":         "^1.0.0"
-      , "gulp-require-tasks":   "^1.3.0"
-      , "gulp-sequence":        "^1.0.0"
-      , "gulp-terser":          "^1.1.5"
+      , "gulp-replace":         "^1.1.3"
+      , "gulp-size":            "^4.0.1"
+      , "gulp-terser":          "^2.0.1"
       , "gulp-token-replace":   "^1.1.2"
       , "gulp-watch":           "^5.0.1"
       , "imagemin-giflossy":    "^5.1.10"
+      , "imagemin-gifsicle":    "^7.0.0"
       , "imagemin-mozjpeg":     "^9.0.0"
-      , "imagemin-pngquant":    "^9.0.0"
+      , "imagemin-pngquant":    "^9.0.2"
       , "imagemin-webp":        "^6.0.0"
-      , "jimp":                 "^0.14.0"
-      , "jpeg-js":              "^0.4.0"
-      , "jshint":               "^2.10.1"
+      , "jimp":                 "^0.16.1"
+      , "jpeg-js":              "^0.4.4"
+      , "jshint":               "^2.13.4"
       , "jshint-stylish":       "^2.2.1"
-      , "js-yaml":              ">=3.13.1"
-      , "livereload":           "^0.9.1"
-      , "lodash":               "^4.17.19"
+      , "js-yaml":              ">=4.1.0"
+      , "livereload":           "^0.9.3"
+      , "lodash":               "^4.17.21"
       , "lodash.template":      "^4.5.0"
       , "main-bower-files":     "^2.13.3"
       , "merge-stream":         "^2.0.0"
       , "minimist":             ">=1.2.3"
       , "read-config":          "^2.0.0"
       , "vinyl-paths":          "^3.0.1"
-      , "websocket-extensions": ">=0.1.4"
-      , "yargs":                "^15.4.1"
+      , "yargs":                "^17.0.1"
     }
-  , "devDependencies-DISABLED": {
+  , "devDependencies-DEPRECATED": {
         "critical":           "^1.3.4"
       , "gulp-add-src":       "^1.0.0"
-      , "gulp-concat":        "^2.6.0"
       , "gulp-exec":          "^3.0.2"
       , "gulp-file-include":  "^2.0.1"
       , "gulp-newer":         "^1.4.0"
       , "gulp-rename":        "^1.4.0"
+      , "gulp-require-tasks": "^1.3.0"
+      , "gulp-sequence":      "^1.0.0"
       , "gulp-template":      "^5.0.0"
       , "gulp-util":          "^3.0.8"
       , "jquery":             "^3.3.1"
       , "nconf":              "^0.10.0"
       , "nodemon":            "^1.18.10"
+      , "websocket-extensions": ">=0.1.4"
     }
   , "options": {
         "bower": {
-          "debugging": false
-        , "paths": {
-              "bowerDirectory": "bower_modules"
-            , "bowerrc":        ".bowerrc"
-            , "bowerJson":      "bower.json"
-          }
+            "debugging": false
+          , "paths": {
+                "bowerDirectory": "bower_modules"
+              , "bowerrc":        ".bowerrc"
+              , "bowerJson":      "bower.json"
+            }
         }
       , "clean": {
+            "debug":         true
+          , "processImport": true
+        }
+      , "cleanCSS": {
             "debug":         true
           , "processImport": true
         }
@@ -215,7 +224,7 @@
         }
       , "iopts": {
             "showHidden": false
-          , "depth":      4
+          , "depth":      5
           , "colors":     true
         }
       , "readconf": {
@@ -237,7 +246,8 @@
         , "mangle":      true
       }
       , "jimp": {
-            "autocrop": {
+            "type": "png"
+          , "autocrop": {
                 "cropOnlyFrames": false
               , "tolerance":      0.0002
             }
@@ -245,12 +255,29 @@
                 "height": 180
               , "width":  270
             }
-          , "type": "png"
         }
-      , "giflossy": {"lossy": 70}
-      , "mozjpeg":  {"quality": 50}
+      , "giflossy": {
+            "interlaced":         false
+          , "optimizationLevel":  3
+          , "lossy":              146
+          , "resize-off":         "100x100"
+          , "resizeMethod":       "sample"
+          , "colorMethod":        "blend-diversity"
+          , "optimize":           "3"
+        }
+      , "gifsicle": {
+            "interlaced":         false
+          , "optimizationLevel":  3
+        }
+      , "mozjpeg":  {"quality": 50, "progressive": true}
       , "pngquant": {"quality": [0.5, 0.5]}
-      , "webp":     {"quality": 50}
+      , "webp":     {
+            "method":   4
+          , "quality":  50
+        }
+    }
+  , "resolutions": {
+      "graceful-fs": "^4.2.4"
     }
   , "jshintConfig": {}
   , "keywords": [
