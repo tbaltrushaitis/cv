@@ -90,8 +90,8 @@
     }
   , {
       "selector": "#scope-09"
-    , "inclass":  "animate__fadeInUpBig"
-    , "outclass": "animate__fadeOutUpBig"
+    , "inclass":  "animate__fadeInUp"
+    , "outclass": "animate__fadeOutUp"
     }
   , {
       "selector": "#scope-10"
@@ -145,8 +145,8 @@
     }
   , {
       "selector": "#whatido-06"
-    , "inclass":  "animate__fadeInUpBig"
-    , "outclass": "animate__fadeOutUpBig"
+    , "inclass":  "animate__fadeInUp"
+    , "outclass": "animate__fadeOutUp"
     }
   , {
       "selector": "#whatido-07"
@@ -155,8 +155,8 @@
     }
   , {
       "selector": "#whatido-08"
-    , "inclass":  "animate__fadeInUpBig"
-    , "outclass": "animate__fadeOutDownBig"
+    , "inclass":  "animate__fadeInUp"
+    , "outclass": "animate__fadeOutDown"
     }
   , {
       "selector": "#whatido-09"

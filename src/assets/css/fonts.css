@@ -3,12 +3,12 @@
  *               Fonts
 /* ---------------------------------------------- */
 
-/* html {
+html {
   font-display: swap;
-} */
+}
 
-/* body {
+body {
   font-display: swap;
-} */
+}
 
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+@import url(//fonts.googleapis.com/css?family=Lato:300,400,700);
