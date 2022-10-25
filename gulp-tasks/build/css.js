@@ -10,19 +10,20 @@
 //  ------------------------------------------------------------------------  //
 //  -----------------------------  DEPENDENCIES  ---------------------------  //
 //  ------------------------------------------------------------------------  //
-const { src, dest }  = require('gulp');
-
 const path = require('path');
 const utin = require('util').inspect;
 
+const { series, parallel, src, dest }  = require('gulp');
+
 const readConfig = require('read-config');
+
 const cleanCSS   = require('gulp-clean-css');
 const concatCSS  = require('gulp-concat-css');
 const gulpif     = require('gulp-if');
-const headfoot   = require('gulp-headerfooter');
-// const merge      = require('merge-stream');
 const size       = require('gulp-size');
 const vPaths     = require('vinyl-paths');
+// const headfoot   = require('gulp-headerfooter');
+// const merge      = require('merge-stream');
 
 //  ------------------------------------------------------------------------  //
 //  ----------------------------  CONFIGURATION  ---------------------------  //
@@ -42,10 +43,10 @@ let C = ME.Config.colors;
 //  ------------------------------------------------------------------------  //
 //  ------------------------------  FUNCTIONS  -----------------------------  //
 //  ------------------------------------------------------------------------  //
-let FROM = path.join(ME.SRC, 'assets/css');
 let CSS  = path.join('css');
-let DEST = path.join(ME.BUILD, 'assets');
+let FROM = path.join(ME.SRC, 'assets', CSS);
 let KEEP = path.join(ME.BUILD, 'resources/assets');
+let DEST = path.join(ME.BUILD, 'assets');
 let CONF = ME.Config.cleanCSS;
 
 let STYLES_SRC = [
@@ -77,7 +78,7 @@ function frontCSS () {
     //  Write banners
     // .pipe(headfoot.header(ME.Banner.header))
     // .pipe(headfoot.footer(ME.Banner.footer))
-    .pipe(size({title: 'FRONT CSS', showFiles: true}))
+    .pipe(size({title: 'FRONT CSS', showFiles: false}))
     .pipe(dest(path.resolve(DEST, CSS)))
   ;
 
@@ -87,10 +88,11 @@ function frontCSS () {
 /**
  * @_EXPOSE
  */
-exports.buildCss  = frontCSS;
+// exports.buildCss  = frontCSS;
+exports.frontCSS  = frontCSS;
 
 
 /**
  * @_EXPORTS
  */
-exports.default = frontCSS;
+exports.default = series(frontCSS);

@@ -2,7 +2,6 @@ const { series, parallel }  = require('gulp');
 
 const { default:Bower }     = require('./bower');
 const { default:Build }     = require('./build');
-// const { default:DirSync }   = require('./dirsync');
 const { default:Lint }      = require('./lint');
 const { default:Populate }  = require('./populate');
 const {
@@ -17,7 +16,6 @@ const Data = (function () {
       bower:    Bower
     , build:    Build
     , config:   Config
-    // , dirsync:  DirSync
     , help:     Help
     , lint:     Lint
     , populate: Populate
@@ -33,7 +31,6 @@ exports.bower     = Bower
 exports.build     = Build
 exports.config    = Config
 exports.data      = Data
-// exports.dirsync   = DirSync
 exports.help      = Help
 exports.lint      = Lint
 exports.test      = Lint
@@ -44,4 +41,4 @@ exports.usage     = Usage
 /**
  * @_EXPORTS
  */
-exports.default = Help;
+exports.default = series(Help);

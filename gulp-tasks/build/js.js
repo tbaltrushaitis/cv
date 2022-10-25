@@ -10,17 +10,19 @@
 //  ------------------------------------------------------------------------  //
 //  -----------------------------  DEPENDENCIES  ---------------------------  //
 //  ------------------------------------------------------------------------  //
-const { src, dest }  = require('gulp');
-
 const path = require('path');
 const utin = require('util').inspect;
 
-const gulpif     = require('gulp-if');
-const headfoot   = require('gulp-headerfooter');
-const size       = require('gulp-size');
-const terser     = require('gulp-terser');
-const vPaths     = require('vinyl-paths');
+const { series, parallel, src, dest } = require('gulp');
+
 const readConfig = require('read-config');
+
+const concatJS  = require('gulp-concat');
+const gulpif    = require('gulp-if');
+const size      = require('gulp-size');
+const terser    = require('gulp-terser');
+const vPaths    = require('vinyl-paths');
+// const headfoot   = require('gulp-headerfooter');
 
 //  ------------------------------------------------------------------------  //
 //  ----------------------------  CONFIGURATION  ---------------------------  //
@@ -41,9 +43,10 @@ let C = ME.Config.colors;
 //  ------------------------------  FUNCTIONS  -----------------------------  //
 //  ------------------------------------------------------------------------  //
 let JS   = path.join('js/lib');
-let FROM = path.join(ME.BUILD, 'resources', JS);
-let DEST = path.join(ME.BUILD, 'assets');
+// let FROM = path.join(ME.BUILD, 'resources', JS);
+let FROM = path.join(ME.BUILD, 'resources/assets', JS);
 let KEEP = path.join(ME.BUILD, 'resources/assets');
+let DEST = path.join(ME.BUILD, 'assets');
 
 let LIBS_SRC = [
     path.join(FROM, 'jquery.js')
@@ -73,6 +76,8 @@ function frontJS () {
     }))
     .pipe(dest(path.resolve(KEEP, JS)))
     .pipe(gulpif(['production', ''].includes(ME.NODE_ENV), terser(ME.pkg.options.terser)))
+    .pipe(dest(path.resolve(DEST, JS)))
+    .pipe(concatJS('libs-bundle.js'))
     //  Write banners
     // .pipe(headfoot.header(ME.Banner.header))
     // .pipe(headfoot.footer(ME.Banner.footer))
@@ -86,10 +91,9 @@ function frontJS () {
  * @_EXPOSE
  */
 exports.frontJS = frontJS;
-// exports.buildJs = frontJS;
 
 
 /**
  * @_EXPORTS
  */
-exports.default = frontJS;
+exports.default = series(frontJS);

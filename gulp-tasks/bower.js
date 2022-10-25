@@ -52,8 +52,9 @@ let CSS  = path.join('css');
 let FONT = path.join('fonts');
 let IMG  = path.join('img');
 let WEBFONT = path.join('webfonts');
-let KEEP = path.join(ME.BUILD, 'resources');
+let KEEP = path.join(ME.BUILD, 'resources/assets');
 let DEST = path.join(ME.BUILD, 'assets');
+
 let CONF = {
     // , format: 'keep-breaks'
     debug: true
@@ -113,7 +114,7 @@ function bowerJS (cb) {
     //  Write banners
     // .pipe(headfoot.header(ME.Banner.header))
     // .pipe(headfoot.footer(ME.Banner.footer))
-    .pipe(size({title: 'BOWER:SCRIPTS', showFiles: true}))
+    .pipe(size({title: 'BOWER:SCRIPTS', showFiles: false}))
     .pipe(dest(path.resolve(DEST, JS)))
   ;
 
@@ -141,7 +142,7 @@ function bowerCSS (cb) {
     //  Write banners
     // .pipe(headfoot.header(ME.Banner.header))
     // .pipe(headfoot.footer(ME.Banner.footer))
-    .pipe(size({title: 'BOWER:CSS', showFiles: true}))
+    .pipe(size({title: 'BOWER:CSS', showFiles: false}))
     .pipe(dest(path.resolve(DEST, CSS)))
   ;
 
@@ -172,7 +173,7 @@ function webFonts (cb) {
   return src(mBower)
     .pipe(filter(['**/webfonts/*.*']))
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d}[${C.O}${modName.toUpperCase()}${C.N}] Copy ${C.C}WEBFONT${C.N}: [${C.Gray}${p}${C.N}]`);
+      console.log(`${ME.d}[${C.O}${modName.toUpperCase()}${C.N}] Copy ${C.W}WEBFONT${C.N}: [${C.Gray}${p}${C.N}]`);
       return Promise.resolve(p);
     }))
     .pipe(size({title: 'BOWER:WEBFONTS', showFiles: false}))

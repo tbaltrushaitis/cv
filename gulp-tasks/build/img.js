@@ -10,10 +10,10 @@
 //  ------------------------------------------------------------------------  //
 //  -----------------------------  DEPENDENCIES  ---------------------------  //
 //  ------------------------------------------------------------------------  //
-const { src, dest, series, parallel } = require('gulp');
-
 const path = require('path');
 const utin = require('util').inspect;
+
+const { src, dest, series, parallel } = require('gulp');
 
 const extReplace = require('gulp-ext-replace');
 const filter     = require('gulp-filter');
@@ -55,10 +55,10 @@ let C = ME.Config.colors;
  * JIMP - responsible for image processing
  */
 // let FROM = path.join(ME.BUILD, 'assets');
-let FROM = path.join(ME.SRC, 'assets');
-let DEST = path.join(ME.BUILD, 'assets');
 let IMG  = path.join('img');
 let TUMB = path.join('thumbs');
+let FROM = path.join(ME.SRC, 'assets');
+let DEST = path.join(ME.BUILD, 'assets');
 let SRC  = path.join(FROM, IMG, 'works', '**/*.*');
 
 let jimpOpts      = ME.pkg.options.jimp;
@@ -81,7 +81,7 @@ function PNGS () {
       '**/*.png'
     ]))
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d}[${C.O}JIMP${C.N}] Resize ${C.C}PNG${C.N}: [${C.Gray}${p}${C.N}]`);
+      console.log(`${ME.d}[${C.O}JIMP${C.N}] Resize ${C.W}PNG${C.N}: [${C.Gray}${p}${C.N}]`);
       return Promise.resolve(p);
     }))
     .pipe(jimp({
@@ -196,7 +196,7 @@ async function WEBP () {
   //   // .pipe(size({title: '.WEBP'}))
   //   .pipe(dest(path.join(DEST, IMG)));
 
-  let SrcExt = '*.{jpg,jpeg,png}'
+  let SrcExt = '*.{jpg,jpeg,png,ico}'
 
   let Opts = {
       verbose: true
@@ -208,22 +208,25 @@ async function WEBP () {
 
   await imagemin([path.join(FROM, IMG, 'ico', SrcExt)]
   , { ...Opts, destination: path.join(DEST, IMG, 'ico') });
-  console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] Created ${C.C}WEBP${C.N} in: [${C.Gr}${path.join(DEST, IMG, 'ico')}${C.N}]`);
+  console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] Created ${C.W}WEBP${C.N} in: [${C.Gr}${path.join(DEST, IMG, 'ico')}${C.N}]`);
 
   await imagemin([path.join(FROM, IMG, 'logos', SrcExt)]
   , { ...Opts, destination: path.join(DEST, IMG, 'logos') });
-  console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] Created ${C.C}WEBP${C.N} in: [${C.Gr}${path.join(DEST, IMG, 'logos')}${C.N}]`);
+  console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] Created ${C.W}WEBP${C.N} in: [${C.Gr}${path.join(DEST, IMG, 'logos')}${C.N}]`);
 
   await imagemin([path.join(DEST, IMG, 'works', SrcExt)]
     , { ...Opts, destination: path.join(DEST, IMG, 'works') });
-  console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] Created ${C.C}WEBP${C.N} in: [${C.Gr}${path.join(DEST, IMG, 'works')}${C.N}]`);
+  console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] Created ${C.W}WEBP${C.N} in: [${C.Gr}${path.join(DEST, IMG, 'works')}${C.N}]`);
 
   await imagemin([path.join(DEST, IMG, SrcExt)]
   , { ...Opts, destination: path.join(DEST, IMG) });
-  console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] Created ${C.C}WEBP${C.N} in: [${C.Gr}${path.join(DEST, IMG)}${C.N}]`);
+  console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] Created ${C.W}WEBP${C.N} in: [${C.Gr}${path.join(DEST, IMG)}${C.N}]`);
+
+  await imagemin([path.join(ME.SRC, SrcExt)]
+  , { ...Opts, destination: path.join(ME.BUILD) });
+  console.log(`${ME.d}[${C.O}IMAGEMIN${C.N}] Created ${C.W}WEBP${C.N} in: [${C.Gr}${path.join(ME.BUILD)}${C.N}]`);
 
 }
-
 
 
 /**

@@ -1,4 +1,4 @@
-const { series, parallel }  = require('gulp');
+const { series, parallel } = require('gulp');
 
 const { default:Css } = require('./css');
 const { default:Js }  = require('./js');
