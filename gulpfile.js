@@ -43,10 +43,9 @@ ME.version    = ME.pkg.version;
 ME.pkg.built  = `${dateFormat(now, 'yyyy-mm-dd')}T${dateFormat(now, 'HH:MM:ss')} ${dateFormat(now, 'Z')}`;
 ME.pkg.year   = `${dateFormat(now, 'yyyy')}`;
 ME.pkg.options.readconf = Object.assign({}, ME.pkg.options.readconf, {
-  // basedir: path.join(ME.WD, 'config')
   basedir: `${ME.CFGD}`
 });
-utin.defaultOptions = Object.assign({}, ME.pkg.options.iopts);
+utin.defaultOptions = { ...ME.pkg.options.iopts };
 
 ME.NODE_ENV = process.env.NODE_ENV
   ? process.env.NODE_ENV
@@ -54,8 +53,8 @@ ME.NODE_ENV = process.env.NODE_ENV
     ? argv.env
     : fs.existsSync('./NODE_ENV')
       ? fs.readFileSync('./NODE_ENV', ME.pkg.options.file).split('\n')[0].trim()
-      : fs.existsSync('config/.NODE_ENV')
-        ? fs.readFileSync('config/.NODE_ENV', ME.pkg.options.file).split('\n')[0].trim()
+      : fs.existsSync(`${ME.CFGD}/.NODE_ENV`)
+        ? fs.readFileSync(`${ME.CFGD}/.NODE_ENV`, ME.pkg.options.file).split('\n')[0].trim()
         : ME.NODE_ENV || 'test';
 
 process.env.NODE_ENV = `${ME.NODE_ENV}`;
@@ -189,7 +188,6 @@ function defaultTask (cb) {
  */
 exports.bower     = Tasks.bower;
 exports.build     = Tasks.build;
-// exports.dirsync   = Tasks.dirsync;
 exports.help      = Tasks.help;
 exports.lint      = Tasks.lint;
 exports.test      = Tasks.test;
