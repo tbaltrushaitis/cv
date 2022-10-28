@@ -4,12 +4,9 @@
 /* ---------------------------------------------- */
 body {
   /* font-family: 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; */
-  /* font-family: 'Lato', 'Roboto', Helvetica, Arial, 'sans-serif'; */
   font-family: 'Roboto', 'Lato', Helvetica, 'sans-serif';
-  /* font-family: 'Roboto', Helvetica, Arial, 'sans-serif'; */
-  /* font-family: 'Lato', Helvetica, Arial, 'sans-serif'; */
-  /* font-display: swap; */
   font-weight: 400;
+  font-display: swap;
   position: relative;
 }
 

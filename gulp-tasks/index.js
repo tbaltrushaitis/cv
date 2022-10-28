@@ -6,8 +6,8 @@ const { default:Lint }      = require('./lint');
 const { default:Populate }  = require('./populate');
 const {
     default: Help
-  , config: Config
-  , usage: Usage
+  , config:  Config
+  , usage:   Usage
 } = require('./usage');
 
 
