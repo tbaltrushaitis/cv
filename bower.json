@@ -1,10 +1,10 @@
 {
-    "name": "cv"
-  , "version": "0.3.0"
-  , "title": "Modern CV, Resume and Portfolio website"
-  , "description": "Best-in-Class website template for modern CV, Resume and Portfolio. Easy customizable static website with simple smart easy-to-use builder."
-  , "homepage": "https://github.com/tbaltrushaitis/cv"
-  , "license": "MIT"
+    "name":         "cv"
+  , "version":      "0.3.1"
+  , "title":        "Modern CV, Resume and Portfolio website"
+  , "description":  "Best-in-Class website template for modern CV, Resume and Portfolio. Easy customizable static website with simple smart easy-to-use builder."
+  , "homepage":     "https://github.com/tbaltrushaitis/cv"
+  , "license":      "MIT"
   , "authors": [
       "tbaltrushaitis@gmail.com"
     ]
@@ -13,122 +13,122 @@
   , "moduleType": [
       "project"
     ]
-  , "ignore": [
-      "**/.*"
-    , "bower_modules"
-    , "build"
-    , "dist"
-    , "docs"
-    , "node_modules"
-    , "test"
-    , "tests"
-    , "webroot"
-    ]
   , "dependencies": {
-      "animate.css":    "^4.1.0"
-    , "bootstrap":      "~3.3.7"
-    , "bower-jquery-easyPieChart": "^0.0.1"
-    , "font-awesome":   "#5.13.0"
-    , "fitvids":        "jquery.fitvids#^1.2.0"
-    , "html5shiv":      "~3.7.3"
-    , "jquery":         "~3.5.1"
-    , "jquery-countTo": "countto#^1.2.0"
-    , "jquery.inview":  "jquery.inview#^1.1.2"
-    , "jquery.stellar": "^0.6.2"
-    , "jquery-sticky":  "sticky#1.0.4"
-    , "jquery-throttle-debounce": "*"
-    , "magnific-popup": "^1.1.0"
-    , "modernizr":      "^3.7.1"
-    , "noty":           "~2.4.1"
-    , "requirejs":      "~2.3.6"
-    , "respond":        "~1.4.2"
-    , "smoothscroll":   "^0.4.4"
-    , "shufflejs":      "^5.2.2"
-    , "waypoints":      "^4.0.1"
-    , "wow":            "wow-mit#~1.3.0"
+        "animate.css":    "^4.1.1"
+      , "bootstrap":      "~3.3.7"
+      , "bower-jquery-easyPieChart": "^0.0.1"
+      , "font-awesome":   "#6.2.0"
+      , "fitvids":        "jquery.fitvids#^1.2.0"
+      , "html5shiv":      "~3.7.3"
+      , "jquery":         "~3.5.1"
+      , "jquery-countTo": "countto#^1.2.0"
+      , "jquery.inview":  "jquery.inview#^1.1.2"
+      , "jquery.stellar": "^0.6.2"
+      , "jquery-sticky":  "sticky#1.0.4"
+      , "magnific-popup": "^1.1.0"
+      , "modernizr":      "^3.7.1"
+      , "noty":           "~2.4.1"
+      , "respond":        "~1.4.2"
+      , "smoothscroll":   "^0.4.4"
+      , "shufflejs":      "^5.2.2"
+      , "waypoints":      "^4.0.1"
+      , "wow":            "wow-mit#~1.3.0"
     }
   , "devDependencies": {}
   , "dependencies-DISABLED": {
-      "jquery.shuffle": "#9cf47a1590"
-    , "lato-font":      "^3.0.0"
-    , "normalize-css":  "^8.0.1"
+        "jquery.shuffle": "#9cf47a1590"
+      , "jquery-throttle-debounce": "*"
+      , "lato-font":      "^3.0.0"
+      , "normalize-css":  "^8.0.1"
+      , "requirejs":      "~2.3.6"
     }
   , "resolutions-DISABLED": {
       "font-awesome": "5.10.1"
     }
   , "overrides": {
-      "bootstrap": {
-        "main": [
-            "dist/**/*.*"
-          , "!**/*.less"
-          , "!**/npm.js"
-          , "!**/*.min.js"
-          , "!*-theme.*"
-        ]
-      , "main-4": [
-            "dist/js/bootstrap.js"
-          , "dist/css/bootstrap.css"
-          , "dist/fonts/*.*"
-        ]
-      }
-    , "font-awesome": {
-        "main": [
-            "webfonts/*.*"
-          , "css/all.css"
-        ]
-      }
-    , "smoothscroll": {
-        "main": [
-          "src/smoothscroll.js"
-        ]
-      }
-    , "shufflejs": {
-        "main": [
-          "dist/shuffle.js"
-        ]
-      }
-    , "waypoints": {
-        "main": [
-            "lib/jquery.waypoints.js"
-          , "lib/shortcuts/inview.js"
-        ]
-      }
+        "bootstrap": {
+            "main": [
+                "dist/**/*.*"
+              , "!**/*.less"
+              , "!**/npm.js"
+              , "!**/*.min.js"
+              , "!*-theme.*"
+            ]
+          , "main-4": [
+                "dist/js/bootstrap.js"
+              , "dist/css/bootstrap.css"
+              , "dist/fonts/*.*"
+            ]
+        }
+      , "font-awesome": {
+          "main": [
+              "webfonts/*.*"
+            , "css/all.css"
+          ]
+        }
+      , "smoothscroll": {
+          "main": [
+            "src/smoothscroll.js"
+          ]
+        }
+      , "shufflejs": {
+          "main": [
+            "dist/shuffle.js"
+          ]
+        }
+      , "waypoints": {
+          "main": [
+              "lib/jquery.waypoints.js"
+            , "lib/shortcuts/inview.js"
+          ]
+        }
     }
   , "group": {
-      "fonts": [
-        "font-awesome"
-      ]
-    , "libs": [
-          "jquery"
-        , "bootstrap"
-        , "requirejs"
-      ]
-    , "plugins": [
-          "bower-jquery-easyPieChart"
-        , "magnific-popup"
-        , "fitvids"
-        , "jquery-countTo"
-        , "jquery.inview"
-        , "jquery.stellar"
-        , "jquery-sticky"
-        , "jquery-throttle-debounce"
-        , "shufflejs"
-        , "noty"
-      ]
-    , "ui": [
-          "animate.css"
-        , "smoothscroll"
-        , "shufflejs"
-        , "waypoints"
-        , "wow"
-      ]
-    , "front": [
-          "fonts"
-        , "libs"
-        , "plugins"
-        , "ui"
-      ]
+        "fonts": [
+          "font-awesome"
+        ]
+      , "libs": [
+            "jquery"
+          , "bootstrap"
+          , "requirejs"
+        ]
+      , "plugins": [
+            "bower-jquery-easyPieChart"
+          , "magnific-popup"
+          , "fitvids"
+          , "jquery-countTo"
+          , "jquery.inview"
+          , "jquery.stellar"
+          , "jquery-sticky"
+          , "jquery-throttle-debounce"
+          , "shufflejs"
+          , "noty"
+        ]
+      , "ui": [
+            "animate.css"
+          , "smoothscroll"
+          , "shufflejs"
+          , "waypoints"
+          , "wow"
+        ]
+      , "front": [
+            "fonts"
+          , "libs"
+          , "plugins"
+          , "ui"
+        ]
     }
+  , "ignore": [
+        "**/.*"
+      , "bower_modules"
+      , "build"
+      , "dist"
+      , "docs"
+      , "node_modules"
+      , "test"
+      , "tests"
+      , "webroot"
+    ]
   , "keywords": [
         "bio"
       , "cv"

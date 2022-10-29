@@ -1,9 +1,9 @@
 /* jshint unused:false */
 /*!
- * Project:     cv
- * File:        ./assets/js/front/index.js
- * Copyright(c) 2016-present Baltrushaitis Tomas <tbaltrushaitis@gmail.com>
- * License:     MIT
+ * Project:     {{app.name}}
+ * File:        assets/js/front/index.js
+ * Copyright(c) 2016-nowdays {{author.name.full}} <{{author.email}}>
+ * License:     {{project.license}}
  */
 
 'use strict';
@@ -19,7 +19,6 @@ window.jQuery(function ($) {
   // ---------------------------------------------------------------------------
   // Waypoints
   // ---------------------------------------------------------------------------
-
   let wShow = function (o) {
     let opts = Object.assign({}, defOpts || {}, o || {});
 
@@ -40,33 +39,18 @@ window.jQuery(function ($) {
           this.element.removeClass(opts.inclass).addClass(opts.outclass);
         }
       , offset: function () {
-
-          // console.log('this.element.clientHeight = ', this.element.clientHeight);
           return 70 + this.element.clientHeight;
         }
 
       // , offset: opts.offset || '-50%'
+
     });
 
   };
 
   // ---------------------------------------------------------------------------
-  // Preloader
-  // ---------------------------------------------------------------------------
-
-  // (function () {
-  //   $(document).ready(function () {
-  //   // $(window).on('load', function () {
-  //     $('#pre-status').fadeOut();
-  //     $('#tt-preloader').delay(150).fadeOut('slow');
-  //     console.log('PRELOADER__REMOVED');
-  //   });
-  // }());
-
-  // ---------------------------------------------------------------------------
   //  Animations
   // ---------------------------------------------------------------------------
-
   (function () {
 
     let w = window;
@@ -75,6 +59,7 @@ window.jQuery(function ($) {
     // Examine the text in the response
     function status (r) {
       if (r.status >= 200 && r.status < 300) {
+        // console.log('Response Status Code: ' + r.status);
         return Promise.resolve(r);
       } else {
         console.warn('Looks like there was a problem. Status Code: ' + r.status);
@@ -128,16 +113,16 @@ window.jQuery(function ($) {
 
     })
     .catch(function (e) {
-      console.warn('Failed to Enable ANIMATIONS: [', e, ']');
+      console.log('Failed to Enable Animations: [', e, ']');
       return Promise.reject(e);
     });
 
     AnimationsEnabled.then(function () {
-      console.info('ANIMATIONS ENABLED');
+      console.log('%c✓ %cAnimations: ENABLED', 'color:green;font-weight:bold;font-size:16px;', 'color:blue;font-weight:bold;');
       return Promise.resolve(true);
     })
     .catch(function (e) {
-      console.warn('Failed to Enable ANIMATIONS: [', e, ']');
+      console.warn('Animations NOT ENABLED: [', e, ']');
       return Promise.reject(e);
     });
 
@@ -146,7 +131,6 @@ window.jQuery(function ($) {
   // ---------------------------------------------------------------------------
   //  NOTY options
   // ---------------------------------------------------------------------------
-
   (function () {
     $.noty.defaults = {
       layout:         'topRight'
@@ -180,33 +164,34 @@ window.jQuery(function ($) {
   })();
 
   // ---------------------------------------------------------------------------
-  //  Transformations
-  // ---------------------------------------------------------------------------
-
-  (function () {
-
-    $(window).on('load', function () {
-      $('[name="contact-cell"]').html(atob('{{person.contacts.cell}}'));
-      $('[name="contact-email"]').prop('href', atob('{{person.contacts.email}}'));
-      console.log(atob('Q09OVEFDVFMgU0VU'));
-    });
-
-  })();
-
-  // ---------------------------------------------------------------------------
   //  LOAD Indicators
   // ---------------------------------------------------------------------------
+  (function () {
 
-  $(window).ready(function () {
-    console.log('WINDOW___READY');
-  });
+    $(window).ready(function () {
+      console.log(`%c{{app.name}} v{{app.version}}-b{{cntr}}`, 'color:red;font-weight:bold;font-size:24px;');
+      console.log(`%cEnv: {{env}}, Branch: {{branch}}`, 'color:Purple;font-weight:bold;font-size:18px;');
+      console.log('%c✓ %cWINDOW: READY', 'color:green;font-weight:bold;font-size:16px;', 'color:black;font-weight:normal;');
+    });
 
-  $(document).ready(function () {
-    console.log('DOCUMENT___READY');
-  });
+    $(document).ready(function () {
+      console.log('%c✓ %cDOCUMENT: READY', 'color:green;font-weight:bold;font-size:16px;', 'color:black;font-weight:normal;');
+      $('[name="contact-cell"]').html(atob('{{person.contacts.cell}}'));
+      $('[name="contact-email"]').prop('href', atob('{{person.contacts.email}}'));
+      console.log(`%c✓ %c${atob('Q09OVEFDVFM6IFNFVA==')}`, 'color:green;font-weight:bold;font-size:16px;', 'color:blue;font-weight:bold;');
 
-  $(window).on('load', function () {
-    console.log('WINDOW___LOAD');
-  });
+      // ---------------------------------------------------------------------------
+      // Preloader
+      // ---------------------------------------------------------------------------
+      $('#pre-status').fadeOut();
+      $('#tt-preloader').delay(100).fadeOut('fast');
+      console.log('%c✓ %cPRELOADER REMOVED', 'color:green;font-weight:bold;font-size:16px;', 'color:black;');
+    });
+
+    $(window).on('load', function () {
+      console.log('%c✓ %cWINDOW: LOAD', 'color:green;font-weight:bold;font-size:16px;', 'color:black;font-weight:normal;');
+    });
+
+  }());
 
 });

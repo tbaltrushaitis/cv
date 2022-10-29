@@ -1,14 +1,19 @@
+const { series, parallel } = require('gulp');
+
+const { default:Css } = require('./css');
+const { default:Js }  = require('./js');
+const { default:Img } = require('./img');
+
+
 /**
  * @_EXPOSE
  */
-exports = {
-    ...require('./css')
-  , ...require('./img')
-  , ...require('./js')
-};
+exports.css = Css;
+exports.js  = Js;
+exports.img = Img;
 
 
 /**
  * @_EXPORTS
  */
-module.exports = exports;
+exports.default = series(Css, Js, Img);

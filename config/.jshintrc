@@ -1,29 +1,29 @@
 {
-  "browser":   true
-, "jquery":    false
-, "node":      true
-, "esversion": 6
-, "camelcase": true
-, "curly":     true
-, "eqeqeq":    true
-, "eqnull":    true
-, "funcscope": true
-, "indent":    2
-, "latedef":   true
-, "laxcomma":  true
-, "maxerr":    50
-, "newcap":    true
-, "nonbsp":    true
-, "notypeof":  true
-, "shadow":    "inner"
-, "quotmark":  "single"
-, "trailing":  true
-, "undef":     true
-, "unused":    true
-, "strict":    true
-, "predef": [
-    "APP"
-  , "Modernizr"
-  , "MobileDetect"
-  ]
+    "browser":   true
+  , "jquery":    false
+  , "node":      true
+  , "esversion": 6
+  , "camelcase": true
+  , "curly":     true
+  , "eqeqeq":    true
+  , "eqnull":    true
+  , "funcscope": true
+  , "indent":    2
+  , "latedef":   true
+  , "laxcomma":  true
+  , "maxerr":    50
+  , "newcap":    true
+  , "nonbsp":    true
+  , "notypeof":  true
+  , "shadow":    "inner"
+  , "quotmark":  "single"
+  , "trailing":  true
+  , "undef":     true
+  , "unused":    true
+  , "strict":    true
+  , "predef": [
+        "APP"
+      , "Modernizr"
+      , "MobileDetect"
+    ]
 }

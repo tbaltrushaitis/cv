@@ -1,50 +1,36 @@
-/*!
- * Project:     cv
- * File:        ./assets/js/front/theme.js
- * Copyright(c) 2016-present Baltrushaitis Tomas <tbaltrushaitis@gmail.com>
- * License:     MIT
- */
 /* jshint unused:false */
+/*!
+ * Project:     {{app.name}}
+ * File:        assets/js/front/theme.js
+ * Copyright(c) 2016-nowdays {{author.name.full}} <{{author.email}}>
+ * License:     {{project.license}}
+ */
 /*!
  * Theme Name:  IAMX
  * Author:      Trendy Theme
  * Author URL:  http://trendytheme.net
  */
 /*!
-  =   Preloader
-  =   Animated scrolling / Scroll Up
-  =   Full Screen Slider
-  =   Sticky Menu
-  =   Back To Top
-  =   Countup
-  =   Progress Bar
-  =   More skill
-  =   Shuffle
-  =   Magnific Popup
-  =   Google Map
+  = Preloader
+  = Animated scrolling / Scroll Up
+  = Full Screen Slider
+  = Sticky Menu
+  = Back To Top
+  = Countup
+  = Progress Bar
+  = More skill
+  = Shuffle
+  = Magnific Popup
+  = Google Map
  */
 
+'use strict';
+
 window.jQuery(function ($) {
-
-  'use strict';
-
-  // ---------------------------------------------------------------------------
-  // Preloader
-  // ---------------------------------------------------------------------------
-
-  (function () {
-    $(document).ready(function () {
-      // $(window).on('load', function () {
-      $('#pre-status').fadeOut();
-      $('#tt-preloader').delay(150).fadeOut('slow');
-      console.log('PRELOADER__REMOVED');
-    });
-  }());
 
   // ---------------------------------------------------------------------------
   //  Animated scrolling / Scroll Up
   // ---------------------------------------------------------------------------
-
   (function () {
     $('a[href*="#"]').bind('click', function (e) {
       var anchor = $(this);
@@ -58,7 +44,6 @@ window.jQuery(function ($) {
   // ---------------------------------------------------------------------------
   //  Full Screen Slider
   // ---------------------------------------------------------------------------
-
   (function () {
     $('.tt-fullHeight').height($(window).height());
 
@@ -70,7 +55,6 @@ window.jQuery(function ($) {
   // ---------------------------------------------------------------------------
   //  Sticky Menu
   // ---------------------------------------------------------------------------
-
   (function () {
 
     $('.header').sticky({
@@ -87,7 +71,6 @@ window.jQuery(function ($) {
   // ---------------------------------------------------------------------------
   //  Back To Top
   // ---------------------------------------------------------------------------
-
   (function () {
     $(window).scroll(function () {
       if ($(this).scrollTop() > 100) {
@@ -101,7 +84,6 @@ window.jQuery(function ($) {
   // ---------------------------------------------------------------------------
   //  Countup
   // ---------------------------------------------------------------------------
-
   $('.count-wrap').bind('inview', function (event, visible, visiblePartX, visiblePartY) {
     $(this).find('.timer').each(function () {
       var $this = $(this);
@@ -123,11 +105,11 @@ window.jQuery(function ($) {
   // ---------------------------------------------------------------------------
   //  Progress Bar
   // ---------------------------------------------------------------------------
-
   $('.skill-progress').bind('inview', function (event, visible, visiblePartX, visiblePartY) {
     if (visible) {
       $.each($('div.progress-bar'), function () {
-        $(this).css('width', null)
+        $(this)
+          .css('width', null)
           .css('width', $(this).attr('aria-valuenow') + '%');
       });
     }
@@ -136,7 +118,6 @@ window.jQuery(function ($) {
   // ---------------------------------------------------------------------------
   //  More skill
   // ---------------------------------------------------------------------------
-
   $('.more-skill').bind('inview', function (event, visible, visiblePartX, visiblePartY) {
     if (visible) {
       // configuration goes here
@@ -163,11 +144,8 @@ window.jQuery(function ($) {
   // ---------------------------------------------------------------------------
   //  Portfolio
   // ---------------------------------------------------------------------------
-
   (function () {
-
     var $grid = $('#og-grid');
-
     var shuffleInstance = new window.Shuffle($grid, {
       itemSelector: '.portfolio-item'
     });
@@ -192,7 +170,6 @@ window.jQuery(function ($) {
   // ---------------------------------------------------------------------------
   //  Magnific Popup
   // ---------------------------------------------------------------------------
-
   (function () {
     $('.image-link').magnificPopup({
       gallery: {
@@ -207,7 +184,6 @@ window.jQuery(function ($) {
   // ---------------------------------------------------------------------------
   //  WOW JS
   // ---------------------------------------------------------------------------
-
   (function () {
 
     new window.WOW({
@@ -217,7 +193,7 @@ window.jQuery(function ($) {
       , mobile:          true        //  trigger animations on mobile devices (default is true)
       , live:            true        //  act on asynchronously loaded content (default is true)
       , scrollContainer: null        //  optional scroll container selector, otherwise use window,
-      , resetAnimation:  false        //  reset animation on end (default is true)
+      , resetAnimation:  false       //  reset animation on end (default is true)
       , callback: function (box) {
           //  the callback is fired every time an animation is started
           //  the argument that is passed in is the DOM node being animated
@@ -230,7 +206,6 @@ window.jQuery(function ($) {
   // ---------------------------------------------------------------------------
   //  Contact Form
   // ---------------------------------------------------------------------------
-
   $('#contactForm').on('submit', function (e) {
     e.preventDefault();
     console.log('contactForm SUBMIT Action');
@@ -256,67 +231,72 @@ window.jQuery(function ($) {
 
   });
 
-  // ---------------------------------------------------------------------------
-  //  Google Map
-  // ---------------------------------------------------------------------------
-
-  (function () {
-
-    let myLatlng, myLat, myLng, styles, mapOptions, map, marker, contentString, infoWindow;
-
-    myLat = parseFloat('{{person.bio.location.lat}}');
-    myLng = parseFloat('{{person.bio.location.lng}}');
-    myLatlng = new window.google.maps.LatLng(myLat, myLng);
-
-    styles = [
-      {
-        featureType: 'landscape'
-        , stylers: [
-            {color: '#f7f7f7'}
-          ]
-      }
-      , {
-        featureType: 'road'
-        , stylers: [
-            {hue: '#fff'}
-            , {saturation: -70}
-          ]
-      }
-      , {
-        featureType: 'poi'   // points of interest
-        , stylers: [
-            {hue: ''}
-          ]
-      }
-    ];
-
-    mapOptions = {
-      zoom:               10
-      , scrollwheel:      false
-      , center:           myLatlng
-      , mapTypeId:        window.google.maps.MapTypeId.ROADMAP
-      , disableDefaultUI: true
-      , styles:           styles
-    };
-
-    map = new window.google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
-
-    marker = new window.google.maps.Marker({
-      position:    myLatlng
-      , map:       map
-      , animation: window.google.maps.Animation.DROP
-      , title:     'I@{{person.bio.location.city}}'
-    });
-
-    contentString = `Hello, Visitor!`;
-    infoWindow = new window.google.maps.InfoWindow({
-      content: contentString
-    });
-
-    window.google.maps.event.addListener(marker, 'click', function () {
-      infoWindow.open(map, marker);
-    });
-
-  }());
-
 });
+
+// ---------------------------------------------------------------------------
+//  Google Map
+// ---------------------------------------------------------------------------
+function initMap () {
+
+  let myLatlng, myLat, myLng, styles, mapOptions, map, marker, contentString, infoWindow;
+
+  myLat = parseFloat('{{person.bio.location.lat}}');
+  myLng = parseFloat('{{person.bio.location.lng}}');
+  myLatlng = new window.google.maps.LatLng(myLat, myLng);
+
+  styles = [
+    {
+      featureType: 'landscape'
+      , stylers: [
+          {color: '#f7f7f7'}
+        ]
+    }
+    , {
+      featureType: 'road'
+      , stylers: [
+          {hue: '#fff'}
+          , {saturation: -70}
+        ]
+    }
+    , {
+      featureType: 'poi'   // points of interest
+      , stylers: [
+          {hue: ''}
+        ]
+    }
+  ];
+
+  mapOptions = {
+    zoom:               9
+    , scrollwheel:      false
+    , center:           myLatlng
+    , mapTypeId:        window.google.maps.MapTypeId.ROADMAP
+    , disableDefaultUI: true
+    , styles:           styles
+  };
+
+  map = new window.google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
+
+  marker = new window.google.maps.Marker({
+    position:    myLatlng
+    , map:       map
+    , animation: window.google.maps.Animation.DROP
+    , title:     'I@{{person.bio.location.city}}'
+  });
+
+  contentString = `Доброго вечора! Ми з України!`;
+  infoWindow = new window.google.maps.InfoWindow({
+    content: contentString
+  });
+
+  window.google.maps.event.addListener(marker, 'click', function () {
+    infoWindow.open(map, marker);
+  });
+
+  window.google.maps.event.addListenerOnce(map, 'idle', function () {
+    console.log('%c✓ %cGoogle Map LOADED', 'color:green;font-weight:bold;font-size:16px;', 'color:purple;font-weight:bold;');
+  });
+
+}
+
+window.initMap = initMap;

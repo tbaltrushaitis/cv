@@ -10,30 +10,32 @@
 //  ------------------------------------------------------------------------  //
 //  -----------------------------  DEPENDENCIES  ---------------------------  //
 //  ------------------------------------------------------------------------  //
-
 const path = require('path');
 const utin = require('util').inspect;
 
+const { series, parallel, src, dest }  = require('gulp');
+
 const readConfig = require('read-config');
+
 const cleanCSS   = require('gulp-clean-css');
 const concatCSS  = require('gulp-concat-css');
 const gulpif     = require('gulp-if');
-const headfoot   = require('gulp-headerfooter');
-const merge      = require('merge-stream');
+const size       = require('gulp-size');
 const vPaths     = require('vinyl-paths');
+// const headfoot   = require('gulp-headerfooter');
+// const merge      = require('merge-stream');
 
 //  ------------------------------------------------------------------------  //
 //  ----------------------------  CONFIGURATION  ---------------------------  //
 //  ------------------------------------------------------------------------  //
-
-let ME = Object.assign({}, global.ME || {});
+let ME = Object.assign({}, globalThis.ME || {});
 utin.defaultOptions = Object.assign({}, ME.pkg.options.iopts || {});
 
-const modName = path.basename(module.filename, '.js');
-const modPath = path.relative(ME.WD, path.dirname(module.filename));
-const confPath = path.join(ME.WD, 'config', path.sep);
+const modName       = path.basename(module.filename, '.js');
+const modPath       = path.relative(ME.WD, path.dirname(module.filename));
+const confPath      = path.join(ME.WD, 'config', path.sep);
 const modConfigFile = `${path.join(confPath, modPath, modName)}.json`;
-const modConfig = readConfig(modConfigFile, ME.pkg.options.readconf);
+const modConfig     = readConfig(modConfigFile, ME.pkg.options.readconf);
 
 ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
 let C = ME.Config.colors;
@@ -41,58 +43,56 @@ let C = ME.Config.colors;
 //  ------------------------------------------------------------------------  //
 //  ------------------------------  FUNCTIONS  -----------------------------  //
 //  ------------------------------------------------------------------------  //
+let CSS  = path.join('css');
+let FROM = path.join(ME.SRC, 'assets', CSS);
+let KEEP = path.join(ME.BUILD, 'resources/assets');
+let DEST = path.join(ME.BUILD, 'assets');
+let CONF = ME.Config.cleanCSS;
 
-const buildCss = function (gulp) {
-  console.log(`${ME.L}${ME.d}[${C.O}${modPath}/${modName}${C.N}] with [${C.Blue}${modConfigFile}${C.N}]`);
+let STYLES_SRC = [
+    `${FROM}/default.css`
+  , `${FROM}/fonts.css`
+  , `${FROM}/theme.css`
+  , `${FROM}/responsive.css`
+// , `${FROM}/magnific-popup.css`
+  , `${FROM}/og-grid.css`
+  , `${FROM}/custom.css`
+  , `${FROM}/custom-animations.css`
+  , `${FROM}/fa-colors.css`
+];
 
-  //
-  //  PROCESS CSS files
-  //
-  let FROM = path.join(ME.SRC, 'assets/css');
-  let DEST = path.join(ME.BUILD, 'assets/css');
-  let CONF = ME.Config.cleanCSS;
-  let STYLES_SRC = [
-      path.join(FROM, 'default.css')
-    , path.join(FROM, 'theme.css')
-    , path.join(FROM, 'responsive.css')
-  // , path.join(FROM, 'magnific-popup.css')
-    , path.join(FROM, 'og-grid.css')
-    , path.join(FROM, 'custom.css')
-    , path.join(FROM, 'custom-animations.css')
-    , path.join(FROM, 'fa-colors.css')
-  ];
 
-  let frontCSS = gulp.src(STYLES_SRC)
+//
+//  PROCESS CSS files
+//
+function frontCSS () {
+
+  return src(STYLES_SRC)
     .pipe(vPaths(function (p) {
-      console.log(`${ME.d}[${C.O}FRONT${C.N}] ${C.W}Bundle${C.N} ${C.Y}CSS${C.N}: [${p}]`);
+      console.log(`${ME.d}[${C.O}FRONT${C.N}] Bundle ${C.W}CSS${C.N}: [${C.Gray}${p}${C.N}]`);
       return Promise.resolve(p);
     }))
+    .pipe(dest(path.resolve(KEEP, CSS)))
     .pipe(concatCSS('frontend-bundle.css', {rebaseUrls: true}))
-    .pipe(vPaths(function (p) {
-      console.log(`${ME.d}[${C.O}FRONT${C.N}] ${C.W}Bundled${C.N} ${C.Y}CSS${C.N}: [${p}]`);
-      return Promise.resolve(p);
-    }))
-    .pipe(gulpif('production' === ME.NODE_ENV, new cleanCSS(CONF, function (d) {
-      console.log(`${ME.d}[${C.O}FRONT${C.N}] ${C.W}Compress${C.N} ${C.P}CSS${C.N}: [${d.path}]: [${utin(d.stats.originalSize)} -> ${utin(d.stats.minifiedSize)}] [${utin(parseFloat((100 * d.stats.efficiency).toFixed(2)))}%] in [${utin(d.stats.timeSpent)}ms]`);
-    })))
+    .pipe(gulpif(['production', ''].includes(ME.NODE_ENV), cleanCSS(CONF)))
     //  Write banners
     // .pipe(headfoot.header(ME.Banner.header))
     // .pipe(headfoot.footer(ME.Banner.footer))
-    .pipe(gulp.dest(DEST));
+    .pipe(size({title: 'FRONT CSS', showFiles: false}))
+    .pipe(dest(path.resolve(DEST, CSS)))
+  ;
 
-  return merge(frontCSS)
-          .on('error', console.error.bind(console));
-
-};
+}
 
 
 /**
  * @_EXPOSE
  */
-exports = buildCss;
+// exports.buildCss  = frontCSS;
+exports.frontCSS  = frontCSS;
 
 
 /**
  * @_EXPORTS
  */
-module.exports = exports;
+exports.default = series(frontCSS);

@@ -1,0 +1,6 @@
+{
+  "__parent": "./config.json"
+, "lint": {
+    "title": "LINT task"
+  }
+}
