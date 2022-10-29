@@ -55,8 +55,8 @@
     }
   , {
       "selector": "#scope-02"
-    , "inclass":  "animate__bounceInLeft"
-    , "outclass": "animate__bounceOutLeft"
+    , "inclass":  "animate__bounceInRight"
+    , "outclass": "animate__bounceOutRight"
     }
   , {
       "selector": "#scope-03"
@@ -70,8 +70,8 @@
     }
   , {
       "selector": "#scope-05"
-    , "inclass":  "animate__fadeInRightBig"
-    , "outclass": "animate__fadeOutRightBig"
+    , "inclass":  "animate__fadeInRight"
+    , "outclass": "animate__fadeOutRight"
     }
   , {
       "selector": "#scope-06"
@@ -80,18 +80,18 @@
     }
   , {
       "selector": "#scope-07"
-    , "inclass":  "animate__fadeInUpBig"
-    , "outclass": "animate__fadeOutUpBig"
+    , "inclass":  "animate__fadeInUp"
+    , "outclass": "animate__fadeOutUp"
     }
   , {
       "selector": "#scope-08"
-    , "inclass":  "animate__fadeInRightBig"
-    , "outclass": "animate__fadeOutRightBig"
+    , "inclass":  "animate__fadeInRight"
+    , "outclass": "animate__fadeOutRight"
     }
   , {
       "selector": "#scope-09"
-    , "inclass":  "animate__fadeInUpBig"
-    , "outclass": "animate__fadeOutUpBig"
+    , "inclass":  "animate__fadeInUp"
+    , "outclass": "animate__fadeOutUp"
     }
   , {
       "selector": "#scope-10"
@@ -140,23 +140,23 @@
     }
   , {
       "selector": "#whatido-05"
-    , "inclass":  "animate__fadeInRightBig"
-    , "outclass": "animate__fadeOutRightBig"
+    , "inclass":  "animate__fadeInRight"
+    , "outclass": "animate__fadeOutRight"
     }
   , {
       "selector": "#whatido-06"
-    , "inclass":  "animate__fadeInUpBig"
-    , "outclass": "animate__fadeOutUpBig"
+    , "inclass":  "animate__fadeInUp"
+    , "outclass": "animate__fadeOutUp"
     }
   , {
       "selector": "#whatido-07"
-    , "inclass":  "animate__fadeInRightBig"
-    , "outclass": "animate__fadeOutLeftBig"
+    , "inclass":  "animate__fadeInRight"
+    , "outclass": "animate__fadeOutLeft"
     }
   , {
       "selector": "#whatido-08"
-    , "inclass":  "animate__fadeInUpBig"
-    , "outclass": "animate__fadeOutDownBig"
+    , "inclass":  "animate__fadeInUp"
+    , "outclass": "animate__fadeOutDown"
     }
   , {
       "selector": "#whatido-09"

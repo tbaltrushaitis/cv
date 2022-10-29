@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="ie8"><![endif]-->
-<!--[if IE 9]><html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="ie9"><![endif]-->
 <!--[if IE 10]><html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="ie10"><![endif]-->
 <!--[if !IE]><!--><html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="noie"><!--<![endif]-->
 <head>
@@ -27,11 +25,11 @@
   <meta name="author"        content="{{author.name.full}}" />
   <meta name="description"   content="Personal resume of {{person.name.full}}" />
   <meta name="generator"     content="{{engine.name}} v{{engine.version}}" />
-  <meta name="keywords"      content="modern, cv, resume, template, portfolio, portfolio-website, IT, curriculum-vitae, resume-website, cv-website" />
+  <meta name="keywords"      content="cv, resume, template, portfolio, portfolio-website, IT, resume-website, cv-website, web-cv, c++v" />
   <meta name="language"      content="en" />
   <meta name="revisit-after" content="15 days" />
-  <meta name="robots"        content="index, nofollow, noarchive" />
-  <meta name="title"         content="{{person.name.full}} - Resume, CV and Portfolio" />
+  <meta name="robots"        content="index, nofollow, archive" />
+  <meta name="title"         content="{{person.name.full}} - CV, Resume and Portfolio" />
   <meta name="theme-color"   content="#000000" />
 
   <link rel="canonical" href="http://cv.gsm-center.com.ua/" />
@@ -59,14 +57,23 @@
   <!-- <link type="text/css" rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" id="css-font-roboto" /> -->
   <!-- <link type="text/css" rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Lato:300,400,700" id="css-font-lato" /> -->
 
+  <!--/  Preload
+  ========================================================================= /-->
+  <link rel="preload" crossOrigin="anonymous" as="font" type="font/woff2" href="assets/webfonts/fa-regular-400.woff2" />
+  <link rel="preload" crossOrigin="anonymous" as="font" type="font/woff2" href="assets/webfonts/fa-brands-400.woff2" />
+  <link rel="preload" crossOrigin="anonymous" as="font" type="font/woff2" href="assets/webfonts/fa-solid-900.woff2" />
+  <!-- <link rel="preload" crossOrigin="anonymous" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2&display=swap" /> -->
+  <!-- <link rel="preload" crossOrigin="anonymous" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fBBc4AMP6lQ.woff2&display=swap" /> -->
+  <link rel="preload" as="image" type="image/webp" href="assets/img/home2.webp" />
+
   <!--/  Styles
   ========================================================================= /-->
   <!--/  Bower Bundle  /-->
-  <link rel="preload" href="assets/css/bower-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'" id="css-bower-bundle" />
+  <link rel="preload" crossOrigin="anonymous" as="style" href="assets/css/bower-bundle.css" onload="this.onload=null;this.rel='stylesheet'" id="css-bower-bundle" />
   <noscript><link rel="stylesheet" href="assets/css/bower-bundle.css" id="css-bower-bundle-noscript" /></noscript>
 
   <!--/  Frontend Bundle  /-->
-  <link rel="preload" href="assets/css/frontend-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'" id="css-frontend-bundle" />
+  <link rel="preload" crossOrigin="anonymous" as="style" href="assets/css/frontend-bundle.css" onload="this.onload=null;this.rel='stylesheet'" id="css-frontend-bundle" />
   <noscript><link rel="stylesheet" href="assets/css/frontend-bundle.css" id="css-frontend-bundle-noscript" /></noscript>
 
   <!--/  Theme  /-->
@@ -85,8 +92,8 @@
 
   <!--/  Favicon
   ========================================================================= /-->
-  <link type="image/x-icon" href="assets/img/ico/favicon.webp" rel="icon" />
-  <link type="image/x-icon" href="assets/img/ico/favicon.webp" rel="shortcut icon" />
+  <link type="image/x-icon" href="favicon.webp" rel="icon" />
+  <link type="image/x-icon" href="favicon.webp" rel="shortcut icon" />
 
 </head>
 
@@ -99,6 +106,8 @@
     </div>
   </div>
 
+  <div class="release" id="release"><small>v{{version}}-b{{cntr}}</small></div>
+
   <!--/  Home  /-->
   <section id="home" class="tt-fullHeight" data-stellar-vertical-offset="50" data-stellar-background-ratio="0.5">
     <div class="intro">
@@ -110,17 +119,17 @@
 
       <div id="social-icons" class="social-icons">
         <ul class="list-inline">
-          <li class="wow" data-wow-duration="1.4s" data-wow-delay="1.6s">
-            <a target="_blank" rel="noopener" href="{{person.socials.li.url}}"><i class="{{person.socials.li.icon}}" title="{{person.socials.li.title}}"></i></a>
+          <li class="wow" data-wow-duration="1.4s" data-wow-delay="1.618s">
+            <a target="_blank" rel="noopener" href="{{person.socials.linkedin.url}}"><i class="{{person.socials.linkedin.icon}}" title="{{person.socials.linkedin.title}}"></i></a>
           </li>
-          <li class="wow" data-wow-duration="1.6s" data-wow-delay="1.4s">
-            <a target="_blank" rel="noopener" href="{{person.socials.git.url}}"><i class="{{person.socials.git.icon}}" title="{{person.socials.git.title}}"></i></a>
+          <li class="wow" data-wow-duration="1.618s" data-wow-delay="1.4s">
+            <a target="_blank" rel="noopener" href="{{person.socials.github.url}}"><i class="{{person.socials.github.icon}}" title="{{person.socials.github.title}}"></i></a>
           </li>
           <li class="wow" data-wow-duration="1.8s" data-wow-delay="1.2s">
-            <a target="_blank" rel="noopener" href="{{person.socials.bb.url}}"><i class="{{person.socials.bb.icon}}" title="{{person.socials.bb.title}}"></i></a>
+            <a target="_blank" rel="noopener" href="{{person.socials.bitbucket.url}}"><i class="{{person.socials.bitbucket.icon}}" title="{{person.socials.bitbucket.title}}"></i></a>
           </li>
           <li class="wow" data-wow-duration="2.0s" data-wow-delay="1.0s">
-            <a target="_blank" rel="noopener" href="{{person.socials.docker.url}}"><i class="{{person.socials.docker.icon}}" title="{{person.socials.docker.title}}"></i></a>
+            <a target="_blank" rel="noopener" href="{{person.socials.dockerhub.url}}"><i class="{{person.socials.dockerhub.icon}}" title="{{person.socials.dockerhub.title}}"></i></a>
           </li>
         </ul>
       </div> <!--/ /.social-icons /-->
@@ -155,7 +164,7 @@
             <li><a href="#resume">Resume</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact">Contacts</a></li>
           </ul>
         </div>
 
@@ -174,9 +183,8 @@
           <div class="biography">
             <div class="myphoto wow" id="avatar" data-wow-duration="1.0s">
               <picture>
-                <source srcset="assets/img/Avatar-rhomb-md.webp" type="image/webp">
-                <source srcset="assets/img/Avatar-rhomb-md.png" type="image/png">
-                <img src="assets/img/Avatar-rhomb-md.png" width="100%" height="auto" alt="{{person.name.full}}" />
+                <!-- <source srcset="assets/img/Avatar-rhomb-md.png" type="image/png" > -->
+                <img src="assets/img/Avatar-rhomb-md.webp" class="media-object" width="358px" height="358px" alt="{{person.name.full}}" />
               </picture>
             </div>
             <ul class="list-check">
@@ -217,8 +225,7 @@
           <div class="short-info" id="objective">
             <h3 class="wow">Objective</h3>
             <p class="wow">
-              Full-stack developer (JavaScript, Node.js, PHP, etc.)
-              + DevOps with practical experience in several IT areas.
+              Full-Stack engineer (JavaScript, Node.js, PHP, etc.) + DevOps with practical experience in several IT areas
             </p>
           </div>
 
@@ -251,15 +258,15 @@ to run as the Visual FoxPro desktop applications with modern windows-styled inte
 
             <p class="wow">At present I have advanced knowledge of 5+ programming languages (JavaScript, Node.js, PHP, Perl, ASP, Visual FoxPro)
 and related fields (Linux, Bash scripting, HTML, CSS, MySQL, MongoDB, Docker, Redis, GraphQL, RabbitMQ, Git, Nginx, Apache, etc.).
-Websites creation, OpenSource projects deployments, applications development, building, testing and improvement
-- these are the number of skills every day I'm work with and in what I'm improving my abilities constantly.
+Websites creation, Open Source projects deployment, applications development, building, testing and improvement
+- these are the skills I work with daily. I'm constantly improving my abilities in it.
 </p>
           </div>
 
           <div class="short-info" id="whatido">
             <h3 class="wow">What I Do</h3>
             <p class="wow">During last few years I've been working as a
-"full-stack" specialist providing gathering and transformation of customer's
+<strong>full-stack</strong> specialist providing gathering and transformation of customer's
 business requirements into well-documented technical requirements of product
 functionality which tech-staff can easy read, understand and implement.
 <br />
@@ -274,7 +281,7 @@ documentation in conjuction with detailed descriptions of workflows and rules
 <br />
 Years of on-hands experience with various kinds of high-loaded systems, built
 on top of modern web-technologies makes me strongly believe that development
-of smart, qualitative and useful software with friendly user-interfaces - is
+of smart, qualitative and useful software with a friendly user interface - is
 the best profession!
 </p>
 
@@ -285,17 +292,16 @@ the best profession!
               <li class="col-xs-12 col-md-6 wow" id="whatido-04"><i class="fas fa-fw fa-project-diagram"></i>Data&nbsp;Visualization</li>
               <li class="col-xs-12 col-md-6 wow" id="whatido-05"><i class="fas fa-fw fa-mobile-alt"></i>API&nbsp;for&nbsp;Mobile&nbsp;Apps</li>
               <li class="col-xs-12 col-md-6 wow" id="whatido-06"><i class="fas fa-fw fa-chart-pie"></i>Data&nbsp;Analysis</li>
-              <li class="col-xs-12 col-md-6 wow" id="whatido-07"><i class="fas fa-fw fa-broadcast-tower"></i>GSM&nbsp;Gateways</li>
+              <li class="col-xs-12 col-md-6 wow" id="whatido-07"><i class="fas fa-fw fa-broadcast-tower"></i>SMS&nbsp;Gateways</li>
               <li class="col-xs-12 col-md-6 wow" id="whatido-08"><i class="fas fa-fw fa-heartbeat"></i>Real-time&nbsp;Data&nbsp;Processing</li>
-              <li class="col-xs-12 col-md-6 wow" id="whatido-09"><i class="fas fa-fw fa-robot"></i>Bots,&nbsp;Informers</li>
+              <li class="col-xs-12 col-md-6 wow" id="whatido-09"><i class="fas fa-fw fa-robot"></i>ChatBots,&nbsp;Informers</li>
               <li class="col-xs-12 col-md-6 wow" id="whatido-10"><i class="fas fa-fw fa-search-dollar"></i>Market&nbsp;Research</li>
             </ul>
           </div>
 
           <!-- <div class="my-signature hidden">
-            <img src="assets/img/sign-white.png" max-width="119px" max-height="67px" width="119px" height="67px" alt="Signature example" />
+            <img src="assets/img/sign.png" max-width="119px" max-height="67px" width="119px" height="67px" alt="Signature example" />
           </div> -->
-
           <!-- <div class="download-button hidden">
             <a class="btn btn-primary btn-lg" href="#"><i class="fa fa-download"></i> Download my cv</a>
           </div> -->
@@ -329,13 +335,13 @@ the best profession!
                   <span class="month">2003 - 2004</span>
                 </div><!--/ /posted-date /-->
 
-                <div id="edu-01" class="panel panel-success timeline-panel wow" data-wow-duration="1.5s">
+                <div id="edu-01" class="panel panel-success timeline-panel wow" data-wow-duration="1.0s">
                   <div class="timeline-content">
 
                     <div class="panel-heading timeline-heading row">
                       <div class="col-md-10 col-xs-9 pull-left">
                         <h3 class="panel-title">Master's degree</h3>
-                        <span class="text-danger"> - diploma with honors</span>
+                        <p class="text-danger"> - diploma with honors</p>
                       </div>
 
                       <div class="col-md-2 col-xs-3 pull-right text-center">
@@ -344,12 +350,12 @@ the best profession!
                     </div>
 
                     <div class="panel-body timeline-body">
+                      <h5>Electromechanical Engineering</h5>
                       <p>
-                        Electromechanical Engineering<br />
                         Kremenchuk State Polytechnical University, Ukraine<br />
-                        <strong>7.091003</strong> - Design Engineer of Electronic Equipment
+                        [7.091003] Design Engineer of Electronic Equipment
                       </p>
-                      <p>Awarded an honorary diploma for the <strong class="text-info">2nd place</strong> in the competition for the best thesis project</p>
+                      <p><i class="fas fa-2x fa-fw fa-medal text-danger"></i> Awarded an <strong class="text-info">honorary diploma</strong> for the 2nd place in the competition for the <strong class="text-danger">best thesis project</strong></p>
                     </div>
                   </div>
                 </div>
@@ -360,13 +366,13 @@ the best profession!
                   <span class="month">1999 - 2003</span>
                 </div>
 
-                <div id="edu-02" class="panel panel-success timeline-panel wow" data-wow-duration="1.5s">
+                <div id="edu-02" class="panel panel-success timeline-panel wow" data-wow-duration="1.0s">
                   <div class="timeline-content">
 
                     <div class="panel-heading timeline-heading row">
                       <div class="col-md-10 col-xs-9 pull-left">
                         <h3 class="panel-title pane">Bachelor's degree</h3>
-                        <span class="text-primary"> - graduate diploma</span>
+                        <p class="text-primary"> - graduate diploma</p>
                       </div>
 
                       <div class="col-md-2 col-xs-3 pull-right text-center">
@@ -375,10 +381,10 @@ the best profession!
                     </div>
 
                     <div class="panel-body timeline-body">
+                      <h5>Electromechanical Engineering</h5>
                       <p>
-                        Electromechanical Engineering<br />
                         Kremenchuk State Polytechnical University, Ukraine<br />
-                        <strong>7.091003</strong> - Design Engineer of Electronic Equipment
+                        [7.091003] Design Engineer of Electronic Equipment
                       </p>
                     </div><!--/ /timeline-body /-->
                   </div><!--/ /timeline-content /-->
@@ -404,20 +410,17 @@ the best profession!
               <li class="">
                 <div class="posted-date">
                   <span class="month">2019 - 2020</span>
-                  <!-- <span class="month hue">&nbsp;Current&nbsp;</span> -->
                   <span class="month hue"><i class="fas fa-1x fa-fw fa-heart hue"></i></span>
                 </div>
 
-                <div id="car-06" class="panel panel-success timeline-panel wow" data-wow-duration="1.5s">
+                <div id="car-06" class="panel panel-success timeline-panel wow" data-wow-duration="1.0s">
                   <div class="timeline-content">
                     <div class="panel-heading timeline-heading row">
 
                       <div class="col-md-3 col-xs-4 pull-right">
                         <a href="http://bit.ly/dna325-off" class="thumbnail" target="_blank" rel="noopener">
                           <picture>
-                            <source srcset="assets/img/logos/logo-dna325-sm.webp" type="image/webp">
-                            <source srcset="assets/img/logos/logo-dna325-sm.png" type="image/png">
-                            <img src="assets/img/logos/logo-dna325-sm.png" class="media-object" max-width="100%" height="auto" alt="DNA325" />
+                            <img src="assets/img/logos/logo-dna325-sm.webp" class="media-object" width="90px" height="90px" alt="DNA325" />
                           </picture>
                         </a>
                       </div>
@@ -488,16 +491,14 @@ the best profession!
                   <span class="month">2016 - 2017</span>
                 </div>
 
-                <div id="car-05" class="panel panel-success timeline-panel wow" data-wow-duration="1.5s">
+                <div id="car-05" class="panel panel-success timeline-panel wow" data-wow-duration="1.0s">
                   <div class="timeline-content">
                     <div class="panel-heading timeline-heading row">
 
                       <div class="col-md-3 col-xs-4 pull-right">
                         <a href="http://bit.ly/cg-off" class="thumbnail" target="_blank" rel="noopener">
                           <picture>
-                            <source srcset="assets/img/logos/logo-cg-sm.webp" type="image/webp">
-                            <source srcset="assets/img/logos/logo-cg-sm.png" type="image/png">
-                            <img src="assets/img/logos/logo-cg-sm.png" class="media-object" max-width="100%" height="auto" alt="Carts Guru" />
+                            <img src="assets/img/logos/logo-cg-sm.webp" class="media-object" width="96px" height="96px" alt="Carts Guru" />
                           </picture>
                         </a>
                       </div>
@@ -513,7 +514,7 @@ the best profession!
                     </div>
 
                     <div class="panel-body timeline-body">
-                      <p>eCommerce platforms (Shopify, Magento, WooCommerce, PrestaShop) <strong class="text-primary">Visitors Tracker</strong> with cross-site customer identification and behavior prediction. Used to boost conversion rate and on-site revenue by sharing data and communicating with Machine Learning Engine through API interface.</p>
+                      <p>eCommerce platforms (Shopify, Magento, WooCommerce, PrestaShop) <strong class="text-primary"><a href="http://bit.ly/tracker-git" target="_blank" rel="noopener">Visitors Tracker</a></strong> with cross-site customer identification and behavior prediction. Used to boost conversion rate and on-site revenue by sharing data and communicating with Machine Learning Engine through API interface.</p>
                       <p>Later it was used as a core module for creation of enterprise-level software named <strong><a href="javascript:void(0);" target="_self" rel="noopener" class="text-primary">Visitors Guru</a></strong> - simple tool to find out what companies are visiting website.</p>
                     </div>
 
@@ -549,7 +550,7 @@ the best profession!
                   <span class="month">2010 - 2015</span>
                 </div>
 
-                <div id="car-04" class="panel panel-success timeline-panel wow" data-wow-duration="1.5s">
+                <div id="car-04" class="panel panel-success timeline-panel wow" data-wow-duration="1.0s">
                   <div class="timeline-content">
                     <div class="panel-heading timeline-heading row">
 
@@ -571,7 +572,7 @@ the best profession!
                     <div class="panel-body timeline-body">
                       <div class="alert alert-sm alert-info">
                         <strong>
-                          Lead of team providing operations services for supporting of high-loaded web-systems
+                          Leader of the team that provide operations services for supporting of high-loaded web-systems
                         </strong>
                       </div>
 
@@ -623,16 +624,14 @@ the best profession!
                   <span class="month">2008 - 2009</span>
                 </div>
 
-                <div id="car-03" class="panel panel-success timeline-panel wow" data-wow-duration="1.5s">
+                <div id="car-03" class="panel panel-success timeline-panel wow" data-wow-duration="1.0s">
                   <div class="timeline-content">
                     <div class="panel-heading timeline-heading row">
 
                       <div class="col-md-5 col-xs-5 pull-right">
                         <a href="http://bit.ly/rc-off" class="thumbnail" target="_blank" rel="noopener">
                           <picture>
-                            <source srcset="assets/img/logos/logo-rc-md.webp" type="image/webp">
-                            <source srcset="assets/img/logos/logo-rc-md.png" type="image/png">
-                            <img src="assets/img/logos/logo-rc-md.png" class="media-object" max-width="220px" max-height="43px" width="220px" height="auto" alt="Running Code LLC" />
+                            <img src="assets/img/logos/logo-rc-md.webp" class="media-object" width="220px" height="43px" alt="Running Code LLC" />
                           </picture>
                         </a>
                       </div>
@@ -677,7 +676,7 @@ the best profession!
                   <span class="month">2006 - 2008</span>
                 </div>
 
-                <div id="car-02" class="panel panel-success timeline-panel wow" data-wow-duration="1.5s">
+                <div id="car-02" class="panel panel-success timeline-panel wow" data-wow-duration="1.0s">
                   <div class="timeline-content">
 
                     <div class="panel-heading timeline-heading row">
@@ -685,9 +684,7 @@ the best profession!
                       <div class="col-md-3 col-xs-3 pull-right">
                         <a href="http://bit.ly/m1-off" class="thumbnail" target="_blank" rel="noopener">
                           <picture>
-                            <source srcset="assets/img/logos/logo-m1-sm.webp" type="image/webp">
-                            <source srcset="assets/img/logos/logo-m1-sm.png" type="image/png">
-                            <img src="assets/img/logos/logo-m1-sm.png" class="media-object" max-width="95px" max-height="95px" width="95px" height="auto" alt="M1 Television Music Channel" />
+                            <img src="assets/img/logos/logo-m1-sm.webp" class="media-object" width="95px" height="95px" alt="M1 Television Music Channel" />
                           </picture>
                         </a>
                       </div>
@@ -732,7 +729,7 @@ the best profession!
                   <span class="month">2004 - 2006</span>
                 </div><!--/ /posted-date /-->
 
-                <div id="car-01" class="panel panel-success timeline-panel wow" data-wow-duration="1.5s">
+                <div id="car-01" class="panel panel-success timeline-panel wow" data-wow-duration="1.0s">
                   <div class="timeline-content">
                     <div class="panel-heading timeline-heading row">
 
@@ -938,8 +935,8 @@ the best profession!
               <span>Telegram API</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" role="progressbar" >
-                <span>75%</span>
+              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" role="progressbar" >
+                <span>89%</span>
               </div>
             </div>
           </div>
@@ -1002,16 +999,16 @@ the best profession!
               <span>Magento</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" role="progressbar" >
-                <span>65%</span>
+              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100" role="progressbar" >
+                <span>42%</span>
               </div>
             </div>
           </div>
 
           <div class="skill-progress">
             <div class="skill-title">
-              <i class="fab fa-2x fa-fw fa-js"></i>
-              <span>jQuery</span>
+              <i class="fas fa-2x fa-fw fa-robot"></i>
+              <span>Telegram Bot API</span>
             </div>
             <div class="progress">
               <div class="progress-bar six-sec-ease-in-out" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" role="progressbar" >
@@ -1164,9 +1161,10 @@ the best profession!
 
       <ul class="list-inline" id="filter">
         <li><a data-group="all" class="active">All</a></li>
-        <li><a data-group="desktop">Accounting</a></li>
+        <li><a data-group="finance">Finance</a></li>
         <li><a data-group="devops">DevOps</a></li>
         <li><a data-group="ecommerce">eCommerce</a></li>
+        <li><a data-group="gambling">Gambling</a></li>
         <li><a data-group="utilities">Utilities</a></li>
         <li><a data-group="web">Web</a></li>
       </ul>
@@ -1179,35 +1177,12 @@ the best profession!
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
-                  <a target="_blank" rel="noopener" href="http://bit.ly/lvs-vis"><i class="far fa-eye"></i></a>
-                  <!-- <a target="_blank" rel="noopener" href="http://bit.ly/lvs-vis"><i class="fas fa-external-link-alt"></i></a> -->
-                  <!-- <a class="image-link" href="assets/img/works/openstack-virtual-hosts-diagram-002.png"><i class="fa fa-search-plus"></i></a> -->
-                </div><!--/ /.links /-->
-                <picture>
-                  <source srcset="assets/img/thumbs/works/openstack-virtual-hosts-diagram-002.webp" type="image/webp">
-                  <source srcset="assets/img/thumbs/works/openstack-virtual-hosts-diagram-002.png" type="image/png">
-                  <img src="assets/img/thumbs/works/openstack-virtual-hosts-diagram-002.png" alt="Visualization of VMs distribution on physical servers in OpenStack Cloud" />
-                </picture>
-                <div class="portfolio-info">
-                  <h3>OpenStack Visual Diagram</h3>
-                </div><!--/ /.portfolio-info /-->
-              </div><!--/ /.portfolio /-->
-            </div><!--/ /.portfolio-bg /-->
-          </div><!--/ /.portfolio-item /-->
-
-          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "devops"]'>
-            <div class="portfolio-bg">
-              <div class="portfolio">
-                <div class="tt-overlay"></div>
-                <div class="links">
                   <a target="_blank" rel="noopener" href="http://bit.ly/cmdb-demo"><i class="fas fa-play-circle"></i></a>
-                  <!-- <a class="image-link" href="assets/img/works/network-diagram-003.jpg"><i class="fa fa-search-plus"></i></a> -->
+                  <a class="image-link" href="assets/img/works/network-diagram-003.webp"><i class="fa fa-search-plus"></i></a>
                 </div>
 
                 <picture>
-                  <source srcset="assets/img/thumbs/works/network-diagram-003.webp" type="image/webp">
-                  <source srcset="assets/img/thumbs/works/network-diagram-003.jpg" type="image/jpeg">
-                  <img src="assets/img/thumbs/works/network-diagram-003.jpg" alt="Visual Assets and Configuration Management Database with Real-Time Data Representations" />
+                  <img src="assets/img/works/network-diagram-003.thumb.webp" alt="Visual Assets and Configuration Management Database with Real-Time Data Representations" />
                 </picture>
 
                 <div class="portfolio-info">
@@ -1223,13 +1198,11 @@ the best profession!
                 <div class="tt-overlay"></div>
                 <div class="links">
                   <a target="_blank" rel="noopener" href="http://bit.ly/mp3web"><i class="fas fa-play-circle"></i></a>
-                  <!-- <a class="image-link" href="assets/img/works/mp3web-front-003.png"><i class="fa fa-search-plus"></i></a> -->
+                  <a class="image-link" href="assets/img/works/mp3web-front-003.webp"><i class="fa fa-search-plus"></i></a>
                 </div>
 
                 <picture>
-                  <source srcset="assets/img/thumbs/works/mp3web-front-003.webp" type="image/webp">
-                  <source srcset="assets/img/thumbs/works/mp3web-front-003.png" type="image/png">
-                  <img src="assets/img/thumbs/works/mp3web-front-003.png" alt="Web MP3 Player and Media Library Manager" />
+                  <img src="assets/img/works/mp3web-front-003.thumb.webp" alt="Web MP3 Player and Media Library Manager" />
                 </picture>
 
                 <div class="portfolio-info">
@@ -1245,20 +1218,13 @@ the best profession!
                 <div class="tt-overlay"></div>
 
                 <div class="links">
+                  <a class="image-link" href="assets/img/works/cmdb-rtm-poc.gif"><i class="fa fa-search-plus"></i></a>
                   <a target="blank" rel="noopener" href="http://bit.ly/cmdb-rtm-live"><i class="fas fa-play-circle"></i></a>
-                  <!-- <a class="image-link" href="assets/img/works/cmdb-rtm-progress.gif"><i class="fa fa-search-plus"></i></a> -->
                 </div>
-                <!--
+
                 <video autoplay loop muted playsinline>
                   <source src="assets/img/works/cmdb-rtm-poc.webm" type="video/webm" />
-                  <source src="assets/img/works/cmdb-rtm-poc.mp4"  type="video/mp4" />
-                </video> -->
-
-                <picture>
-                  <source srcset="assets/img/works/cmdb-rtm-poc.webm" type="video/webm" />
-                  <source srcset="assets/img/works/cmdb-rtm-poc.mp4" type="video/mp4" />
-                  <img src="assets/img/works/cmdb-rtm-poc.gif" width="100%" height="auto" alt="Real-time Data Visualization" />
-                </picture>
+                </video>
 
                 <div class="portfolio-info">
                   <h3>Real-time Data View</h3>
@@ -1273,83 +1239,16 @@ the best profession!
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a class="image-link" href="assets/img/works/infograph-004.webp"><i class="fa fa-search-plus"></i></a>
                   <a target="_blank" rel="noopener" href="http://bit.ly/maps-demo"><i class="fas fa-play-circle"></i></a>
-                  <!-- <a class="image-link" href="assets/img/works/infograph-004.jpg"><i class="fa fa-search-plus"></i></a> -->
                 </div>
 
                 <picture>
-                  <source srcset="assets/img/thumbs/works/infograph-004.webp" type="image/webp">
-                  <source srcset="assets/img/thumbs/works/infograph-004.jpg" type="image/jpeg">
-                  <img src="assets/img/thumbs/works/infograph-004.jpg" alt="Maps Infographics" />
+                  <img src="assets/img/works/infograph-004.thumb.webp" alt="Maps Infographics" />
                 </picture>
 
                 <div class="portfolio-info">
                   <h3>Maps Infographics</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "web"]'>
-            <div class="portfolio-bg">
-              <div class="portfolio">
-                <div class="tt-overlay"></div>
-                <div class="links">
-                  <a target="_blank" rel="noopener" href="http://bit.ly/wcl-com"><i class="fas fa-play-circle"></i></a>
-                  <!-- <a class="image-link" href="assets/img/works/wcl.jpg"><i class="fa fa-search-plus"></i></a> -->
-                </div>
-
-                <picture>
-                  <source srcset="assets/img/thumbs/works/wcl.webp" type="image/webp">
-                  <source srcset="assets/img/thumbs/works/wcl.jpg" type="image/jpeg">
-                  <img src="assets/img/thumbs/works/wcl.jpg" alt="World Cossackers League" />
-                </picture>
-
-                <div class="portfolio-info">
-                  <h3>World Cossackers League</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "web", "system"]'>
-            <div class="portfolio-bg">
-              <div class="portfolio">
-                <div class="tt-overlay"></div>
-                <div class="links">
-                  <a target="_blank" rel="noopener" href="http://bit.ly/tracker-git"><i class="fab fa-github"></i></a>
-                </div>
-
-                <picture>
-                  <source srcset="assets/img/thumbs/works/tracker-network-009.webp" type="image/webp">
-                  <source srcset="assets/img/thumbs/works/tracker-network-009.png" type="image/png">
-                  <img src="assets/img/thumbs/works/tracker-network-009.png" alt="Visitors Tracker" />
-                </picture>
-
-                <div class="portfolio-info">
-                  <h3>Visitors Tracker</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "ecommerce"]'>
-            <div class="portfolio-bg">
-              <div class="portfolio">
-                <div class="tt-overlay"></div>
-                <div class="links">
-                  <a target="_blank" rel="noopener" href="https://bit.ly/cheesecake-family"><i class="fas fa-play-circle"></i></a>
-                  <!-- <a class="image-link" href="assets/img/works/cheesecake.jpg"><i class="fa fa-search-plus"></i></a> -->
-                </div>
-
-                <picture>
-                  <source srcset="assets/img/thumbs/works/cheesecake.webp" type="image/webp">
-                  <source srcset="assets/img/thumbs/works/cheesecake.jpg" type="image/jpeg">
-                  <img src="assets/img/thumbs/works/cheesecake.jpg" alt="Cheesecake Online Store" />
-                </picture>
-
-                <div class="portfolio-info">
-                  <h3>Cheesecake Store</h3>
                 </div>
               </div>
             </div>
@@ -1360,64 +1259,73 @@ the best profession!
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a class="image-link" href="assets/img/works/tracker-network-009.webp"><i class="fa fa-search-plus"></i></a>
+                  <a target="_blank" rel="noopener" href="http://bit.ly/tracker-git"><i class="fab fa-github"></i></a>
+                </div>
+
+                <picture>
+                  <img src="assets/img/works/tracker-network-009.thumb.webp" alt="Visitors Tracker" />
+                </picture>
+
+                <div class="portfolio-info">
+                  <h3>Visitors Tracker</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "gambling"]'>
+            <div class="portfolio-bg">
+              <div class="portfolio">
+                <div class="tt-overlay"></div>
+                <div class="links">
+                  <a class="image-link" href="assets/img/works/knifes-front-view-001.webp"><i class="fa fa-search-plus"></i></a>
                   <a target="_blank" rel="noopener" href="http://bit.ly/knifes-demo"><i class="fas fa-play-circle"></i></a>
-                  <!-- <a class="image-link" href="assets/img/works/knifes-front-view-001.jpg"><i class="fa fa-search-plus"></i></a> -->
                 </div>
 
                 <picture>
-                  <source srcset="assets/img/thumbs/works/knifes-front-view-001.webp" type="image/webp">
-                  <source srcset="assets/img/thumbs/works/knifes-front-view-001.jpg" type="image/jpeg">
-                  <img src="assets/img/thumbs/works/knifes-front-view-001.jpg" alt="Online CS:GO Skins Lottery" />
+                  <img src="assets/img/works/knifes-front-view-001.thumb.webp" alt="Online CS:GO Skins Lottery" />
                 </picture>
 
                 <div class="portfolio-info">
-                  <h3>Online CS:GO Lottery</h3>
+                  <h3>CS:GO Lottery</h3>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "web"]'>
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "devops"]'>
             <div class="portfolio-bg">
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
-                  <a target="_blank" rel="noopener" href="http://bit.ly/http-404"><i class="fas fa-play-circle"></i></a>
-                  <a target="_blank" rel="noopener" href="http://bit.ly/http-404-git"><i class="fab fa-github"></i></a>
-                  <!-- <a class="image-link" href="assets/img/works/http-404-animated-with-socials-001.gif"><i class="fa fa-search-plus"></i></a> -->
-                </div>
-
-                <!-- <video autoplay loop muted playsinline>
-                  <source src="assets/img/works/http-404-animated-with-socials-001.webm" type="video/webm">
-                </video> -->
+                  <a class="image-link" href="assets/img/works/openstack-virtual-hosts-diagram-002.webp"><i class="fa fa-search-plus"></i></a>
+                  <a target="_blank" rel="noopener" href="http://bit.ly/lvs-vis"><i class="fas fa-external-link-alt"></i></a>
+                </div><!--/ /.links /-->
 
                 <picture>
-                  <source srcset="assets/img/works/http-404-animated-with-socials-001.webm" type="video/webm">
-                  <source srcset="assets/img/works/http-404-animated-with-socials-001.mp4" type="video/mp4">
-                  <img src="assets/img/works/http-404-animated-with-socials-001.gif" width="100%" height="auto" alt="HTTP Error 404 Page with animations" />
+                  <img src="assets/img/works/openstack-virtual-hosts-diagram-002.thumb.webp" alt="Visualization of VMs distribution on physical servers in OpenStack Cloud" />
                 </picture>
 
                 <div class="portfolio-info">
-                  <h3>ERROR 404 Page</h3>
-                </div>
-              </div>
-            </div>
-          </div>
+                  <h3>OpenStack Visual Diagram</h3>
+                </div><!--/ /.portfolio-info /-->
+              </div><!--/ /.portfolio /-->
+            </div><!--/ /.portfolio-bg /-->
+          </div><!--/ /.portfolio-item /-->
 
-          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "web", "utilities"]'>
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "gambling", "web"]'>
             <div class="portfolio-bg">
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a class="image-link" href="assets/img/works/roulette-gameplay-1928-won.webp"><i class="fa fa-search-plus"></i></a>
                   <a target="_blank" rel="noopener" href="http://bit.ly/roulette-predictor"><i class="fas fa-play-circle"></i></a>
                   <a target="_blank" rel="noopener" href="http://bit.ly/roulette-predictor-git"><i class="fab fa-github"></i></a>
-                  <!-- <a class="image-link" href="assets/img/works/roulette.png"><i class="fa fa-search-plus"></i></a> -->
                 </div>
 
                 <picture>
-                  <source srcset="assets/img/thumbs/works/roulette-gameplay-1928-won.webp" type="image/webp">
-                  <source srcset="assets/img/thumbs/works/roulette-gameplay-1928-won.png" type="image/png">
-                  <img src="assets/img/thumbs/works/roulette-gameplay-1928-won.png" alt="Online Casino Roulette Predictor" />
+                  <img src="assets/img/works/roulette-gameplay-1928-won.thumb.webp" alt="Online Casino Roulette Predictor" />
                 </picture>
 
                 <div class="portfolio-info">
@@ -1427,19 +1335,17 @@ the best profession!
             </div>
           </div>
 
-          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "desktop", "accounting"]'>
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "finance"]'>
             <div class="portfolio-bg">
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a class="image-link" href="assets/img/works/fp-001.webp"><i class="fa fa-search-plus"></i></a>
                   <a target="_blank" rel="noopener" href="http://bit.ly/fp-git"><i class="fab fa-github"></i></a>
-                  <!-- <a class="image-link" href="assets/img/works/fp-001.jpg"><i class="fa fa-search-plus"></i></a> -->
                 </div>
 
                 <picture>
-                  <source srcset="assets/img/thumbs/works/fp-001.webp" type="image/webp">
-                  <source srcset="assets/img/thumbs/works/fp-001.jpg" type="image/jpeg">
-                  <img src="assets/img/thumbs/works/fp-001.jpg" alt="Financial Planning" />
+                  <img src="assets/img/works/fp-001.thumb.webp" alt="Financial Planning" />
                 </picture>
 
                 <div class="portfolio-info">
@@ -1449,19 +1355,17 @@ the best profession!
             </div>
           </div>
 
-          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "desktop", "tools"]'>
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "finance"]'>
             <div class="portfolio-bg">
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a class="image-link" href="assets/img/works/kassa-001.webp"><i class="fa fa-search-plus"></i></a>
                   <a target="_blank" rel="noopener" href="http://bit.ly/kassa-git"><i class="fab fa-github"></i></a>
-                  <!-- <a class="image-link" href="assets/img/works/kassa-001.jpg"><i class="fa fa-search-plus"></i></a> -->
                 </div>
 
                 <picture>
-                  <source srcset="assets/img/thumbs/works/kassa-001.webp" type="image/webp">
-                  <source srcset="assets/img/thumbs/works/kassa-001.jpg" type="image/jpeg">
-                  <img src="assets/img/thumbs/works/kassa-001.jpg" alt="Communal Payments Kassa" />
+                  <img src="assets/img/works/kassa-001.thumb.webp" alt="Communal Payments Kassa" />
                 </picture>
 
                 <div class="portfolio-info">
@@ -1471,19 +1375,17 @@ the best profession!
             </div>
           </div>
 
-          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "desktop", "system"]'>
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "finance"]'>
             <div class="portfolio-bg">
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a class="image-link" href="assets/img/works/sklad-001.webp"><i class="fa fa-search-plus"></i></a>
                   <a target="_blank" rel="noopener" href="http://bit.ly/sklad-git"><i class="fab fa-github"></i></a>
-                  <!-- <a class="image-link" href="assets/img/works/sklad-001.jpg"><i class="fa fa-search-plus"></i></a> -->
                 </div>
 
                 <picture>
-                  <source srcset="assets/img/thumbs/works/sklad-001.webp" type="image/webp">
-                  <source srcset="assets/img/thumbs/works/sklad-001.jpg" type="image/jpeg">
-                  <img src="assets/img/thumbs/works/sklad-001.jpg" alt="Sklad" />
+                  <img src="assets/img/works/sklad-001.thumb.webp" alt="Sklad" />
                 </picture>
 
                 <div class="portfolio-info">
@@ -1493,19 +1395,17 @@ the best profession!
             </div>
           </div>
 
-          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "desktop", "system"]'>
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "finance"]'>
             <div class="portfolio-bg">
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a class="image-link" href="assets/img/works/voda-001.webp"><i class="fa fa-search-plus"></i></a>
                   <a target="_blank" rel="noopener" href="http://bit.ly/aqua-git"><i class="fab fa-github"></i></a>
-                  <!-- <a class="image-link" href="assets/img/works/voda-001.jpg"><i class="fa fa-search-plus"></i></a> -->
                 </div>
 
                 <picture>
-                  <source srcset="assets/img/thumbs/works/voda-001.webp" type="image/webp">
-                  <source srcset="assets/img/thumbs/works/voda-001.jpg" type="image/jpeg">
-                  <img src="assets/img/thumbs/works/voda-001.jpg" alt="Water Delivery Service" />
+                  <img src="assets/img/works/voda-001.thumb.webp" alt="Water Delivery Service" />
                 </picture>
 
                 <div class="portfolio-info">
@@ -1515,19 +1415,17 @@ the best profession!
             </div>
           </div>
 
-          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "desktop", "accounting"]'>
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "finance"]'>
             <div class="portfolio-bg">
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a class="image-link" href="assets/img/works/domSlugba-001.webp"><i class="fa fa-search-plus"></i></a>
                   <a target="_blank" rel="noopener" href="http://bit.ly/domslugba-git"><i class="fab fa-github"></i></a>
-                  <!-- <a class="image-link" href="assets/img/works/domSlugba-001.jpg"><i class="fa fa-search-plus"></i></a> -->
                 </div>
 
                 <picture>
-                  <source srcset="assets/img/thumbs/works/domSlugba-001.webp" type="image/webp">
-                  <source srcset="assets/img/thumbs/works/domSlugba-001.jpg" type="image/jpeg">
-                  <img src="assets/img/thumbs/works/domSlugba-001.jpg" alt="Home Services" />
+                  <img src="assets/img/works/domSlugba-001.thumb.webp" alt="Home Services" />
                 </picture>
 
                 <div class="portfolio-info">
@@ -1542,19 +1440,13 @@ the best profession!
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a class="image-link" href="assets/img/works/trump-wall.webp"><i class="fa fa-search-plus"></i></a>
                   <a target="_blank" rel="noopener" href="http://bit.ly/wish-wall"><i class="fas fa-play-circle"></i></a>
                   <a target="_blank" rel="noopener" href="http://bit.ly/wish-wall-git"><i class="fab fa-github"></i></a>
-                  <!-- <a class="image-link" href="assets/img/works/wailing-wall.gif"><i class="fa fa-search-plus"></i></a> -->
                 </div>
 
-                <!-- <video autoplay loop muted playsinline>
-                  <source src="assets/img/works/wailing-wall.webm" type="video/webm">
-                </video> -->
-
                 <picture>
-                  <source srcset="assets/img/thumbs/works/trump-wall.webp" type="image/webp">
-                  <source srcset="assets/img/thumbs/works/trump-wall.jpg" type="image/jpeg">
-                  <img src="assets/img/thumbs/works/trump-wall.jpg" alt="Wailing Wall" />
+                  <img src="assets/img/works/trump-wall.thumb.webp" alt="Wailing Wall" />
                 </picture>
 
                 <div class="portfolio-info">
@@ -1569,15 +1461,13 @@ the best profession!
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a class="image-link" href="assets/img/works/git-emoji-cheat-sheet.webp"><i class="fa fa-search-plus"></i></a>
                   <a target="_blank" rel="noopener" href="http://bit.ly/demo-emoji"><i class="fas fa-play-circle"></i></a>
                   <a target="_blank" rel="noopener" href="http://bit.ly/gh-emoji"><i class="fab fa-github"></i></a>
-                  <!-- <a class="image-link" href="assets/img/works/git-emoji-cheat-sheet.jpg"><i class="fa fa-search-plus"></i></a> -->
                 </div>
 
                 <picture>
-                  <source srcset="assets/img/thumbs/works/git-emoji-cheat-sheet.webp" type="image/webp">
-                  <source srcset="assets/img/thumbs/works/git-emoji-cheat-sheet.jpg" type="image/jpeg">
-                  <img src="assets/img/thumbs/works/git-emoji-cheat-sheet.jpg" alt="Git Emoji Cheat Sheet" />
+                  <img src="assets/img/works/git-emoji-cheat-sheet.thumb.webp" alt="Git Emoji Cheat Sheet" />
                 </picture>
 
                 <div class="portfolio-info">
@@ -1587,19 +1477,17 @@ the best profession!
             </div>
           </div>
 
-          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "desktop", "accounting"]'>
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "finance"]'>
             <div class="portfolio-bg">
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a class="image-link" href="assets/img/works/scratch-001.webp"><i class="fa fa-search-plus"></i></a>
                   <a target="_blank" rel="noopener" href="http://bit.ly/scratch-git"><i class="fab fa-github"></i></a>
-                  <!-- <a class="image-link" href="assets/img/works/scratch-001.jpg"><i class="fa fa-search-plus"></i></a> -->
                 </div>
 
                 <picture>
-                  <source srcset="assets/img/thumbs/works/scratch-001.webp" type="image/webp">
-                  <source srcset="assets/img/thumbs/works/scratch-001.jpg" type="image/jpeg">
-                  <img src="assets/img/thumbs/works/scratch-001.jpg" alt="Scratch - Accounting system of electronic payment vouchers for services of mobile operators" />
+                  <img src="assets/img/works/scratch-001.thumb.webp" alt="Scratch - Accounting system of electronic payment vouchers for services of mobile operators" />
                 </picture>
 
                 <div class="portfolio-info">
@@ -1614,14 +1502,12 @@ the best profession!
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a class="image-link" href="assets/img/works/woh-001-user-tree-module.webp"><i class="fa fa-search-plus"></i></a>
                   <a target="_blank" rel="noopener" href="http://bit.ly/woh-git"><i class="fab fa-github"></i></a>
-                  <!-- <a class="image-link" href="assets/img/works/woh-001-user-tree-module.jpg"><i class="fa fa-search-plus"></i></a> -->
                 </div>
 
                 <picture>
-                  <source srcset="assets/img/thumbs/works/woh-001-user-tree-module.webp" type="image/webp">
-                  <source srcset="assets/img/thumbs/works/woh-001-user-tree-module.jpg" type="image/jpeg">
-                  <img src="assets/img/thumbs/works/woh-001-user-tree-module.jpg" alt="WayOfHelp - User's relations tree visualization module" />
+                  <img src="assets/img/works/woh-001-user-tree-module.thumb.webp" alt="WayOfHelp - User's relations tree visualization module" />
                 </picture>
 
                 <div class="portfolio-info">
@@ -1631,23 +1517,62 @@ the best profession!
             </div>
           </div>
 
-          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "desktop", "system"]'>
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "finance", "system"]'>
             <div class="portfolio-bg">
               <div class="portfolio">
                 <div class="tt-overlay"></div>
                 <div class="links">
+                  <a class="image-link" href="assets/img/works/sms-diary-001-marks-gournal.webp"><i class="fa fa-search-plus"></i></a>
                   <a target="_blank" rel="noopener" href="http://bit.ly/sms-diary-git"><i class="fab fa-github"></i></a>
-                  <!-- <a class="image-link" href="assets/img/works/sms-diary-001-marks-gournal.jpg"><i class="fa fa-search-plus"></i></a> -->
                 </div>
 
                 <picture>
-                  <source srcset="assets/img/thumbs/works/sms-diary-001-marks-gournal.webp" type="image/webp">
-                  <source srcset="assets/img/thumbs/works/sms-diary-001-marks-gournal.jpg" type="image/jpeg">
-                  <img src="assets/img/thumbs/works/sms-diary-001-marks-gournal.jpg" alt="SMS-Diary - Service of notifying parents about the studying progress of their children in school" />
+                  <img src="assets/img/works/sms-diary-001-marks-gournal.thumb.webp" alt="SMS-Diary - Service of notifying parents about the studying progress of their children in school" />
                 </picture>
 
                 <div class="portfolio-info">
                   <h3>SMS-Diary</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "web"]'>
+            <div class="portfolio-bg">
+              <div class="portfolio">
+                <div class="tt-overlay"></div>
+                <div class="links">
+                  <a class="image-link" href="assets/img/works/http-404-animated-with-socials-001.gif"><i class="fa fa-search-plus"></i></a>
+                  <a target="_blank" rel="noopener" href="http://bit.ly/http-404"><i class="fas fa-play-circle"></i></a>
+                  <a target="_blank" rel="noopener" href="http://bit.ly/http-404-git"><i class="fab fa-github"></i></a>
+                </div>
+
+                <video autoplay loop muted playsinline>
+                  <source src="assets/img/works/http-404-animated-with-socials-001.webm" type="video/webm">
+                </video>
+
+                <div class="portfolio-info">
+                  <h3>ERROR 404 Page</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item col-xs-6 col-sm-4 col-md-3" data-groups='["all", "gambling", "web"]'>
+            <div class="portfolio-bg">
+              <div class="portfolio">
+                <div class="tt-overlay"></div>
+                <div class="links">
+                  <a class="image-link" href="assets/img/works/wcl.webp"><i class="fa fa-search-plus"></i></a>
+                  <a target="_blank" rel="noopener" href="http://bit.ly/wcl-com"><i class="fas fa-play-circle"></i></a>
+                </div>
+
+                <picture>
+                  <img src="assets/img/works/wcl.thumb.webp" alt="World Cossackers League" />
+                </picture>
+
+                <div class="portfolio-info">
+                  <h3>World Cossackers League</h3>
                 </div>
               </div>
             </div>
@@ -1707,38 +1632,43 @@ the best profession!
       <div class="row">
 
         <div class="col-xs-12 col-md-6">
-          <div class="contact-form">
-            <strong>Send me a short message</strong>
-            <form id="contactForm" name="contact-form" action="sendemail.php" method="POST">
+          <!-- <div class="row"> -->
+            <div class="contact-form">
 
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input id="name" name="name" type="text" class="form-control" autocomplete="name" required />
+              <div class="col-12">
+                <strong>Quick message</strong>
               </div>
 
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" class="form-control" autocomplete="email" required />
-              </div>
+              <form id="contactForm" name="contact-form" action="sendemail.php" method="POST">
 
-              <div class="form-group">
-                <label for="subject">Subject</label>
-                <input id="subject" name="subject" type="text" class="form-control" />
-              </div>
+                <div class="form-group">
+                  <label for="name">From</label>
+                  <input id="name" name="name" type="text" class="form-control" autocomplete="name" required />
+                </div>
 
-              <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" class="form-control" rows="5" required=""></textarea>
-              </div>
+                <div class="form-group">
+                  <label for="email">Reply To</label>
+                  <input id="email" name="email" type="email" class="form-control" autocomplete="email" required />
+                </div>
 
-              <button type="submit" name="submit" class="btn btn-primary">Send</button>
+                <div class="form-group">
+                  <label for="subject">Subject</label>
+                  <input id="subject" name="subject" type="text" class="form-control" />
+                </div>
 
-            </form>
-          </div><!--/ /.contact-form /-->
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" class="form-control" rows="3" required=""></textarea>
+                </div>
+
+                <button type="submit" name="submit" class="btn btn-primary">Send</button>
+
+              </form>
+            </div><!--/ /.contact-form /-->
+          <!-- </div> -->
         </div><!--/ /.col-md-6 /-->
 
         <div class="col-xs-12 col-md-6">
-
           <div class="row center-xs">
 
             <div class="col-xs-6 col-sm-6">
@@ -1790,7 +1720,7 @@ the best profession!
         <div class="col-xs-2 col-sm-4 col-md-4">
           <div class="copyright text-right">
             <small class="hidden-xs">{{built.hash}}</small>
-            <span class="hidden-xs label label-success label-sm">v{{version}}-b{{built.cntr}}</span>
+            <span class="hidden-xs label label-success label-sm">v{{version}}-b{{cntr}}</span>
             <small class="hidden-xs">{{built.date}}</small>
           </div>
         </div>
@@ -1809,7 +1739,6 @@ the best profession!
 
   <!--/  Javascript files
   ========================================================================= /-->
-
   <script src="assets/js/lib/jquery.js"></script>
   <script src="assets/js/lib/bootstrap.js"></script>
   <script src="assets/js/lib/jquery.waypoints.js"></script>
@@ -1823,19 +1752,23 @@ the best profession!
   <script src="assets/js/lib/jquery.easypiechart.js"></script>
 
   <!-- <script src="assets/js/plugins/modernizr.custom.js"></script> -->
+
   <script src="assets/js/lib/shuffle.js"></script>
   <script src="assets/js/lib/jquery.magnific-popup.js"></script>
   <script async src="assets/js/lib/smoothscroll.js"></script>
   <script defer src="assets/js/lib/jquery.noty.packaged.js"></script>
-  <script defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;key={{keys.google.maps}}&amp;libraries=visualization"></script>
+  <!-- <script defer src="assets/js/lib/bower-bundle.js"></script> -->
 
   <!-- Load React -->
   <!-- Note: when deploying, replace "development.js" with "production.min.js" -->
   <!-- <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script> -->
   <!-- <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script> -->
 
-  <script defer src="assets/js/front/index.js"></script>
-  <script defer src="assets/js/front/theme.js"></script>
+  <script defer="defer" src="assets/js/front/index.js"></script>
+  <!-- <script defer="defer" src="assets/js/front/theme.js"></script> -->
+  <script src="assets/js/front/theme.js"></script>
+
+  <script async src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;key={{keys.google.maps}}&amp;callback=initMap"></script>
 
   <!-- <script>
     document.write('<script src="' + location.protocol + '//' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');

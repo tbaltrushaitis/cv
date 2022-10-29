@@ -9,6 +9,11 @@ html {
   height:     100%;
   opacity:    1;
   visibility: visible;
+  font-display: swap;
+}
+
+body {
+  font-display: swap;
 }
 
 .clearfix {
