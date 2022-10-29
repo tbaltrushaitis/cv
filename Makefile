@@ -114,7 +114,7 @@ LN := ln -sf --backup=simple
 CP := cp -prf --backup=simple
 MV := mv -f
 
-FMP := ffmpeg -hide_banner -y -loglevel error -stats
+FMP := ffmpeg -hide_banner -stats -loglevel error -y
 FIGLET := figlet-toilet -t -k -f standard -F border -F gay
 TOILET := figlet-toilet -t -f small -F border
 GULP := gulp --color
@@ -125,7 +125,7 @@ STG  = $(shell echo '$@' | tr [:lower:] [:upper:])
 DAT = [$(Gray)$(DT)$(NC)]
 BEGIN = $(Yellow)$(On_Blue)BEGIN$(NC) RECIPE
 RESULT = $(White)$(On_Purple)RESULT$(NC)
-DONE = $(Cyan)$(On_Green)DONE$(NC) RECIPE
+DONE = $(White)$(On_Green)DONE RECIPE$(NC)
 FINE = $(Yellow)$(On_Green)FINISHED GOAL$(NC)
 TARG = [$(Orange) $@ $(NC)]
 THIS = [$(Red) $(THIS_FILE) $(NC)]
@@ -232,14 +232,14 @@ _default: $(APP_ENV) ;
 PHONY += mkdirs
 
 mkdirs: ;
-	@ echo "$(HR)" ;
+	# @ echo "$(HR)" ;
 	@ [ -d $(DIR_ARC) ]   || mkdir -p $(DIR_ARC)
 	@ [ -d $(DIR_SRC) ]   || mkdir -p $(DIR_SRC)
 	@ [ -d $(DIR_BUILD) ] || mkdir -p $(DIR_BUILD)
 	@ [ -d $(DIR_DIST) ]  || mkdir -p $(DIR_DIST)
 	@ [ -d $(DIR_WEB) ]   || mkdir -p $(DIR_WEB)
-	@ echo "$(DAT) $(FINE): $(TARG)" ;
-	@ echo "$(HR)" ;
+	@ echo "$(DAT) $(DONE): $(TARG)" ;
+	# @ echo "$(HR)" ;
 
 ##  ------------------------------------------------------------------------  ##
 PHONY += test config
@@ -275,8 +275,7 @@ bower: ;
 	@ echo "$(HR)" ;
 	$(FIGLET) "MK: $(STG)"
 	export NODE_ENV="${APP_ENV}"; npm run bower
-	# @ touch ./$(ARGS)
-	@ echo "$(DAT) $(FINE): $(TARG)"
+	@ echo "$(DAT) $(DONE): $(TARG)"
 	@ echo "$(HR)" ;
 
 
@@ -330,13 +329,13 @@ dist: build video ;
 	cd ${WD} && cp -prf ${DIR_BUILD}/* ${DIR_DIST}/
 	cd ${WD} && $(RM) -rf ${DIR_DIST}/resources
 	# echo "MK: BACKUP -> ${ARC}/${APP_NAME}-${VER}-${APP_ENV}.tar.gz"
-	$(FIGLET) "MK: BACKUP"
+	$(TOILET) "MK: BACKUP"
 	@ cd ${WD} && tar -c "${DST}-${APP_ENV}" | gzip -9 > "${ARC}/${APP_NAME}-${VER}-${APP_ENV}.tar.gz"
 	@ echo "Archived to: [${Blue}${ARC}/${APP_NAME}-${VER}-${APP_ENV}.tar.gz${NC}]"
 	@ cd ${WD} && touch ./$(ARGS)
 	# @ echo "$(DAT) $(TARG): [$(Cyan)$(DIR_DIST)$(NC)]"
 	# @ echo "$(DAT) $(FINE): $(TARG) [$(Red)$(VER)-$(APP_ENV)$(NC)]"
-	@ echo "$(DAT) $(DONE): [$(Cyan)$(DIR_DIST)$(NC)]"
+	@ echo "$(DAT) $(DONE): $(TARG) [$(Cyan)$(DIR_DIST)$(NC)]"
 	@ echo "$(HR)" ;
 
 pre-deploy: ;
@@ -352,7 +351,7 @@ deploy: dist pre-deploy ;
 	$(LN) ${DIR_DIST} devroot
 	$(LN) ${DIR_WEB} webroot
 	touch ./$(ARGS)
-	@ echo "$(DAT) $(FINE): $(TARG) [$(Cyan)$(DIR_WEB)$(NC)]"
+	@ echo "$(DAT) $(DONE): $(TARG) [$(Cyan)$(DIR_WEB)$(NC)]"
 	@ echo "$(HR)" ;
 
 pre-update: ;
@@ -371,8 +370,8 @@ reupdate: pre-update update ;
 DIR_IMGS := assets/img/works
 GIF_FILES := $(notdir $(wildcard $(DIR_SRC)/$(DIR_IMGS)/*.gif))
 BASE_NAMES := $(basename $(GIF_FILES))
-MPEG_FILES := $(patsubst %.gif,%.mp4,$(DIR_BUILD)/$(DIR_IMGS)/$(GIF_FILES))
-WEBM_FILES := $(patsubst %.gif,%.webm,$(DIR_BUILD)/$(DIR_IMGS)/$(GIF_FILES))
+MPEG_FILES := $(patsubst %.gif,%.mp4,"$(DIR_BUILD)/$(DIR_IMGS)/$(GIF_FILES)")
+WEBM_FILES := $(patsubst %.gif,%.webm,"$(DIR_BUILD)/$(DIR_IMGS)/$(GIF_FILES)")
 
 
 ##  ------------------------------------------------------------------------  ##
@@ -405,7 +404,6 @@ print-names: ;
 	@ echo "$(HR)" ;
 
 video: print-names ;
-	@ echo "$(HR)" ;
 	$(FIGLET) "MK: $(STG)"
 	# @ echo "$(DAT) $(BEGIN): $(TARG)" ;
 	# $(foreach fbase, $(BASE_NAMES), $(FMP) -i "$(DIR_BUILD)/$(DIR_IMGS)/$(fbase).gif" -b:v 0 -crf 25 -f mp4 -vcodec libx264 -y "$(DIR_BUILD)/$(DIR_IMGS)/$(fbase).mp4" -vf "pad=ceil(iw/2)*2:ceil(ih/2)*2" ;)
@@ -415,7 +413,7 @@ video: print-names ;
 	@ echo "$(DAT) [$(RESULT)] $(Orange)WEBM$(NC) files:"
 	ls -l $(DIR_BUILD)/$(DIR_IMGS)/*.webm | grep webm --color
 	# @ touch ./$(ARGS)
-	@ echo "$(DAT) $(FINE): $(TARG)" ;
+	@ echo "$(DAT) $(DONE): $(TARG)" ;
 	@ echo "$(HR)" ;
 
 
@@ -424,7 +422,7 @@ PHONY += rebuild redeploy rb rd
 
 # rebuild: pre-build build pre-dist dist ;
 rebuild: pre-build build ;
-	@ echo "$(DAT) $(DONE): $(TARG) [$(VER)]"
+	@ echo "$(DAT) $(DONE): $(TARG) [$(Red)$(VER)$(NC)]"
 
 # redeploy: build pre-dist dist pre-deploy deploy ;
 # redeploy: pre-dist dist pre-deploy deploy ;
@@ -433,10 +431,10 @@ redeploy: pre-dist deploy ;
 	@ echo "$(DAT) $(DONE) $(TARG): [$(Cyan)$(DIR_WEB)$(NC)]"
 
 rb: rebuild ;
-	@ echo "$(DAT) $(FINE): $(TARG) [$(VER)]"
+	@ echo "$(DAT) $(DONE): $(TARG) [$(Red)$(VER)$(NC)]"
 
 rd: redeploy ;
-	@ echo "$(DAT) $(FINE): $(TARG) [$(VER)]"
+	@ echo "$(DAT) $(DONE): $(TARG) [$(Red)$(VER)$(NC)]"
 
 
 ##  ------------------------------------------------------------------------  ##
@@ -445,23 +443,23 @@ PHONY += _all all full cycle cycle-dev dev dev-setup prod production run watch
 #* means the Makefile has nothing to do with a file called "all" in the same directory.
 
 _all: clean cycle banner ;
-	@ echo "$(DAT) $(FINE): $(TARG)"
+	@ echo "$(DAT) $(DONE): $(TARG)"
 
 all: _all ;
-	@ echo "$(DAT) $(FINE): $(TARG)"
+	@ echo "$(DAT) $(DONE): $(TARG)"
 
 full: clean-all _all banner ;
-	@ echo "$(DAT) $(FINE): $(TARG)"
+	@ echo "$(DAT) $(DONE): $(TARG)"
 
 cycle: dist ;
-	@ echo "$(DAT) $(FINE): $(TARG)"
+	@ echo "$(DAT) $(DONE): $(TARG)"
 
 cycle-dev: redeploy ;
 	@ echo "$(DAT) $(DONE): $(TARG)"
 
 dev: clean-dev banner cycle-dev ;
 	# @ export NODE_ENV="${APP_ENV}"; npm run dev
-	@ echo "$(DAT) $(FINE): $(TARG) [$(VER)]"
+	@ echo "$(DAT) $(DONE): $(TARG) [$(Red)$(VER)$(NC)]"
 
 dev-setup: clean-deps setup banner cycle-dev ;
 	@ export NODE_ENV="${APP_ENV}"; npm run dev
