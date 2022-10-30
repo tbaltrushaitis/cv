@@ -286,9 +286,9 @@ bower: ;
 
 setup-deps: ;
 	@ echo "$(DAT) $(BEGIN): $(TARG)"
-	sudo apt-get -qq -y install pwgen figlet toilet toilet-fonts jq #2>/dev/null
-	npm i --verbose --global gulp-cli #2>/dev/null
-	npm i --verbose gulp # 2>/dev/null
+	sudo apt-get -qq -y install pwgen figlet toilet toilet-fonts jq
+	npm i --verbose --global gulp-cli
+	npm i --verbose gulp
 	npm i --verbose
 	$(FIGLET) "BOWER: $(STG)"
 	bower i --allow-root --production --verbose
