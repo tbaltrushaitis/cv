@@ -1,5 +1,6 @@
 {
     "manifest_version": 3
+  , "id": "/?utm_source=start_url"
   , "name": "CV+Portfolio"
   , "short_name": "cv"
   , "version": "{{engine.version}}"
@@ -9,12 +10,11 @@
   , "icons": [
       {
           "src":    "favicon.ico"
-        , "sizes":  "32x32 24x24 16x16"
+        , "sizes":  "32x32"
         , "type":   "image/x-icon"
       }
     ]
   , "author":           "{{author.name.full}}"
-  , "scope":            "/"
   , "start_url":        "/?utm_source=start_url"
   , "display":          "standalone"
   , "theme_color":      "#000"
