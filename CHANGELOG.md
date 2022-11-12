@@ -1,25 +1,33 @@
-<p align="center">
-  <a href="https://github.com/tbaltrushaitis/cv/releases"><img src="https://img.shields.io/github/release/tbaltrushaitis/cv.svg?style=flat" alt="GitHub release" /></a>
-  <a href="https://github.com/tbaltrushaitis/cv/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat" alt="License" /></a>
-  <!--/ <img src="https://img.shields.io/david/tbaltrushaitis/cv.svg" alt="Dependencies" /> /-->
-</p>
+<h1 align="center">CV, Resume and Portfolio</h1>
 
 <p align="center">
-  <h1 align="center">CV, Resume and Portfolio</h1>
+  <a href="https://github.com/tbaltrushaitis/cv/releases"><img src="https://img.shields.io/github/release/tbaltrushaitis/cv.svg?style=flat" alt="GitHub release"></a>
+  <a href="https://github.com/tbaltrushaitis/cv/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat" alt="License"></a>
+  <a href="https://github.com/tbaltrushaitis/cv/stargazers"><img src="https://img.shields.io/github/stars/tbaltrushaitis/cv.svg?style=flat" alt="GitHub Stars"></a>
 </p>
 
 <p align="center">
   <a href="http://bit.ly/tomascv?ref=changelog">
-    <img max-width="640px" max-height="360px" src="assets/img/cv-demo-01.gif" alt="Modern CV, Resume and Portfolio website template" />
+    <img src="assets/img/cv-demo-01.gif" max-width="640px" max-height="360px" alt="Modern CV, Resume and Portfolio website template" />
   </a>
 </p>
 
 <!-- # Best-in-Class modern CV, Resume and Portfolio # -->
 
-:mortar_board: Best-in-Class modern CV, Resume and Portfolio website template.
-**All-in-One-Page** site with fully customizable builder.
+<h4 align="center">Best-in-Class modern CV, Resume and Portfolio website template</h4>
+<h5 align="center"><strong>All-in-One-Page</strong> site with fully customizable builder</h5>
 
-`cv` `resume` `portfolio` `template` `portfolio-website` `cv-template` `IT` `resume-template` `resume-website`
+<p align="center">
+  <code>cv</code>
+  <code>resume</code>
+  <code>portfolio</code>
+  <code>template</code>
+  <code>portfolio-website</code>
+  <code>cv-template</code>
+  <code>IT</code>
+  <code>resume-template</code>
+  <code>resume-website</code>
+</p>
 
 ---
 
@@ -39,10 +47,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ---
 
+## [Slava-Ukraini](https://github.com/tbaltrushaitis/cv/releases/tag/v0.3.1) - 2022-10-30 ##
+
+## [Released] ##
+- [x] Include all latest updates and fixes from **v0.3.1**
+
+---
+
 ## [v0.3.1](Unreleased) - Current ##
 ## [v0.3.1](https://github.com/tbaltrushaitis/cv/tree/v0.3.1) - 2022-01-23 ##
 
 ##### Added #####
+- [x] CJIABA YKPAIHE :ukraine:
 - npm i -D gulp-size
 - Moved `FAQ` section of readme into [FAQ.md][FAQ]
 - Fonts preload implemented - significant increase in page load speed achived
@@ -78,7 +94,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ##### Fixed #####
 - [x] Implemented fix for vulnerability [GHSA-p6mc-m468-83gw](https://github.com/advisories/GHSA-p6mc-m468-83gw)
-- [x] Implemented fix for [CVE-2020-8175](https://github.com/advisories/GHSA-w7q9-p3jq-fmhm): Upgrade `jpeg-js` to version **0.4.0**
+- [x] Implemented fix for [CVE-2020-8175](https://github.com/advisories/GHSA-w7q9-p3jq-fmhm): Upgraded `jpeg-js` to version **0.4.0**
 - [x] Google [PageSpeed](https://pagespeed.web.dev/) Insights ratings:
  - **72** for mobile platform
  - **88** for PC
