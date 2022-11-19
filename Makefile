@@ -301,15 +301,11 @@ setup-deps: ;
 ##  ------------------------------------------------------------------------  ##
 PHONY += pre-update update reupdate
 
-pre-build:| clean-build setup bower ;
-	# @ echo "$(DAT) $(BEGIN): $(TARG)"
-	# @ cd ${WD} && $(RM) -vf ./build
+pre-build: clean-build ;
 	# @ export NODE_ENV="${APP_ENV}"; npm run populate
 	@ echo "$(DAT) $(DONE): $(TARG)"
 
-# build: mkdirs setup ;
-# build: mkdirs setup bower ;
-build: mkdirs ;
+build: mkdirs setup bower ;
 	$(FIGLET) "MK: $(STG)"
 	@ cd ${WD} && cp -prf ${SRC}/* ${DIR_BUILD}/
 	export NODE_ENV="${APP_ENV}"; npm run build
@@ -383,7 +379,6 @@ backup: ;
 ##  ------------------------------------------------------------------------  ##
 ##  Create videos from *.gif files
 ##  ------------------------------------------------------------------------  ##
-# PHONY += print-names video
 PHONY += print-names
 
 print-names: ;
@@ -399,7 +394,6 @@ print-names: ;
 
 video: print-names ;
 	$(FIGLET) "MK: $(STG)"
-	# @ echo "$(DAT) $(BEGIN): $(TARG)" ;
 	# $(foreach fbase, $(BASE_NAMES), $(FMP) -i "$(DIR_BUILD)/$(DIR_IMGS)/$(fbase).gif" -b:v 0 -crf 25 -f mp4 -vcodec libx264 -y "$(DIR_BUILD)/$(DIR_IMGS)/$(fbase).mp4" -vf "pad=ceil(iw/2)*2:ceil(ih/2)*2" ;)
 	# @ echo "$(DAT) [$(RESULT)] $(Purple)MPEG$(NC) files:"
 	# ls -l $(DIR_BUILD)/$(DIR_IMGS)/*.mp4 | grep mp4 --color
@@ -414,13 +408,9 @@ video: print-names ;
 ##  ------------------------------------------------------------------------  ##
 PHONY += rebuild redeploy rb rd
 
-# rebuild: pre-build build pre-dist dist ;
 rebuild: pre-build build ;
 	@ echo "$(DAT) $(DONE): $(TARG) [$(Red)$(VER)$(NC)]"
 
-# redeploy: build pre-dist dist pre-deploy deploy ;
-# redeploy: pre-dist dist pre-deploy deploy ;
-# redeploy: pre-dist dist deploy ;
 redeploy: pre-dist deploy ;
 	@ echo "$(DAT) $(DONE) $(TARG): [$(Cyan)$(DIR_WEB)$(NC)]"
 
@@ -459,7 +449,6 @@ dev-setup: clean-deps setup banner cycle-dev ;
 	@ export NODE_ENV="${APP_ENV}"; npm run dev
 	@ echo "$(DAT) $(DONE): $(TARG)"
 
-# run: pre-build build pre-dist dist pre-deploy deploy banner ;
 run: pre-build build pre-dist dist pre-deploy deploy banner ;
 	# $(FIGLET) "MK: $(STG): [$(VER)]"
 	@ echo "$(DAT) $(DONE): $(TARG) [$(Red)$(VER)$(NC)]"

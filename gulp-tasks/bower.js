@@ -107,15 +107,15 @@ function bowerJS (cb) {
       console.log(`${ME.d}[${C.O}${modName.toUpperCase()}${C.N}] Add ${C.R}JS${C.N}: [${C.Gray}${p}${C.N}]`);
       return Promise.resolve(p);
     }))
-    .pipe(dest(path.resolve(KEEP, JS)))
+    .pipe(dest(path.join(KEEP, JS)))
     .pipe(gulpif(['production', ''].includes(ME.NODE_ENV), terser(ME.pkg.options.terser)))
-    .pipe(dest(path.resolve(DEST, JS)))
+    .pipe(dest(path.join(DEST, JS)))
     .pipe(concatJS('bower-bundle.js'))
     //  Write banners
     // .pipe(headfoot.header(ME.Banner.header))
     // .pipe(headfoot.footer(ME.Banner.footer))
     .pipe(size({title: 'BOWER:SCRIPTS', showFiles: false}))
-    .pipe(dest(path.resolve(DEST, JS)))
+    .pipe(dest(path.join(DEST, JS)))
   ;
 }
 
@@ -139,7 +139,7 @@ function bowerCSS (cb) {
     // .pipe(headfoot.header(ME.Banner.header))
     // .pipe(headfoot.footer(ME.Banner.footer))
     .pipe(size({title: 'BOWER:CSS', showFiles: false}))
-    .pipe(dest(path.resolve(DEST, CSS)))
+    .pipe(dest(path.join(DEST, CSS)))
   ;
 }
 
@@ -152,7 +152,7 @@ function bowerFonts (cb) {
       return Promise.resolve(p);
     }))
     .pipe(size({title: 'BOWER:FONTS', showFiles: false}))
-    .pipe(dest(path.resolve(DEST, FONT)))
+    .pipe(dest(path.join(DEST, FONT)))
   ;
 }
 
@@ -165,7 +165,7 @@ function webFonts (cb) {
       return Promise.resolve(p);
     }))
     .pipe(size({title: 'BOWER:WEBFONTS', showFiles: false}))
-    .pipe(dest(path.resolve(DEST, WEBFONT)))
+    .pipe(dest(path.join(DEST, WEBFONT)))
   ;
 }
 
@@ -187,7 +187,7 @@ function bowerImg (cb) {
       return Promise.resolve(p);
     }))
     .pipe(size({title: 'BOWER:IMAGES', showFiles: false}))
-    .pipe(dest(path.resolve(DEST, IMG)))
+    .pipe(dest(path.join(DEST, IMG)))
   ;
 }
 

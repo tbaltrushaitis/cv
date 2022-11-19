@@ -43,7 +43,7 @@ let C = ME.Config.colors;
 //  ------------------------------  FUNCTIONS  -----------------------------  //
 //  ------------------------------------------------------------------------  //
 let JS   = path.join('js/lib');
-// let FROM = path.join(ME.BUILD, 'resources', JS);
+// let FROM = path.join(ME.SRC, 'resources', JS);
 let FROM = path.join(ME.BUILD, 'resources/assets', JS);
 let KEEP = path.join(ME.BUILD, 'resources/assets');
 let DEST = path.join(ME.BUILD, 'assets');
@@ -74,15 +74,15 @@ function frontJS () {
       console.log(`${ME.d}[${C.O}FRONT${C.N}] Bundle ${C.Y}JS${C.N}: [${C.Gray}${p}${C.N}]`);
       return Promise.resolve(p);
     }))
-    .pipe(dest(path.resolve(KEEP, JS)))
+    .pipe(dest(path.join(KEEP, JS)))
     .pipe(gulpif(['production', ''].includes(ME.NODE_ENV), terser(ME.pkg.options.terser)))
-    .pipe(dest(path.resolve(DEST, JS)))
+    .pipe(dest(path.join(DEST, JS)))
     .pipe(concatJS('libs-bundle.js'))
     //  Write banners
     // .pipe(headfoot.header(ME.Banner.header))
     // .pipe(headfoot.footer(ME.Banner.footer))
     .pipe(size({title: 'FRONT JS', showFiles: false}))
-    .pipe(dest(path.resolve(DEST, JS)))
+    .pipe(dest(path.join(DEST, JS)))
   ;
 }
 
