@@ -36,6 +36,7 @@ clean-deps: ;
 		bower_modules/ 	\
 		node_modules/ 	\
 		./setup-deps		\
+		./setup					\
 	;
 	@ echo "$(OKAY)" ;
 
@@ -49,6 +50,7 @@ clean-files: ;
 		*.md										\
 		*.log										\
 		./deploy								\
+		./video									\
 	;
 	@ echo "$(OKAY)" ;
 
