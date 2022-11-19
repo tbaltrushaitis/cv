@@ -100,14 +100,11 @@ window.jQuery(function ($) {
     let AnimationsEnabled = AnimationsConfig.then(function (loAnimations) {
       return Promise.resolve(loAnimations).then(function (lo) {
         return new Promise(function (resolve, reject) {
-
           $.each(lo, function (i, o) {
             // Assign Waypoint animation handler
             wShow(o);
           });
-
           return resolve();
-
         });
       });
 
@@ -129,7 +126,7 @@ window.jQuery(function ($) {
   })();
 
   // ---------------------------------------------------------------------------
-  //  NOTY options
+  //  NOTY
   // ---------------------------------------------------------------------------
   (function () {
     $.noty.defaults = {
@@ -164,13 +161,16 @@ window.jQuery(function ($) {
   })();
 
   // ---------------------------------------------------------------------------
-  //  LOAD Indicators
+  //  Indicators
   // ---------------------------------------------------------------------------
   (function () {
+
+    let Title = `${'{{app.name}}'.toUpperCase()}-v{{app.version}}-b{{cntr}}` ;
 
     $(window).ready(function () {
       console.log(`%c{{app.name}} v{{app.version}}-b{{cntr}}`, 'color:red;font-weight:bold;font-size:24px;');
       console.log(`%cEnv: {{env}}, Branch: {{branch}}`, 'color:Purple;font-weight:bold;font-size:18px;');
+      console.group(Title);
       console.log('%c✓ %cWINDOW: READY', 'color:green;font-weight:bold;font-size:16px;', 'color:black;font-weight:normal;');
     });
 
@@ -178,7 +178,7 @@ window.jQuery(function ($) {
       console.log('%c✓ %cDOCUMENT: READY', 'color:green;font-weight:bold;font-size:16px;', 'color:black;font-weight:normal;');
       $('[name="contact-cell"]').html(atob('{{person.contacts.cell}}'));
       $('[name="contact-email"]').prop('href', atob('{{person.contacts.email}}'));
-      console.log(`%c✓ %c${atob('Q09OVEFDVFM6IFNFVA==')}`, 'color:green;font-weight:bold;font-size:16px;', 'color:blue;font-weight:bold;');
+      console.log(`%c✓ %c${atob('Q09OVEFDVFMgU0VU')}`, 'color:green;font-weight:bold;font-size:16px;', 'color:blue;font-weight:bold;');
 
       // ---------------------------------------------------------------------------
       // Preloader
@@ -190,6 +190,7 @@ window.jQuery(function ($) {
 
     $(window).on('load', function () {
       console.log('%c✓ %cWINDOW: LOAD', 'color:green;font-weight:bold;font-size:16px;', 'color:black;font-weight:normal;');
+      console.groupEnd(Title);
     });
 
   }());
