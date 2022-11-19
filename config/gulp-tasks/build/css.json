@@ -1,6 +1,6 @@
 {
     "buildCss": {
-      "title": "Build CSS"
+      "title": "build/css"
     }
   , "cleanCSS": {
         "debug": false

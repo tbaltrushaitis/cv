@@ -282,37 +282,35 @@ bower: ;
 ##  ------------------------------------------------------------------------  ##
 ##  Setup packages used by installer
 ##  ------------------------------------------------------------------------  ##
-# PHONY += setup-deps
+setup: setup-deps ;
+	@ touch ./$(ARGS)
+	@ echo "$(DAT) $(DONE): $(TARG)"
 
 setup-deps: ;
 	@ echo "$(DAT) $(BEGIN): $(TARG)"
 	sudo apt-get -qq -y install pwgen figlet toilet toilet-fonts jq
-	npm i --verbose --global gulp-cli
 	npm i --verbose gulp
+	npm i --verbose gulp-cli
 	npm i --verbose
 	$(FIGLET) "BOWER: $(STG)"
 	bower i --allow-root --production --verbose
 	@ touch ./$(ARGS)
 	@ echo "$(DAT) $(DONE): $(TARG)"
 
-setup: setup-deps ;
-	# $(FIGLET) "MK: $(STG)"
-	@ touch ./$(ARGS)
-	@ echo "$(DAT) $(DONE): $(TARG)"
 
 ##  ------------------------------------------------------------------------  ##
 PHONY += pre-update update reupdate
 
-pre-build: clean-build ;
+pre-build:| clean-build setup bower ;
 	# @ echo "$(DAT) $(BEGIN): $(TARG)"
 	# @ cd ${WD} && $(RM) -vf ./build
 	# @ export NODE_ENV="${APP_ENV}"; npm run populate
 	@ echo "$(DAT) $(DONE): $(TARG)"
 
 # build: mkdirs setup ;
-build: mkdirs setup bower ;
+# build: mkdirs setup bower ;
+build: mkdirs ;
 	$(FIGLET) "MK: $(STG)"
-	# export NODE_ENV="${APP_ENV}"; npm run bower
 	@ cd ${WD} && cp -prf ${SRC}/* ${DIR_BUILD}/
 	export NODE_ENV="${APP_ENV}"; npm run build
 	@ touch ./$(ARGS)
@@ -328,18 +326,14 @@ dist: build video ;
 	$(FIGLET) "MK: $(STG)"
 	cd ${WD} && cp -prf ${DIR_BUILD}/* ${DIR_DIST}/
 	cd ${WD} && $(RM) -rf ${DIR_DIST}/resources
-	# echo "MK: BACKUP -> ${ARC}/${APP_NAME}-${VER}-${APP_ENV}.tar.gz"
 	$(TOILET) "MK: BACKUP"
 	@ cd ${WD} && tar -c "${DST}-${APP_ENV}" | gzip -9 > "${ARC}/${APP_NAME}-${VER}-${APP_ENV}.tar.gz"
 	@ echo "Archived to: [${Blue}${ARC}/${APP_NAME}-${VER}-${APP_ENV}.tar.gz${NC}]"
 	@ cd ${WD} && touch ./$(ARGS)
-	# @ echo "$(DAT) $(TARG): [$(Cyan)$(DIR_DIST)$(NC)]"
-	# @ echo "$(DAT) $(FINE): $(TARG) [$(Red)$(VER)-$(APP_ENV)$(NC)]"
 	@ echo "$(DAT) $(DONE): $(TARG) [$(Cyan)$(DIR_DIST)$(NC)]"
 	@ echo "$(HR)" ;
 
 pre-deploy: ;
-	# @ echo "$(DAT) $(BEGIN): $(TARG)"
 	$(RM) -vf ./deploy
 	@ echo "$(DAT) $(DONE): $(TARG)"
 
@@ -362,7 +356,6 @@ update: setup ;
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
 reupdate: pre-update update ;
-	# $(FIGLET) "MK: $(STG)"
 	@ echo "$(DAT) $(FINE): $(TARG)"
 
 
@@ -390,16 +383,17 @@ backup: ;
 ##  ------------------------------------------------------------------------  ##
 ##  Create videos from *.gif files
 ##  ------------------------------------------------------------------------  ##
-PHONY += print-names video
+# PHONY += print-names video
+PHONY += print-names
 
 print-names: ;
 	@ echo "$(HR)" ;
 	@ echo "$(DAT) $(BEGIN): $(TARG)" ;
 	@ echo "$(DAT) DIR_IMGS \t= [$(White)$(DIR_IMGS)$(NC)]"
-	@ echo "$(DAT) GIF_FILES \t= [$(Cyan)$(GIF_FILES)$(NC)]"
 	@ echo "$(DAT) BASE_NAMES \t= [$(Gray)$(BASE_NAMES)$(NC)]"
+	@ echo "$(DAT) GIF_FILES \t= [$(Cyan)$(GIF_FILES)$(NC)]"
 	# @ echo "$(DAT) MPEG_FILES \t= [$(Orange)$(MPEG_FILES)$(NC)]"
-	@ echo "$(DAT) WEBM_FILES \t= [$(Purple)$(WEBM_FILES)$(NC)]"
+	# @ echo "$(DAT) WEBM_FILES \t= [$(Purple)$(WEBM_FILES)$(NC)]"
 	@ echo "$(DAT) $(DONE): $(TARG)"
 	@ echo "$(HR)" ;
 
@@ -412,7 +406,7 @@ video: print-names ;
 	$(foreach fbase, $(BASE_NAMES), $(FMP) -i "$(DIR_BUILD)/$(DIR_IMGS)/$(fbase).gif" -c libvpx-vp9 -b:v 0 -crf 41 -y "$(DIR_BUILD)/$(DIR_IMGS)/$(fbase).webm" ;)
 	@ echo "$(DAT) [$(RESULT)] $(Orange)WEBM$(NC) files:"
 	ls -l $(DIR_BUILD)/$(DIR_IMGS)/*.webm | grep webm --color
-	# @ touch ./$(ARGS)
+	@ touch ./$(ARGS)
 	@ echo "$(DAT) $(DONE): $(TARG)" ;
 	@ echo "$(HR)" ;
 

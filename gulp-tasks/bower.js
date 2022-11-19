@@ -117,10 +117,6 @@ function bowerJS (cb) {
     .pipe(size({title: 'BOWER:SCRIPTS', showFiles: false}))
     .pipe(dest(path.resolve(DEST, JS)))
   ;
-
-  // if ('function' === typeof cb) {
-  //   cb();
-  // }
 }
 
 
@@ -145,10 +141,6 @@ function bowerCSS (cb) {
     .pipe(size({title: 'BOWER:CSS', showFiles: false}))
     .pipe(dest(path.resolve(DEST, CSS)))
   ;
-
-  // if ('function' === typeof cb) {
-  //   cb();
-  // }
 }
 
 
@@ -162,10 +154,6 @@ function bowerFonts (cb) {
     .pipe(size({title: 'BOWER:FONTS', showFiles: false}))
     .pipe(dest(path.resolve(DEST, FONT)))
   ;
-
-  // if ('function' === typeof cb) {
-  //   cb();
-  // }
 }
 
 

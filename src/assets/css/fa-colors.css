@@ -180,3 +180,9 @@
 .fa-viber {
   color: #8f5db7;
 }
+
+.fa-gitlab,
+.fa-gitlab-square {
+  /* color: #fca326; */
+  color: #554488;
+}

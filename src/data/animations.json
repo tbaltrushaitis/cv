@@ -224,6 +224,11 @@
     , "outclass": "animate__flipOutY"
     }
   , {
+      "selector": "#car-07"
+    , "inclass":  "animate__flipInY"
+    , "outclass": "animate__flipOutY"
+    }
+  , {
       "selector": "#skills .section-title"
     , "inclass":  "animate__fadeInDown"
     , "outclass": "animate__fadeOutDown"
