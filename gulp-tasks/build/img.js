@@ -196,7 +196,7 @@ async function WEBP () {
   //   // .pipe(size({title: '.WEBP'}))
   //   .pipe(dest(path.join(DEST, IMG)));
 
-  let SrcExt = '*.{jpg,jpeg,png,ico}'
+  let SrcExt = '*.{jpg,jpeg,png,ico,svg}'
 
   let Opts = {
       verbose: true
@@ -232,12 +232,12 @@ async function WEBP () {
 /**
  * @_EXPOSE
  */
-exports.JPGS    = JPGS;
-exports.PNGS    = PNGS;
-exports.GIFS    = GIFS;
+exports.GIFS      = GIFS;
 exports.GIFLOSSY  = GIFLOSSY;
 exports.GIFSICLE  = GIFSICLE;
-exports.WEBP    = WEBP;
+exports.JPGS      = JPGS;
+exports.PNGS      = PNGS;
+exports.WEBP      = WEBP;
 
 
 /**

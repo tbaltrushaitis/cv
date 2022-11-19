@@ -11,7 +11,7 @@
 //  -----------------------------  DEPENDENCIES  ---------------------------  //
 //  ------------------------------------------------------------------------  //
 const path = require('path');
-const utin = require('util').inspect;
+// const utin = require('util').inspect;
 
 const { series, parallel, src, dest }  = require('gulp');
 
@@ -23,22 +23,14 @@ const gulpif     = require('gulp-if');
 const size       = require('gulp-size');
 const vPaths     = require('vinyl-paths');
 // const headfoot   = require('gulp-headerfooter');
-// const merge      = require('merge-stream');
+
 
 //  ------------------------------------------------------------------------  //
 //  ----------------------------  CONFIGURATION  ---------------------------  //
 //  ------------------------------------------------------------------------  //
 let ME = Object.assign({}, globalThis.ME || {});
-utin.defaultOptions = Object.assign({}, ME.pkg.options.iopts || {});
-
-const modName       = path.basename(module.filename, '.js');
-const modPath       = path.relative(ME.WD, path.dirname(module.filename));
-const confPath      = path.join(ME.WD, 'config', path.sep);
-const modConfigFile = `${path.join(confPath, modPath, modName)}.json`;
-const modConfig     = readConfig(modConfigFile, ME.pkg.options.readconf);
-
-ME.Config = Object.assign({}, ME.Config || {}, modConfig || {});
 let C = ME.Config.colors;
+
 
 //  ------------------------------------------------------------------------  //
 //  ------------------------------  FUNCTIONS  -----------------------------  //
@@ -63,7 +55,7 @@ let STYLES_SRC = [
 
 
 //
-//  PROCESS CSS files
+//  Process CSS files
 //
 function frontCSS () {
 
@@ -78,7 +70,7 @@ function frontCSS () {
     //  Write banners
     // .pipe(headfoot.header(ME.Banner.header))
     // .pipe(headfoot.footer(ME.Banner.footer))
-    .pipe(size({title: 'FRONT CSS', showFiles: false}))
+    .pipe(size({title: 'FRONT CSS Bundle', showFiles: false}))
     .pipe(dest(path.resolve(DEST, CSS)))
   ;
 
@@ -88,7 +80,6 @@ function frontCSS () {
 /**
  * @_EXPOSE
  */
-// exports.buildCss  = frontCSS;
 exports.frontCSS  = frontCSS;
 
 
