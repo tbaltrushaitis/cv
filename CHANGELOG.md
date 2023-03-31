@@ -43,7 +43,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 <!-- --- -->
 
 <!-- ## [Unreleased] - Current ## -->
-<!-- ## [v0.3.1](Unreleased) - Current ## -->
+<!-- ## [v0.3.2](Unreleased) - Current ## -->
+
+##### Changed #####
+- [x] Upgrade bootstrap to v3.4.1
+
+##### Fixed: #####
+- [x] Added accessible names to [ARIA progressbar](https://dequeuniversity.com/rules/axe/4.5/aria-progressbar-name) nodes
 
 ---
 
@@ -54,11 +60,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ---
 
-## [v0.3.1](Unreleased) - Current ##
-## [v0.3.1](https://github.com/tbaltrushaitis/cv/tree/v0.3.1) - 2022-01-23 ##
+## [v0.3.1](https://github.com/tbaltrushaitis/cv/tree/v0.3.1) - 2022-10-30 ##
 
 ##### Added #####
-- [x] CJIABA YKPAIHE :ukraine:
+- [x] CJIABA YKPAIHI :ukraine:
 - npm i -D gulp-size
 - Moved `FAQ` section of readme into [FAQ.md][FAQ]
 - Fonts preload implemented - significant increase in page load speed achived
@@ -109,6 +114,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ---
 
 ## [v0.3.0](https://github.com/tbaltrushaitis/cv/tree/v0.3.0) - 2020-06-08 ##
+
 ### Added ###
 - `gulp-imagemin` plugins: `giflossy`, `mozjpeg`, `pngquant`, `webp`
 - Change format of `jpg/png` images to `webp` and/or `webm`

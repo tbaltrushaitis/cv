@@ -76,13 +76,14 @@ APP_PREF := cv_
 APP_SLOG := "CV + PORTFOLIO"
 APP_LOGO := ./assets/BANNER
 
-
 APP_REPO := $(shell git ls-remote --get-url)
 GIT_BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
 GIT_COMMIT := $(shell git rev-list --remove-empty --max-count=1 --reverse --remotes --date-order)
 CODE_VERSION := $(strip $(shell cat ./VERSION))
 
 ##  ------------------------------------------------------------------------  ##
+DATE = $(shell date +'%Y%m%d%H%M%S')
+
 DT = $(shell date +'%T')
 TS = $(shell date +'%s')
 DZ = $(shell date +'%Y%m%dT%H%M%S%:z')
@@ -90,12 +91,17 @@ DZ = $(shell date +'%Y%m%dT%H%M%S%:z')
 WD := $(shell pwd -P)
 BD := $(WD)/bin
 
+
+##  ------------------------------------------------------------------------  ##
+##  BUILD SOURCE and TARGET files
+##  ------------------------------------------------------------------------  ##
+BUILD_TMPL := config/build.tpl
+BUILD_DATA := config/build.json
+
 BUILD_FILE = BUILD-$(CODE_VERSION)
 BUILD_CNTR = $(strip $(shell [ -f "$(BUILD_FILE)" ] && cat $(BUILD_FILE) || echo 0))
 BUILD_CNTR := $(shell echo $$(( $(BUILD_CNTR) + 1 )))
 
-BUILD_TMPL := config/build.tpl
-BUILD_DATA := config/build.json
 BUILD_FULL := $(shell date +'%Y-%m-%dT%H:%M:%S%:z')
 BUILD_DATE := $(shell date +'%Y-%m-%d')
 BUILD_TIME := $(shell date +'%H:%M:%S')
@@ -123,14 +129,14 @@ ARGS = $(shell echo '$@' | tr [:upper:] [:lower:])
 STG  = $(shell echo '$@' | tr [:lower:] [:upper:])
 
 DAT = [$(Gray)$(DT)$(NC)]
-BEGIN = $(Yellow)$(On_Blue)BEGIN$(NC) RECIPE
+BEGIN = $(Yellow)$(On_Blue)BEGIN RECIPE$(NC)
 RESULT = $(White)$(On_Purple)RESULT$(NC)
 DONE = $(White)$(On_Green)DONE RECIPE$(NC)
 FINE = $(Yellow)$(On_Green)FINISHED GOAL$(NC)
 TARG = [$(Orange) $@ $(NC)]
 THIS = [$(Red) $(THIS_FILE) $(NC)]
 OKAY = [$(White) OK $(NC)]
-
+FAIL = [$(Red)$(On_Yellow) FAILED $(NC)]
 
 ##  ------------------------------------------------------------------------  ##
 ##                               ENVIRONMENT                                  ##
@@ -150,7 +156,6 @@ endif
 $(file > $(BUILD_FILE),$(BUILD_CNTR))
 $(info $(DAT) Write build counter in [$(Yellow)$(BUILD_FILE)$(NC):$(Red)$(BUILD_CNTR)$(NC)])
 
-
 ##  ------------------------------------------------------------------------  ##
 ##  BUILD information
 ##  ------------------------------------------------------------------------  ##
@@ -167,8 +172,7 @@ BUILD_CONTENT := $(subst GIT_COMMIT,$(GIT_COMMIT),$(BUILD_CONTENT))
 BUILD_CONTENT := $(subst CODE_VERSION,$(CODE_VERSION),$(BUILD_CONTENT))
 
 $(file > $(BUILD_DATA),$(BUILD_CONTENT))
-$(info $(DAT) Created file [$(Yellow)BUILD_DATA$(NC):$(Cyan)$(BUILD_DATA)$(NC)]);
-
+$(info $(DAT) Created file [$(Yellow)BUILD_DATA$(NC):$(Cyan)$(WD)/$(BUILD_DATA)$(NC)])
 
 ##  ------------------------------------------------------------------------  ##
 ##  COMMIT information
@@ -187,6 +191,7 @@ BLD := build-$(CODE_VERSION)-$(BUILD_CNTR)
 DST := dist-$(CODE_VERSION)-$(BUILD_CNTR)
 WEB := web-$(CODE_VERSION)-$(BUILD_CNTR)
 DEV := dev-$(CODE_VERSION)-$(BUILD_CNTR)
+
 APP_UID := $(shell echo "$(APP_NAME)" | tr [:lower:] [:upper:])-$(VER)-$(APP_ENV)
 
 
@@ -198,6 +203,8 @@ DIR_SRC := $(WD)/$(SRC)
 DIR_BUILD := $(WD)/$(BLD)-$(APP_ENV)
 DIR_DIST := $(WD)/$(DST)-$(APP_ENV)
 DIR_WEB := $(WD)/$(WEB)-$(APP_ENV)
+
+APP_DIRS := $(addprefix ${WD}/,build-* dist-* web-*)
 
 
 ##  ------------------------------------------------------------------------  ##
@@ -223,7 +230,7 @@ PHONY := _default
 
 # _default: run ;
 _default: $(APP_ENV) ;
-	@ echo "$(DAT) $(FINE): $(TARG)" ;
+	@ echo "$(DAT) $(FINE) $(TARG)"
 
 
 ##  ------------------------------------------------------------------------  ##
@@ -238,7 +245,7 @@ mkdirs: ;
 	@ [ -d $(DIR_BUILD) ] || mkdir -p $(DIR_BUILD)
 	@ [ -d $(DIR_DIST) ]  || mkdir -p $(DIR_DIST)
 	@ [ -d $(DIR_WEB) ]   || mkdir -p $(DIR_WEB)
-	@ echo "$(DAT) $(DONE): $(TARG)" ;
+	@ echo "$(DAT) $(DONE) $(TARG)"
 	# @ echo "$(HR)" ;
 
 ##  ------------------------------------------------------------------------  ##
@@ -246,23 +253,23 @@ PHONY += test config
 
 test: banner state help ;
 	@ export NODE_ENV="${APP_ENV}"; npm run test
-	@ echo "$(DAT) $(FINE): $(TARG)"
+	@ echo "$(DAT) $(FINE) $(TARG)"
 
 config: ;
 	@ echo "$(DAT) $(BEGIN): $(TARG)"
 	export NODE_ENV="${APP_ENV}"; npm run config
-	@ echo "$(DAT) $(FINE): $(TARG)"
+	@ echo "$(DAT) $(FINE) $(TARG)"
 
 ##  ------------------------------------------------------------------------  ##
 PHONY += tasklist tasktree critical
 
 tasklist: ;
 	gulp --tasks --depth 3 --color
-	@ echo "$(DAT) $(FINE): $(TARG)"
+	@ echo "$(DAT) $(FINE) $(TARG)"
 
 tasktree: ;
 	gulp --tasks --depth 5 --color
-	@ echo "$(DAT) $(FINE): $(TARG)"
+	@ echo "$(DAT) $(FINE) $(TARG)"
 
 # critical: ;
 # 	@ export NODE_ENV="${APP_ENV}"; npm run crit
@@ -272,11 +279,11 @@ tasktree: ;
 PHONY += bower
 
 bower: ;
-	@ echo "$(HR)" ;
+	@ echo "$(HR)"
 	$(FIGLET) "MK: $(STG)"
 	export NODE_ENV="${APP_ENV}"; npm run bower
-	@ echo "$(DAT) $(DONE): $(TARG)"
-	@ echo "$(HR)" ;
+	@ echo "$(DAT) $(DONE) $(TARG)"
+	@ echo "$(HR)"
 
 
 ##  ------------------------------------------------------------------------  ##
@@ -284,18 +291,19 @@ bower: ;
 ##  ------------------------------------------------------------------------  ##
 setup: setup-deps ;
 	@ touch ./$(ARGS)
-	@ echo "$(DAT) $(DONE): $(TARG)"
+	@ echo "$(DAT) $(DONE) $(TARG)"
 
 setup-deps: ;
-	@ echo "$(DAT) $(BEGIN): $(TARG)"
+	@ echo "$(DAT) $(BEGIN) $(TARG)"
 	sudo apt-get -qq -y install pwgen figlet toilet toilet-fonts jq
-	npm i --verbose gulp
-	npm i --verbose gulp-cli
-	npm i --verbose
+	@ npm i gulp --verbose
+	@ gulp -v
+	@ npm i gulp-cli --verbose
+	@ npm i --verbose
 	$(FIGLET) "BOWER: $(STG)"
-	bower i --allow-root --production --verbose
+	@ bower i --allow-root --production --verbose
 	@ touch ./$(ARGS)
-	@ echo "$(DAT) $(DONE): $(TARG)"
+	@ echo "$(DAT) $(DONE) $(TARG)"
 
 
 ##  ------------------------------------------------------------------------  ##
@@ -303,20 +311,20 @@ PHONY += pre-update update reupdate
 
 pre-build: clean-build ;
 	# @ export NODE_ENV="${APP_ENV}"; npm run populate
-	@ echo "$(DAT) $(DONE): $(TARG)"
+	@ echo "$(DAT) $(DONE) $(TARG)"
 
 build: mkdirs setup bower ;
 	$(FIGLET) "MK: $(STG)"
 	@ cd ${WD} && cp -prf ${SRC}/* ${DIR_BUILD}/
 	export NODE_ENV="${APP_ENV}"; npm run build
 	@ touch ./$(ARGS)
-	@ echo "$(DAT) $(DONE): $(TARG) [$(Cyan)$(DIR_BUILD)$(NC)]"
-	@ echo "$(HR)" ;
+	@ echo "$(DAT) $(DONE) $(TARG): [$(Cyan)$(DIR_BUILD)$(NC)]"
+	@ echo "$(HR)"
 
 pre-dist: ;
 	@ cd ${WD} && $(RM) -vf ./dist
 	@ cd ${WD} && $(RM) -rf ${DIR_DIST}/*
-	@ echo "$(DAT) $(DONE): $(TARG)"
+	@ echo "$(DAT) $(DONE) $(TARG)"
 
 dist: build video ;
 	$(FIGLET) "MK: $(STG)"
@@ -326,12 +334,12 @@ dist: build video ;
 	@ cd ${WD} && tar -c "${DST}-${APP_ENV}" | gzip -9 > "${ARC}/${APP_NAME}-${VER}-${APP_ENV}.tar.gz"
 	@ echo "Archived to: [${Blue}${ARC}/${APP_NAME}-${VER}-${APP_ENV}.tar.gz${NC}]"
 	@ cd ${WD} && touch ./$(ARGS)
-	@ echo "$(DAT) $(DONE): $(TARG) [$(Cyan)$(DIR_DIST)$(NC)]"
+	@ echo "$(DAT) $(DONE) $(TARG): [$(Cyan)$(DIR_DIST)$(NC)]"
 	@ echo "$(HR)" ;
 
 pre-deploy: ;
 	$(RM) -vf ./deploy
-	@ echo "$(DAT) $(DONE): $(TARG)"
+	@ echo "$(DAT) $(DONE) $(TARG)"
 
 deploy: dist pre-deploy ;
 	$(FIGLET) "MK: $(STG)"
@@ -341,18 +349,18 @@ deploy: dist pre-deploy ;
 	$(LN) ${DIR_DIST} devroot
 	$(LN) ${DIR_WEB} webroot
 	touch ./$(ARGS)
-	@ echo "$(DAT) $(DONE): $(TARG) [$(Cyan)$(DIR_WEB)$(NC)]"
-	@ echo "$(HR)" ;
+	@ echo "$(DAT) $(DONE) $(TARG): [$(Cyan)$(DIR_WEB)$(NC)]"
+	@ echo "$(HR)"
 
 pre-update: ;
 	@ cd ${WD} && $(RM) ./setup ./setup-deps
-	@ echo "$(DAT) $(DONE): $(TARG)"
+	@ echo "$(DAT) $(DONE) $(TARG)"
 
 update: setup ;
-	@ echo "$(DAT) $(FINE): $(TARG)"
+	@ echo "$(DAT) $(FINE) $(TARG)"
 
 reupdate: pre-update update ;
-	@ echo "$(DAT) $(FINE): $(TARG)"
+	@ echo "$(DAT) $(FINE) $(TARG)"
 
 
 ##  ------------------------------------------------------------------------  ##
@@ -369,11 +377,11 @@ WEBM_FILES := $(patsubst %.gif,%.webm,"$(DIR_BUILD)/$(DIR_IMGS)/$(GIF_FILES)")
 PHONY += backup
 
 backup: ;
-	@ echo "$(HR)" ;
+	@ echo "$(HR)"
 	$(TOILET) "MK: $(STG)"
 	@ tar -cv "${DST}-${APP_ENV}" | gzip -9 > "${ARC}/${APP_NAME}-${VER}-${APP_ENV}.tar.gz"
-	@ echo "$(DAT) $(FINE): $(TARG) [$(APP_VER)]"
-	@ echo "$(HR)" ;
+	@ echo "$(DAT) $(FINE) $(TARG): [$(APP_VER)]"
+	@ echo "$(HR)"
 
 
 ##  ------------------------------------------------------------------------  ##
@@ -382,15 +390,15 @@ backup: ;
 PHONY += print-names
 
 print-names: ;
-	@ echo "$(HR)" ;
-	@ echo "$(DAT) $(BEGIN): $(TARG)" ;
+	@ echo "$(HR)"
+	# @ echo "$(DAT) $(BEGIN) $(TARG)"
 	@ echo "$(DAT) DIR_IMGS \t= [$(White)$(DIR_IMGS)$(NC)]"
 	@ echo "$(DAT) BASE_NAMES \t= [$(Gray)$(BASE_NAMES)$(NC)]"
 	@ echo "$(DAT) GIF_FILES \t= [$(Cyan)$(GIF_FILES)$(NC)]"
 	# @ echo "$(DAT) MPEG_FILES \t= [$(Orange)$(MPEG_FILES)$(NC)]"
 	# @ echo "$(DAT) WEBM_FILES \t= [$(Purple)$(WEBM_FILES)$(NC)]"
-	@ echo "$(DAT) $(DONE): $(TARG)"
-	@ echo "$(HR)" ;
+	@ echo "$(DAT) $(DONE) $(TARG)"
+	@ echo "$(HR)"
 
 video: print-names ;
 	$(FIGLET) "MK: $(STG)"
@@ -401,24 +409,28 @@ video: print-names ;
 	@ echo "$(DAT) [$(RESULT)] $(Orange)WEBM$(NC) files:"
 	ls -l $(DIR_BUILD)/$(DIR_IMGS)/*.webm | grep webm --color
 	@ touch ./$(ARGS)
-	@ echo "$(DAT) $(DONE): $(TARG)" ;
-	@ echo "$(HR)" ;
+	@ echo "$(DAT) $(DONE) $(TARG)"
+	@ echo "$(HR)"
 
 
 ##  ------------------------------------------------------------------------  ##
 PHONY += rebuild redeploy rb rd
 
 rebuild: pre-build build ;
-	@ echo "$(DAT) $(DONE): $(TARG) [$(Red)$(VER)$(NC)]"
+	@ echo "$(DAT) $(DONE) $(TARG): [$(Red)$(VER)$(NC)] [$(Cyan)$(DIR_BUILD)$(NC)]"
+	@ echo "$(HR)"
 
 redeploy: pre-dist deploy ;
-	@ echo "$(DAT) $(DONE) $(TARG): [$(Cyan)$(DIR_WEB)$(NC)]"
+	@ echo "$(DAT) $(DONE) $(TARG): [$(Red)$(VER)$(NC)] [$(Cyan)$(DIR_WEB)$(NC)]"
+	@ echo "$(HR)"
 
 rb: rebuild ;
-	@ echo "$(DAT) $(DONE): $(TARG) [$(Red)$(VER)$(NC)]"
+	@ echo "$(DAT) $(DONE) $(TARG): [$(Red)$(VER)$(NC)] [$(Cyan)$(DIR_BUILD)$(NC)]"
+	@ echo "$(HR)"
 
 rd: redeploy ;
-	@ echo "$(DAT) $(DONE): $(TARG) [$(Red)$(VER)$(NC)]"
+	@ echo "$(DAT) $(DONE) $(TARG): [$(Red)$(VER)$(NC)] [$(Cyan)$(DIR_WEB)$(NC)]"
+	@ echo "$(HR)"
 
 
 ##  ------------------------------------------------------------------------  ##
@@ -427,41 +439,51 @@ PHONY += _all all full cycle cycle-dev dev dev-setup prod production run watch
 #* means the Makefile has nothing to do with a file called "all" in the same directory.
 
 _all: clean cycle banner ;
-	@ echo "$(DAT) $(DONE): $(TARG)"
+	@ echo "$(DAT) $(DONE) $(TARG)"
+	@ echo "$(HR)"
 
 all: _all ;
-	@ echo "$(DAT) $(DONE): $(TARG)"
+	@ echo "$(DAT) $(DONE) $(TARG)"
+	@ echo "$(HR)"
 
 full: clean-all _all banner ;
-	@ echo "$(DAT) $(DONE): $(TARG)"
+	@ echo "$(DAT) $(DONE) $(TARG)"
+	@ echo "$(HR)"
 
 cycle: dist ;
-	@ echo "$(DAT) $(DONE): $(TARG)"
+	@ echo "$(DAT) $(DONE) $(TARG)"
+	@ echo "$(HR)"
 
 cycle-dev: redeploy ;
-	@ echo "$(DAT) $(DONE): $(TARG)"
+	@ echo "$(DAT) $(DONE) $(TARG)"
+	@ echo "$(HR)"
 
 dev: clean-dev banner cycle-dev ;
 	# @ export NODE_ENV="${APP_ENV}"; npm run dev
-	@ echo "$(DAT) $(DONE): $(TARG) [$(Red)$(VER)$(NC)]"
+	@ echo "$(DAT) $(DONE) $(TARG): [$(Red)$(VER)$(NC)] [$(Cyan)$(DIR_DIST)$(NC)]"
+	@ echo "$(HR)"
 
 dev-setup: clean-deps setup banner cycle-dev ;
 	@ export NODE_ENV="${APP_ENV}"; npm run dev
-	@ echo "$(DAT) $(DONE): $(TARG)"
+	@ echo "$(DAT) $(DONE) $(TARG)"
+	@ echo "$(HR)"
 
 run: pre-build build pre-dist dist pre-deploy deploy banner ;
-	# $(FIGLET) "MK: $(STG): [$(VER)]"
-	@ echo "$(DAT) $(DONE): $(TARG) [$(Red)$(VER)$(NC)]"
+	@ echo "$(DAT) $(DONE) $(TARG): [$(Red)$(VER)$(NC)] [$(Cyan)$(DIR_DIST)$(NC)]"
+	@ echo "$(HR)"
 
-production: run ;
-	@ echo "$(DAT) $(DONE): $(TARG) [$(Red)$(VER)$(NC)]"
+production:| setup run ;
+	@ echo "$(DAT) $(DONE) $(TARG): [$(Red)$(VER)$(NC)] [$(Cyan)$(DIR_WEB)$(NC)]"
+	@ echo "$(HR)"
 
 prod: production ;
-	@ echo "$(DAT) $(DONE): $(TARG)"
+	@ echo "$(DAT) $(DONE) $(TARG)"
+	@ echo "$(HR)"
 
 watch:
-	export NODE_ENV="${APP_ENV}"; npm run watch
-	@ echo "$(DAT) $(DONE): $(TARG)"
+	@ export NODE_ENV="${APP_ENV}"; npm run watch
+	@ echo "$(DAT) $(DONE) $(TARG)"
+	@ echo "$(HR)"
 
 
 ##  ------------------------------------------------------------------------  ##

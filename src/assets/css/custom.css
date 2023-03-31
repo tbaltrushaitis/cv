@@ -29,7 +29,7 @@ body {
   font-family: 'Lato', Calibri, Tahoma, 'sans-serif';
   font-weight: 400;
   font-size: 12px;
-  /* font-display: swap; */
+  font-display: swap;
 }
 
 .copyright > span.label {

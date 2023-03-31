@@ -81,7 +81,7 @@ For example: [Modern CV](http://bit.ly/tomascv)
 :-----|:-------:|:-----:|:------------|
  [animate.css](http://daneden.github.io/animate.css/) | 4.1.1 | Front | A cross-browser library of CSS animations
  [FontAwesome](https://fontawesome.com/) | 6.2.0 | Front | The iconic Font and CSS toolkit
- [Bootstrap](http://getbootstrap.com) | 3.3.7 | Front | Front-end framework
+ [Bootstrap](http://getbootstrap.com) | 3.4.1 | Front | Front-end framework
  [jQuery](http://jquery.com/) | 3.5.1 | Front | JavaScript Library
  [noty](http://ned.im/noty) | 2.4.1 | Front | Notification library
  [waypoints](https://github.com/imakewebthings/waypoints) | 4.0.1 | Front | Easily execute a function when you scroll to an element
@@ -104,10 +104,10 @@ For example: [Modern CV](http://bit.ly/tomascv)
 
 ## :pushpin: Todo List ##
 
+- [x] - upgrade gulp to v4 (done in **v3.0.1**)
 - [ ] - upgrade to noty v3
 - [ ] - upgrade to bootstrap v4
 - [ ] - implement require.js configuration
-- [x] - upgrade gulp to v4 (in **v3.0.1**)
 
 See [CHANGELOG][Changelog] for the history of changes and improvements.
 

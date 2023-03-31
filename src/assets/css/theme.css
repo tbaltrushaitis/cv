@@ -29,7 +29,7 @@ body {
   font-family:  'sans-serif';
   font-size:    14px;
   font-weight:  300;
-  /* font-display: swap; */
+  font-display: swap;
   line-height:  28px;
   -webkit-text-size-adjust:   100%;
   -webkit-font-smoothing:     antialiased !important;

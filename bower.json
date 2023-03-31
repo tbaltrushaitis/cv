@@ -15,7 +15,7 @@
     ]
   , "dependencies": {
         "animate.css":    "^4.1.1"
-      , "bootstrap":      "~3.3.7"
+      , "bootstrap":      "~3.4.1"
       , "bower-jquery-easyPieChart": "^0.0.1"
       , "font-awesome":   "#6.2.0"
       , "fitvids":        "jquery.fitvids#^1.2.0"
@@ -37,6 +37,7 @@
   , "devDependencies": {}
   , "dependencies-DISABLED": {
         "jquery.shuffle": "#9cf47a1590"
+      , "bootstrap":      "~3.3.7"
       , "jquery-throttle-debounce": "*"
       , "lato-font":      "^3.0.0"
       , "normalize-css":  "^8.0.1"

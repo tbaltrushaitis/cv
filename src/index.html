@@ -2,23 +2,17 @@
 <!--[if IE 10]><html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="ie10"><![endif]-->
 <!--[if !IE]><!--><html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" class="noie"><!--<![endif]-->
 <head>
-  <!--/ FOUC workaround
-  ========================================================================= /-->
-  <style>
-    html {visibility: hidden; opacity: 0; display: none;}
-  </style>
-
   <!--/  Basic Page Needs
   ========================================================================= /-->
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-  <meta http-equiv="Content-Type"    content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
   <title>{{person.name.full}} - CV, Resume and Portfolio :: Homepage</title>
 
   <!--/  Mobile Specific Metas
   ========================================================================= /-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes" />
 
   <!--/  Metas
   ========================================================================= /-->
@@ -51,6 +45,12 @@
   <meta property="og:updated_time" content="{{built.full}}" />
   <meta property="og:see_also"     content="{{author.url}}" />
 
+  <!--/ FOUC workaround
+  ========================================================================= /-->
+  <style>
+    html {visibility: hidden; opacity: 0; display: none;}
+  </style>
+
   <!--/  Fonts
   ========================================================================= /-->
   <!--/  Google Web Fonts  /-->
@@ -59,9 +59,9 @@
 
   <!--/  Preload
   ========================================================================= /-->
-  <link rel="preload" crossOrigin="anonymous" as="font" type="font/woff2" href="assets/webfonts/fa-regular-400.woff2" />
-  <link rel="preload" crossOrigin="anonymous" as="font" type="font/woff2" href="assets/webfonts/fa-brands-400.woff2" />
-  <link rel="preload" crossOrigin="anonymous" as="font" type="font/woff2" href="assets/webfonts/fa-solid-900.woff2" />
+  <link rel="preload" crossOrigin="anonymous" as="font" type="font/woff2" href="assets/webfonts/fa-regular-400.woff2&display=swap" />
+  <link rel="preload" crossOrigin="anonymous" as="font" type="font/woff2" href="assets/webfonts/fa-brands-400.woff2&display=swap" />
+  <link rel="preload" crossOrigin="anonymous" as="font" type="font/woff2" href="assets/webfonts/fa-solid-900.woff2&display=swap" />
   <!-- <link rel="preload" crossOrigin="anonymous" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2&display=swap" /> -->
   <!-- <link rel="preload" crossOrigin="anonymous" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fBBc4AMP6lQ.woff2&display=swap" /> -->
   <link rel="preload" as="image" type="image/webp" href="assets/img/home2.webp" />
@@ -142,7 +142,7 @@
 
   <!--/  Navigation  /-->
   <header class="header" id="navbar-custom">
-    <nav class="navbar navbar-custom" role="navigation">
+    <nav class="navbar navbar-custom" role="navigation" aria-label="Navigation">
       <div class="container">
 
         <div class="navbar-header">
@@ -158,13 +158,13 @@
         </div>
 
         <div class="collapse navbar-collapse" id="custom-collapse">
-          <ul class="nav navbar-nav navbar-right" role="tablist">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#resume">Resume</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#contact">Contacts</a></li>
+          <ul class="nav navbar-nav navbar-right" role="tablist" aria-label="Navigation collapsible">
+            <li role="tab"><a href="#home">Home</a></li>
+            <li role="tab"><a href="#about">About</a></li>
+            <li role="tab"><a href="#resume">Resume</a></li>
+            <li role="tab"><a href="#skills">Skills</a></li>
+            <li role="tab"><a href="#portfolio">Portfolio</a></li>
+            <li role="tab"><a href="#contact">Contacts</a></li>
           </ul>
         </div>
 
@@ -225,7 +225,7 @@
           <div class="short-info" id="objective">
             <h3 class="wow">Objective</h3>
             <p class="wow">
-              Full-Stack engineer (JavaScript, Node.js, PHP, etc.) + DevOps with practical experience in several IT areas
+              Full-Stack engineer + DevOps with practical experience in several IT areas
             </p>
           </div>
 
@@ -239,7 +239,7 @@
               <li class="col-xs-12 col-md-6 wow" id="scope-05"><i class="fas fa-fw fa-check"></i>Systems&nbsp;Administration</li>
               <li class="col-xs-12 col-md-6 wow" id="scope-06"><i class="fas fa-fw fa-check"></i>IT&nbsp;Consulting</li>
               <li class="col-xs-12 col-md-6 wow" id="scope-07"><i class="fas fa-fw fa-check"></i>Machine&nbsp;Learning</li>
-              <li class="col-xs-12 col-md-6 wow" id="scope-08"><i class="fas fa-fw fa-check"></i>Policies&nbsp;Implementation</li>
+              <li class="col-xs-12 col-md-6 wow" id="scope-08"><i class="fas fa-fw fa-check"></i>SEO&nbsp;</li>
               <li class="col-xs-12 col-md-6 wow" id="scope-09"><i class="fas fa-fw fa-check"></i>Artificial&nbsp;Intelligence</li>
               <li class="col-xs-12 col-md-6 wow" id="scope-10"><i class="fas fa-fw fa-check"></i>Infrastructure&nbsp;Engineering</li>
             </ul>
@@ -419,7 +419,7 @@ the best profession!
                       <div class="col-md-3 col-xs-4 pull-right">
                         <a href="javascript:void(0);" class="thumbnail" target="_blank" rel="noopener">
                           <picture>
-                            <img src="assets/img/logos/logo-rockit-sm.webp" class="media-object" width="82px" height="82px" alt="Digital Product Studio" />
+                            <img src="assets/img/logos/logo-rockit-md.webp" class="media-object" width="82px" height="82px" alt="Digital Product Studio" />
                           </picture>
                         </a>
                       </div>
@@ -446,13 +446,13 @@ the best profession!
 
                       <div class="btn-group" role="group">
                         <i class="fab fa-2x fa-fw fa-ubuntu" title="Ubuntu"></i>
-                        <i class="fab fa-2x fa-fw fa-git-square" title="Git"></i>
                         <i class="fab fa-2x fa-fw fa-aws" title="Amazon Web Services"></i>
                         <i class="fab fa-2x fa-fw fa-digital-ocean" title="Digital Ocean"></i>
-                        <i class="fab fa-2x fa-fw fa-bitbucket" title="BitBucket"></i>
-                        <i class="fab fa-2x fa-fw fa-confluence" title="Confluence"></i>
                         <i class="fab fa-2x fa-fw fa-docker" title="Docker"></i>
                         <i class="fab fa-2x fa-fw fa-node" title="Node.js"></i>
+                        <i class="fab fa-2x fa-fw fa-telegram" title="Telegram API"></i>
+                        <i class="fab fa-2x fa-fw fa-confluence" title="Confluence"></i>
+                        <i class="fab fa-2x fa-fw fa-bitbucket" title="BitBucket"></i>
                         <i class="fab fa-2x fa-fw fa-gitlab-square" title="GitLab"></i>
                       </div>
 
@@ -505,16 +505,15 @@ the best profession!
                       </div>
 
                       <ul>
-                        <li><strong>MERN + <a href="http://graphql.org" target="_blank" rel="noopener" class="text-primary">GraphQL</a></strong></li>
-                        <li>Node.js, React, <a href="https://github.com/foreversd/forever" target="_blank" rel="noopener" class="text-primary">forever</a>, MongoDB, Redis, Socket.io</li>
-                        <li><strong></strong>Express.js, Passport.js, session, flash</li>
-                        <li><a href="https://kaltura.org" target="_blank" rel="noopener" class="text-primary">Kaltura</a>, <a href="http://fondy.ua/" target="_blank" rel="noopener" class="text-primary">Fondy</a>, <a href="https://graphql-compose.github.io/" target="_blank"  rel="noopener" class="text-primary">graphql-compose</a></li>
+                        <li><strong>MERN</strong> + <a href="http://graphql.org" target="_blank" rel="noopener" class="text-primary">GraphQL</a></li>
+                        <li>MongoDB, <strong>Express.js</strong>, React, Node.js, Redis, Socket.io, <a href="https://graphql-compose.github.io/" target="_blank"  rel="noopener" class="text-primary">graphql-compose</a></li>
+                        <li>Passport.js, session, JWT, <a href="https://kaltura.org" target="_blank" rel="noopener" class="text-primary">Kaltura</a>, <a href="http://fondy.ua/" target="_blank" rel="noopener" class="text-primary">Fondy</a></li>
                         <li>Mongoose, RSMQ-Worker, Nodemailer, Handlebars, Multer, Scheduler, Chai, Mocha</li>
                       </ul>
 
-                      <p class="alert alert-warning"><strong class="text-primary hue">LAB325</strong> - is a Product Engineering team with R&D facilities.<br />
+                      <!-- <p class="alert alert-warning"><strong class="text-primary hue">LAB325</strong> - is a Product Engineering team with R&D facilities.<br />
                         Specialized in whole IT solution services for fast-growing organizations around the world.
-                      </p>
+                      </p> -->
                     </div>
                   </div>
 
@@ -631,14 +630,15 @@ the best profession!
                       </div>
 
                       <ul>
-                        <li>Deployment and configuration automation</li>
-                        <li>24/7 monitoring and support</li>
-                        <li>Incidents management</li>
-                        <li>Operating Systems: Redhat, CentOS, Ubuntu</li>
-                        <li>Cloud platforms: public and private OpenStack</li>
-                        <li>Infrastructure: LAMP, Docker, Git, MySQL, MongoDB, Solr, Redis, Nginx, Apache, Zabbix</li>
-                        <li>Web: PHP, Bootstrap, AJAX, JSON, HTML, CSS, jQuery</li>
-                        <li>APIs: JIRA, OpenStack, Zabbix</li>
+                        <li><i class="fas fa-1x fa-arrow-right text-primary"></i> Deployment and configuration automation</li>
+                        <li><i class="fas fa-1x fa-arrow-right text-primary"></i> 24/7 monitoring and support</li>
+                        <li><i class="fas fa-1x fa-arrow-right text-primary"></i> Incidents management</li>
+                        <li><i class="fas fa-1x fa-arrow-right text-primary"></i> Report situations that requires attention from different departments</li>
+                        <li><i class="fas fa-1x fa-computer text-primary"></i> Redhat, CentOS, Ubuntu</li>
+                        <li><i class="fas fa-1x fa-cloud text-primary"></i> public and private <strong>OpenStack</strong></li>
+                        <li><i class="fas fa-1x fa-layer-group text-primary"></i> LAMP, Docker, Git, MySQL, MongoDB, Solr, Redis, Nginx, Apache, Zabbix</li>
+                        <li><i class="fas fa-1x fa-globe text-primary"></i> Node.js, PHP, Bootstrap, AJAX, JSON, HTML, CSS, jQuery</li>
+                        <li><i class="fas fa-1x fa-file-word text-primary"></i> JIRA, Confluence, OpenStack</li>
                       </ul>
 
                     </div>
@@ -845,7 +845,7 @@ the best profession!
                 <span>Bash scripting</span>
               </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="79" aria-valuemin="0" aria-valuemax="100" role="progressbar">
+              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="79" aria-valuemin="0" aria-valuemax="100" aria-label="Bash scripting" role="progressbar">
                 <span>79%</span>
               </div>
             </div>
@@ -857,7 +857,7 @@ the best profession!
               <span>MySQL</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100" role="progressbar">
+              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100" aria-label="MySQL" role="progressbar">
                 <span>76%</span>
               </div>
             </div><!--/ /.progress /-->
@@ -869,7 +869,7 @@ the best profession!
               <span>JavaScript</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="84" aria-valuemin="0" aria-valuemax="100" role="progressbar">
+              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="84" aria-valuemin="0" aria-valuemax="100" aria-label="JavaScript" role="progressbar">
                 <span>84%</span>
               </div>
             </div>
@@ -881,7 +881,7 @@ the best profession!
               <span>CSS3</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="59" aria-valuemin="0" aria-valuemax="100" role="progressbar">
+              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="59" aria-valuemin="0" aria-valuemax="100" aria-label="CSS3" role="progressbar">
                 <span>59%</span>
               </div>
             </div>
@@ -893,7 +893,7 @@ the best profession!
               <span>HTML5</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100" role="progressbar">
+              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100" aria-label="HTML5" role="progressbar">
                 <span>73%</span>
               </div>
             </div>
@@ -905,7 +905,7 @@ the best profession!
               <span>Laravel</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100" role="progressbar" >
+              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100" aria-label="Laravel" role="progressbar" >
                 <span>67%</span>
               </div>
             </div>
@@ -917,7 +917,7 @@ the best profession!
               <span>Shopify API</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" role="progressbar" >
+              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" aria-label="Shopify API" role="progressbar" >
                 <span>62%</span>
               </div>
             </div>
@@ -929,7 +929,7 @@ the best profession!
               <span>Steam API</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="52" aria-valuemin="0" aria-valuemax="100" role="progressbar" >
+              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="52" aria-valuemin="0" aria-valuemax="100" aria-label="Steam API" role="progressbar" >
                 <span>52%</span>
               </div>
             </div>
@@ -941,7 +941,7 @@ the best profession!
               <span>Azure</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100" role="progressbar" >
+              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100" aria-label="Azure" role="progressbar" >
                 <span>39%</span>
               </div>
             </div>
@@ -953,7 +953,7 @@ the best profession!
               <span>Prestashop</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="44" aria-valuemin="0" aria-valuemax="100" role="progressbar" >
+              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="44" aria-valuemin="0" aria-valuemax="100" aria-label="Prestashop" role="progressbar" >
                 <span>44%</span>
               </div>
             </div>
@@ -965,7 +965,7 @@ the best profession!
               <span>Redis</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100" role="progressbar" >
+              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100" aria-label="Redis" role="progressbar" >
                 <span>66%</span>
               </div>
             </div>
@@ -977,7 +977,7 @@ the best profession!
               <span>GraphQL</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="81" aria-valuemin="0" aria-valuemax="100" role="progressbar" >
+              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="81" aria-valuemin="0" aria-valuemax="100" aria-label="GraphQL" role="progressbar" >
                 <span>81%</span>
               </div>
             </div>
@@ -989,7 +989,7 @@ the best profession!
               <span>Telegram API</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" role="progressbar" >
+              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" aria-label="Telegram API" role="progressbar" >
                 <span>89%</span>
               </div>
             </div>
@@ -1005,7 +1005,7 @@ the best profession!
               <span>MongoDB</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" role="progressbar" >
+              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" aria-label="MongoDB" role="progressbar" >
                 <span>72%</span>
               </div>
             </div><!--/ /.progress /-->
@@ -1017,7 +1017,7 @@ the best profession!
               <span>Perl</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100" role="progressbar" >
+              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100" aria-label="Perl" role="progressbar" >
                 <span>38%</span>
               </div>
             </div>
@@ -1029,7 +1029,7 @@ the best profession!
               <span>Node.js</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" role="progressbar" >
+              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" aria-label="Node.js" role="progressbar" >
                 <span>88%</span>
               </div>
             </div>
@@ -1041,7 +1041,7 @@ the best profession!
               <span>PHP</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" role="progressbar" >
+              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" aria-label="PHP" role="progressbar" >
                 <span>68%</span>
               </div>
             </div>
@@ -1053,7 +1053,7 @@ the best profession!
               <span>Magento</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100" role="progressbar" >
+              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100" aria-label="Magento" role="progressbar" >
                 <span>42%</span>
               </div>
             </div>
@@ -1065,7 +1065,7 @@ the best profession!
               <span>Telegram Bot API</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" role="progressbar" >
+              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Telegram Bot API" role="progressbar" >
                 <span>90%</span>
               </div>
             </div>
@@ -1077,7 +1077,7 @@ the best profession!
               <span>Facebook API</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100" role="progressbar" >
+              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100" aria-label="Facebook API" role="progressbar" >
                 <span>71%</span>
               </div>
             </div>
@@ -1089,7 +1089,7 @@ the best profession!
               <span>Amazon Services</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="32" aria-valuemin="0" aria-valuemax="100" role="progressbar" >
+              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="32" aria-valuemin="0" aria-valuemax="100" aria-label="Amazon Services" role="progressbar" >
                 <span>32%</span>
               </div>
             </div>
@@ -1101,7 +1101,7 @@ the best profession!
               <span>CosmosDB</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100" role="progressbar">
+              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100" aria-label="CosmosDB" role="progressbar">
                 <span>87%</span>
               </div>
             </div>
@@ -1113,7 +1113,7 @@ the best profession!
               <span>Docker</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100" role="progressbar">
+              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100" aria-label="Docker" role="progressbar">
                 <span>61%</span>
               </div>
             </div>
@@ -1125,7 +1125,7 @@ the best profession!
               <span>RabbitMQ</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100" role="progressbar">
+              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100" aria-label="RabbitMQ" role="progressbar">
                 <span>74%</span>
               </div>
             </div>
@@ -1134,10 +1134,10 @@ the best profession!
           <div class="skill-progress">
             <div class="skill-title">
               <i class="fab fa-2x fa-fw fa-node"></i>
-              <span>Express</span>
+              <span>Express.js</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100" role="progressbar">
+              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100" aria-label="Express.js" role="progressbar">
                 <span>83%</span>
               </div>
             </div>
@@ -1149,7 +1149,7 @@ the best profession!
               <span>Viber API</span>
             </div>
             <div class="progress">
-              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100" role="progressbar">
+              <div class="progress-bar six-sec-ease-in-out" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100" aria-label="Viber API" role="progressbar">
                 <span>64%</span>
               </div>
             </div>
